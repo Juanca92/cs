@@ -7,6 +7,8 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
+use App\Libraries\Templater;
+
 /**
  * Class BaseController
  *
@@ -27,7 +29,11 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = [];
+	protected $helpers = ['SanPedro', 'url'];
+	public $templater = null;
+	protected $user = null;
+	protected $db = null;
+	protected $data = array();
 
 	/**
 	 * Constructor.
@@ -36,6 +42,11 @@ class BaseController extends Controller
 	 * @param ResponseInterface $response
 	 * @param LoggerInterface   $logger
 	 */
+	public function __construct()
+	{
+		$this->templater = new Templater(\Config\Services::request());
+	}
+
 	public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
 	{
 		// Do Not Edit This Line
