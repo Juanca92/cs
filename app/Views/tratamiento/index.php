@@ -7,8 +7,8 @@
             </div>
             <div class="col-sm-6 pt-0">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="#">Tratamiento</a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url('/home'); ?>">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url('/tratamiento'); ?>">Tratamiento</a></li>
                 </ol>
             </div>
         </div>
@@ -25,6 +25,7 @@
             <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
+                    Tratamiento
                     <button class="btn btn-success btn-sm">
                         <i class="fa fa-plus"></i>
                         Agregar
