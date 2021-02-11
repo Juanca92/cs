@@ -37,7 +37,7 @@ class Database extends Config
 		'password' => 'root',
 		'database' => 'odontologia',
 		'DBDriver' => 'MySQLi',
-		'DBPrefix' => '',
+		'DBPrefix' => 'sp_',
 		'pConnect' => false,
 		'DBDebug'  => (ENVIRONMENT !== 'production'),
 		'charset'  => 'utf8',

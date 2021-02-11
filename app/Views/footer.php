@@ -30,6 +30,13 @@ $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="<?php echo base_url('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+
+<!-- DataTables -->
+<script src="<?php echo base_url('plugins/datatables/jquery.dataTables.min.js') ?>"></script>
+<script src="<?php echo base_url('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
+<script src="<?php echo base_url('plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
+<script src="<?php echo base_url('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
+
 <!-- ChartJS -->
 <script src="<?php echo base_url('plugins/chart.js/Chart.min.js') ?>"></script>
 <!-- Sparkline -->
@@ -54,3 +61,9 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="<?php echo base_url('js/pages/dashboard3.js') ?>"></script>
 
 <script src="<?php echo base_url('js/sanpedro.js') ?>"></script>
+
+<!-- Toastr -->
+<script src="<?php echo base_url('plugins/toastr/toastr.min.js') ?>"></script>
+
+<!-- Booybox -->
+<script src="<?php echo base_url('js/bootbox.min.js') ?>"></script>
