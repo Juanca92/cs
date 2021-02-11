@@ -177,5 +177,10 @@ $(document).ready(function(){
 
     });
 
+    // Borrar campos con el boton cerrar
+    $("#btn-cerrar").on("click", function(){
+        limpiarCampos();
+    });
+
 
 })

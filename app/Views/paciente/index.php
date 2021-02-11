@@ -176,7 +176,7 @@
                     </div>
 
                     <div class="panel-footer text-right">
-                        <button class="btn btn-default" data-dismiss="modal" type="button">Cerrar</button>
+                        <button class="btn btn-default" id="btn-cerrar" data-dismiss="modal" type="button">Cerrar</button>
                         <button type="submit" id="btn-guardar-paciente" class="btn btn-primary"></button>
                     </div>
 

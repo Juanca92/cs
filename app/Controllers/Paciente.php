@@ -76,8 +76,8 @@ class Paciente extends BaseController
                             "materno"           => "alpha_space",
                             "celular"           => 'required|numeric',
                             "fecha_nacimiento"  => "required|max_length[10]",
-                            "ocupacion"         => "required|alpha",
-                            "domicilio"         => "required|alpha_numeric"
+                            "ocupacion"         => "required|alpha_space",
+                            "domicilio"         => "required|alpha_numeric_space"
                         ],
                         [ // errors
                             "ci" => [
@@ -116,7 +116,7 @@ class Paciente extends BaseController
                             ],
                             "domicilio" => [
                                 "required" => "El domicilio del paciente es requerido",
-                                "alpha_numeric" => "EL Domicilio no puede llevar caracteres especiales"
+                                "alpha_numeric_space" => "EL Domicilio no puede llevar caracteres especiales"
                             ]
                         ]
                     );
@@ -165,8 +165,8 @@ class Paciente extends BaseController
                         "materno"           => "alpha_space",
                         "celular"           => 'required|numeric',
                         "fecha_nacimiento"  => "required|max_length[10]",
-                        "ocupacion"         => "required|alpha",
-                        "domicilio"         => "required|alpha_numeric"
+                        "ocupacion"         => "required|alpha_space",
+                        "domicilio"         => "required|alpha_numeric_space"
                     ],
                     [ // errors
                         "ci" => [
@@ -205,7 +205,7 @@ class Paciente extends BaseController
                         ],
                         "domicilio" => [
                             "required" => "El domicilio del paciente es requerido",
-                            "alpha_numeric" => "EL Domicilio no puede llevar caracteres especiales"
+                            "alpha_numeric_space" => "EL Domicilio no puede llevar caracteres especiales"
                         ]
                     ]
                 );

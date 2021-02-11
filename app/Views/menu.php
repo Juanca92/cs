@@ -4,7 +4,7 @@
         <!-- Add icons to the links using the .nav-icon class
         with font-awesome or any other icon font library -->
         <li class="nav-header">
-            <center>MENÚ DE NAVEGACIÓN</center>
+            <center>MEN&Uacute; DE NAVEGACI&Oacute;N</center>
         </li>
 
         <!-- Menu Inicio -->
@@ -28,7 +28,7 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-user"></i>
                 <p>
-                    Odontologos
+                    Odont&oacute;logos
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
@@ -36,7 +36,7 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link menu--link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Odontologo</p>
+                    <p>Odont&oacute;logo</p>
                     </a>
                 </li>            
             </ul>
@@ -47,7 +47,7 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-calendar-plus"></i>
                 <p>
-                    Citas Medicas
+                    Citas M&eacute;dicas
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
@@ -55,7 +55,7 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link menu--link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Cita Medica</p>
+                    <p>Cita M&eacute;dica</p>
                     </a>
                 </li>            
             </ul>
@@ -107,7 +107,7 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-user-cog"></i>
                 <p>
-                    Administracion
+                    Administraci&oacute;n
                     <i class="fas fa-angle-left right"></i>
                 </p>
             </a>
@@ -115,7 +115,7 @@
                 <li class="nav-item">
                     <a href="../tables/simple.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Configuracion</p>
+                    <p>Configuraci&oacute;n</p>
                     </a>
                 </li>
                 <li class="nav-item">
