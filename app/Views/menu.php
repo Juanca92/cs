@@ -34,7 +34,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="#" class="nav-link menu--link">
+                    <a href="<?= base_url('/odontologo'); ?>" class="nav-link menu--link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Odont&oacute;logo</p>
                     </a>
