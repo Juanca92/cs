@@ -75,6 +75,12 @@
 
             </div>
 
+            <div class="d-flex justify-content-around">
+                <a href="#"><i class="fas fa-cog text-navy" data-toggle="tooltip" title="Configurar"></i></a>
+                <a href="#"><i class="fa fa-user-edit text-navy" data-toggle="tooltip" title="Editar Perfil"></i></a>
+                <a href="#"><i class="fas fa-lock text-navy" data-toggle="tooltip" title="Cerrar Sesi&oacute;n"></i></a>
+            </div>
+
             <?= $menu ?>
         
         </div>

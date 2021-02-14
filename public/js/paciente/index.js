@@ -37,7 +37,14 @@ $(document).ready(function(){
 			},
 		],
 	});
-    
+
+    // Ocupacion con select 2
+
+    $('.select2bs4').select2({
+        theme: 'bootstrap4',
+        placeholder: "-- Seleccione Ocupacion --",
+        allowClear: true,
+    })       
 
     // Modal para agregar paciente
     $("button#agregar_paciente").on("click", function(e) {
@@ -91,7 +98,7 @@ $(document).ready(function(){
 
     // Limpiar Campos
     function limpiarCampos() {
-        $("#id_paciente").val("");
+        $("#id").val("");
         $("#ci").val("");
         $("#expedido").val("");
         $("#nombres").val("");
@@ -99,7 +106,7 @@ $(document).ready(function(){
         $("#materno").val("");
         $("#celular").val("");
         $("#fecha_nacimiento").val("");
-        $("#ocupacion").val("");
+        $("#id_ocupacion").val("");
         $("#domicilio").val("");
         $("#accion").val("");
     }
@@ -115,24 +122,17 @@ $(document).ready(function(){
             },
             dataType: "JSON"
         }).done(function(response) {
-            // $( "#ci" ).prop( "disabled", true );
-            // $( "#expedido" ).prop( "disabled", true );
 
-            $("#id_paciente").val(response[0]["id_paciente"]);
-
-            let ci_expedido = response[0]["p_ci"].split(" ");
-            $("#ci").val(ci_expedido[0]);
-            $("#expedido").val(ci_expedido[1]);
-
-            let npm = response[0]["p_nombre"].split(" ");
-            $("#nombres").val(npm[0]);
-            $("#paterno").val(npm[1]);
-            $("#materno").val(npm[2]);
-
-            $("#celular").val(response[0]["p_cel"]);
-            $("#fecha_nacimiento").val(response[0]["p_fechaNac"]);
-            $("#ocupacion").val(response[0]["p_ocupacion"]);
-            $("#domicilio").val(response[0]["p_domicilio"]);
+            $("#id").val(response[0]["id_persona"]);
+            $("#ci").val(response[0]["ci"]);
+            $("#expedido").val(response[0]["expedido"]);
+            $("#nombres").val(response[0]["nombres"]);
+            $("#paterno").val(response[0]["paterno"]);
+            $("#materno").val(response[0]["materno"]);
+            $("#celular").val(response[0]["telefono_celular"]);
+            $("#fecha_nacimiento").val(response[0]["fecha_nacimiento"]);
+            $("#id_ocupacion").val(response[0]["id_ocupacion"]).trigger('change');
+            $("#domicilio").val(response[0]["domicilio"]);
             $("#accion").val("up");
 
             $("#btn-guardar-paciente").html("Editar");

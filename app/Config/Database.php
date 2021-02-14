@@ -35,7 +35,7 @@ class Database extends Config
 		'hostname' => 'localhost',
 		'username' => 'root',
 		'password' => 'root',
-		'database' => 'odontologia',
+		'database' => 'sanpedro',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => 'sp_',
 		'pConnect' => false,

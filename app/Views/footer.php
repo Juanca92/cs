@@ -67,3 +67,6 @@ $.widget.bridge('uibutton', $.ui.button)
 
 <!-- Booybox -->
 <script src="<?php echo base_url('js/bootbox.min.js') ?>"></script>
+
+<!-- Select2 -->
+<script src="<?php echo base_url('plugins/select2/js/select2.full.min.js') ?>"></script>

@@ -19,6 +19,7 @@ class Paciente extends BaseController
     
 	public function index()
 	{
+        $this->data['ocupaciones'] = $this->model->listar_ocupaciones();
 		return $this->templater->view("paciente/index", $this->data);
 	}
 
@@ -26,19 +27,19 @@ class Paciente extends BaseController
     public function ajaxListarPacientes()
 	{
         if ($this->request->isAJAX()) {		
-            $table = 'sp_paciente';
-            $primaryKey = 'id_paciente';
-            $where = "activo=1";
+            $table = 'sp_view_paciente';
+            $primaryKey = 'id_persona';
+            $where = "estado=1";
 
             $columns = array(
-                array('db' => 'id_paciente', 'dt' => 0),
-                array('db' => 'p_ci', 'dt'        => 1),
-                array('db' => 'p_nombre', 'dt'    => 2),
-                array('db' => 'p_domicilio', 'dt' => 3),
-                array('db' => 'p_cel', 'dt'       => 4),
-                array('db' => 'p_fechaNac', 'dt'  => 5),
-                array('db' => 'p_ocupacion', 'dt' => 6),
-                array('db' => 'feha_alta', 'dt'   => 7)
+                array('db' => 'id_persona', 'dt'        => 0),
+                array('db' => 'ci_exp', 'dt'            => 1),
+                array('db' => 'nombre_completo', 'dt'   => 2),
+                array('db' => 'telefono_celular', 'dt'  => 3),
+                array('db' => 'fecha_nacimiento', 'dt'  => 4),
+                array('db' => 'domicilio', 'dt'         => 5),
+                array('db' => 'ocupacion', 'dt'         => 6),
+                array('db' => 'creado_en', 'dt'         => 7)
             );
 
             $sql_details = array(
@@ -61,9 +62,14 @@ class Paciente extends BaseController
 
             if ($this->request->getPost("accion") == "in" && $this->request->getPost("id_paciente") == "") {
                 // Se verifica el registro de CI del estudiante
-                $res = $this->model->verificar_ci(trim($this->request->getPost("ci")).' '.trim($this->request->getPost("expedido")));
-                // var_dump(count($res));
-                if (count($res) == 0 ) {
+                $condicion = array(
+                    'ci'       => trim($this->request->getPost("ci")),
+                    'expedido' => trim($this->request->getPost("expedido"))
+                );
+
+                $respuesta = $this->model->verificar_ci($condicion);
+                
+                if (count($respuesta) == 0) {
                     //validación de formulario
                     $validation = \Config\Services::validation();
 
@@ -76,7 +82,7 @@ class Paciente extends BaseController
                             "materno"           => "alpha_space",
                             "celular"           => 'required|numeric',
                             "fecha_nacimiento"  => "required|max_length[10]",
-                            "ocupacion"         => "required|alpha_space",
+                            "id_ocupacion"      => "required",
                             "domicilio"         => "required|alpha_numeric_space"
                         ],
                         [ // errors
@@ -102,7 +108,7 @@ class Paciente extends BaseController
                             "materno" => [
                                 "alpha_space" => "El apellido materno debe llevar caracteres alfabéticos o espacios."
                             ],
-                            "nacimiento" => [
+                            "fecha_nacimiento" => [
                                 "required"  => "La fecha de nacimiento es requerido",
                                 "max_length"=> "La fecha de nacimiento debe llevar como maximo 10 caracteres"
                             ],
@@ -110,9 +116,8 @@ class Paciente extends BaseController
                                 "required"   => "El telefono es requerido",
                                 "numeric"    => "El telefono debe llevar caracteres numéricos."
                             ],
-                            "ocupacion" => [
-                                "required" => "La ocupacion del paciente es requerido",
-                                "alpha" => "La ocupacion del paciente no debe llevar caracteres especiales."
+                            "id_ocupacion" => [
+                                "required" => "La ocupacion del paciente es requerido"
                             ],
                             "domicilio" => [
                                 "required" => "El domicilio del paciente es requerido",
@@ -122,28 +127,70 @@ class Paciente extends BaseController
                     );
 
                     if (!$val) {
-                        // se devuelve todos los errores
+                        // se devuelve todos los errores si falla la validacion
                         return $this->response->setJSON(json_encode(array(
                             "form" => $validation->listErrors()
                         )));
+
                     } else {
                         // Insertar datos
-                        $data = array(
-                            "p_ci"           => trim($this->request->getPost("ci")).' '.$this->request->getPost("expedido"),
-                            "p_nombre"       => ucfirst(strtolower(trim($this->request->getPost("nombres")))).' '.ucfirst(strtolower(trim($this->request->getPost("paterno")))).' '.ucfirst(strtolower(trim($this->request->getPost("materno")))),
-                            "p_domicilio"    => trim($this->request->getPost("domicilio")),
-                            "p_cel"          => trim($this->request->getPost("celular")),
-                            "p_fechaNac"     => $this->request->getPost("fecha_nacimiento"),
-                            "p_ocupacion"    => $this->request->getPost("ocupacion"),                            
-                            "feha_alta"     => $this->fecha->format('Y-m-d H:i:s')
-                        );
 
-                        $respuesta = $this->model->paciente("insert", $data, null, null);
+                        // Formateo de datos
+                        $data = array(
+                            "ci"                => trim($this->request->getPost("ci")),
+                            "expedido"          => trim($this->request->getPost("expedido")),
+                            "nombres"           => ucwords(strtolower(trim($this->request->getPost("nombres")))),
+                            "paterno"           => ucwords(strtolower(trim($this->request->getPost("paterno")))),
+                            "materno"           => ucwords(strtolower(trim($this->request->getPost("materno")))),
+                            "telefono_celular"  => trim($this->request->getPost("celular")),
+                            "fecha_nacimiento"  => $this->request->getPost("fecha_nacimiento"),
+                            "domicilio"         => $this->request->getPost("domicilio"),                            
+                            "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
+                        );                        
+
+                        $respuesta = $this->model->persona("insert", $data, null, null);
 
                         if (is_numeric($respuesta)) {
-                            return $this->response->setJSON(json_encode(array(
-                                'exito' => "Paciente registrado correctamente"
-                            )));
+                            // Insertar paciente
+                            $data1 = array(
+                                "id_paciente"   => $respuesta,
+                                "id_ocupacion"  => $this->request->getPost("id_ocupacion"),                            
+                                "creado_en"     => $this->fecha->format('Y-m-d H:i:s')
+                            );
+
+                            $respuesta1 = $this->model->paciente("insert", $data1, null, null);
+
+                            // Insertar usuario
+                            $nombre = explode(" ", strtoupper(trim($this->request->getPost("nombres"))));
+                            $data2 = array(
+                                "id_usuario"  => $respuesta,
+                                "usuario"     => $nombre[0].'_'.trim($this->request->getPost("ci")),
+                                "clave"       => hash("sha512", trim($this->request->getPost("fecha_nacimiento"))),                            
+                                "creado_en"   => $this->fecha->format('Y-m-d H:i:s')
+                            );
+
+                            $respuesta2 = $this->model->usuario("insert", $data2, null, null);
+
+                            // Insertar Grupo Usuario
+                            $id_grupo = $this->model->verificar_id_grupo('PACIENTE'); //verificar id_grupo con rol PACIENTE
+                            $data3 = array(
+                                "id_grupo"    => $id_grupo[0]['id_grupo'],
+                                "id_usuario"  => $respuesta,
+                                "ip_usuario"  => $this->getIP(), 
+                                "navegador"   => $_SERVER["HTTP_USER_AGENT"],                       
+                                "creado_en"   => $this->fecha->format('Y-m-d H:i:s')
+                            );
+
+                            $respuesta3 = $this->model->grupo_usuario("insert", $data3, null, null);
+
+                            if(is_numeric($respuesta1) && is_numeric($respuesta2) && is_numeric($respuesta3))
+                            {
+                                return $this->response->setJSON(json_encode(array(
+                                    'exito' => "Paciente registrado correctamente"
+                                )));
+                            }
+
+
                         }
                     }
                 } else {
@@ -158,6 +205,7 @@ class Paciente extends BaseController
                 helper(['form', 'url']);
                 $val = $this->validate(
                     [ // rules
+                        "id"                => "required",
                         "ci"                => "required|alpha_numeric|min_length[5]",
                         "expedido"          => "required|max_length[2]|alpha",
                         "nombres"           => "required|alpha_space",
@@ -165,10 +213,13 @@ class Paciente extends BaseController
                         "materno"           => "alpha_space",
                         "celular"           => 'required|numeric',
                         "fecha_nacimiento"  => "required|max_length[10]",
-                        "ocupacion"         => "required|alpha_space",
+                        "id_ocupacion"      => "required",
                         "domicilio"         => "required|alpha_numeric_space"
                     ],
                     [ // errors
+                        "id" => [
+                            "required" => "El id es requerido"
+                        ],
                         "ci" => [
                             "required" => "El CI del paciente es requerido",
                             "alpha_numeric" => "El CI del usuario no debe llevar caracteres especiales",
@@ -191,7 +242,7 @@ class Paciente extends BaseController
                         "materno" => [
                             "alpha_space" => "El apellido materno debe llevar caracteres alfabéticos o espacios."
                         ],
-                        "nacimiento" => [
+                        "fecha_nacimiento" => [
                             "required"  => "La fecha de nacimiento es requerido",
                             "max_length"=> "La fecha de nacimiento debe llevar como maximo 10 caracteres"
                         ],
@@ -199,9 +250,8 @@ class Paciente extends BaseController
                             "required"   => "El telefono es requerido",
                             "numeric"    => "El telefono debe llevar caracteres numéricos."
                         ],
-                        "ocupacion" => [
-                            "required" => "La ocupacion del paciente es requerido",
-                            "alpha" => "La ocupacion del paciente no debe llevar caracteres especiales."
+                        "id_ocupacion" => [
+                            "required" => "La ocupacion del paciente es requerido"
                         ],
                         "domicilio" => [
                             "required" => "El domicilio del paciente es requerido",
@@ -219,28 +269,74 @@ class Paciente extends BaseController
 
                     // Actualizar datos
                     $data = array(
-                        "p_ci"           => trim($this->request->getPost("ci")).' '.$this->request->getPost("expedido"),
-                        "p_nombre"       => ucfirst(strtolower(trim($this->request->getPost("nombres")))).' '.ucfirst(strtolower(trim($this->request->getPost("paterno")))).' '.ucfirst(strtolower(trim($this->request->getPost("materno")))),
-                        "p_domicilio"    => trim($this->request->getPost("domicilio")),
-                        "p_cel"          => trim($this->request->getPost("celular")),
-                        "p_fechaNac"     => $this->request->getPost("fecha_nacimiento"),
-                        "p_ocupacion"    => $this->request->getPost("ocupacion"),                            
-                        "fecha_edit"     => $this->fecha->format('Y-m-d H:i:s')
-                    );
+                        "ci"                => trim($this->request->getPost("ci")),
+                        "expedido"          => trim($this->request->getPost("expedido")),
+                        "nombres"           => ucwords(strtolower(trim($this->request->getPost("nombres")))),
+                        "paterno"           => ucwords(strtolower(trim($this->request->getPost("paterno")))),
+                        "materno"           => ucwords(strtolower(trim($this->request->getPost("materno")))),
+                        "telefono_celular"  => trim($this->request->getPost("celular")),
+                        "fecha_nacimiento"  => $this->request->getPost("fecha_nacimiento"),
+                        "domicilio"         => $this->request->getPost("domicilio"),                            
+                        "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
+                    ); 
 
-                    $respuesta = $this->model->paciente(
-                        "update",
-                        $data,
+                    $respuesta = $this->model->persona("update", $data,
                         array(
-                            "id_paciente" => $this->request->getPost("id_paciente")
+                            "id_persona" => $this->request->getPost("id")
                         ),
                         null
                     );
 
                     if ($respuesta) {
-                        return $this->response->setJSON(json_encode(array(
-                            'exito' => "Paciente editado correctamente"
-                        )));
+                        // Actualizar paciente
+                        $data1 = array(
+                            "id_ocupacion"   => $this->request->getPost("id_ocupacion"),                            
+                            "actualizado_en" => $this->fecha->format('Y-m-d H:i:s')
+                        );
+
+                        $respuesta1 = $this->model->paciente("update", $data1,
+                            array(
+                                "id_paciente" => $this->request->getPost("id")
+                            ),
+                            null
+                        );
+
+                        // Actualizar usuario
+                        $nombre = explode(" ", strtoupper(trim($this->request->getPost("nombres"))));
+                        $data2 = array(
+                            "usuario"       => $nombre[0].'_'.trim($this->request->getPost("ci")),
+                            "clave"         => hash("sha512", trim($this->request->getPost("fecha_nacimiento"))),                            
+                            "actualizado_en"=> $this->fecha->format('Y-m-d H:i:s')
+                        );
+
+                        $respuesta2 = $this->model->usuario("update", $data2,
+                            array(
+                                "id_usuario" => $this->request->getPost("id")
+                            ),
+                            null
+                        );
+
+                        // Actualizar Grupo Usuario
+                        $id_grupo_usuario = $this->model->verificar_id_grupo_usuario($this->request->getPost("id")); //verificar id_grupo con rol PACIENTE
+                        $data3 = array(
+                            "ip_usuario"     => $this->getIP(), 
+                            "navegador"      => $_SERVER["HTTP_USER_AGENT"],                       
+                            "actualizado_en" => $this->fecha->format('Y-m-d H:i:s')
+                        );
+
+                        $respuesta3 = $this->model->grupo_usuario("update", $data3,
+                            array(
+                                "id_grupo_usuario" => $id_grupo_usuario[0]['id_grupo_usuario'],
+                            ),
+                            null
+                        );
+
+                        if($respuesta1 && $respuesta2 && $respuesta3)
+                        {
+                            return $this->response->setJSON(json_encode(array(
+                                'exito' => "Paciente editado correctamente"
+                            )));
+                        }
                     }
                 }
             }
@@ -252,7 +348,7 @@ class Paciente extends BaseController
     {
         // se Verifica si es petición ajax
         if ($this->request->isAJAX()) {
-            $respuesta = $this->model->buscar_paciente(trim($this->request->getPost("id")));
+            $respuesta = $this->model->editar_paciente(trim($this->request->getPost("id")));
             return $this->response->setJSON(json_encode($respuesta));
         }
     }
@@ -264,11 +360,11 @@ class Paciente extends BaseController
         if ($this->request->isAJAX()) {
 
             $data = array(
-                "activo" => '0'
+                "estado" => '0'
             );
 
-            $respuesta = $this->model->paciente("update", $data, array(
-                "id_paciente" => trim($this->request->getPost("id"))
+            $respuesta = $this->model->persona("update", $data, array(
+                "id_persona" => trim($this->request->getPost("id"))
             ), null);
 
             if ($respuesta) {
@@ -277,6 +373,17 @@ class Paciente extends BaseController
                 )));
             }
         }
+    }
+
+    //Obtener el IP real del usuario
+    public function getIP() {
+        if (!empty($_SERVER['HTTP_CLIENT_IP']))
+            return $_SERVER['HTTP_CLIENT_IP'];
+           
+        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+            return $_SERVER['HTTP_X_FORWARDED_FOR'];
+       
+        return $_SERVER['REMOTE_ADDR'];
     }
 
 }

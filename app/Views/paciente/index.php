@@ -5,10 +5,10 @@
             <div class="col-sm-6">
                 <h1></h1>
             </div>
-            <div class="col-sm-6 pt-0">
+            <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pacientes</a></li>
+                    <li class="breadcrumb-item active">Pacientes</li>
                 </ol>
             </div>
         </div>
@@ -38,9 +38,9 @@
                                     <th width="5%">#</th>
                                     <th>CI</th>
                                     <th>Nombres</th>
-                                    <th>Domicilio</th>
                                     <th>Celular</th>
                                     <th>Nacimiento</th>
+                                    <th>Domicilio</th>
                                     <th>Ocupacion</th>
                                     <th>Registrado</th>
                                     <th>Acciones</th>
@@ -140,28 +140,26 @@
                                 <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control">
                             </div>                        
                         </div>
-                        <input type="hidden" name="id_paciente" id="id_paciente">
+                        <input type="hidden" name="id" id="id">
                         <input type="hidden" name="accion" id="accion">
                     </div>
+
+                    
 
                     <!-- Ocupacion -->
                     <div class="row">
                         <div class="col-lg-12">                        
-                            <div class="form-group">
-                                <label for="ocupacion">Ocupacion <span class="text-danger">(*)</span>:</label>
-                                <select class="custom-select" id="ocupacion" name="ocupacion" required>
-                                    <option value="">-- Ocupacion --</option>
-                                    <option value="CH">CH</option>
-                                    <option value="LP">LP</option>
-                                    <option value="CB">CB</option>
-                                    <option value="OR">OR</option>
-                                    <option value="PT">PT</option>
-                                    <option value="SC">SC</option>
-                                    <option value="PA">PA</option>
-                                    <option value="TJ">TJ</option>
-                                    <option value="BN">BN</option>
-                                </select>
-                            </div>                        
+                        <div class="form-group">
+                        <label for="celular">Ocupaci&oacute;n <span class="text-danger">(*)</span>:</label>
+                            <select class="form-control select2bs4" style="width: 100%;" id="id_ocupacion" name="id_ocupacion">
+                                <!-- <option value="">-- Seleccione Ocupaci&oacute;n --</option> -->
+                                <?php
+                                    foreach ($this->data["ocupaciones"] as $key => $value) {
+                                        echo '<option value="' . $value["id_ocupacion"] . '">' . $value["nombre"] . '</option>';
+                                    }
+                                ?>
+                            </select>
+                            </div>                       
                         </div>
                     </div>
 
