@@ -32,7 +32,7 @@
                     </div>
                     <div class="card-body">
                         <!-- /.Contenido de la vista -->
-                        <table id="tbl_pacientes" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <table id="tbl_odontologos" class="table table-striped table-bordered" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
@@ -41,7 +41,8 @@
                                     <th>Celular</th>
                                     <th>Nacimiento</th>
                                     <th>Domicilio</th>
-                                    <th>Ocupacion</th>
+                                    <th>Turno</th>
+                                    <th>Ingreso</th>
                                     <th>Registrado</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -57,18 +58,18 @@
 </section>
 <!-- /.content -->
 
-<!--  Modal de registro paciente -->
-<div class="modal fade" id="agregar-paciente">
+<!--  Modal de registro odontologo -->
+<div class="modal fade" id="agregar-odontologo">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-blue">
-                <h4 class="modal-title" id="agregar-paciente-title"></h4>
+                <h4 class="modal-title" id="agregar-odontologo-title"></h4>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="frm_guardar_paciente">
+                <form id="frm_guardar_odontologo">
 
                     <!-- Campos de Ci y Expedido -->
                     <div class="row">
@@ -146,20 +147,24 @@
 
                     
 
-                    <!-- Ocupacion -->
+                    <!-- Turno y gestion de ingreso -->
                     <div class="row">
-                        <div class="col-lg-12">                        
-                        <div class="form-group">
-                        <label for="celular">Ocupaci&oacute;n <span class="text-danger">(*)</span>:</label>
-                            <select class="form-control select2bs4" style="width: 100%;" id="id_ocupacion" name="id_ocupacion">
-                                <!-- <option value="">-- Seleccione Ocupaci&oacute;n --</option> -->
-                                <?php
-                                    // foreach ($this->data["ocupaciones"] as $key => $value) {
-                                    //     echo '<option value="' . $value["id_ocupacion"] . '">' . $value["nombre"] . '</option>';
-                                    // }
-                                ?>
+                        <div class="col-lg-6">                        
+                            <div class="form-group">
+                                <label for="turno">Turno <span class="text-danger">(*)</span>:</label>
+                                <select class="form-control select2bs4" style="width: 100%;" id="turno" name="turno">
+                                <option value="">-- Seleccione Turno --</option>
+                                <option value="MAÑANA">MAÑANA</option>
+                                <option value="TARDE">TARDE</option>
                             </select>
                             </div>                       
+                        </div>
+
+                        <div class="col-lg-6">                        
+                            <div class="form-group">
+                                <label for="gestion">Gesti&oacute;n Ingreso <span class="text-danger">(*)</span>:</label>
+                                <input type="text" id="gestion" name="gestion" class="form-control">
+                            </div>                        
                         </div>
                     </div>
 
@@ -175,7 +180,7 @@
 
                     <div class="panel-footer text-right">
                         <button class="btn btn-default" id="btn-cerrar" data-dismiss="modal" type="button">Cerrar</button>
-                        <button type="submit" id="btn-guardar-paciente" class="btn btn-primary"></button>
+                        <button type="submit" id="btn-guardar-odontologo" class="btn btn-primary"></button>
                     </div>
 
                 </form>        

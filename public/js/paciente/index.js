@@ -39,7 +39,6 @@ $(document).ready(function(){
 	});
 
     // Ocupacion con select 2
-
     $('.select2bs4').select2({
         theme: 'bootstrap4',
         placeholder: "-- Seleccione Ocupacion --",

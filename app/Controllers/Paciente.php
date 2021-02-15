@@ -60,7 +60,7 @@ class Paciente extends BaseController
 
         if ($this->request->isAJAX()) {
 
-            if ($this->request->getPost("accion") == "in" && $this->request->getPost("id_paciente") == "") {
+            if ($this->request->getPost("accion") == "in" && $this->request->getPost("id") == "") {
                 // Se verifica el registro de CI del estudiante
                 $condicion = array(
                     'ci'       => trim($this->request->getPost("ci")),

@@ -252,3 +252,11 @@ INSERT INTO sp_ocupacion(nombre, creado_en, actualizado_en)VALUES('Verdugo', cur
 
 -- Agregar el navegador al grupo usuario
 ALTER TABLE sp_grupo_usuario ADD COLUMN navegador VARCHAR(100) AFTER ip_usuario;
+
+-- Vista de Odontologo y Persona --
+CREATE OR REPLACE VIEW `sp_view_odontologo`  AS  
+select p.id_persona, CONCAT(p.ci, ' ' ,p.expedido) AS ci_exp, 
+CONCAT(p.nombres, ' ', p.paterno,' ', p.materno) AS nombre_completo, p.telefono_celular, p.fecha_nacimiento,
+p.domicilio,o.turno, o.gestion_ingreso, p.estado, p.creado_en
+from sp_persona p join sp_odontologo o
+on p.id_persona = o.id_odontologo;
