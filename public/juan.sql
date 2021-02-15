@@ -73,6 +73,23 @@ CREATE TABLE sp_grupo_usuario
 
 -- Fin creacion de las tablas persona, odontologo, paciente, usuario, grupo y grupo usuario --
 
+--Creacion de la tabla Ocupaciones y Profesiones --
+CREATE TABLE sp_ocupacion
+(
+	id_ocupacion INT NOT NULL AUTO_INCREMENT,
+	nombre VARCHAR(100) NOT NULL,
+	creado_en TIMESTAMP NOT NULL default now(),
+	actualizado_en TIMESTAMP NULL DEFAULT null,
+	PRIMARY KEY(id_ocupacion)
+);
+
+ALTER TABLE sp_ocupacion  MODIFY `id_ocupacion` int(11) NOT NULL AUTO_INCREMENT;
+
+-- Renombre la columna de ocupacion en la tabla paciente --
+ALTER TABLE sp_paciente CHANGE id_ocupacion id_ocupacion int not null;
+ALTER TABLE `sp_paciente`
+ADD CONSTRAINT `fk_paciente_ocupacion` FOREIGN KEY (`id_ocupacion`) REFERENCES `sp_ocupacion` (`id_ocupacion`);
+
 
 -- Vista de Paciente y Persona --
 CREATE OR REPLACE VIEW `sp_view_paciente`  AS  
@@ -95,23 +112,6 @@ INSERT INTO sp_grupo
 (nombre_grupo, estado, creado_en, actualizado_en)
 VALUES('PACIENTE', 1, current_timestamp(), NULL);
 
---Creacion de la tabla Ocupaciones y Profesiones --
-CREATE TABLE sp_ocupacion
-(
-	id_ocupacion INT NOT NULL AUTO_INCREMENT,
-	nombre VARCHAR(100) NOT NULL,
-	creado_en TIMESTAMP NOT NULL default now(),
-	actualizado_en TIMESTAMP NULL DEFAULT null,
-	PRIMARY KEY(id_ocupacion)
-);
-
-ALTER TABLE sp_ocupacion  MODIFY `id_ocupacion` int(11) NOT NULL AUTO_INCREMENT;
-
--- Renombre la columna de ocupacion en la tabla paciente --
-ALTER TABLE sp_paciente RENAME COLUMN ocupacion TO id_ocupacion ;
-ALTER TABLE sp_paciente CHANGE id_ocupacion id_ocupacion int not null;
-ALTER TABLE `sp_paciente`
-ADD CONSTRAINT `fk_paciente_ocupacion` FOREIGN KEY (`id_ocupacion`) REFERENCES `sp_ocupacion` (`id_ocupacion`);
 
 -- Insertar Ocupaciones 
 INSERT INTO sp_ocupacion(nombre, creado_en, actualizado_en)VALUES('Adiestrador', current_timestamp(), NULL);
