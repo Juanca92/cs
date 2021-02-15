@@ -86,7 +86,7 @@ CREATE TABLE sp_ocupacion
 ALTER TABLE sp_ocupacion  MODIFY `id_ocupacion` int(11) NOT NULL AUTO_INCREMENT;
 
 -- Renombre la columna de ocupacion en la tabla paciente --
-ALTER TABLE sp_paciente CHANGE id_ocupacion id_ocupacion int not null;
+ALTER TABLE sp_paciente CHANGE ocupacion id_ocupacion int not null;
 ALTER TABLE `sp_paciente`
 ADD CONSTRAINT `fk_paciente_ocupacion` FOREIGN KEY (`id_ocupacion`) REFERENCES `sp_ocupacion` (`id_ocupacion`);
 
@@ -270,7 +270,7 @@ from sp_persona p join sp_odontologo o
 on p.id_persona = o.id_odontologo;
 
 -- Cambiar el nombre de la tabla grupo el estado
-ALTER TABLE sp_grupo RENAME COLUMN estado TO estado_grupo;
+ALTER TABLE `sp_grupo` CHANGE `estado` `estado_grupo` TINYINT(1) NOT NULL DEFAULT '1';
 
 CREATE OR REPLACE VIEW `sp_view_users`  AS  select 
 p.id_persona, p.ci, p.expedido, p.paterno, p.materno, p.nombres, p.fecha_nacimiento, p.telefono_celular, p.domicilio,
