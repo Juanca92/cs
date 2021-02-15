@@ -31,9 +31,9 @@
         </div>
         <p class="login-box-msg">Iniciar Sesión</p>
 
-      <form action="#" method="post">
+      <form action="<?php echo base_url('/auth/authenticate');?>" method="POST">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Usuario">
+          <input type="text" class="form-control" autocomplete="off" placeholder="Usuario" id="username" name="username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" autocomplete="off" placeholder="Password" id="password" name="password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

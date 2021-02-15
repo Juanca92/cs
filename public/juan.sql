@@ -260,3 +260,24 @@ CONCAT(p.nombres, ' ', p.paterno,' ', p.materno) AS nombre_completo, p.telefono_
 p.domicilio,o.turno, o.gestion_ingreso, p.estado, p.creado_en
 from sp_persona p join sp_odontologo o
 on p.id_persona = o.id_odontologo;
+
+-- Vista de usuarios para EL login
+CREATE OR REPLACE VIEW `sp_view_odontologo`  AS  
+select p.id_persona, CONCAT(p.ci, ' ' ,p.expedido) AS ci_exp, 
+CONCAT(p.nombres, ' ', p.paterno,' ', p.materno) AS nombre_completo, p.telefono_celular, p.fecha_nacimiento,
+p.domicilio,o.turno, o.gestion_ingreso, p.estado, p.creado_en
+from sp_persona p join sp_odontologo o
+on p.id_persona = o.id_odontologo;
+
+-- Cambiar el nombre de la tabla grupo el estado
+ALTER TABLE sp_grupo RENAME COLUMN estado TO estado_grupo;
+
+CREATE OR REPLACE VIEW `sp_view_users`  AS  select 
+p.id_persona, p.ci, p.expedido, p.paterno, p.materno, p.nombres, p.fecha_nacimiento, p.telefono_celular, p.domicilio,
+p.creado_en, p.actualizado_en, p.estado, 
+u.usuario,u.clave,
+gu.id_grupo_usuario ,gu.id_grupo, gu.id_usuario, gu.ip_usuario,
+g.nombre_grupo,g.estado_grupo  
+from (((sp_usuario u join sp_persona p on(p.id_persona = u.id_usuario)) 
+left join sp_grupo_usuario gu on(gu.id_usuario = u.id_usuario)) 
+left join sp_grupo g on(g.id_grupo = gu.id_grupo)) ;

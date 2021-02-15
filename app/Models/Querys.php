@@ -28,7 +28,7 @@ class Querys extends Database
         $builder = $this->db->table('view_users');
         if (is_array($condition)) {
             $builder->where($condition);
-            $builder->where('estado_grupo_usuario', 'ACTIVO');
+            $builder->where('estado_grupo', '1');
             return $builder->get();
         } else {
             return null;

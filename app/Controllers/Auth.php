@@ -30,7 +30,7 @@ class Auth extends Controller
 	public function login()
 	{
 		if (authenticated()) {
-			return redirect()->to(base_url('/administrativo'));
+			return redirect()->to(base_url('/'));
 		} else {
 			$this->templater->login();
 		}
@@ -53,7 +53,7 @@ class Auth extends Controller
 			$this->session->set(['nombre_grupo' => $userSearched[0]['nombre_grupo']]);
 
 			# Redireccionamos a la pagina principal
-			return redirect()->to(base_url('/administrativo'));
+			return redirect()->to(base_url('/'));
 		}		
 		else {
             #Si $userSearched no es igual a 1 debemos devolverlo al mismo login
@@ -65,7 +65,7 @@ class Auth extends Controller
 	public function access()
 	{
 		$this->session->set(['nombre_grupo' => $this->request->getPost('nombre_grupo')]);
-		return redirect()->to(base_url('/administrativo'));
+		return redirect()->to(base_url('/'));
 	}
 	
     // funcion para cerrar sesion

@@ -46,7 +46,7 @@
                         <i class="fas fa-user-cog mr-2"></i> Perfil
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer bg-blue">Cerrar Sesion</a>
+                    <a href="<?= base_url('auth/logout'); ?>" class="dropdown-item dropdown-footer bg-blue">Cerrar Sesion</a>
                 </div>
             </li>
         </ul>
@@ -70,7 +70,7 @@
                     <img src="<?php echo base_url('img/user2-160x160.jpg') ?>" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Juan Carlos Condori</a>
+                    <a href="#" class="d-block">User</a>
                 </div>
 
             </div>
@@ -78,7 +78,7 @@
             <div class="d-flex justify-content-around">
                 <a href="#"><i class="fas fa-cog text-navy" data-toggle="tooltip" title="Configurar"></i></a>
                 <a href="#"><i class="fa fa-user-edit text-navy" data-toggle="tooltip" title="Editar Perfil"></i></a>
-                <a href="#"><i class="fas fa-lock text-navy" data-toggle="tooltip" title="Cerrar Sesi&oacute;n"></i></a>
+                <a href="<?= base_url('auth/logout'); ?>"><i class="fas fa-lock text-navy" data-toggle="tooltip" title="Cerrar Sesi&oacute;n"></i></a>
             </div>
 
             <?= $menu ?>

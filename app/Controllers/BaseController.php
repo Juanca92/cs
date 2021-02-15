@@ -53,6 +53,12 @@ class BaseController extends Controller
 		parent::initController($request, $response, $logger);
 		$this->db = \Config\Database::connect();
 
+		$this->user = authenticated();
+		if (!$this->user) {
+			return $this->response->redirect(base_url('auth/login'));
+		}
+		$this->data['user'] = $this->user;
+
 		//--------------------------------------------------------------------
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
