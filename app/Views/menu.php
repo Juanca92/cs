@@ -74,21 +74,9 @@
                 <li class="nav-item">
                     <a href="<?= base_url('/tratamiento'); ?>" class="nav-link menu--link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Tratamiento</p>
+                        <p>Ver Pacientes</p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link menu--link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Odontograma</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link menu--link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Procedimiento</p>
-                    </a>
-                </li>
+                </li>                
             </ul>
         </li>
 

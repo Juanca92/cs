@@ -70,7 +70,7 @@
                     <img src="<?php echo base_url('img/user2-160x160.jpg') ?>" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">User</a>
+                    <a href="#" class="d-block"><?= (isset($user["nombres"])) ? $user["nombres"] . " " . $user["paterno"] : "Invitado"; ?></a>
                 </div>
 
             </div>
