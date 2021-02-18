@@ -35,18 +35,70 @@
             </li>
 
             <li class="nav-item dropdown" style="margin-left: 10px;">
-                <a class="nav-link" data-toggle="dropdown" href="" style="padding: 0px;">
-                    <img class="img img-responsive" src="<?= base_url('img/logo.png'); ?>" alt="" width="35" height="35">
-                </a>
-                
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <span class="dropdown-item dropdown-header">Juan Carlos Condori Zapana</span>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-user-cog mr-2"></i> Perfil
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="<?= base_url('auth/logout'); ?>" class="dropdown-item dropdown-footer bg-blue">Cerrar Sesion</a>
+                <div class="topbar-item" data-toggle="dropdown">
+                    <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2">
+                    <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Bienvenido,</span>
+                        <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">Juan Carlos</span>
+                        <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
+                            <span class="symbol-label font-size-h5 font-weight-bold">JC</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right">
+                    <div class="perfil-usuario">
+                        <div class="cerrar d-flex justify-content-between">
+                            <p>Perfil de Usuario</p>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="d-flex align-items-center mt-1">
+                            <!-- Foto de Perfil -->
+                            <div class="symbol symbol-100 mt-3 mr-4">
+                                <img class="symbol-label" src="<?= base_url('img/user2-160x160.jpg'); ?>" alt="Foto de Perfil de Usuario" />
+                                <i class="symbol-badge bg-success"></i>
+                            </div>
+
+                            <!-- Informacion del usuario -->
+                            <div class="d-flex flex-column">
+                                <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">Juan Carlos Condori</a>
+                                <div class="text-muted mt-0">PACIENTE</div>
+                                <div class="navi mt-0">
+                                    <a href="#" class="navi-item">
+                                        <span class="navi-link p-1 pb-1">
+                                            <span class="navi-icon mr-1">
+                                            <i class="fas fa-mail-bulk"></i>
+                                            </span>
+                                            <span class="navi-text font-size-base text-muted text-hover-primary">cs.sanpedro@gmail.com</span>
+                                        </span>
+                                    </a>
+                                    <a href="<?= base_url('auth/logout'); ?>" class="btn btn-sm btn-light-primary font-weight-bolder mt-1 py-2 px-4">
+                                        <i class="fa fa-lock"></i>
+                                        cerrar sesion
+                                    </a>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="separator separator-dashed mb-2"></div>
+                        
+                        <div class="navi navi-spacer-x-0 p-0">
+                            <a href="#" class="navi-item">
+                                <div class="navi-link">
+                                        <span class="navi-icon mr-1 ">
+                                        <i class="fas fa-user-edit"></i>
+                                        </span>
+                                    <div class="navi-text">
+                                        <div class="text-muted">Configurar mi cuenta y
+                                        <span class="label label-light-danger label-inline font-weight-bold">Actualizar</span></div>
+                                    </div>
+                                </div>
+                            </a>                        
+                        </div>
+
+                    </div>
+                    
                 </div>
             </li>
         </ul>
@@ -75,9 +127,7 @@
 
             </div>
 
-            <div class="d-flex justify-content-around">
-                <a href="#"><i class="fas fa-cog text-navy" data-toggle="tooltip" title="Configurar"></i></a>
-                <a href="#"><i class="fa fa-user-edit text-navy" data-toggle="tooltip" title="Editar Perfil"></i></a>
+            <div class="d-flex justify-content-center">
                 <a href="<?= base_url('auth/logout'); ?>"><i class="fas fa-lock text-navy" data-toggle="tooltip" title="Cerrar Sesi&oacute;n"></i></a>
             </div>
 

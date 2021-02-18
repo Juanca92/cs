@@ -19,7 +19,7 @@
   <!-- JQVMap -->
   <link rel="stylesheet" href="<?php echo base_url('plugins/jqvmap/jqvmap.min.css') ?>" />
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo base_url('css/adminlte.min.css') ?>" />
+  <link rel="stylesheet" href="<?php echo base_url('css/adminlte.css') ?>" />
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo base_url('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') ?>" />
   <!-- Daterange picker -->
@@ -44,6 +44,9 @@
   <link href="<?php echo base_url('img/logo.png') ?>" rel="shortcut icon" />
   <link href="<?php echo base_url('img/logo.png') ?>" rel="icon" />
   <link href="<?php echo base_url('img/logo.png') ?>" rel="apple-touch-icon" />
+
+  <!-- Theme style perfil -->
+  <link rel="stylesheet" href="<?php echo base_url('css/extra.css') ?>" />
 
 </head>
 
