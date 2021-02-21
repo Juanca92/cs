@@ -1,7 +1,8 @@
     <footer class="main-footer">
 
-        <div class="float-right d-none d-sm-block color-palette-set">
-            <label id="ahora" style="padding: 2px 6px; border-radius: 6px; background-color: lightblue;" class="label"
+        <div class="float-right d-sm-block color-palette-set">
+            <label id="ahora" style="padding: 2px 6px; border-radius: 6px; 
+            background-color: lightblue; color:navy; font-size:.9rem;"
                 data-toggle="tooltip" data-placement="top" title="<?php echo date('d-m-Y'); ?>">
                 <i style="color: royalblue;" class="fa fa-clock"></i>
                 <small style="color: royalblue;">10:52:12</small>
@@ -10,7 +11,7 @@
 
         <strong>
             Copyright &copy; 2021
-            <a href="#">C.S. San Pedro</a>.
+            <a href="/">C.S. San Pedro</a>.
         </strong>
 
         Todos los derechos reservados.

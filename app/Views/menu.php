@@ -3,7 +3,26 @@
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
         with font-awesome or any other icon font library -->
-        <li class="nav-header">
+        <li class="nav-header p-0 pb-0">
+            <div class="d-flex justify-content-around">
+                <a href="#" class="icon-circle" data-toggle="tooltip" title="Configuracion">
+                    <i class="fa fa-cog"></i>
+                </a>
+                <a href="#" class="icon-circle" data-toggle="tooltip" title="Editar Perfil">
+                    <i class="fa fa-user-edit"></i>
+                </a>
+                <a href="<?= base_url('auth/logout'); ?>" class="icon-circle" data-toggle="tooltip" title="Salir">
+                <i class="fa fa-lock"></i>
+                </a>
+
+                <a href="<?= base_url('auth/logout'); ?>" class="icon-circle" data-toggle="tooltip" title="Salir">
+                    <ion-icon class="lock-close"></ion-icon>
+                </a>
+            </div>            
+            
+        </li>
+
+        <li class="nav-header pt-3">
             <center>MEN&Uacute; DE NAVEGACI&Oacute;N</center>
         </li>
 
