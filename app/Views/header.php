@@ -37,7 +37,7 @@
             <li class="nav-item dropdown" style="margin-left: 10px;">
                 <div class="topbar-item" data-toggle="dropdown">
                     <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2">
-                    <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Bienvenido,</span>
+                        <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Bienvenido,</span>
                         <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">Juan Carlos</span>
                         <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
                             <span class="symbol-label font-size-h5 font-weight-bold">JC</span>
@@ -68,7 +68,7 @@
                                     <a href="#" class="navi-item">
                                         <span class="navi-link p-1 pb-1">
                                             <span class="navi-icon mr-1">
-                                            <i class="fas fa-mail-bulk"></i>
+                                                <i class="fas fa-mail-bulk"></i>
                                             </span>
                                             <span class="navi-text font-size-base text-muted text-hover-primary">cs.sanpedro@gmail.com</span>
                                         </span>
@@ -79,26 +79,27 @@
                                     </a>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
 
                         <div class="separator separator-dashed mb-2"></div>
-                        
+
                         <div class="navi navi-spacer-x-0 p-0">
                             <a href="#" class="navi-item">
                                 <div class="navi-link">
-                                        <span class="navi-icon mr-1 ">
+                                    <span class="navi-icon mr-1 ">
                                         <i class="fas fa-user-edit"></i>
-                                        </span>
+                                    </span>
                                     <div class="navi-text">
                                         <div class="text-muted">Configurar mi cuenta y
-                                        <span class="label label-light-danger label-inline font-weight-bold">Actualizar</span></div>
+                                            <span class="label label-light-danger label-inline font-weight-bold">Actualizar</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </a>                        
+                            </a>
                         </div>
 
                     </div>
-                    
+
                 </div>
             </li>
         </ul>
@@ -109,8 +110,7 @@
     <aside class="main-sidebar sidebar-light-navy elevation-4">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link navbar-navy elevation-4">
-            <img src="<?php echo base_url('img/logo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-          style="opacity: 0.8" />
+            <img src="<?php echo base_url('img/logo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
             <span class="brand-text font-weight-light text-white">SAN PEDRO</span>
         </a>
 
@@ -132,7 +132,7 @@
             </div>
 
             <?= $menu ?>
-        
+
         </div>
         <!-- /.sidebar -->
     </aside>
