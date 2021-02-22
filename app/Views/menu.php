@@ -8,7 +8,7 @@
                 <a href="#" class="icon-circle" data-toggle="tooltip" title="Configuracion">
                     <i class="fa fa-cog"></i>
                 </a>
-                <a href="#" class="icon-circle" data-toggle="tooltip" title="Editar Perfil">
+                <a href="<?= base_url('/perfil'); ?>" class="icon-circle menu--link" data-toggle="tooltip" title="Editar Perfil">
                     <i class="fa fa-user-edit"></i>
                 </a>
                 <a href="<?= base_url('auth/logout'); ?>" class="icon-circle" data-toggle="tooltip" title="Salir">

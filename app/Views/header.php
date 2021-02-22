@@ -81,8 +81,8 @@
                         <div class="separator separator-dashed mb-2"></div>
 
                         <div class="navi navi-spacer-x-0 p-0">
-                            <a href="#" class="navi-item">
-                                <div class="navi-link">
+                            <a href="<?= base_url('/perfil'); ?>" class="navi-item menu--link">
+                                <div class="navi-link menu--link">
                                     <span class="navi-icon mr-1 ">
                                         <i class="fas fa-user-edit"></i>
                                     </span>
