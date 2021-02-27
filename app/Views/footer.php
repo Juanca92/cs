@@ -70,3 +70,9 @@ $.widget.bridge('uibutton', $.ui.button)
 
 <!-- Select2 -->
 <script src="<?php echo base_url('plugins/select2/js/select2.full.min.js') ?>"></script>
+
+<!-- fullcalendar -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js" ></script>
+
+<!--traduccion al español-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/es.min.js"></script>

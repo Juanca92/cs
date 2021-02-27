@@ -150,7 +150,7 @@
                     <div class="row">
                         <div class="col-lg-12">                        
                         <div class="form-group">
-                        <label for="celular">Ocupaci&oacute;n <span class="text-danger">(*)</span>:</label>
+                        <label for="ocupacion">Ocupaci&oacute;n <span class="text-danger">(*)</span>:</label>
                             <select class="form-control select2bs4" style="width: 100%;" id="id_ocupacion" name="id_ocupacion">
                                 <!-- <option value="">-- Seleccione Ocupaci&oacute;n --</option> -->
                                 <?php

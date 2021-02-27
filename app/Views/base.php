@@ -37,6 +37,7 @@
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url('plugins/select2/css/select2.min.css') ?>">
   <link rel="stylesheet" href="<?php echo base_url('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') ?>">
+ 
 
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
@@ -44,6 +45,11 @@
   <link href="<?php echo base_url('img/logo.png') ?>" rel="shortcut icon" />
   <link href="<?php echo base_url('img/logo.png') ?>" rel="icon" />
   <link href="<?php echo base_url('img/logo.png') ?>" rel="apple-touch-icon" />
+
+  <!--full calender-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+
+
 
 </head>
 

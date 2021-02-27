@@ -30,7 +30,7 @@ class Cita extends BaseController
         if ($this->request->isAJAX()) {		
             $table = 'sp_view_cita';
             $primaryKey = 'id_cita';
-            $where = "estado=1"; // estado=1 pero esta  columna hay que agregar
+            $where = "estado=1"; 
 
             $columns = array(
                 array('db' => 'id_cita', 'dt'           => 0),
@@ -73,13 +73,12 @@ class Cita extends BaseController
                         [ // rules
                             "numero_cita"       => 'required|numeric',
                             "tipo_tratamiento"  => "required|alpha_space",
-                            "observacion"       => "required|alpha_space",
-                            "fecha"             => "required|date",
-                            "hora"              => "required|time",
-                            "costo"             => "required|alpha_numeric_space",
+                            "fecha"             => "required|max_length[10]",
+                            "hora"              => "required",
+                            "costo"             => "required|alpha_space",
                             "id_paciente"       => "required",
-                            "id_odontologo"     => "required"
-                            
+                            "id_odontologo"     => "required",
+                            "observacion"       => "required|alpha_space" 
                         ],
                         [ // errors
                             "numero_cita" => [
@@ -90,27 +89,26 @@ class Cita extends BaseController
                                 "required" => " El tipo_tratamiento es requerido",
                                 "alpha_space" => "El tipo_tratamiento debe llevar caracteres alfabéticos o espacios."
                             ],
-                            "observacion" => [
-                                "required" => "Observacion es requerido",
-                                "alpha_space" => "Observacion debe llevar caracteres alfabéticos o espacios."
-                            ],
                             "fecha" => [
                                 "required"   => "La fecha de cita es requerido",
-                                "date"      => "La fecha  debe ser formato fecha"
+                                "max_length"=> "La fecha debe llevar como maximo 10 caracteres"
                             ],
                             "hora" => [
-                                "required"   => "La Hora de cita es requerido",
-                                "time"      =>"la hora debe ser formato hora"
+                                "required"   => "La Hora de cita es requerido"
                             ],
                             "costo" => [
                                 "required" => "El Costo es requerido",
-                                "alpha_numeric_space" => "EL Costo caracteres especiales"
+                                "alpha_space" => "El costo debe llevar caracteres alfabéticos o espacios."
                             ],
                             "id_paciente" => [
                                 "required" => "El Nombre del paciente es requerido"
                             ],
                             "id_odontologo" => [
                                 "required" => "El Nombre del odontologo es requerido"
+                            ],
+                            "observacion" => [
+                                "required" => "Observacion es requerido",
+                                "alpha_space" => "Observacion debe llevar caracteres alfabéticos o espacios."
                             ]
                         ]
                     );
@@ -121,50 +119,49 @@ class Cita extends BaseController
                             "form" => $validation->listErrors()
                         )));
 
-                    } else {
-                        // Insertar datos
+                        } else {
+                            // Insertar datos
 
-                        // Formateo de datos
-                        $data = array(
-                            "numero_cita"       => $this->request->getPost("numero_cita"),
-                            "tipo_tratamiento"  => $this->request->getPost("tipo_tratamiento"),
-                            "observacion"       => trim($this->request->getPost("observacion")),
-                            "fecha"             => $this->request->getPost("fecha"),
-                            "hora"              => $this->request->getPost("hora"),
-                            "costo"             => $this->request->getPost("costo"),
-                            "nombre_paciente"   => $this->request->getPost("nombre_paciente"),
-                            "nombre_odontologo" => $this->request->getPost("nombre_odontologo"),                           
-                            "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
-                        );                        
+                            // Formateo de datos
+                            $data = array(
+                                "numero_cita"       => $this->request->getPost("numero_cita"),
+                                "tipo_tratamiento"  => $this->request->getPost("tipo_tratamiento"),
+                                "fecha"             => $this->request->getPost("fecha"),
+                                "hora"              => $this->request->getPost("hora"),
+                                "costo"             => $this->request->getPost("costo"),
+                                "id_paciente"       => $this->request->getPost('id_paciente'),
+                                "id_odontologo"     => $this->request->getPost('id_odontologo'),
+                                "observacion"       => trim($this->request->getPost("observacion")),                           
+                                "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
+                            );                        
 
-                        $respuesta = $this->model->cita("insert", $data, null, null);
-                        if(is_numeric($respuesta))
-                        {
-                            return $this->response->setJSON(json_encode(array(
-                                'exito' => "Cita registrado correctamente"
-                            )));
+                            $respuesta = $this->model->cita("insert", $data, null, null);
+                            if(is_numeric($respuesta))
+                            {
+                                return $this->response->setJSON(json_encode(array(
+                                    'exito' => "Cita registrado correctamente"
+                                )));
+                            }
                         }
-                    }
-                } 
-            } else {
-                // actualizar formulario
+                    } 
+                } else {
+                // actualizar cita
                 //validación de formulario
                 $validation = \Config\Services::validation();
                 helper(['form', 'url']);
                 $val = $this->validate(
                     [ // rules
-                        
                         "numero_cita"       => 'required|numeric',
                         "tipo_tratamiento"  => "required|alpha_space",
-                        "observacion"       => "required|alpha_space",
                         "fecha"             => "required|max_length[10]",
-                        "hora"              => 'required',
-                        "costo"             => "required|alpha_numeric_space",
+                        "hora"              => "required",
+                        "costo"             => "required|alpha_space",
                         "id_paciente"       => "required",
-                        "id_odontologo"     => "required"
+                        "id_odontologo"     => "required",
+                        "observacion"       => "required|alpha_space",
                     ],
                     [ // errors
-                       
+                        
                         "numero_cita" => [
                             "required"   => "El numero de cita es requerido",
                             "numeric"    => "El numero de cita debe llevar caracteres numéricos."
@@ -173,26 +170,26 @@ class Cita extends BaseController
                             "required" => " El tipo_tratamiento es requerido",
                             "alpha_space" => "El tipo_tratamiento debe llevar caracteres alfabéticos o espacios."
                         ],
-                        "observacion" => [
-                            "required" => "Observacion es requerido",
-                            "alpha_space" => "Observacion debe llevar caracteres alfabéticos o espacios."
-                        ],
                         "fecha" => [
                             "required"   => "La fecha de cita es requerido",
                             "max_length"=> "La fecha  debe llevar como maximo 10 caracteres"
                         ],
                         "hora" => [
-                            "required"   => "La Hora de cita es requerido",
+                            "required"   => "La hora de cita es requerido"
                         ],
                         "costo" => [
                             "required" => "El Costo es requerido",
-                            "alpha_numeric_space" => "EL Costo caracteres especiales"
+                            "alpha_space" => "El costo debe llevar caracteres alfabéticos o espacios."
                         ],
                         "id_paciente" => [
                             "required" => "El Nombre del paciente es requerido"
                         ],
                         "id_odontologo" => [
                             "required" => "El Nombre del odontologo es requerido"
+                        ],
+                        "observacion" => [
+                            "required" => "Observacion es requerido",
+                            "alpha_space" => "Observacion debe llevar caracteres alfabéticos o espacios."
                         ]
                     ]
                 );
@@ -208,12 +205,12 @@ class Cita extends BaseController
                     $data = array(
                         "numero_cita"       => $this->request->getPost("numero_cita"),
                         "tipo_tratamiento"  => $this->request->getPost("tipo_tratamiento"),
-                        "observacion"       => trim($this->request->getPost("observacion")),
                         "fecha"             => $this->request->getPost("fecha"),
                         "hora"              => $this->request->getPost("hora"),
                         "costo"             => $this->request->getPost("costo"),
-                        "nombre_paciente"       => $this->request->getPost("nombre_paciente"),
-                        "nombre_odontologo"     => $this->request->getPost("nombre_odontologo"),                            
+                        "id_paciente"       => $this->request->getPost('id_paciente'),
+                        "id_odontologo"     => $this->request->getPost('id_odontologo'),
+                        "observacion"       => trim($this->request->getPost("observacion")),                            
                         "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
                     ); 
 
@@ -226,6 +223,7 @@ class Cita extends BaseController
 
                     if ($respuesta) {
                         // Actualizar cita
+                        
                         return $this->response->setJSON(json_encode(array(
                             'exito' => "Cita editado correctamente"
                         )));
