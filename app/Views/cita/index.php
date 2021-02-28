@@ -82,7 +82,7 @@
                         <div class="col-lg-5">                        
                             <div class="form-group">
                                 <label for="numero_cita"># de Cita <span class="text-danger">(*)</span>:</label>
-                                <input type="text" class="form-control" id="numero_cita" name="numero_cita"  required>
+                                <input type="text" class="form-control" id="numero_cita" name="numero_cita"  placeholder="numero cita" required>
                             </div>                        
                         </div>
 
@@ -105,17 +105,18 @@
                         <div class="col-lg-6">                        
                             <div class="form-group">
                                 <label for="fecha">Fecha Cita<span class="text-danger">(*)</span>:</label>
-                                <input type="date" id="fecha" name="fecha" class="form-control">
+                                <input type="datepicker" id="fecha" name="fecha" class="form-control " readonly="">
                             </div>                        
                         </div>
                         <input type="hidden" name="id" id="id">
                         <input type="hidden" name="accion" id="accion">
 
-                        <div class="col-lg-6">                        
-                            <div class="form-group">
-                                <label for="hora">Hora Cita<span class="text-danger">(*)</span>:</label>
-                                <input type="time" id="hora" name="hora" class="form-control">
-                            </div>                        
+                        <div class="col-lg-6"> 
+                         <label for="fecha">Hora Cita<span class="text-danger">(*)</span>:</label>
+                                <input type="text" id="hora" name="hora" class="form-control clockpicker"
+                                 data-align="top" data-autoclose="true" readonly="">
+                                <input type="hidden" name="id" id="id">
+                                <input type="hidden" name="accion" id="accion">                       
                         </div>
                         <input type="hidden" name="id" id="id">
                         <input type="hidden" name="accion" id="accion"> 
@@ -149,7 +150,7 @@
                         <div class="col-lg-6">                        
                             <div class="form-group">
                              <label for="id_odontologo">Odont&oacute;logo <span class="text-danger">(*)</span>:</label>
-                                <select class="form-control select2bs4" style="width: 100%;" id="id_odontologo" name="id_odontologo">
+                                <select class="form-control select2bs4" style="width: 100%;" id="id_odontologo" name="id_odontologo" >
                                     <!-- <option value="">-- Seleccione Ocupaci&oacute;n --</option> -->
                                     <?php
                                         foreach ($this->data["odontologo"] as $key => $value) {

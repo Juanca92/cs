@@ -138,7 +138,7 @@
                         <div class="col-lg-6">                        
                             <div class="form-group">
                                 <label for="fecha_nacimiento">Fecha Nacimiento <span class="text-danger">(*)</span>:</label>
-                                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control">
+                                <input type="datepicker" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" readonly="">
                             </div>                        
                         </div>
                         <input type="hidden" name="id" id="id">

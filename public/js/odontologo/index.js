@@ -177,5 +177,10 @@ $(document).ready(function(){
     $("#btn-cerrar").on("click", function(){
         limpiarCampos();
     });
+
+    $( function() {
+        $( "#fecha_nacimiento" ).datepicker();
+        
+      } );
     
 })

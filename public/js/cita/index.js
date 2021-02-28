@@ -180,5 +180,13 @@ $(document).ready(function()
         limpiarCampos();
     });
 
+    //clockpiker
+    $('.clockpicker').clockpicker();
+    //datepicker
+    $( function() {
+        $( "#fecha" ).datepicker();
+        
+      } );
+
 
 });
