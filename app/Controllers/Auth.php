@@ -51,12 +51,14 @@ class Auth extends Controller
             # Agregamos una sesion al navegador
 			$this->session->set(['id_persona' => $userSearched[0]['id_persona']]);
 			$this->session->set(['nombre_grupo' => $userSearched[0]['nombre_grupo']]);
+			$_SESSION['id_persona'] = $userSearched[0]['id_persona'];
 			$_SESSION['nombres'] = $userSearched[0]['nombres'];
 			$_SESSION['paterno'] = $userSearched[0]['paterno'];
 			$_SESSION['materno'] = $userSearched[0]['materno'];
-			$_SESSION['nombre_grupo'] = $userSearched[0]['nombre_grupo'];
+			$_SESSION['foto'] 	 = $userSearched[0]['foto'];
+			$_SESSION['nombre_grupo']     = $userSearched[0]['nombre_grupo'];
 			$_SESSION['telefono_celular'] = $userSearched[0]['telefono_celular'];
-			$_SESSION['avatar']  = substr($userSearched[0]['nombres'], 0,1).''.substr($userSearched[0]['paterno'], 0,1);
+			$_SESSION['avatar']  		  = substr($userSearched[0]['nombres'], 0,1).''.substr($userSearched[0]['paterno'], 0,1);
 
 			# Redireccionamos a la pagina principal
 			return redirect()->to(base_url('/'));

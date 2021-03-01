@@ -272,10 +272,13 @@ on p.id_persona = o.id_odontologo;
 -- Cambiar el nombre de la tabla grupo el estado
 ALTER TABLE `sp_grupo` CHANGE `estado` `estado_grupo` TINYINT(1) NOT NULL DEFAULT '1';
 
+-- Agregar la columna imagen al usuario
+ALTER TABLE sp_usuario ADD COLUMN foto VARCHAR(100) default NULL AFTER clave;
+
 CREATE OR REPLACE VIEW `sp_view_users`  AS  select 
 p.id_persona, p.ci, p.expedido, p.paterno, p.materno, p.nombres, p.fecha_nacimiento, p.telefono_celular, p.domicilio,
 p.creado_en, p.actualizado_en, p.estado, 
-u.usuario,u.clave,
+u.usuario,u.clave,u.foto,
 gu.id_grupo_usuario ,gu.id_grupo, gu.id_usuario, gu.ip_usuario,
 g.nombre_grupo,g.estado_grupo  
 from (((sp_usuario u join sp_persona p on(p.id_persona = u.id_usuario)) 
