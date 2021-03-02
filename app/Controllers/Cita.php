@@ -75,7 +75,7 @@ class Cita extends BaseController
                             "tipo_tratamiento"  => "required|alpha_space",
                             "fecha"             => "required|max_length[10]",
                             "hora"              => "required",
-                            "costo"             => "required|alpha_space",
+                            "tipo_atencion"     => "required",
                             "id_paciente"       => "required",
                             "id_odontologo"     => "required",
                             "observacion"       => "required|alpha_space" 
@@ -97,8 +97,7 @@ class Cita extends BaseController
                                 "required"   => "La Hora de cita es requerido"
                             ],
                             "costo" => [
-                                "required" => "El Costo es requerido",
-                                "alpha_space" => "El costo debe llevar caracteres alfabéticos o espacios."
+                                "required" => "El Costo es requerido"
                             ],
                             "id_paciente" => [
                                 "required" => "El Nombre del paciente es requerido"
@@ -119,49 +118,52 @@ class Cita extends BaseController
                             "form" => $validation->listErrors()
                         )));
 
-                        } else {
-                            // Insertar datos
+                    } else {
+                        // Insertar datos
 
-                            // Formateo de datos
-                            $data = array(
-                                "numero_cita"       => $this->request->getPost("numero_cita"),
-                                "tipo_tratamiento"  => $this->request->getPost("tipo_tratamiento"),
-                                "fecha"             => $this->request->getPost("fecha"),
-                                "hora"              => $this->request->getPost("hora"),
-                                "costo"             => $this->request->getPost("costo"),
-                                "id_paciente"       => $this->request->getPost('id_paciente'),
-                                "id_odontologo"     => $this->request->getPost('id_odontologo'),
-                                "observacion"       => trim($this->request->getPost("observacion")),                           
-                                "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
-                            );                        
+                        // Formateo de datos
+                        $data = array(
+                            "numero_cita"       => $this->request->getPost("numero_cita"),
+                            "tipo_tratamiento"  => $this->request->getPost("tipo_tratamiento"),
+                            "fecha"             => $this->request->getPost("fecha"),
+                            "hora"              => $this->request->getPost("hora"),
+                            "costo"             => $this->request->getPost("costo"),
+                            "id_paciente"       => $this->request->getPost('id_paciente'),
+                            "id_odontologo"     => $this->request->getPost('id_odontologo'),
+                            "observacion"       => trim($this->request->getPost("observacion")),                           
+                            "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
+                        );                        
 
-                            $respuesta = $this->model->cita("insert", $data, null, null);
-                            if(is_numeric($respuesta))
-                            {
-                                return $this->response->setJSON(json_encode(array(
-                                    'exito' => "Cita registrado correctamente"
-                                )));
-                            }
+                        $respuesta = $this->model->cita("insert", $data, null, null);
+                        if(is_numeric($respuesta))
+                        {
+                            return $this->response->setJSON(json_encode(array(
+                                'exito' => "Cita registrado correctamente"
+                            )));
                         }
-                    } 
-                } else {
+                    }
+                } 
+            } else {
                 // actualizar cita
                 //validación de formulario
                 $validation = \Config\Services::validation();
                 helper(['form', 'url']);
                 $val = $this->validate(
                     [ // rules
+                        'id'                => 'required',
                         "numero_cita"       => 'required|numeric',
                         "tipo_tratamiento"  => "required|alpha_space",
                         "fecha"             => "required|max_length[10]",
                         "hora"              => "required",
-                        "costo"             => "required|alpha_space",
+                        "tipo_atencion"     => "required",
                         "id_paciente"       => "required",
                         "id_odontologo"     => "required",
-                        "observacion"       => "required|alpha_space",
+                        "observacion"       => "required|alpha_space" 
                     ],
                     [ // errors
-                        
+                        "id" => [
+                            "required"  => "Error al editar la cita por favor vuelve a empezar"
+                        ],
                         "numero_cita" => [
                             "required"   => "El numero de cita es requerido",
                             "numeric"    => "El numero de cita debe llevar caracteres numéricos."
@@ -172,14 +174,13 @@ class Cita extends BaseController
                         ],
                         "fecha" => [
                             "required"   => "La fecha de cita es requerido",
-                            "max_length"=> "La fecha  debe llevar como maximo 10 caracteres"
+                            "max_length"=> "La fecha debe llevar como maximo 10 caracteres"
                         ],
                         "hora" => [
-                            "required"   => "La hora de cita es requerido"
+                            "required"   => "La Hora de cita es requerido"
                         ],
                         "costo" => [
-                            "required" => "El Costo es requerido",
-                            "alpha_space" => "El costo debe llevar caracteres alfabéticos o espacios."
+                            "required" => "El Costo es requerido"
                         ],
                         "id_paciente" => [
                             "required" => "El Nombre del paciente es requerido"
@@ -195,12 +196,12 @@ class Cita extends BaseController
                 );
 
                 if (!$val) {
-                    // se devuelve todos los errores
+                    // se devuelve todos los errores si falla la validacion
                     return $this->response->setJSON(json_encode(array(
                         "form" => $validation->listErrors()
                     )));
-                } else {
 
+                } else {
                     // Actualizar datos
                     $data = array(
                         "numero_cita"       => $this->request->getPost("numero_cita"),
@@ -229,6 +230,7 @@ class Cita extends BaseController
                         )));
                     } 
                 }
+               
             }
         }
     }

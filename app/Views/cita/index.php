@@ -93,7 +93,7 @@
                                     <option value="">--seleccione--</option>
                                     <option value="Prevencion">Prevencion</option>
                                     <option value="Restauracion">Restauracion</option>
-                                    <option value="Periodo&oacute;ncia">Periodoncia</option>
+                                    <option value="Periodoncia">Periodoncia</option>
                                     <option value="Endodoncia">Endodoncia</option>
                                     <option value="Cirujia Bucal">Cirujia Bucal</option>
                                 </select>
@@ -112,25 +112,33 @@
                         <input type="hidden" name="accion" id="accion">
 
                         <div class="col-lg-6"> 
-                         <label for="fecha">Hora Cita<span class="text-danger">(*)</span>:</label>
+                         <label for="hora">Hora Cita<span class="text-danger">(*)</span>:</label>
                                 <input type="time" id="hora" name="hora" class="form-control clockpicker" />                      
                         </div>
                     </div>
                     <!-- costo-->
                     <div class="row">
-                     <div class="col-lg-12">                        
-                         <div class="form-group">
-                             <label for="costo">Costo <span class="text-danger">(*)</span>:</label>
-                                <select class="custom-select" id="costo" name="costo" required>
-                                    <option value="">--seleccione--</option>
+                        <div class="col-lg-6">                        
+                            <div class="form-group">
+                                <label for="tipo_atencion">Tipo Atenc&oacute;n <span class="text-danger">(*)</span>:</label>
+                                <select class="custom-select" id="tipo_atencion" name="tipo_atencion">
+                                    <option value="costo">--con costo--</option>
                                     <option value="Gratuito">Gratuito</option>
                                 </select>
                             </div>                        
                         </div>
+
+                        <div class="col-lg-6">                        
+                            <div class="form-group">
+                                <label for="costo">Costo <span class="text-danger">(*)</span>:</label>
+                                <input type="number" id="costo" name="costo" step="0000.000" class="form-control"/>
+                            </div>                        
+                        </div>
+
                     </div>
                     <!-- paciente y odontologo-->
                     <div class="row">
-                        <div class="col-lg-6">                        
+                        <div class="col-lg-12">                        
                             <div class="form-group">
                              <label for="id_paciente">Paciente<span class="text-danger">(*)</span>:</label>
                                  <select class="form-control select2bs4" style="width: 100%;" id="id_paciente" name="id_paciente">
@@ -142,7 +150,7 @@
                             </select>
                             </div>                       
                         </div>
-                        <div class="col-lg-6">                        
+                        <div class="col-lg-12">                        
                             <div class="form-group">
                              <label for="id_odontologo">Odont&oacute;logo <span class="text-danger">(*)</span>:</label>
                                 <select class="form-control select2bs4" style="width: 100%;" id="id_odontologo" name="id_odontologo" >
