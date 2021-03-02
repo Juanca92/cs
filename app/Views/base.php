@@ -37,6 +37,7 @@
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url('plugins/select2/css/select2.min.css') ?>">
   <link rel="stylesheet" href="<?php echo base_url('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') ?>">
+ 
 
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
@@ -47,6 +48,16 @@
 
   <!-- Theme style perfil -->
   <link rel="stylesheet" href="<?php echo base_url('css/extra.css') ?>" />
+
+  <!--full calender-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+
+  <!--clockpicker-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.min.css" />
+
+  <!-- datepicker -->
+  <link rel="stylesheet" href="<?php echo base_url('plugins/jquery-ui-1.12.1.custom/jquery-ui.css') ?>" />
+
 
 </head>
 

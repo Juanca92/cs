@@ -1,4 +1,5 @@
-$(document).ready(function(){
+$(document).ready(function()
+{
 
     // Listado de pacientes
     $('#tbl_pacientes').DataTable({
@@ -64,7 +65,7 @@ $(document).ready(function(){
 
     });
 
-    // Guardar estudiante
+    // Guardar Paciente
     $("#frm_guardar_paciente").on("submit", function(e) {        
         e.preventDefault();
         $.ajax({
@@ -180,6 +181,11 @@ $(document).ready(function(){
     $("#btn-cerrar").on("click", function(){
         limpiarCampos();
     });
+
+    $( function() {
+        $( "#fecha_nacimiento" ).datepicker();
+        
+      } );
 
 
 })

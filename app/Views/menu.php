@@ -72,7 +72,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="#" class="nav-link menu--link">
+                    <a href="<?= base_url('/cita'); ?>" class="nav-link menu--link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Cita M&eacute;dica</p>
                     </a>
@@ -101,7 +101,7 @@
 
         <!-- Menu Agenda  -->
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link menu--link">
+            <a href="<?= base_url('/agenda'); ?>" class="nav-link menu--link">
                 <i class="nav-icon fas fa-edit"></i>
                 <p>
                     Agenda

@@ -137,7 +137,11 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="fecha_nacimiento">Fecha Nacimiento <span class="text-danger">(*)</span>:</label>
+
                                 <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control">
+                            </div>
+
+                                <input type="datepicker" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" readonly="">
                             </div>
                         </div>
                         <input type="hidden" name="id" id="id">
@@ -153,7 +157,14 @@
                                 <label for="celular">Ocupaci&oacute;n <span class="text-danger">(*)</span>:</label>
                                 <select class="form-control select2bs4" style="width: 100%;" id="id_ocupacion" name="id_ocupacion">
                                     <!-- <option value="">-- Seleccione Ocupaci&oacute;n --</option> -->
-                                    <?php
+                              
+                    <div class="col-lg-12">                        
+                        <div class="form-group">
+                        <label for="ocupacion">Ocupaci&oacute;n <span class="text-danger">(*)</span>:</label>
+                            <select class="form-control select2bs4" style="width: 100%;" id="id_ocupacion" name="id_ocupacion">
+                                <!-- <option value="">-- Seleccione Ocupaci&oacute;n --</option> -->
+                                <?php
+
                                     foreach ($this->data["ocupaciones"] as $key => $value) {
                                         echo '<option value="' . $value["id_ocupacion"] . '">' . $value["nombre"] . '</option>';
                                     }

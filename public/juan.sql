@@ -284,3 +284,59 @@ g.nombre_grupo,g.estado_grupo
 from (((sp_usuario u join sp_persona p on(p.id_persona = u.id_usuario)) 
 left join sp_grupo_usuario gu on(gu.id_usuario = u.id_usuario)) 
 left join sp_grupo g on(g.id_grupo = gu.id_grupo)) ;
+
+-- correcion de la tabla cita y la vista cita
+
+CREATE TABLE `sp_cita` (
+  `id_cita` int(11) NOT NULL AUTO_INCREMENT,
+  `numero_cita` tinyint(4) not null,
+  `tipo_tratamiento` varchar(30) not null,
+  `observacion` varchar(200) DEFAULT NULL,
+  `fecha` date not null,
+  `hora` time not null,
+  `id_paciente` int(11) NOT NULL,
+  `id_odontologo` int(11) NOT NULL,
+  `costo` varchar(10) DEFAULT NULL,
+  `estado` tinyint default '1' not null,
+  `creado_en` timestamp NOT NULL DEFAULT current_timestamp(),
+  `actualizado_en` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_cita`),
+  KEY `fk_cita_paciente` (`id_paciente`),
+  KEY `fk_cita_odontologo` (`id_odontologo`),
+  CONSTRAINT `fk_cita_odontologo` FOREIGN KEY (`id_odontologo`) REFERENCES `sp_odontologo` (`id_odontologo`),
+  CONSTRAINT `fk_cita_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `sp_paciente` (`id_paciente`)
+);
+
+-- sanpedro.sp_view_cita source
+
+CREATE OR REPLACE VIEW `sp_view_cita` AS
+select
+    `cita`.`id_cita` AS `id_cita`,
+    `cita`.`numero_cita` AS `numero_cita`,
+    `cita`.`tipo_tratamiento` AS `tipo_tratamiento`,
+    `cita`.`observacion` AS `observacion`,
+    `cita`.`fecha` AS `fecha`,
+    `cita`.`hora` AS `hora`,
+    `cita`.`costo` AS `costo`,
+    `cita`.`estado` AS `estado`,
+    `paciente`.`id_paciente` AS `id_paciente`,    
+    concat(`persona_paciente`.`nombres`, ' ', `persona_paciente`.`paterno`, ' ', `persona_paciente`.`materno`) AS `nombre_paciente`,
+    concat(`persona_paciente`.`ci`, ' ', `persona_paciente`.`expedido`) AS `ci_paciente`,
+    `odontologo`.`id_odontologo` AS `id_odontologo`,
+    concat(`persona_odontologo`.`nombres`, ' ', `persona_odontologo`.`paterno`, ' ', `persona_odontologo`.`materno`) AS `nombre_odontologo`,
+    concat(`persona_odontologo`.`ci`, ' ', `persona_odontologo`.`expedido`) AS `ci_odontologo`,
+    `cita`.`creado_en` AS `creado_en`
+from
+    ((((`sp_cita` `cita`
+join `sp_paciente` `paciente` on
+    (`cita`.`id_paciente` = `paciente`.`id_paciente`))
+join `sp_persona` `persona_paciente` on
+    (`persona_paciente`.`id_persona` = `paciente`.`id_paciente`))
+join `sp_odontologo` `odontologo` on
+    (`cita`.`id_odontologo` = `odontologo`.`id_odontologo`))
+join `sp_persona` `persona_odontologo` on
+    (`odontologo`.`id_odontologo` = `persona_odontologo`.`id_persona`));
+
+-- tipo de dato fecha
+ALTER TABLE sanpedro.sp_cita MODIFY COLUMN fecha date NOT NULL;
+
