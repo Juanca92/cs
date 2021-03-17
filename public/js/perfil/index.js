@@ -20,17 +20,17 @@ $(document).ready(function () {
   const limpiar_actualizar_datos = () => {
     $("#telefono").val("");
     $("#domicilio").val("");
+    $("#confirmar_datos").prop('checked', false);
   };
 
   cargar_datos();
 
   // Actualizar telefono y Direccion
-  const isChecked = document.getElementById("confirmar_datos");
+  const aceptado = document.getElementById("confirmar_datos");
 
-  if (isChecked) {
-    $("#frm_actualizar_datos").on("submit", function (e) {
-      e.preventDefault();
-
+  $("#frm_actualizar_datos").on("submit", function (e) {
+    e.preventDefault();
+    if (aceptado.checked) {
       $.ajax({
         type: "POST",
         url: "/perfil/actualizar_datos",
@@ -51,10 +51,10 @@ $(document).ready(function () {
         .fail(function (e) {
           mensajeAlert("error", "Error al registrar/editar el Datos", "Error");
         });
-    });
-  } else {
-    mensajeAlert("info", "Por favor confirme sus datos", "Informacion");
-  }
+    } else {
+      mensajeAlert("info", "Por favor confirme sus datos", "Informacion");
+    }
+  });
 
   // Cambiar password
   $("#frm_cambiar_password").on("submit", function (e) {
