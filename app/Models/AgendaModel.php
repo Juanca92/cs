@@ -19,7 +19,7 @@ class AgendaModel extends Database
     public function agenda($accion, $datos, $condicion = null, $busqueda = null)
     {
 
-        $builder = $this->db->table("agenda");
+        $builder = $this->db->table("cita");
 
         switch ($accion) {
             case 'select':
@@ -42,23 +42,10 @@ class AgendaModel extends Database
 
         return null;
     }
-    function insert($data)
+    public function get_events()
     {
-     $this->db->insert('agenda', $data);
+        $builder = $this->db->table("cita");
+        $builder->select('id_cita AS id, nombre_paciente AS title, fecha AS start');
+        return $builder->get()->getResultArray();
     }
-   
-    function update($data, $id)
-    {
-     $this->db->where('id', $id);
-     $this->db->update('agenda', $data);
-    }
-   
-    function delete($id)
-    {
-     $this->db->where('id', $id);
-     $this->db->delete('agenda');
-    }
-
-   
-    
 }

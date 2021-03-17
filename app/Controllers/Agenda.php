@@ -26,16 +26,14 @@ class Agenda extends BaseController
    public function ajaxListarAgenda()
 	{
         if ($this->request->isAJAX()) {		
-            $table = 'sp_view_agenda';
-            $primaryKey = 'id_agenda';
-            $where = " "; 
+            $table = 'sp_view_cita';
+            $primaryKey = 'id_cita';
+            $where = ""; 
 
-            $columns = array(
-                array('db' => 'id_agenda', 'dt'       => 0),
-                array('db' => 'title', 'dt'      	  => 1),
-                array('db' => 'start', 'dt' 		  => 2),
-                array('db' => 'end', 'dt'      	  => 3),
-                array('db' => 'creado_en', 'dt'       => 4)
+            $columns[] = array(
+                            'id_cita' 	=> intval($val->id), 
+                            'nombre_paciente' => $val->title, 
+                            'fecha' => date_format( date_create($val->start_date) ,"Y-m-d H:i:s"),
             );
 
             $sql_details = array(
@@ -49,39 +47,12 @@ class Agenda extends BaseController
         }
 	}
 
-	function insert()
+	public function get_events()
 	{
-		if($this->input->post('title'))
-		{
-			$data = array(
-			'title'  => $this->input->post('title'),
-			'start_event'=> $this->input->post('start'),
-			'end_event' => $this->input->post('end')
-			);
-			$this->model->agenda->insert($data);
-		}
+		// se Verifica si es petición ajax
+        if ($this->request->isAJAX()) {
+            $respuesta = $this->model->get_events($this->request->getPost("id"));
+            return $this->response->setJSON(json_encode($respuesta));
+        }
 	}
-
-	function update()
-	{
-		if($this->input->post('id'))
-		{
-			$data = array(
-			'title'   => $this->input->post('title'),
-			'start_event' => $this->input->post('start'),
-			'end_event'  => $this->input->post('end')
-			);
-
-			$this->fullcalendar_model->update_event($data, $this->input->post('id'));
-		}
-	}
-
-	function delete()
-	{
-		if($this->input->post('id'))
-		{
-			$this->fullcalendar_model->delete_event($this->input->post('id'));
-		}
-	}
-
 }

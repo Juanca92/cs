@@ -42,7 +42,8 @@ class Cita extends BaseController
                 array('db' => 'hora', 'dt'              => 6),
                 array('db' => 'costo', 'dt'             => 7),                
                 array('db' => 'nombre_odontologo', 'dt' => 8),
-                array('db' => 'creado_en', 'dt'         => 9)
+                array('db' => 'estatus', 'dt'           => 9),
+                array('db' => 'creado_en', 'dt'         => 10)
             );
 
             $sql_details = array(
@@ -78,10 +79,11 @@ class Cita extends BaseController
                             "tipo_atencion"     => "required",
                             "id_paciente"       => "required",
                             "id_odontologo"     => "required",
-                            "observacion"       => "required|alpha_space" 
+                            "observacion"       => "required|alpha_space",
+                            "estatus"           => "required|alpha_space"
                         ],
                         [ // errors
-                            "numero_cita" => [
+                           "numero_cita" => [
                                 "required"   => "El numero de cita es requerido",
                                 "numeric"    => "El numero de cita debe llevar caracteres numéricos."
                             ],
@@ -96,7 +98,7 @@ class Cita extends BaseController
                             "hora" => [
                                 "required"   => "La Hora de cita es requerido"
                             ],
-                            "costo" => [
+                            "tipo_atencion" => [
                                 "required" => "El Costo es requerido"
                             ],
                             "id_paciente" => [
@@ -108,6 +110,10 @@ class Cita extends BaseController
                             "observacion" => [
                                 "required" => "Observacion es requerido",
                                 "alpha_space" => "Observacion debe llevar caracteres alfabéticos o espacios."
+                            ],
+                            "estatus" => [
+                                "required" => "estatus es requerido",
+                                "alpha_space" => "estatus debe llevar caracteres alfabéticos o espacios."
                             ]
                         ]
                     );
@@ -127,10 +133,11 @@ class Cita extends BaseController
                             "tipo_tratamiento"  => $this->request->getPost("tipo_tratamiento"),
                             "fecha"             => $this->request->getPost("fecha"),
                             "hora"              => $this->request->getPost("hora"),
-                            "costo"             => $this->request->getPost("costo"),
+                            "costo"             => $this->request->getPost("tipo_atencion"),
                             "id_paciente"       => $this->request->getPost('id_paciente'),
                             "id_odontologo"     => $this->request->getPost('id_odontologo'),
-                            "observacion"       => trim($this->request->getPost("observacion")),                           
+                            "observacion"       => trim($this->request->getPost("observacion")),
+                            "estatus"           => $this->request->getPost("estatus"),                           
                             "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
                         );                        
 
@@ -158,7 +165,8 @@ class Cita extends BaseController
                         "tipo_atencion"     => "required",
                         "id_paciente"       => "required",
                         "id_odontologo"     => "required",
-                        "observacion"       => "required|alpha_space" 
+                        "observacion"       => "required|alpha_space",
+                        "estatus"           => "required|alpha_space"
                     ],
                     [ // errors
                         "id" => [
@@ -179,7 +187,7 @@ class Cita extends BaseController
                         "hora" => [
                             "required"   => "La Hora de cita es requerido"
                         ],
-                        "costo" => [
+                        "tipo_atencion" => [
                             "required" => "El Costo es requerido"
                         ],
                         "id_paciente" => [
@@ -191,6 +199,10 @@ class Cita extends BaseController
                         "observacion" => [
                             "required" => "Observacion es requerido",
                             "alpha_space" => "Observacion debe llevar caracteres alfabéticos o espacios."
+                        ],
+                        "estatus" => [
+                            "required" => "estatus es requerido",
+                            "alpha_space" => "estatus debe llevar caracteres alfabéticos o espacios."
                         ]
                     ]
                 );
@@ -208,10 +220,11 @@ class Cita extends BaseController
                         "tipo_tratamiento"  => $this->request->getPost("tipo_tratamiento"),
                         "fecha"             => $this->request->getPost("fecha"),
                         "hora"              => $this->request->getPost("hora"),
-                        "costo"             => $this->request->getPost("costo"),
+                        "costo"             => $this->request->getPost("tipo_atencion"),
                         "id_paciente"       => $this->request->getPost('id_paciente'),
                         "id_odontologo"     => $this->request->getPost('id_odontologo'),
-                        "observacion"       => trim($this->request->getPost("observacion")),                            
+                        "observacion"       => trim($this->request->getPost("observacion")),
+                        "estatus"           => $this->request->getPost("estatus"),                          
                         "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
                     ); 
 
@@ -268,6 +281,35 @@ class Cita extends BaseController
                 )));
             }
         }
+    }
+    public function getEvents()
+    {
+        // se Verifica si es petición ajax
+        if ($this->request->isAJAX()) {
+            $respuesta = $this->model->getEvents();
+            return $this->response->setJSON(json_encode($respuesta));
+        }
+    }
+    
+    public function verificar_numero_cita()
+    {
+        $id = $this->request->getPost("id");
+        $respuesta = $this->model->verificar_numero_cita($id);
+        // var_dump(count($respuesta));
+
+        if(count($respuesta) == 0){
+           return  $this->response->setJSON(json_encode(array(
+                'numero_cita' => 1
+            )));
+        }else{
+            
+            return $this->response->setJSON(json_encode(array(
+                'numero_cita' => intval($respuesta[0]['numero_cita']) + 1
+            )));
+        }
+
+        return null;
+        // var_dump();
     }
     
 
