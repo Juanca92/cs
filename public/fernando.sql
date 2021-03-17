@@ -1,7 +1,7 @@
+--tabla de citas alterada
+ALTER TABLE `sp_cita` ADD `estatus` ENUM('Pendiente','Cancelada','Atendida') NOT NULL AFTER `costo`;
 
-
-
-
+--vista de citas alterada--
 CREATE OR REPLACE VIEW `sp_view_cita` AS
 select
     `cita`.`id_cita` AS `id_cita`,

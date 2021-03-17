@@ -76,6 +76,7 @@ $(document).ready(function(){
             
             mensajeAlert("info", "Por favor seleccione un paciente !!!", "Informacion");
         }
+        
 
         $("#content").show();
 
