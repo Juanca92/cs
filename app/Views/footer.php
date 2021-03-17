@@ -72,19 +72,20 @@ $.widget.bridge('uibutton', $.ui.button)
 <!-- Select2 -->
 <script src="<?php echo base_url('plugins/select2/js/select2.full.min.js') ?>"></script>
 
+<!-- moment -->
+<script src="<?php echo base_url('plugins/fullcalendar/moment.min.js') ?>"></script>
 <!-- fullcalendar -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js" ></script>
+<script src="<?php echo base_url('plugins/fullcalendar/fullcalendar.min.js') ?>"></script>
 
-<!--traduccion al español-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/es.min.js"></script>
+<!--traduccion al español fullcalendar-->
+<script src="<?php echo base_url('plugins/fullcalendar/locales/es.min.js') ?>"></script>
 
 <!--clocpicker-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/jquery-clockpicker.min.js"></script>
+<script src="<?php echo base_url('plugins/clockpicker/clockpicker.js') ?>"></script>
 
 
 <!--datepicker-->
 <script src="<?php echo base_url('plugins/jquery-ui-1.12.1.custom/jquery-ui.js') ?>"></script>
 
 <!--traduccion al español datepicker-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/es.min.js"></script>
-<script src="<?php echo base_url('plugins/jquery-ui-1.12.1.custom/locale/es.js') ?>"></script>
+<script src="<?php echo base_url('plugins/jquery-ui-1.12.1.custom/locales/es.min.js') ?>"></script>

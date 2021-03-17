@@ -84,15 +84,15 @@
                                 <label for="expedido">Expedido <span class="text-danger">(*)</span>:</label>
                                 <select class="custom-select" id="expedido" name="expedido" required>
                                     <option value="">-- Expedido en --</option>
-                                    <option value="CH">CH</option>
-                                    <option value="LP">LP</option>
+                                    <option value="CH">LP</option>
+                                    <option value="LP">OR</option>
                                     <option value="CB">CB</option>
-                                    <option value="OR">OR</option>
-                                    <option value="PT">PT</option>
-                                    <option value="SC">SC</option>
-                                    <option value="PA">PA</option>
-                                    <option value="TJ">TJ</option>
-                                    <option value="BN">BN</option>
+                                    <option value="OR">PT</option>
+                                    <option value="PT">CH</option>
+                                    <option value="SC">TJ</option>
+                                    <option value="PA">SC</option>
+                                    <option value="TJ">BE</option>
+                                    <option value="BN">PD</option>
                                 </select>
                             </div>
                         </div>
@@ -137,40 +137,26 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="fecha_nacimiento">Fecha Nacimiento <span class="text-danger">(*)</span>:</label>
-
-                                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control">
-                            </div>
-
                                 <input type="datepicker" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" readonly="">
                             </div>
                         </div>
                         <input type="hidden" name="id" id="id">
                         <input type="hidden" name="accion" id="accion">
                     </div>
-
-
-
                     <!-- Ocupacion -->
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label for="celular">Ocupaci&oacute;n <span class="text-danger">(*)</span>:</label>
-                                <select class="form-control select2bs4" style="width: 100%;" id="id_ocupacion" name="id_ocupacion">
-                                    <!-- <option value="">-- Seleccione Ocupaci&oacute;n --</option> -->
-                              
-                    <div class="col-lg-12">                        
+                        <div class="col-lg-12">                        
                         <div class="form-group">
                         <label for="ocupacion">Ocupaci&oacute;n <span class="text-danger">(*)</span>:</label>
                             <select class="form-control select2bs4" style="width: 100%;" id="id_ocupacion" name="id_ocupacion">
                                 <!-- <option value="">-- Seleccione Ocupaci&oacute;n --</option> -->
                                 <?php
-
                                     foreach ($this->data["ocupaciones"] as $key => $value) {
                                         echo '<option value="' . $value["id_ocupacion"] . '">' . $value["nombre"] . '</option>';
                                     }
-                                    ?>
-                                </select>
-                            </div>
+                                ?>
+                            </select>
+                            </div>                       
                         </div>
                     </div>
 

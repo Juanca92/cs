@@ -57,7 +57,14 @@
                     <i class="far fa-circle nav-icon"></i>
                     <p>Odont&oacute;logo</p>
                     </a>
-                </li>            
+                </li>  
+
+                <li class="nav-item">
+                    <a href="<?= base_url('/listarOdontologo'); ?>" class="nav-link menu--link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p> Ver Odont&oacute;logo</p>
+                    </a>
+                </li>           
             </ul>
         </li>
 
@@ -76,7 +83,13 @@
                     <i class="far fa-circle nav-icon"></i>
                     <p>Cita M&eacute;dica</p>
                     </a>
-                </li>            
+                </li> 
+                <li class="nav-item">
+                    <a href="<?= base_url('/gestionarCita'); ?>" class="nav-link menu--link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p> Gesti&oacute;n de Citas</p>
+                    </a>
+                </li>           
             </ul>
         </li>
 

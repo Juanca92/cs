@@ -50,11 +50,10 @@
   <link rel="stylesheet" href="<?php echo base_url('css/extra.css') ?>" />
 
   <!--full calender-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+  <link rel="stylesheet" href="<?php echo base_url('plugins/fullcalendar/fullcalendar.min.css') ?>">
 
   <!--clockpicker-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.min.css" />
-
+  <link rel="stylesheet" href="<?php echo base_url('plugins/clockpicker/clockpicker.css') ?>">
   <!-- datepicker -->
   <link rel="stylesheet" href="<?php echo base_url('plugins/jquery-ui-1.12.1.custom/jquery-ui.css') ?>" />
 

@@ -13,7 +13,29 @@ $(document).ready(function () {
         searchable: true,
         orderable: true,
         visible: false,
-        targets: 3,
+        targets: 4
+      },
+      {
+        searchable: false,
+        orderable: false,
+        visible: true,
+        targets: 9,
+        data: null,
+        render: function (data, type, row, meta) {
+          if(data=='Pendiente'){
+            return'<span data="' +data +'" class="label label-primary label-sm"  </span>';
+          }else if(data=='Cancelada'){
+            return'<span data="' +data +'" class="label label-danger label-sm" </span>';
+          }else{
+            return'<span data="' +data +'" class="label label-success label-sm"  </span>';
+          }  
+        },
+      },
+      {
+        searchable: true,
+        orderable: true,
+        visible: false,
+        targets: 10
       },
       {
         searchable: false,
@@ -44,13 +66,13 @@ $(document).ready(function () {
   });
 
   // paciente con select 2
-  $(".select2bs4").select2({
+  $(".id_paciente").select2({
     theme: "bootstrap4",
     placeholder: "-- Seleccione Paciente --",
     allowClear: true,
   });
   // Odontologo con select 2
-  $(".select2bs4").select2({
+  $(".id_odontologo").select2({
     theme: "bootstrap4",
     placeholder: "-- Seleccione Odontologo --",
     allowClear: true,
@@ -72,6 +94,27 @@ $(document).ready(function () {
     } else {
       $("#costo").removeAttr("disabled");
     }
+  });
+
+  // Modal para agenda
+  $("button#agenda_cita").on("click", function(e) {
+    parametrosModal(
+        "#agenda",
+        "Agenda de Citas",
+        "modal-xl",
+        false,
+        true
+    );
+  });
+  //Modal para Horario
+  $("button#horario_cita").on("click", function(e) {
+    parametrosModal(
+        "#horario",
+        "Horario de Citas",
+        "modal-lg",
+        false,
+        true
+    );
   });
 
   // Guardar cita
@@ -184,8 +227,82 @@ $(document).ready(function () {
   });
 
   //clockpiker
-  $(".clockpicker").clockpicker();
-
+  
+  $("#hora").clockpicker({
+    });
+  
   //datepicker
-  $("#fecha").datepicker();
-});
+  $.datepicker.regional['es'] = {
+    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+    monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+    dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+    dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+    dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+    weekHeader: 'Sm',
+    dateFormat: 'yy-mm-dd',
+    firstDay: 1,
+    isRTL: false,
+    showMonthAfterYear: false,
+    yearSuffix: ''
+    };
+    $.datepicker.setDefaults($.datepicker.regional['es']);
+  $(function () {
+    $("#fecha").datepicker({
+    dateFormat: "yy-mm-dd"
+     });
+    });
+   
+
+  //agenda
+  $(document).ready(function() {
+    $('#calendar').fullCalendar({
+        header: {
+            left: 'prev,next',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+        defaultDate: new Date(),
+        buttonIcons: true,
+        weekNumbers: false,
+        description: true,
+        eventLimit: true,
+        events:'cita/getEvents',
+        eventColor: 'turquoise',
+        
+        dayClick: function (date, jsEvent, view) {
+            alert('Has hecho click en: '+ date.format());
+        }, 
+        eventClick: function (calEvent, jsEvent, view) {
+            $('#event-title').text(calEvent.title);
+            $('#event-description').html(calEvent.description);
+            $('#modal-event').modal();
+        },  
+    
+  });
+ 
+  });
+  //incremento de numero en cita 
+  $("#id_paciente").on("change", function(){
+    let id = $("#id_paciente").val();
+
+    $.ajax({
+        type: "POST",
+        url: "/cita/verificar_numero_cita",
+        data: {id: id},
+        dataType: "JSON"
+    }).done(function (respuesta) {
+        //console.log(respuesta);
+        $("#numero_cita").val(respuesta.numero_cita);
+        // alert("falkdfjaslkfdjsalk")
+    }).fail(function(e){
+       
+    })
+})
+
+// alert("fjalskfjlasfjkl")
+});  //fin del principio
+  
+
+
+
+

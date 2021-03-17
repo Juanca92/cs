@@ -5,7 +5,7 @@ namespace App\Models;
 use CodeIgniter\Database\Database;
 use CodeIgniter\Database\BaseBuilder;
 
-class CitaModel extends Database
+class GestionarCitaModel extends Database
 {
     
     public $db = null;
@@ -42,15 +42,6 @@ class CitaModel extends Database
 
         return null;
     }
-
-    public function editar_cita($id)
-    {
-        $builder = $this->db->table('cita as c');
-        $builder->select('*');
-        $builder->where('id_cita', $id);
-        return $builder->get()->getResultArray();
-    }
-
     public function listar_paciente()
     {
         $builder = $this->db->table("view_paciente as p");
@@ -63,24 +54,4 @@ class CitaModel extends Database
         $builder->select('o.id_persona, o.nombre_completo');
         return $builder->get()->getResultArray();
     }
-    public function getEvents()
-    {
-        $builder = $this->db->table("view_cita ");
-        $builder->select('id_cita AS id, nombre_paciente AS title, fecha AS start, observacion AS description');
-        return $builder->get()->getResultArray();
-    }
-
-    public function verificar_numero_cita($id)
-    {
-        if(!is_null($id)){
-            $builder = $this->db->table('cita');
-            $builder->select('numero_cita');
-            $builder->where('id_paciente',$id);
-            $builder->orderBy('numero_cita', 'DESC');
-            $builder->limit(1);
-            return $builder->get()->getResultArray();
-        }
-        return null;
-    }
-    
 }
