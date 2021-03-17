@@ -141,7 +141,7 @@
                             <!-- /.tab-pane -->
 
                             <div class="tab-pane" id="cambiar_password">
-                                <form class="form-horizontal" id="frm_cambiar_password">
+                                <form class="form-horizontal" id="frm_cambiar_password" method="post">
                                     <div class="form-group row">
                                         <label for="password_actual" class="col-sm-3 col-form-label">Contraseña Actual</label>
                                         <div class="col-sm-9">

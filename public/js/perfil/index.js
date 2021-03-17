@@ -23,6 +23,14 @@ $(document).ready(function () {
     $("#confirmar_datos").prop('checked', false);
   };
 
+  // Limpiar datos Actualizar password
+  const limpiar_actualizar_clave = () => {
+    $("#password_actual").val("");
+    $("#password_nuevo").val("");
+    $("#confirmar_password").val("");
+    $("#confirmar_cambiar_password").prop('checked', false);
+  };
+
   cargar_datos();
 
   // Actualizar telefono y Direccion
@@ -57,35 +65,42 @@ $(document).ready(function () {
   });
 
   // Cambiar password
+  const aceptado_p = document.getElementById("confirmar_cambiar_password");
   $("#frm_cambiar_password").on("submit", function (e) {
     e.preventDefault();
-    e.stopPropagation();
-    $.ajax({
-      type: "POST",
-      url: "/perfil/cambiar_password",
-      data: $("#frm_cambiar_password").serialize(),
-      dataType: "JSON",
-    }).done(function (response) {
-      if (typeof response.pass !== "undefined") {
-        mensajeAlert("warning", response.pass, "Advertencia");
-        $("#password_actual").val("");
-        $("#password_actual").focus();
-      }
-
-      if (typeof response.rep !== "undefined") {
-        mensajeAlert("warning", response.rep, "Advertencia");
-        $("#confirmar_password").val("");
-        $("#confirmar_password").focus();
-      }
-
-      if (typeof response.success !== "undefined") {
-        mensajeAlert("success", response.success, "Exito");
-      }
-
-      if (typeof response.error !== "undefined") {
-        mensajeAlert("error", response.error, "Error");
-      }
-    });
+    e.stopPropagation();    
+    
+    if(aceptado_p.checked){
+      $.ajax({
+        type: "POST",
+        url: "/perfil/cambiar_password",
+        data: $("#frm_cambiar_password").serialize(),
+        dataType: "JSON",
+      }).done(function (response) {
+        if (typeof response.pass !== "undefined") {
+          mensajeAlert("warning", response.pass, "Advertencia");
+          $("#password_actual").val("");
+          $("#password_actual").focus();
+        }
+  
+        if (typeof response.rep !== "undefined") {
+          mensajeAlert("warning", response.rep, "Advertencia");
+          $("#confirmar_password").val("");
+          $("#confirmar_password").focus();
+        }
+  
+        if (typeof response.success !== "undefined") {
+          limpiar_actualizar_clave();
+          mensajeAlert("success", response.success, "Exito");
+        }
+  
+        if (typeof response.error !== "undefined") {
+          mensajeAlert("error", response.error, "Error");
+        }
+      });
+    }else{
+      mensajeAlert("info", "Por favor confirme el cambio de clave", "Informacion");
+    }    
   });
 
   // Subir foto
