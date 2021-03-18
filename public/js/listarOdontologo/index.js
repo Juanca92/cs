@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    //Id del paciente para el tratamiento
+    //Id del odontlo}go para el listado
     let id_odontologo = null;
     $("#content").hide();
 
@@ -50,19 +50,18 @@ $(document).ready(function(){
 		],
 	});
 
-    // Mostrar el modal con los pacientes
+    // Mostrar el modal con los odontologos
     $("#listado-odontologo-title").html("Listado de Odontologos");
-    $("#listado-odontologo-title").draggable({});
     parametrosModal(
         "#listado-odontologos",
         "Listado de Odontologos",
-        "modal-xl",
+        "modal-lg",
         false,
         true
     );
 
 
-    // Habilitar el fomulario de ver los detalles de tratamiento, odontograma del paciente
+    // Habilitar el fomulario de ver los detalles del listado
     $('#tbl_odontologos_ver').on("click", ".btn_ver_pacientes", function(e) {
         //ocultar el modal
         $("#listado-odontologos").modal("hide");
@@ -84,8 +83,7 @@ $(document).ready(function(){
 });//fin de odonto
 
     // Listado de citas por cada odontologo
- $("#content").hide();
-  $("#tbl_citas_ver").DataTable({
+$("#tbl_citas_ver").DataTable({
     responsive: true,
     processing: true,
     serverSide: true,
@@ -132,4 +130,23 @@ $(document).ready(function(){
       },
     ],
   });
+  // Habilitar el fomulario de ver los detalles del listado
+  $('#tbl_citas_ver').on("click", ".btn_ver_pacientes", function(e) {
+    //ocultar el modal
+    $("#listado-citas").modal("hide");
+    let id = $(this).attr("data");
+    id_cita = id;
+    
+    if(id_cita == null){
+        setInterval(function() {
+            window.location = "/";
+        }, 1000);    
+        
+        mensajeAlert("info", "Por favor seleccione un odontologo !!!", "Informacion");
+    }
+
+    $("#content").show();
+
+})
+
    
