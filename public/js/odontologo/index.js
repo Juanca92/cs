@@ -16,6 +16,26 @@ $(document).ready(function(){
                 visible: true,
                 targets: 0
             },
+            {
+                searchable: true,
+                orderable: true,
+                visible: false,
+                targets: 9
+            },
+            {
+                searchable: false,
+                orderable: false,
+                visible: true,
+                targets: 8,
+                data: null,
+                render: function (data, type, row, meta) {
+                  if(data[8]=="ACTIVO"){
+                    return('<a type="button" data="' +data[0] +'" class="btn btn-success btn-xs text-white">' +data[8] +' </span>');
+                  }else {
+                    return('<a type="button" data="' +data[0] +'" class="btn btn-danger btn-xs text-white">' +data[8] +' </span>');
+                  }
+                },
+            },
 			{
 				searchable: false,
 				orderable: false,
@@ -103,6 +123,7 @@ $(document).ready(function(){
         $("#turno").val("");
         $("#gestion").val("");
         $("#domicilio").val("");
+        $("#estatus").val("");
         $("#accion").val("");
     }
 
@@ -129,6 +150,7 @@ $(document).ready(function(){
             $("#turno").val(response[0]["turno"]).trigger('change');
             $("#gestion").val(response[0]["gestion_ingreso"]);
             $("#domicilio").val(response[0]["domicilio"]);
+            $("#estatus").val(response[0]["estatus"]);
             $("#accion").val("up");
 
             $("#btn-guardar-odontologo").html("Editar");

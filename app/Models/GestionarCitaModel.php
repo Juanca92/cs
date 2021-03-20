@@ -54,4 +54,12 @@ class GestionarCitaModel extends Database
         $builder->select('o.id_persona, o.nombre_completo');
         return $builder->get()->getResultArray();
     }
+    public function pacientes_pendientes()
+        {
+            $builder = $this->db->table("view_cita ");
+            $builder->select('*');
+            $builder->where('estatus = 1' );
+            return $builder->get()->getResultArray();
+        }
+    
 }

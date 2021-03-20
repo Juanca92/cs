@@ -17,6 +17,20 @@ $(document).ready(function()
                 visible: true,
                 targets: 0
             },
+            {
+                searchable: false,
+                orderable: false,
+                visible: true,
+                targets: 7,
+                data: null,
+                render: function (data, type, row, meta) {
+                  if(data[7]=="ACTIVO"){
+                    return('<a type="button" data="' +data[0] +'" class="btn btn-success btn-xs text-white">' +data[7] +' </span>');
+                  }else {
+                    return('<a type="button" data="' +data[0] +'" class="btn btn-danger btn-xs text-white">' +data[7] +' </span>');
+                  }
+                },
+            },
 			{
 				searchable: false,
 				orderable: false,
@@ -108,6 +122,7 @@ $(document).ready(function()
         $("#fecha_nacimiento").val("");
         $("#id_ocupacion").val("");
         $("#domicilio").val("");
+        $("#estatus").val("");
         $("#accion").val("");
     }
 
@@ -133,6 +148,7 @@ $(document).ready(function()
             $("#fecha_nacimiento").val(response[0]["fecha_nacimiento"]);
             $("#id_ocupacion").val(response[0]["id_ocupacion"]).trigger('change');
             $("#domicilio").val(response[0]["domicilio"]);
+            $("#estatus").val(response[0]["estatus"]);
             $("#accion").val("up");
 
             $("#btn-guardar-paciente").html("Editar");

@@ -56,4 +56,13 @@ class GestionarCita extends BaseController
             return $this->response->setJSON(json_encode(SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $where)));
         }
 	}
+    public function pacientes_pendientes()
+    {
+        if ($this->request->isAJAX()) {
+            $respuesta = $this->model->pacientes_pendientes();
+            return $this->response->setJSON(json_encode($respuesta));
+        }
+    }
+
+
 }

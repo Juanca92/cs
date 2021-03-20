@@ -38,7 +38,8 @@ class Odontologo extends BaseController
                 array('db' => 'domicilio', 'dt'         => 5),
                 array('db' => 'turno', 'dt'             => 6),
                 array('db' => 'gestion_ingreso', 'dt'   => 7),
-                array('db' => 'creado_en', 'dt'         => 8)
+                array('db' => 'estatus', 'dt'           => 8),
+                array('db' => 'creado_en', 'dt'         => 9)
             );
 
             $sql_details = array(
@@ -82,7 +83,8 @@ class Odontologo extends BaseController
                             "celular"           => 'required|numeric',
                             "fecha_nacimiento"  => "required|max_length[10]",
                             "turno"             => "required",
-                            "gestion"           => "required|numeric|max_length[4]"
+                            "gestion"           => "required|numeric|max_length[4]",
+                            "estatus"           => "required|alpha_numeric_space"
                         ],
                         [ // errors
                             "ci" => [
@@ -122,6 +124,10 @@ class Odontologo extends BaseController
                                 "required"   => "La gestion de ingreso del odontologo es requerido",
                                 "numeric"    => "La gestion debe llevar caracteres numericos",
                                 "max_length" => "La gestion debe llevar como maximo 4 caracteres"
+                            ],
+                            "estatus" => [
+                                "required" => "El estatus del paciente es requerido",
+                                "alpha_numeric_space" => "EL estatus no puede llevar caracteres especiales"
                             ]
                         ]
                     );
@@ -144,7 +150,8 @@ class Odontologo extends BaseController
                             "materno"           => ucwords(strtolower(trim($this->request->getPost("materno")))),
                             "telefono_celular"  => trim($this->request->getPost("celular")),
                             "fecha_nacimiento"  => $this->request->getPost("fecha_nacimiento"),
-                            "domicilio"         => $this->request->getPost("domicilio"),                            
+                            "domicilio"         => $this->request->getPost("domicilio"),
+                            "estatus"           => $this->request->getPost("estatus"),                           
                             "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
                         );                        
 
@@ -215,7 +222,8 @@ class Odontologo extends BaseController
                         "celular"           => 'required|numeric',
                         "fecha_nacimiento"  => "required|max_length[10]",
                         "turno"             => "required",
-                        "gestion"           => "required|numeric|max_length[4]"
+                        "gestion"           => "required|numeric|max_length[4]",
+                        "estatus"           => "required|alpha_numeric_space"
                     ],
                     [ // errors
                         "id" => [
@@ -258,6 +266,10 @@ class Odontologo extends BaseController
                             "required"   => "La gestion de ingreso del odontologo es requerido",
                             "numeric"    => "La gestion debe llevar caracteres numericos",
                             "max_length" => "La gestion debe llevar como maximo 4 caracteres"
+                        ],
+                        "estatus" => [
+                            "required" => "El estatus del paciente es requerido",
+                            "alpha_numeric_space" => "EL estatus no puede llevar caracteres especiales"
                         ]
                     ]
                 );
@@ -278,7 +290,8 @@ class Odontologo extends BaseController
                         "materno"           => ucwords(strtolower(trim($this->request->getPost("materno")))),
                         "telefono_celular"  => trim($this->request->getPost("celular")),
                         "fecha_nacimiento"  => $this->request->getPost("fecha_nacimiento"),
-                        "domicilio"         => $this->request->getPost("domicilio"),                            
+                        "domicilio"         => $this->request->getPost("domicilio"),
+                        "estatus"           => $this->request->getPost("estatus"),                           
                         "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
                     ); 
 

@@ -23,16 +23,17 @@
                 <div class="card">
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
-                            <li class="nav-item"><a class="nav-link active" href="Pendiente" data-toggle="tab">Pendientes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pacientes_pendientes" data-toggle="tab">Pendientes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#Atendidas" data-toggle="tab">Atendidas</a></li>
                             <li class="nav-item"><a class="nav-link" href="#Canceladas" data-toggle="tab">Canceladas</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#Atendidas" data-toggle="tab">Atendidos</a></li>
                         </ul>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="tab-content">
-                            <div class="active tab-pane" id="Pendientes">
+                            <div class="active tab-pane" id="pacientes_pendientes">
                                 <!-- Post -->
+                               
                                 <table id="tbl_citas" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
@@ -51,11 +52,12 @@
                                         </tr>
                                     </thead>
                                 </table>
+                                
                             </div>
                             <!-- /.tab-pane -->
-                            <div class="tab-pane" id="Canceladas">
+                            <div class="tab-pane" id="Atendidas">
                                 <!-- The timeline -->
-                                <table id="tbl_citas" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                <table id="" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
                                                 <th width="5%">#</th>
@@ -76,8 +78,8 @@
                             </div>
                             <!-- /.tab-pane -->
 
-                            <div class="tab-pane" id="Atendidas">
-                            <table id="tbl_citas" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <div class="tab-pane" id="Canceladas">
+                            <table id="" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                          <tr>
                                             <th width="5%">#</th>

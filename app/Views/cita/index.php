@@ -176,13 +176,26 @@
                             </div>                       
                         </div>
                     </div>
-
                     <!-- Observacion -->
                     <div class="row">
                         <div class="col-lg-12">                        
                             <div class="form-group">
                                 <label for="observacion">Observacion<span class="text-danger">(*)</span>:</label>
                                 <textarea class="form-control" id="observacion" name="observacion" rows="3" placeholder="Describa..."></textarea>
+                            </div>                        
+                        </div>
+                    </div>
+                    <!-- Estatus -->
+                    <div class="row">
+                        <div class="col-lg-6">                        
+                            <div class="form-group">
+                                <label for="estatus">Estatus<span class="text-danger">(*)</span>:</label>
+                                <select class="custom-select" id="estatus" name="estatus"> 
+                                    <option value="">--seleccione--</option>
+                                    <option value="PENDIENTE">Pendiente</option>
+                                    <option value="CANCELADA">Cancelada</option>
+                                    <option value="ATENDIDA">Atendida</option>
+                                </select>
                             </div>                        
                         </div>
                     </div>

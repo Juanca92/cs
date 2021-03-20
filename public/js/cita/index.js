@@ -22,12 +22,12 @@ $(document).ready(function () {
         targets: 9,
         data: null,
         render: function (data, type, row, meta) {
-          if(data=='Pendiente'){
-            return'<span data="' +data +'" class="label label-primary label-sm"  </span>';
-          }else if(data=='Cancelada'){
-            return'<span data="' +data +'" class="label label-danger label-sm" </span>';
+          if(data[9]=="PENDIENTE"){
+            return('<a type="button" data="' +data[0] +'" class="btn btn-info btn-xs text-white">' +data[9] +' </span>');
+          }else if(data[9]=="CANCELADA"){
+            return('<a type="button" data="' +data[0] +'" class="btn btn-danger btn-xs text-white">' +data[9] +' </span>');
           }else{
-            return'<span data="' +data +'" class="label label-success label-sm"  </span>';
+            return('<a type="button" data="' +data[0] +'" class="btn btn-success btn-xs text-white">' +data[9] +' </span>');
           }  
         },
       },

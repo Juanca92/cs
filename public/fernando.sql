@@ -32,4 +32,24 @@ join `sp_odontologo` `odontologo` on
 join `sp_persona` `persona_odontologo` on
     (`odontologo`.`id_odontologo` = `persona_odontologo`.`id_persona`));
 
+--tabla de PERSONA alterada
+ALTER TABLE `sp_persona` ADD `estatus` ENUM('ACTIVO','INACTIVO') NOT NULL AFTER `domicilio`;
+
+-- Vista de Paciente y Persona alterada--
+CREATE OR REPLACE VIEW `sp_view_paciente`  AS  
+select p.id_persona, CONCAT(p.ci, ' ' ,p.expedido) AS ci_exp, 
+CONCAT(p.nombres, ' ', p.paterno,' ', p.materno) AS nombre_completo, p.telefono_celular, p.fecha_nacimiento,
+p.domicilio,o.id_ocupacion, o.nombre as ocupacion, p.estatus, p.estado, p.creado_en
+from sp_persona p join sp_paciente pa 
+on p.id_persona = pa.id_paciente
+join sp_ocupacion o on pa.id_ocupacion = o.id_ocupacion;
+
+-- Vista de Odontologo y Persona alterada--
+CREATE OR REPLACE VIEW `sp_view_odontologo`  AS  
+select p.id_persona, CONCAT(p.ci, ' ' ,p.expedido) AS ci_exp, 
+CONCAT(p.nombres, ' ', p.paterno,' ', p.materno) AS nombre_completo, p.telefono_celular, p.fecha_nacimiento,
+p.domicilio,o.turno, o.gestion_ingreso, p.estatus, p.estado, p.creado_en
+from sp_persona p join sp_odontologo o
+on p.id_persona = o.id_odontologo;
+
 

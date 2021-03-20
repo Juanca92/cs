@@ -39,7 +39,8 @@ class Paciente extends BaseController
                 array('db' => 'fecha_nacimiento', 'dt'  => 4),
                 array('db' => 'domicilio', 'dt'         => 5),
                 array('db' => 'ocupacion', 'dt'         => 6),
-                array('db' => 'creado_en', 'dt'         => 7)
+                array('db' => 'estatus', 'dt'           => 7),
+                array('db' => 'creado_en', 'dt'         => 8)
             );
 
             $sql_details = array(
@@ -83,7 +84,8 @@ class Paciente extends BaseController
                             "celular"           => 'required|numeric',
                             "fecha_nacimiento"  => "required|max_length[10]",
                             "id_ocupacion"      => "required",
-                            "domicilio"         => "required|alpha_numeric_space"
+                            "domicilio"         => "required|alpha_numeric_space",
+                            "estatus"           => "required|alpha_numeric_space"
                         ],
                         [ // errors
                             "ci" => [
@@ -122,6 +124,10 @@ class Paciente extends BaseController
                             "domicilio" => [
                                 "required" => "El domicilio del paciente es requerido",
                                 "alpha_numeric_space" => "EL Domicilio no puede llevar caracteres especiales"
+                            ],
+                            "estatus" => [
+                                "required" => "El estatus del paciente es requerido",
+                                "alpha_numeric_space" => "EL estatus no puede llevar caracteres especiales"
                             ]
                         ]
                     );
@@ -144,7 +150,8 @@ class Paciente extends BaseController
                             "materno"           => ucwords(strtolower(trim($this->request->getPost("materno")))),
                             "telefono_celular"  => trim($this->request->getPost("celular")),
                             "fecha_nacimiento"  => $this->request->getPost("fecha_nacimiento"),
-                            "domicilio"         => $this->request->getPost("domicilio"),                            
+                            "domicilio"         => $this->request->getPost("domicilio"), 
+                            "estatus"           => $this->request->getPost("estatus"),                            
                             "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
                         );                        
 
@@ -214,7 +221,8 @@ class Paciente extends BaseController
                         "celular"           => 'required|numeric',
                         "fecha_nacimiento"  => "required|max_length[10]",
                         "id_ocupacion"      => "required",
-                        "domicilio"         => "required|alpha_numeric_space"
+                        "domicilio"         => "required|alpha_numeric_space",
+                        "estatus"           => "required|alpha_numeric_space"
                     ],
                     [ // errors
                         "id" => [
@@ -256,6 +264,10 @@ class Paciente extends BaseController
                         "domicilio" => [
                             "required" => "El domicilio del paciente es requerido",
                             "alpha_numeric_space" => "EL Domicilio no puede llevar caracteres especiales"
+                        ],
+                        "estatus" => [
+                            "required" => "El estatus del paciente es requerido",
+                            "alpha_numeric_space" => "EL estatus no puede llevar caracteres especiales"
                         ]
                     ]
                 );
@@ -276,7 +288,8 @@ class Paciente extends BaseController
                         "materno"           => ucwords(strtolower(trim($this->request->getPost("materno")))),
                         "telefono_celular"  => trim($this->request->getPost("celular")),
                         "fecha_nacimiento"  => $this->request->getPost("fecha_nacimiento"),
-                        "domicilio"         => $this->request->getPost("domicilio"),                            
+                        "domicilio"         => $this->request->getPost("domicilio"),
+                        "estatus"           => $this->request->getPost("estatus"),                            
                         "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
                     ); 
 
