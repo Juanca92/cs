@@ -39,11 +39,12 @@ class Cita extends BaseController
                 array('db' => 'tipo_tratamiento', 'dt'  => 3),
                 array('db' => 'observacion', 'dt'       => 4),
                 array('db' => 'fecha', 'dt'             => 5),
-                array('db' => 'hora', 'dt'              => 6),
-                array('db' => 'costo', 'dt'             => 7),                
-                array('db' => 'nombre_odontologo', 'dt' => 8),
-                array('db' => 'estatus', 'dt'           => 9),
-                array('db' => 'creado_en', 'dt'         => 10)
+                array('db' => 'hora_inicio', 'dt'       => 6),
+                array('db' => 'hora_final', 'dt'        => 7),
+                array('db' => 'costo', 'dt'             => 8),                
+                array('db' => 'nombre_odontologo', 'dt' => 9),
+                array('db' => 'estatus', 'dt'           => 10),
+                array('db' => 'creado_en', 'dt'         => 11)
             );
 
             $sql_details = array(
@@ -75,7 +76,8 @@ class Cita extends BaseController
                             "numero_cita"       => 'required|numeric',
                             "tipo_tratamiento"  => "required|alpha_space",
                             "fecha"             => "required|max_length[10]",
-                            "hora"              => "required",
+                            "hora_inicio"       => "required",
+                            "hora_final"        => "required",
                             "tipo_atencion"     => "required",
                             "id_paciente"       => "required",
                             "id_odontologo"     => "required",
@@ -95,8 +97,11 @@ class Cita extends BaseController
                                 "required"   => "La fecha de cita es requerido",
                                 "max_length"=> "La fecha debe llevar como maximo 10 caracteres"
                             ],
-                            "hora" => [
-                                "required"   => "La Hora de cita es requerido"
+                            "hora_inicio" => [
+                                "required"   => "La Hora inicio de cita es requerido"
+                            ],
+                            "hora_final" => [
+                                "required"   => "La Hora final de cita es requerido"
                             ],
                             "tipo_atencion" => [
                                 "required" => "El Costo es requerido"
@@ -132,7 +137,8 @@ class Cita extends BaseController
                             "numero_cita"       => $this->request->getPost("numero_cita"),
                             "tipo_tratamiento"  => $this->request->getPost("tipo_tratamiento"),
                             "fecha"             => $this->request->getPost("fecha"),
-                            "hora"              => $this->request->getPost("hora"),
+                            "hora_inicio"       => $this->request->getPost("hora_inicio"),
+                            "hora_final"        => $this->request->getPost("hora_final"),
                             "costo"             => $this->request->getPost("tipo_atencion"),
                             "id_paciente"       => $this->request->getPost('id_paciente'),
                             "id_odontologo"     => $this->request->getPost('id_odontologo'),
@@ -161,7 +167,8 @@ class Cita extends BaseController
                         "numero_cita"       => 'required|numeric',
                         "tipo_tratamiento"  => "required|alpha_space",
                         "fecha"             => "required|max_length[10]",
-                        "hora"              => "required",
+                        "hora_inicio"       => "required",
+                        "hora_final"        => "required",
                         "tipo_atencion"     => "required",
                         "id_paciente"       => "required",
                         "id_odontologo"     => "required",
@@ -184,7 +191,10 @@ class Cita extends BaseController
                             "required"   => "La fecha de cita es requerido",
                             "max_length"=> "La fecha debe llevar como maximo 10 caracteres"
                         ],
-                        "hora" => [
+                        "hora_inicio" => [
+                            "required"   => "La Hora de cita es requerido"
+                        ],
+                        "hora_final" => [
                             "required"   => "La Hora de cita es requerido"
                         ],
                         "tipo_atencion" => [
@@ -219,7 +229,8 @@ class Cita extends BaseController
                         "numero_cita"       => $this->request->getPost("numero_cita"),
                         "tipo_tratamiento"  => $this->request->getPost("tipo_tratamiento"),
                         "fecha"             => $this->request->getPost("fecha"),
-                        "hora"              => $this->request->getPost("hora"),
+                        "hora_inicio"       => $this->request->getPost("hora_inicio"),
+                        "hora_final"        => $this->request->getPost("hora_final"),
                         "costo"             => $this->request->getPost("tipo_atencion"),
                         "id_paciente"       => $this->request->getPost('id_paciente'),
                         "id_odontologo"     => $this->request->getPost('id_odontologo'),

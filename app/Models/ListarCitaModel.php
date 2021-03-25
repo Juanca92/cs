@@ -5,7 +5,7 @@ namespace App\Models;
 use CodeIgniter\Database\Database;
 use CodeIgniter\Database\BaseBuilder;
 
-class CitaModel extends Database
+class ListarCitaModel extends Database
 {
     
     public $db = null;
@@ -15,7 +15,7 @@ class CitaModel extends Database
         $this->db = \Config\Database::connect();
     }
 
-    // Crud Cita
+    // Crud horario
     public function cita($accion, $datos, $condicion = null, $busqueda = null)
     {
 
@@ -42,15 +42,6 @@ class CitaModel extends Database
 
         return null;
     }
-
-    public function editar_cita($id)
-    {
-        $builder = $this->db->table('cita as c');
-        $builder->select('*');
-        $builder->where('id_cita', $id);
-        return $builder->get()->getResultArray();
-    }
-
     public function listar_paciente()
     {
         $builder = $this->db->table("view_paciente as p");
@@ -63,25 +54,12 @@ class CitaModel extends Database
         $builder->select('o.id_persona, o.nombre_completo');
         return $builder->get()->getResultArray();
     }
-    public function getEvents()
+    public function listar_odontologo1()
     {
-        $builder = $this->db->table("view_cita ");
-        $builder->select('id_cita AS id, nombre_paciente AS title, CONCAT(fecha," ",hora_inicio) AS start, CONCAT(fecha," ",hora_final) AS end,observacion AS description');
-      
+        $builder = $this->db->table("view_cita");
+        $builder->select('*');
+        $builder->where('id_odontologo = 2');
         return $builder->get()->getResultArray();
+      
     }
-
-    public function verificar_numero_cita($id)
-    {
-        if(!is_null($id)){
-            $builder = $this->db->table('cita');
-            $builder->select('numero_cita');
-            $builder->where('id_paciente',$id);
-            $builder->orderBy('numero_cita', 'DESC');
-            $builder->limit(1);
-            return $builder->get()->getResultArray();
-        }
-        return null;
-    }
-    
 }

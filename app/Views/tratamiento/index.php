@@ -391,6 +391,7 @@
                             <th>Nacimiento</th>
                             <th>Domicilio</th>
                             <th>Ocupacion</th>
+                            <th>Estatus</th>
                             <th>Registrado</th>
                             <th>Acciones</th>
                         </tr>

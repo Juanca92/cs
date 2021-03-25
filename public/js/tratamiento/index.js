@@ -32,6 +32,20 @@ $(document).ready(function(){
                 visible: false,
                 targets: 6
             },
+            {
+                searchable: false,
+                orderable: false,
+                visible: true,
+                targets: 7,
+                data: null,
+                render: function (data, type, row, meta) {
+                  if(data[7]=="ACTIVO"){
+                    return('<a type="button" data="' +data[0] +'" class="btn btn-success btn-xs text-white">' +data[7] +' </span>');
+                  }else {
+                    return('<a type="button" data="' +data[0] +'" class="btn btn-danger btn-xs text-white">' +data[7] +' </span>');
+                  }
+                },
+            },
 			{
 				searchable: false,
 				orderable: false,

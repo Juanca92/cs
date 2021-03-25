@@ -30,6 +30,11 @@
                             </button>
                         </h3>
                     </div>
+                    <style>
+                        table thead{
+                            background-color: #5DADE2 ;
+                        }
+                    </style>
                     <div class="card-body">
                         <!-- /.Contenido de la vista -->
                         <table id="tbl_pacientes" class="table table-striped table-bordered" cellspacing="0" width="100%">
