@@ -133,6 +133,20 @@ class Perfil extends BaseController
         if ($this->request->isAJAX()) {
             
             $file = $this->request->getFile('foto');
+            if($file->isValid())
+            {
+                $dir = '/img/users';
+                if (!is_dir($dir)) {
+                    mkdir($dir, 755, true);
+                }                 
+                $originalName = $file->getRandomName();
+                $file->move('./img/users/', $originalName);
+                echo "imagen valido " . $originalName;
+            }
+            else{
+                echo "imagen no valido";
+            }
+
             
         }
 

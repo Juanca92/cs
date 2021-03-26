@@ -137,11 +137,15 @@ $(document).ready(function () {
   // Guardar foto
   $("#frm_actualizar_foto").on("submit", function (e) {
     e.preventDefault();
+    let formData = new FormData($("#frm_actualizar_foto")[0]);
 
     $.ajax({
       type: "POST",
       url: "/perfil/subir_foto",
-      data: $("#frm_actualizar_foto").serialize(),
+      data: formData,
+      cache: false,
+      contentType: false,
+      processData: false,
       dataType: "JSON",
     }).done(function (response) {
       if (typeof response.warn !== "undefined") {

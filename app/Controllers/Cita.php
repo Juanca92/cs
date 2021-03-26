@@ -80,7 +80,7 @@ class Cita extends BaseController
                             "id_paciente"       => "required",
                             "id_odontologo"     => "required",
                             "observacion"       => "required|alpha_space",
-                            "estatus"           => "required|alpha_space"
+                            // "estatus"           => "required|alpha_space"
                         ],
                         [ // errors
                            "numero_cita" => [
@@ -137,7 +137,7 @@ class Cita extends BaseController
                             "id_paciente"       => $this->request->getPost('id_paciente'),
                             "id_odontologo"     => $this->request->getPost('id_odontologo'),
                             "observacion"       => trim($this->request->getPost("observacion")),
-                            "estatus"           => $this->request->getPost("estatus"),                           
+                            "estatus"           => "Cancelada",                           
                             "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
                         );                        
 
