@@ -10,7 +10,7 @@ $(document).ready(function() {
       weekNumbers: false,
       eventLimit: true,
       events:'cita/getEvents',
-      eventColor: 'orange',
+      eventColor: 'fuchsia',
       
       dayClick: function (date, jsEvent, view) {
           alert('Has hecho click en: '+ date.format());

@@ -30,6 +30,11 @@
                             </button>
                         </h3>
                     </div>
+                    <style>
+                        table thead{
+                            background-color: #DBF931;
+                        }
+                    </style>
                     <div class="card-body">
                         <!-- /.Contenido de la vista -->
                         <table id="tbl_odontologos" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -43,6 +48,7 @@
                                     <th>Domicilio</th>
                                     <th>Turno</th>
                                     <th>Ingreso</th>
+                                    <th>Estatus</th>
                                     <th>Registrado</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -175,6 +181,19 @@
                                 <label for="domicilio">Domicilio <span class="text-danger">(*)</span>:</label>
                                 <textarea class="form-control" id="domicilio" name="domicilio" rows="1" placeholder="Domicilio ..."></textarea>
                             </div>                        
+                        </div>
+                    </div>
+                    <!-- Estatus -->
+                    <div class="row">
+                    <div class="col-lg-5">
+                            <div class="form-group">
+                                <label for="estatus">Estatus<span class="text-danger">(*)</span>:</label>
+                                <select class="custom-select" id="estatus" name="estatus" required>
+                                    <option value="">-- Seleccione --</option>
+                                    <option value="ACTIVO">Activo</option>
+                                    <option value="INACTIVO">Inactivo</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 

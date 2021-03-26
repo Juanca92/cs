@@ -5,7 +5,7 @@ namespace App\Models;
 use CodeIgniter\Database\Database;
 use CodeIgniter\Database\BaseBuilder;
 
-class GestionarCitaModel extends Database
+class HorarioModel extends Database
 {
     
     public $db = null;
@@ -15,11 +15,11 @@ class GestionarCitaModel extends Database
         $this->db = \Config\Database::connect();
     }
 
-    // Crud Cita
-    public function cita($accion, $datos, $condicion = null, $busqueda = null)
+    // Crud horario
+    public function horario($accion, $datos, $condicion = null, $busqueda = null)
     {
 
-        $builder = $this->db->table("cita");
+        $builder = $this->db->table("horario");
 
         switch ($accion) {
             case 'select':
@@ -42,24 +42,10 @@ class GestionarCitaModel extends Database
 
         return null;
     }
-    public function listar_paciente()
+    public function listar_fecha()
     {
-        $builder = $this->db->table("view_paciente as p");
-        $builder->select('p.id_persona, p.nombre_completo');
+        $builder = $this->db->table("view_cita ");
+        $builder->select('fecha');
         return $builder->get()->getResultArray();
     }
-    public function listar_odontologo()
-    {
-        $builder = $this->db->table("view_odontologo as o");
-        $builder->select('o.id_persona, o.nombre_completo');
-        return $builder->get()->getResultArray();
-    }
-    public function pacientes_pendientes()
-        {
-            $builder = $this->db->table("view_cita ");
-            $builder->select('*');
-            $builder->where('estatus = 1' );
-            return $builder->get()->getResultArray();
-        }
-    
 }

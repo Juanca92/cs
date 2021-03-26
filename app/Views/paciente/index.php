@@ -30,6 +30,11 @@
                             </button>
                         </h3>
                     </div>
+                    <style>
+                        table thead{
+                            background-color: #5DADE2 ;
+                        }
+                    </style>
                     <div class="card-body">
                         <!-- /.Contenido de la vista -->
                         <table id="tbl_pacientes" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -42,6 +47,7 @@
                                     <th>Nacimiento</th>
                                     <th>Domicilio</th>
                                     <th>Ocupacion</th>
+                                    <th>Estatus</th>
                                     <th>Registrado</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -144,8 +150,20 @@
                         <input type="hidden" name="accion" id="accion">
                     </div>
                     <!-- Ocupacion -->
+                    
+
+                    <!-- Domicilio -->
                     <div class="row">
-                        <div class="col-lg-12">                        
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="domicilio">Domicilio <span class="text-danger">(*)</span>:</label>
+                                <textarea class="form-control" id="domicilio" name="domicilio" rows="1" placeholder="Domicilio ..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!--ocupacion y  Estatus-->
+                    <div class="row">
+                        <div class="col-lg-7">                        
                         <div class="form-group">
                         <label for="ocupacion">Ocupaci&oacute;n <span class="text-danger">(*)</span>:</label>
                             <select class="form-control select2bs4" style="width: 100%;" id="id_ocupacion" name="id_ocupacion">
@@ -158,14 +176,15 @@
                             </select>
                             </div>                       
                         </div>
-                    </div>
-
-                    <!-- Domicilio -->
-                    <div class="row">
-                        <div class="col-lg-12">
+                    
+                        <div class="col-lg-5">
                             <div class="form-group">
-                                <label for="domicilio">Domicilio <span class="text-danger">(*)</span>:</label>
-                                <textarea class="form-control" id="domicilio" name="domicilio" rows="1" placeholder="Domicilio ..."></textarea>
+                                <label for="estatus">Estatus<span class="text-danger">(*)</span>:</label>
+                                <select class="custom-select" id="estatus" name="estatus" required>
+                                    <option value="">-- Seleccione --</option>
+                                    <option value="ACTIVO">Activo</option>
+                                    <option value="INACTIVO">Inactivo</option>
+                                </select>
                             </div>
                         </div>
                     </div>

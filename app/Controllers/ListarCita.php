@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 use App\Libraries\Ssp;
-use App\Models\GestionarCitaModel;
+use App\Models\ListarCitaModel;
 
-class GestionarCita extends BaseController
+class ListarCita extends BaseController
 {
     public $model = null;
     public $fecha = null;
@@ -12,7 +12,7 @@ class GestionarCita extends BaseController
     public function __construct()
     {
         parent::__construct();
-        $this->model = new GestionarCitaModel();
+        $this->model = new ListarCitaModel();
         $this->fecha = new \DateTime();
     }
 
@@ -21,7 +21,7 @@ class GestionarCita extends BaseController
 	{
        $this->data['paciente'] = $this->model->listar_paciente();
        $this->data['odontologo'] = $this->model->listar_odontologo();
-		return $this->templater->view("gestionarCita/index", $this->data);
+		return $this->templater->view("listarCita/index", $this->data);
 	}
 
     // Listado de citas
@@ -57,13 +57,13 @@ class GestionarCita extends BaseController
             return $this->response->setJSON(json_encode(SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $where)));
         }
 	}
-    public function pacientes_pendientes()
-    {
+     // 
+     public function listar_odontologo1()
+     {
+        // se Verifica si es petición ajax
         if ($this->request->isAJAX()) {
-            $respuesta = $this->model->pacientes_pendientes();
+            $respuesta = $this->model->listar_odontologo1();
             return $this->response->setJSON(json_encode($respuesta));
-        }
-    }
-
-
+        }  
+     }
 }

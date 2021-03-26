@@ -1,10 +1,10 @@
 $(document).ready(function () {
     // Listado de citas
-    $("#tbl_citas").DataTable({
+    $("#tbl_citas_pendientes").DataTable({
       responsive: true,
       processing: true,
       serverSide: true,
-      ajax: "/cita/ajaxListarCitas",
+      ajax: "/gestionarCita/pacientes_pendientes",
       language: {
         url: "/plugins/datatables/lang/Spanish.json",
       },
@@ -26,6 +26,28 @@ $(document).ready(function () {
             orderable: true,
             visible: false,
             targets: 4
+          },
+          {
+            searchable: true,
+            orderable: true,
+            visible: false,
+            targets: 7
+          },
+          {
+            searchable: false,
+            orderable: false,
+            visible: true,
+            targets: 10,
+            data: null,
+            render: function (data, type, row, meta) {
+              if(data[10]=="PENDIENTE"){
+                return('<a type="button" data="' +data[0] +'" class="btn btn-info btn-xs text-white">' +data[10] +' </span>');
+              }else if(data[10]=="CANCELADA"){
+                return('<a type="button" data="' +data[0] +'" class="btn btn-danger btn-xs text-white">' +data[10] +' </span>');
+              }else{
+                return('<a type="button" data="' +data[0] +'" class="btn btn-success btn-xs text-white">' +data[10] +' </span>');
+              }  
+            },
           },
           {
             searchable: true,
@@ -55,8 +77,5 @@ $(document).ready(function () {
         },
       ],
     });
-    
-
-
 
 });

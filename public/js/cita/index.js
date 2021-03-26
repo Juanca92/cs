@@ -16,12 +16,25 @@ $(document).ready(function () {
         targets: 4
       },
       {
+        searchable: true,
+        orderable: true,
+        visible: false,
+        targets: 7
+      },
+      {
+        searchable: true,
+        orderable: true,
+        visible: false,
+        targets: 8
+      },
+      {
         searchable: false,
         orderable: false,
         visible: true,
-        targets: 9,
+        targets: 10,
         data: null,
         render: function (data, type, row, meta) {
+<<<<<<< HEAD
           if(data[9] == "Pendiente"){
             return ('<a type="button" data="' +data[0]+'" class="btn btn-info btn-xs text-white" >'+data[9]+'</a>');
           }else if(data[9] == "Cancelada"){
@@ -29,6 +42,15 @@ $(document).ready(function () {
           }else{
             return ('<a type="button" data="' +data[0]+'" class="btn btn-success btn-xs text-white" >'+data[9]+'</a>');
           }
+=======
+          if(data[10]=="PENDIENTE"){
+            return('<a type="button" data="' +data[0] +'" class="btn btn-info btn-xs text-white">' +data[10] +' </span>');
+          }else if(data[10]=="CANCELADA"){
+            return('<a type="button" data="' +data[0] +'" class="btn btn-danger btn-xs text-white">' +data[10] +' </span>');
+          }else{
+            return('<a type="button" data="' +data[0] +'" class="btn btn-success btn-xs text-white">' +data[10] +' </span>');
+          }  
+>>>>>>> e14614d51b989a8feaecfe0cfa92c7037c7295b0
         },
       },
       {
@@ -47,12 +69,9 @@ $(document).ready(function () {
             '<div class="btn-group" role="group">' +
             '<a data="' +
             data[0] +
-            '" class="btn btn-warning btn-sm mdi mdi-tooltip-edit text-white btn_editar_cita" data-toggle="tooltip" title="Editar">' +
+            '" class="btn btn-warning btn-sm mdi mdi-tooltip-edit text-Editar btn_editar_cita" data-toggle="tooltip" title="Editar">' +
             '<i class="fa fa-pen"></i></a>' +
             '<a data="' +
-            data[0] +
-            '" class="btn btn-danger btn-sm mdi mdi-delete-forever text-white btn_eliminar_cita" data-toggle="tooltip" title="Eliminar">' +
-            '<i class="fa fa-trash"></i></a>' +
             "</div>"
           );
         },
@@ -149,7 +168,8 @@ $(document).ready(function () {
     $("#numero_cita").val("");
     $("#tipo_tratamiento").val("");
     $("#fecha").val("");
-    $("#hora").val("");
+    $("#hora_inicio").val("");
+    $("#hora_final").val("");
     $("#costo").val("");
     $("#id_paciente").val("").trigger("change");
     $("#id_odontologo").val("").trigger("change");
@@ -173,7 +193,8 @@ $(document).ready(function () {
         $("#numero_cita").val(response[0]["numero_cita"]);
         $("#tipo_tratamiento").val(response[0]["tipo_tratamiento"]);
         $("#fecha").val(response[0]["fecha"]);
-        $("#hora").val(response[0]["hora"]);
+        $("#hora_inicio").val(response[0]["hora_inicio"]);
+        $("#hora_final").val(response[0]["hora_final"]);
         if (response[0]["costo"] == "") {
           $("#tipo_atencion").val("Gratuito");
           $("#costo").attr("disabled", "disabled");
@@ -226,10 +247,12 @@ $(document).ready(function () {
     });
   });
 
-  //clockpiker
-  
-  $("#hora").clockpicker({
-    });
+  //clockpiker inicio
+  $("#hora_inicio").clockpicker({
+   });
+  //clockpicker final
+  $("#hora_final").clockpicker({
+  });
   
   //datepicker
   $.datepicker.regional['es'] = {
@@ -255,7 +278,7 @@ $(document).ready(function () {
 
   //agenda
   $(document).ready(function() {
-    $('#calendar').fullCalendar({
+    $('#calendar_fecha').fullCalendar({
         header: {
             left: 'prev,next',
             center: 'title',
@@ -263,11 +286,10 @@ $(document).ready(function () {
         },
         defaultDate: new Date(),
         buttonIcons: true,
-        weekNumbers: false,
         description: true,
         eventLimit: true,
         events:'cita/getEvents',
-        eventColor: 'turquoise',
+        eventColor: 'lime',
         
         dayClick: function (date, jsEvent, view) {
             alert('Has hecho click en: '+ date.format());
@@ -278,9 +300,10 @@ $(document).ready(function () {
             $('#modal-event').modal();
         },  
     
+    });
   });
- 
-  });
+  //hora
+  
   //incremento de numero en cita 
   $("#id_paciente").on("change", function(){
     let id = $("#id_paciente").val();
@@ -297,9 +320,34 @@ $(document).ready(function () {
     }).fail(function(e){
        
     })
-})
+  })
+  //tabla horario
+  
+  $("#tbl_horarios").DataTable({
+    
+		responsive: true,
+		processing: true,
+		serverSide: true,
+    "bPaginate": false,
+    "bFilter": false,
+    "bInfo": false,
+		ajax: '/horario/ajaxListarHorarios',
+		language: {
+			url: '/plugins/datatables/lang/Spanish.json',
+		},
+		columnDefs: [
+            {
+                searchable: true,
+                orderable: true,
+                visible: false,
+                targets: 0
+            },
+		],
+    
+    
+	});
+  
 
-// alert("fjalskfjlasfjkl")
 });  //fin del principio
   
 
