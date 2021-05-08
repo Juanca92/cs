@@ -18,9 +18,9 @@
                 <div class="topbar-item" data-toggle="dropdown">
                     <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2">
                         <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Bienvenido,</span>
-                        <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3"><?= isset($_SESSION['nombres'])? $_SESSION['nombres'] : 'Invitado' ?></span>
+                        <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3"><?= isset($_SESSION['nombres']) ? $_SESSION['nombres'] : 'Invitado' ?></span>
                         <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
-                            <span class="symbol-label font-size-h5 font-weight-bold"><?= isset($_SESSION['avatar']) ? $_SESSION['avatar'] :'IN' ;?></span>
+                            <span class="symbol-label font-size-h5 font-weight-bold"><?= isset($_SESSION['avatar']) ? $_SESSION['avatar'] : 'IN'; ?></span>
                         </span>
                     </div>
                 </div>
@@ -36,14 +36,18 @@
                         <div class="d-flex align-items-center mt-1">
                             <!-- Foto de Perfil -->
                             <div class="symbol symbol-100 mt-3 mr-4">
-                                <img class="symbol-label" src="<?= base_url('img/users/default/default.png'); ?>" alt="Foto de Perfil de Usuario" />
+                                <?php if (isset($_SESSION['foto']) && $_SESSION['foto'] != "") { ?>
+                                    <img class="symbol-label" src="<?= base_url($_SESSION['foto']); ?>" alt="Foto de Perfil de Usuario" />
+                                <?php } else { ?>
+                                    <img class="symbol-label" src="<?= base_url('img/users/default/default.png'); ?>" alt="Foto de Perfil de Usuario" />
+                                <?php } ?>
                                 <i class="symbol-badge bg-success"></i>
                             </div>
 
                             <!-- Informacion del usuario -->
                             <div class="d-flex flex-column">
-                                <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary"><?= isset($_SESSION['nombres']) ? $_SESSION['nombres'].' '.$_SESSION['paterno'].' '.$_SESSION['materno'] :'Invitado' ;?></a>
-                                <div class="text-muted mt-0"><?= isset($_SESSION['nombre_grupo']) ? $_SESSION['nombre_grupo'] : 'INVITADO' ;?></div>
+                                <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary"><?= isset($_SESSION['nombres']) ? $_SESSION['nombres'] . ' ' . $_SESSION['paterno'] . ' ' . $_SESSION['materno'] : 'Invitado'; ?></a>
+                                <div class="text-muted mt-0"><?= isset($_SESSION['nombre_grupo']) ? $_SESSION['nombre_grupo'] : 'INVITADO'; ?></div>
                                 <div class="navi mt-0">
                                     <a href="#" class="navi-item">
                                         <span class="navi-link p-1 pb-1">
@@ -87,7 +91,7 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-light-navy elevation-4"> 
+    <aside class="main-sidebar sidebar-light-navy elevation-4">
         <!-- Brand Logo -->
         <a href="/" class="brand-link navbar-navy elevation-4">
             <img src="<?php echo base_url('img/logo.png') ?>" alt="Logo San Pedro" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
@@ -99,11 +103,15 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="<?php echo base_url('img/users/default/default.png') ?>" class="img-circle elevation-2" alt="User Image">
+                    <?php if (isset($_SESSION['foto']) && $_SESSION['foto'] != "") { ?>
+                        <img src="<?php echo base_url($_SESSION['foto']) ?>" class="img-circle elevation-2" alt="User Image">
+                    <?php } else { ?>
+                        <img src="<?php echo base_url('img/users/default/default.png') ?>" class="img-circle elevation-2" alt="User Image">
+                    <?php } ?>
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block"><?= (isset($_SESSION["nombres"])) ? $_SESSION["nombres"].' '.$_SESSION["paterno"] : "Invitado"; ?></a>
-                </div>          
+                    <a href="#" class="d-block"><?= (isset($_SESSION["nombres"])) ? $_SESSION["nombres"] . ' ' . $_SESSION["paterno"] : "Invitado"; ?></a>
+                </div>
 
             </div>
 
@@ -112,7 +120,3 @@
         </div>
         <!-- /.sidebar -->
     </aside>
-
-
-
-    

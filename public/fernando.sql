@@ -57,7 +57,19 @@ p.domicilio,o.turno, o.gestion_ingreso, p.estatus, p.estado, p.creado_en
 from sp_persona p join sp_odontologo o
 on p.id_persona = o.id_odontologo;
 
+<<<<<<< HEAD
 
+=======
+CREATE TABLE `sp_horario` (
+  `id_horario` int(11) NOT NULL AUTO_INCREMENT,
+  `entrada` time not null,
+  `salida` time not null,
+  `id_cita` int(11) NOT NULL,
+  `creado_en` timestamp NOT NULL DEFAULT current_timestamp(),
+  `actualizado_en` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_horario`)
+);
+>>>>>>> a13a2c187bb549771d684aab364ee91ef785669d
 
 INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '08:30:00', '09:00:00', current_timestamp(), NULL);
 INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '09:00:00', '09:30:00', current_timestamp(), NULL);

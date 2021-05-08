@@ -158,4 +158,8 @@ class Perfil extends BaseController
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a13a2c187bb549771d684aab364ee91ef785669d
