@@ -322,6 +322,16 @@ class Cita extends BaseController
         return null;
         // var_dump();
     }
+    /*
+    public function verificar_hora_cita()
+    {
+        $id = $this->request->getPost("id");
+        $respuesta = $this->model->verificar_hora_cita($id);
+
+        if(date("Y-m-d", strtotime("fecha"))== new date("Y-m-d", strtotime($fecha)))
+
+
+    }*/
     
 
 }

@@ -25,12 +25,12 @@ class GestionarCita extends BaseController
 	}
 
     // Listado de citas
-   public function ajaxListarCitas()
+   public function ajaxListarCitasPendientes()
 	{
         if ($this->request->isAJAX()) {		
             $table = 'sp_view_cita';
             $primaryKey = 'id_cita';
-            $where = "estado=1"; 
+            $where = "estatus=1"; 
 
             $columns = array(
                 array('db' => 'id_cita', 'dt'           => 0),                
@@ -57,13 +57,70 @@ class GestionarCita extends BaseController
             return $this->response->setJSON(json_encode(SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $where)));
         }
 	}
-    public function pacientes_pendientes()
-    {
-        if ($this->request->isAJAX()) {
-            $respuesta = $this->model->pacientes_pendientes();
-            return $this->response->setJSON(json_encode($respuesta));
-        }
-    }
+    
+    public function ajaxListarCitasAtendidas()
+	{
+        if ($this->request->isAJAX()) {		
+            $table = 'sp_view_cita';
+            $primaryKey = 'id_cita';
+            $where = "estatus=3"; 
 
+            $columns = array(
+                array('db' => 'id_cita', 'dt'           => 0),                
+                array('db' => 'numero_cita', 'dt'       => 1),
+                array('db' => 'nombre_paciente', 'dt'   => 2),
+                array('db' => 'tipo_tratamiento', 'dt'  => 3),
+                array('db' => 'observacion', 'dt'       => 4),
+                array('db' => 'fecha', 'dt'             => 5),
+                array('db' => 'hora_inicio', 'dt'       => 6),
+                array('db' => 'hora_final', 'dt'        => 7),
+                array('db' => 'costo', 'dt'             => 8),                
+                array('db' => 'nombre_odontologo', 'dt' => 9),
+                array('db' => 'estatus', 'dt'           => 10),
+                array('db' => 'creado_en', 'dt'         => 11)
+            );
+
+            $sql_details = array(
+                'user' => $this->db->username, 
+                'pass' => $this->db->password, 
+                'db'   => $this->db->database, 
+                'host' => $this->db->hostname
+            );
+
+            return $this->response->setJSON(json_encode(SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $where)));
+        }
+	}
+    public function ajaxListarCitasCanceladas()
+	{
+        if ($this->request->isAJAX()) {		
+            $table = 'sp_view_cita';
+            $primaryKey = 'id_cita';
+            $where = "estatus=2"; 
+
+            $columns = array(
+                array('db' => 'id_cita', 'dt'           => 0),                
+                array('db' => 'numero_cita', 'dt'       => 1),
+                array('db' => 'nombre_paciente', 'dt'   => 2),
+                array('db' => 'tipo_tratamiento', 'dt'  => 3),
+                array('db' => 'observacion', 'dt'       => 4),
+                array('db' => 'fecha', 'dt'             => 5),
+                array('db' => 'hora_inicio', 'dt'       => 6),
+                array('db' => 'hora_final', 'dt'        => 7),
+                array('db' => 'costo', 'dt'             => 8),                
+                array('db' => 'nombre_odontologo', 'dt' => 9),
+                array('db' => 'estatus', 'dt'           => 10),
+                array('db' => 'creado_en', 'dt'         => 11)
+            );
+
+            $sql_details = array(
+                'user' => $this->db->username, 
+                'pass' => $this->db->password, 
+                'db'   => $this->db->database, 
+                'host' => $this->db->hostname
+            );
+
+            return $this->response->setJSON(json_encode(SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $where)));
+        }
+	}
 
 }

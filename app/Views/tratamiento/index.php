@@ -18,276 +18,706 @@
 <!-- Main content -->
 <section class="content" id="content">
     <div class="container-fluid">
-        <div class="row">            
+        <div class="row">
             <div class="col-md-9">
-                <div class="card">
+                <div class="card card-light">
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
-                            <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Datos
+                                    Personales</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Exploracion
+                                    fisica</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Odontograma</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="#tratamientos" data-toggle="tab">Tratamientos
+                                    Realizados</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#" data-toggle="tab">Historia
+                                    Clinica</a></li>
                         </ul>
                     </div>
+
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="tab-content">
                             <div class="active tab-pane" id="activity">
-                                <!-- Post -->
-                                <div class="post">
-                                    <div class="user-block">
-                                        <img class="img-circle img-bordered-sm" src="<?= base_url('img/user2-160x160.jpg'); ?>" alt="user image">
-                                        <span class="username">
-                                        <a href="#">JUan Carlos COndori</a>
-                                        <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                                        </span>
-                                        <span class="description">Shared publicly - 7:30 PM today</span>
+                                <!-- Campos de Ci y Expedido -->
+                                <div class="card card-info">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Datos del paciente</h3>
                                     </div>
-                                    <!-- /.user-block -->
-                                    <p>
-                                        Lorem ipsum represents a long-held tradition for designers,
-                                        typographers and the like. Some people hate it and argue for
-                                        its demise, but others ignore the hate as they create awesome
-                                        tools to help create filler text for everyone from bacon lovers
-                                        to Charlie Sheen fans.
-                                    </p>
+                                    <form id="frm_guardar_paciente">
+                                        <div class="row">
+                                            <div class="col-lg-7">
+                                                <div class="form-group">
+                                                    <label for="ci">CI <span class="text-danger">(*)</span>:</label>
+                                                    <input type="text" id="ci" name="ci" class="form-control"
+                                                        placeholder="CI ..">
+                                                </div>
+                                            </div>
 
-                                    <p>
-                                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
-                                        <span class="float-right">
-                                            <a href="#" class="link-black text-sm">
-                                                <i class="far fa-comments mr-1"></i> Comments (5)
-                                            </a>
-                                        </span>
-                                    </p>
+                                            <div class="col-lg-5">
+                                                <div class="form-group">
+                                                    <label for="expedido">Expedido <span
+                                                            class="text-danger">(*)</span>:</label>
+                                                    <select class="custom-select" id="expedido" name="expedido"
+                                                        required>
+                                                        <option value="">-- Expedido en --</option>
+                                                        <option value="CH">LP</option>
+                                                        <option value="LP">OR</option>
+                                                        <option value="CB">CB</option>
+                                                        <option value="OR">PT</option>
+                                                        <option value="PT">CH</option>
+                                                        <option value="SC">TJ</option>
+                                                        <option value="PA">SC</option>
+                                                        <option value="TJ">BE</option>
+                                                        <option value="BN">PD</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                    <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
-                                </div>
-                                <!-- /.post -->
+                                        <!-- Campo Nombres -->
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="nombres">Nombres <span
+                                                            class="text-danger">(*)</span>:</label>
+                                                    <input type="text" class="form-control" id="nombres" name="nombres"
+                                                        placeholder="Nombres" required>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <!-- Post -->
-                                <div class="post clearfix">
-                                    <div class="user-block">
-                                        <img class="img-circle img-bordered-sm" src="<?= base_url('img/user2-160x160.jpg'); ?>" alt="User Image">
-                                        <span class="username">
-                                            <a href="#">Sarah Ross</a>
-                                            <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                                        </span>
-                                        <span class="description">Sent you a message - 3 days ago</span>
-                                    </div>
-                                    <!-- /.user-block -->
-                                    <p>
-                                        Lorem ipsum represents a long-held tradition for designers,
-                                        typographers and the like. Some people hate it and argue for
-                                        its demise, but others ignore the hate as they create awesome
-                                        tools to help create filler text for everyone from bacon lovers
-                                        to Charlie Sheen fans.
-                                    </p>
+                                        <!-- Campos Paterno y Materno -->
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="paterno">Paterno <span
+                                                            class="text-danger">(*)</span>:</label>
+                                                    <input type="text" id="paterno" name="paterno" class="form-control"
+                                                        placeholder="Apellido Paterno">
+                                                </div>
+                                            </div>
 
-                                    <form class="form-horizontal">
-                                        <div class="input-group input-group-sm mb-0">
-                                            <input class="form-control form-control-sm" placeholder="Response">
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-danger">Send</button>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="materno">Materno :</label>
+                                                    <input type="text" id="materno" name="materno" class="form-control"
+                                                        placeholder="Apellido Materno">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Celular y Fecha de Nacimiento -->
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="celular">Celular <span
+                                                            class="text-danger">(*)</span>:</label>
+                                                    <input type="number" id="celular" name="celular"
+                                                        class="form-control" placeholder="Celular">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="fecha_nacimiento">Fecha Nacimiento <span
+                                                            class="text-danger">(*)</span>:</label>
+                                                    <input type="datepicker" id="fecha_nacimiento"
+                                                        name="fecha_nacimiento" class="form-control" readonly="">
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="id" id="id">
+                                            <input type="hidden" name="accion" id="accion">
+                                        </div>
+                                        <!-- Ocupacion -->
+
+
+                                        <!-- Domicilio -->
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="domicilio">Domicilio <span
+                                                            class="text-danger">(*)</span>:</label>
+                                                    <textarea class="form-control" id="domicilio" name="domicilio"
+                                                        rows="1" placeholder="Domicilio ..."></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--ocupacion y  Estatus-->
+                                        <div class="row">
+                                            <div class="col-lg-7">
+                                                <div class="form-group">
+                                                    <label for="ocupacion">Ocupaci&oacute;n <span
+                                                            class="text-danger">(*)</span>:</label>
+                                                    <select class="form-control select2bs4" style="width: 100%;"
+                                                        id="id_ocupacion" name="id_ocupacion">
+                                                        <!-- <option value="">-- Seleccione Ocupaci&oacute;n --</option> -->
+                                                        <?php
+                                                            foreach ($this->data["ocupaciones"] as $key => $value) {
+                                                                echo '<option value="' . $value["id_ocupacion"] . '">' . $value["nombre"] . '</option>';
+                                                            }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-5">
+                                                <div class="form-group">
+                                                    <label for="estatus">Estatus<span
+                                                            class="text-danger">(*)</span>:</label>
+                                                    <select class="custom-select" id="estatus" name="estatus" required>
+                                                        <option value="">-- Seleccione --</option>
+                                                        <option value="ACTIVO">Activo</option>
+                                                        <option value="INACTIVO">Inactivo</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row text-right">
+                                            <div class="offset-sm-2 col-sm-10">
+                                                <button type="submit" class="btn btn-danger">Guardar</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-                                <!-- /.post -->
-
-                                <!-- Post -->
-                                <div class="post">
-                                    <div class="user-block">
-                                        <img class="img-circle img-bordered-sm" src="<?= base_url('img/user2-160x160.jpg'); ?>" alt="User Image">
-                                        <span class="username">
-                                            <a href="#">Adam Jones</a>
-                                            <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                                        </span>
-                                        <span class="description">Posted 5 photos - 5 days ago</span>
-                                    </div>
-                                    <!-- /.user-block -->
-                                    <div class="row mb-3">
-                                        <div class="col-sm-6">
-                                            <img class="img-fluid" src="../../dist/img/photo1.png" alt="Photo">
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col-sm-6">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <img class="img-fluid mb-3" src="../../dist/img/photo2.png" alt="Photo">
-                                                    <img class="img-fluid" src="../../dist/img/photo3.jpg" alt="Photo">
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col-sm-6">
-                                                    <img class="img-fluid mb-3" src="../../dist/img/photo4.jpg" alt="Photo">
-                                                    <img class="img-fluid" src="../../dist/img/photo1.png" alt="Photo">
-                                                </div>
-                                                <!-- /.col -->
-                                            </div>
-                                        <!-- /.row -->
-                                        </div>
-                                        <!-- /.col -->
-                                    </div>
-                                    <!-- /.row -->
-
-                                    <p>
-                                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
-                                        <span class="float-right">
-                                            <a href="#" class="link-black text-sm">
-                                                <i class="far fa-comments mr-1"></i> Comments (5)
-                                            </a>
-                                        </span>
-                                    </p>
-
-                                    <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
-                                </div>
-                                <!-- /.post -->
                             </div>
                             <!-- /.tab-pane -->
+
                             <div class="tab-pane" id="timeline">
-                                <!-- The timeline -->
-                                <div class="timeline timeline-inverse">
-                                    <!-- timeline time label -->
-                                    <div class="time-label">
-                                        <span class="bg-danger">
-                                        10 Feb. 2014
-                                        </span>
+                                <div class="card card-secondary">
+                                    <div class="card-header p-2">
+                                        <ul class="nav nav-pills">
+                                            <li class="nav-item"><a class="nav-link active" href="#time"
+                                                    data-toggle="tab">Enfermerdad actual</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="#timel"
+                                                    data-toggle="tab">Consulta de salud</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="#timeli"
+                                                    data-toggle="tab">Exploracion fisica</a>
+                                            </li>
+                                            <li class="nav-item"><a class="nav-link" href="#alergias"
+                                                    data-toggle="tab">Alergias</a>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-envelope bg-primary"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 12:05</span>
-
-                                            <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-                                            <div class="timeline-body">
-                                                Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                                                weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                                                jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                                                quora plaxo ideeli hulu weebly balihoo...
+                                    <!-- enfermedad Actual-->
+                                    <div class="card-body">
+                                        <div class="tab-content">
+                                            <div class="active tab-pane" id="time">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="">Tiempo de Enfermedad <span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <input type="text" id="" name="" class="form-control"
+                                                                placeholder="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Motivo de Consulta <span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <textarea type="text" id="" name="" class="form-control"
+                                                                style="overflow:auto;resize:none" rows="3"
+                                                                placeholder="datalle aqui"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Sintomas principales <span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <textarea type="text" id="" name="" class="form-control"
+                                                                style="overflow:auto;resize:none" rows="3"
+                                                                placeholder="escriba aqui"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Esta tomando algun medicamento? <span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <div>
+                                                                <label for="">Si</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="">No</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Medicamento<span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <input type="text" id="" name="" class="form-control"
+                                                                rows="3" placeholder="escriba aqui">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Motivo <span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <input type="text" id="" name="" class="form-control"
+                                                                placeholder="datalle aqui">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Cantidad dosis<span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <input type="text" id="" name="" class="form-control"
+                                                                placeholder="escriba aqui">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row text-right">
+                                                    <div class="offset-sm-2 col-sm-10">
+                                                        <button type="submit" class="btn btn-danger">Guardar</button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="timeline-footer">
-                                                <a href="#" class="btn btn-primary btn-sm">Read more</a>
-                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                            <!-- Consulta de salud-->
+                                            <div class="tab-pane" id="timel">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">alguna vez hizo tratamiento de Ortodoncia?
+                                                                <span class="text-danger">(*)</span>:</label>
+                                                            <div>
+                                                                <label for="">Si</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="">No</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Por que?<span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <textarea type="text" id="" name="" class="form-control"
+                                                                style="overflow:auto;resize:none" rows="3"
+                                                                placeholder="escriba aqui"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Esta tomando algun medicamento? <span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <div>
+                                                                <label for="">Si</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="">No</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Por que y cuanto tiempo?<span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <textarea type="text" id="" name="" class="form-control"
+                                                                style="overflow:auto;resize:none" rows="3"
+                                                                placeholder="escriba aqui"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Es alergico a algun medicamento o anastesico?
+                                                                <span class="text-danger">(*)</span>:</label>
+                                                            <div>
+                                                                <label for="">Si</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="">No</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Cual?<span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <textarea type="text" id="" name="" class="form-control"
+                                                                style="overflow:auto;resize:none" rows="3"
+                                                                placeholder="escriba aqui"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Ah tenido alguna cirugia? <span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <div>
+                                                                <label for="">Si</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="">No</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Por que?<span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <textarea type="text" id="" name="" class="form-control"
+                                                                style="overflow:auto;resize:none" rows="3"
+                                                                placeholder="escriba aqui"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="">Padece de alguna de las siguientes
+                                                                enfermedades?
+                                                                <span class="text-danger">(*)</span>:</label>
+                                                            <div>
+                                                                <label for="">Saranpion</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="">Varicela</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="">tuberculosis</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="">diabetes</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="">Asma</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="">Epatitis</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="">Otras</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Cepilla los dientes? <span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <div>
+                                                                <label for="">Si</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="">No</label>
+                                                                <input type="radio" id="" name="" value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="">Cuantas al dia?<span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <textarea type="text" id="" name="" class="form-control"
+                                                                style="overflow:auto;resize:none" rows="3"
+                                                                placeholder="escriba aqui"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row text-right">
+                                                    <div class="offset-sm-2 col-sm-10">
+                                                        <button type="submit" class="btn btn-danger">Guardar</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- exploracion fisica-->
+                                            <div class="tab-pane" id="timeli">
+                                                <div class="card card-info">
+                                                    <div class="card-header">
+                                                        <h3 class="card-title">Funciones Vitales</h3>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label for="">Presion arterial <span
+                                                                        class="text-danger">(*)</span>:</label>
+                                                                <div class="input-group mb-3">
+                                                                    <input type="text" id="" name=""
+                                                                        class="form-control" placeholder="datalle aqui">
+                                                                    <div class="input-group-append">
+                                                                        <div class="input-group-text">
+                                                                            <span class="fas ">mn Hg</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label for="">Pulso<span
+                                                                        class="text-danger">(*)</span>:</label>
+                                                                <div class="input-group mb-3">
+                                                                    <input type="text" id="" name=""
+                                                                        class="form-control" placeholder="escriba aqui">
+                                                                    <div class="input-group-append">
+                                                                        <div class="input-group-text">
+                                                                            <span class="fas ">/ min</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label for="">Temperatura<span
+                                                                        class="text-danger">(*)</span>:</label>
+                                                                <div class="input-group mb-3">
+                                                                    <input type="text" id="" name=""
+                                                                        class="form-control" placeholder="escriba aqui">
+                                                                    <div class="input-group-append">
+                                                                        <div class="input-group-text">
+                                                                            <span class="fas ">°C</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label for="">Frecuencia Cardiaca <span
+                                                                        class="text-danger">(*)</span>:</label>
+                                                                <div class="input-group mb-3">
+                                                                    <input type="text" id="" name=""
+                                                                        class="form-control" placeholder="datalle aqui">
+                                                                    <div class="input-group-append">
+                                                                        <div class="input-group-text">
+                                                                            <span class="fas ">x min</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label for="">Frecuencia respiratoria<span
+                                                                        class="text-danger">(*)</span>:</label>
+                                                                <div class="input-group mb-3">
+                                                                    <input type="text" id="" name=""
+                                                                        class="form-control" placeholder="escriba aqui">
+                                                                    <div class="input-group-append">
+                                                                        <div class="input-group-text">
+                                                                            <span class="fas ">/ min</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card card-info">
+                                                    <div class="card-header">
+                                                        <h3 class="card-title">Peso-Talla</h3>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label for="">Peso <span
+                                                                        class="text-danger">(*)</span>:</label>
+                                                                <div class="input-group mb-3">
+                                                                    <input type="text" id="" name=""
+                                                                        class="form-control" placeholder="datalle aqui">
+                                                                    <div class="input-group-append">
+                                                                        <div class="input-group-text">
+                                                                            <span class="fas ">kg</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label for="">Talla<span
+                                                                        class="text-danger">(*)</span>:</label>
+                                                                <div class="input-group mb-3">
+                                                                    <input type="text" id="" name=""
+                                                                        class="form-control" placeholder="escriba aqui">
+                                                                    <div class="input-group-append">
+                                                                        <div class="input-group-text">
+                                                                            <span class="fas ">m</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label for="">Masa Corporal<span
+                                                                        class="text-danger">(*)</span>:</label>
+                                                                <div class="input-group mb-3">
+                                                                    <input type="text" id="" name=""
+                                                                        class="form-control" placeholder="escriba aqui">
+                                                                    <div class="input-group-append">
+                                                                        <div class="input-group-text">
+                                                                            <span class="fas ">kg/m</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row text-right">
+                                                    <div class="offset-sm-2 col-sm-10">
+                                                        <button type="submit" class="btn btn-danger">Guardar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--alergias-->
+                                            <div class="tab-pane" id="alergias">
+                                                <!-- Main content -->
+                                                <section class="content">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="card">
+                                                                    <div class="card-header">
+                                                                        <h3 class="card-title">
+                                                                            Alergias del paciente
+                                                                            <button class="btn btn-success btn-sm"
+                                                                                id="agregar_alergia">
+                                                                                <i class="fa fa-plus"></i>
+                                                                                Agregar
+                                                                            </button>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <!-- /.Contenido de la vista -->
+                                                                        <table id="tbl_tratamiento_alergias"
+                                                                            class="table table-striped table-bordered"
+                                                                            cellspacing="0" width="100%">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th width="5%">#</th>
+                                                                                    <th>Nombre</th>
+                                                                                    <th>observacion</th>
+                                                                                    <th>Acciones</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                        </table>
+
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-user bg-info"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
-
-                                            <h3 class="timeline-header border-0"><a href="#">Sarah Young</a> accepted your friend request
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-comments bg-warning"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
-
-                                            <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-
-                                            <div class="timeline-body">
-                                                Take me to your leader!
-                                                Switzerland is small and neutral!
-                                                We are more like Germany, ambitious and misunderstood!
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline time label -->
-                                    <div class="time-label">
-                                        <span class="bg-success">
-                                        3 Jan. 2014
-                                        </span>
-                                    </div>
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-camera bg-purple"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
-
-                                            <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-
-                                            <div class="timeline-body">
-                                                <img src="http://placehold.it/150x100" alt="...">
-                                                <img src="http://placehold.it/150x100" alt="...">
-                                                <img src="http://placehold.it/150x100" alt="...">
-                                                <img src="http://placehold.it/150x100" alt="...">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <div>
-                                        <i class="far fa-clock bg-gray"></i>
                                     </div>
                                 </div>
                             </div>
+
+                            <!--modal de alergias-->
+                            <div class="modal fade" id="agregar-alergia">
+                                <div class="modal-dialog ">
+                                    <div class="modal-content">
+                                        <div class="modal-header bg-green">
+                                            <h4 class="modal-title" id="agregar-alergia-title"></h4>
+                                            <button type="button" class="close text-white" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form id="frm_guardar_alergia">
+                                                <!-- Campo nombre y observacion-->
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="nombre_alergia">Nombre<span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <input type="text" id="nombre_alergia" name="nombre_alergia"
+                                                                class="form-control"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="detalle">Observacion<span
+                                                                    class="text-danger">(*)</span>:</label>
+                                                            <textarea class="form-control" id="detalle"
+                                                                name="detalle" rows="3"
+                                                                placeholder="Describa..."></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-footer text-right">
+                                                    <button class="btn btn-default" id="btn-cerrar" data-dismiss="modal"
+                                                        type="button">Cerrar</button>
+                                                    <button type="submit" id="btn-guardar-alergia"
+                                                        class="btn btn-success">Guardar</button>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>  <!-- /fin modal de alergias-->
+
+
                             <!-- /.tab-pane -->
 
                             <div class="tab-pane" id="settings">
-                                <form class="form-horizontal">
-                                    <div class="form-group row">
-                                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
-                                        <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputName" placeholder="Name">
-                                        </div>
+                                <div> <canvas id="canvas" width="648" height="420"></canvas></div>
+
+                                <div class="form-group row text-right">
+                                    <div class="offset-sm-2 col-sm-10">
+                                        <button type="submit" class="btn btn-danger">Guardar</button>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                                        <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputName2" placeholder="Name">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                                        <div class="col-sm-10">
-                                            <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                                                </label>
+                                </div>
+                            </div>
+                            <!--Tratamientos realizados-->
+                            <div class="tab-pane" id="tratamientos">
+                                <!-- Main content -->
+                                <section class="content">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h3 class="card-title">
+                                                            Tratamientos Realizados
+                                                        </h3>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <!-- /.Contenido de la vista -->
+                                                        <table id="tbl_pacie" class="table table-striped table-bordered"
+                                                            cellspacing="0" width="100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th width="5%">#</th>
+                                                                    <th>Nombre-Tratamiento</th>
+                                                                    <th>Fecha</th>
+                                                                    <th>Hora</th>
+                                                                    <th>Estatus</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+
+                                                    </div>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <button type="submit" class="btn btn-danger">Submit</button>
-                                        </div>
-                                    </div>
-                                </form>
+                                </section>
                             </div>
                             <!-- /.tab-pane -->
                         </div>
@@ -302,23 +732,20 @@
                 <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
-                            <img class="profile-user-img img-fluid img-circle"
-                            src="<?= base_url('img/user2-160x160.jpg'); ?>"
-                            alt="User profile picture" />
+                            <img class="profile-user-img img-fluid img-circle" id="foto"
+                                src="<?= base_url('img/users/default/default.png'); ?>" alt="User profile picture" />
                         </div>
 
-                        <h3 class="profile-username text-center">Sergio Yujra</h3>
+                        <h3 id="nombre_completo" class="profile-username text-center"></h3>
 
-                        <p class="text-muted text-center">Paciente #1</p>
+                        <p id="perfil_grupo" class="text-muted text-center"></p>
 
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>Edad</b> <a class="float-right">40 años</a>
+                                <b>Nacimiento</b> <a id="fecha_nacimiento" class="float-right"></a>
                             </li>
-                            
                         </ul>
 
-                        <a href="#" class="btn btn-primary btn-block"><b> <i class="fa fa-user-check" aria-hidden="true"></i> Mi Perfil</b></a>
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -333,31 +760,14 @@
                     <div class="card-body">
                         <strong><i class="fa fa-phone" aria-hidden="true"></i> Celular</strong>
 
-                        <p class="text-muted">78939121</p>
+                        <p id="telefono_celular" class="text-muted"></p>
 
                         <hr>
-                        
+
                         <strong><i class="fas fa-map-marker-alt mr-1"></i> Domicilio</strong>
 
-                        <p class="text-muted">La Paz, El Alto z/ casa heredia c/ bartolina sisa 3562</p>
+                        <p id="domicilio" class="text-muted"></p>
 
-                        <hr>
-
-                        <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                        <p class="text-muted">
-                            <span class="tag tag-danger">UI Design</span>
-                            <span class="tag tag-success">Coding</span>
-                            <span class="tag tag-info">Javascript</span>
-                            <span class="tag tag-warning">PHP</span>
-                            <span class="tag tag-primary">Node.js</span>
-                        </p>
-
-                        <hr>
-
-                        <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -377,10 +787,10 @@
             <div class="modal-header bg-blue">
                 <h4 class="modal-title" id="listado-paciente-title"></h4>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">   
+            <div class="modal-body">
                 <table id="tbl_pacientes_ver" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
@@ -396,11 +806,10 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                </table>    
+                </table>
             </div>
         </div>
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
 </div>
-

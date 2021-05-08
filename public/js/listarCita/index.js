@@ -106,7 +106,7 @@ $(document).ready(function(respuesta){
         responsive: true,
         processing: true,
         serverSide: true,
-        ajax: "/listarCita/listar_odontologo1",
+        ajax: "/listarCita/ajaxListarCitas",
         language: {
         url: "/plugins/datatables/lang/Spanish.json",
         },

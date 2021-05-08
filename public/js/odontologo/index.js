@@ -45,12 +45,8 @@ $(document).ready(function(){
 					return (
 						'<div class="btn-group" role="group">' +
                         '<a data="' + data[0] +
-                        '" class="btn btn-warning btn-sm mdi mdi-tooltip-edit text-white btn_editar_odontologo" data-toggle="tooltip" title="Editar">' +
-                        '<i class="fa fa-pen"></i></a>' +
-                        '<a data="' +
-                        data[0] +
-                        '" class="btn btn-danger btn-sm mdi mdi-delete-forever text-white btn_eliminar_odontologo" data-toggle="tooltip" title="Eliminar">' +
-                        '<i class="fa fa-trash"></i></a>' +
+                        '" class="btn btn-warning btn-sm mdi mdi-tooltip-edit text-black btn_editar_odontologo" data-toggle="tooltip" title="Editar">' +
+                        '<i class="fa fa-pen">Editar</i></a>' +
                         '</div>'
 					);
 				},

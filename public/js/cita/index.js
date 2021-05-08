@@ -59,9 +59,8 @@ $(document).ready(function () {
             '<div class="btn-group" role="group">' +
             '<a data="' +
             data[0] +
-            '" class="btn btn-warning btn-sm mdi mdi-tooltip-edit text-Editar btn_editar_cita" data-toggle="tooltip" title="Editar">' +
-            '<i class="fa fa-pen"></i></a>' +
-            '<a data="' +
+            '" class="btn btn-warning btn-sm mdi mdi-tooltip-edit text-black btn_editar_cita" data-toggle="tooltip" title="Editar">' +
+            '<i class="fa fa-pen">Editar</i></a>'+
             "</div>"
           );
         },
@@ -120,7 +119,7 @@ $(document).ready(function () {
     parametrosModal(
         "#horario",
         "Horario de Citas",
-        "modal-lg",
+        "modal-xl",
         false,
         true
     );
@@ -287,10 +286,21 @@ $(document).ready(function () {
         eventClick: function (calEvent, jsEvent, view) {
             $('#event-title').text(calEvent.title);
             $('#event-description').html(calEvent.description);
+            $('#event-start').html(calEvent.start);
             $('#modal-event').modal();
         },  
     
     });
+  });
+  
+  $("button#modal-event").on("click", function(e) {
+    parametrosModal(
+        "#agenda",
+        "Agenda de Citas",
+        "modal-lg",
+        false,
+        true
+    );
   });
   //hora
   
@@ -313,29 +323,31 @@ $(document).ready(function () {
   })
   //tabla horario
   
-  $("#tbl_horarios").DataTable({
-    
-		responsive: true,
-		processing: true,
-		serverSide: true,
-    "bPaginate": false,
-    "bFilter": false,
-    "bInfo": false,
-		ajax: '/horario/ajaxListarHorarios',
-		language: {
-			url: '/plugins/datatables/lang/Spanish.json',
-		},
-		columnDefs: [
-            {
-                searchable: true,
-                orderable: true,
-                visible: false,
-                targets: 0
-            },
-		],
-    
-    
-	});
+  $('#calendar_hora').fullCalendar({
+    defaultView: 'agendaWeek',
+    lang: 'es',
+    weekends: true,
+    columnFormat: 'dddd',
+    //dayNames: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
+    header: {
+              left: 'prev,next today',
+              center: 'title',
+              right: ''
+          },
+    defaultDate: new Date(),
+    editable: false,
+    eventLimit: false,
+    weekend: true,
+    allDaySlot: false,
+    nametime:'Hora',
+    minTime: '08:00',
+    maxTime: '18:30',
+    timeFormat: 'H:mm',
+    eventOverlap: true,
+    slotLabelFormat: 'H:mm',
+    slotEventOverlap: true,
+    events:'cita/getEvents',
+  });
   
 
 });  //fin del principio

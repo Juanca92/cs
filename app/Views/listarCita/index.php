@@ -25,11 +25,6 @@
                             <h2 align="center"> Pacientes atendidos por el odontologo </h2>
                         </h3>
                     </div>
-                    <style>
-                        table thead{
-                            background-color: #99D1F5;
-                        }
-                    </style>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="tab-content">

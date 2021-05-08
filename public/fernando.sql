@@ -57,15 +57,7 @@ p.domicilio,o.turno, o.gestion_ingreso, p.estatus, p.estado, p.creado_en
 from sp_persona p join sp_odontologo o
 on p.id_persona = o.id_odontologo;
 
-CREATE TABLE `sp_horario` (
-  `id_horario` int(11) NOT NULL AUTO_INCREMENT,
-  `entrada` time not null,
-  `salida` time not null,
-  `id_cita` int(11) NOT NULL,
-  `creado_en` timestamp NOT NULL DEFAULT current_timestamp(),
-  `actualizado_en` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id_horario`),
-);
+
 
 INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '08:30:00', '09:00:00', current_timestamp(), NULL);
 INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '09:00:00', '09:30:00', current_timestamp(), NULL);
@@ -84,3 +76,95 @@ INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actua
 INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '17:30:00', '18:00:00', current_timestamp(), NULL);
 INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '18:00:00', '18:30:00', current_timestamp(), NULL);
 
+ALTER TABLE `sp_usuario` ADD `foto` VARCHAR(100) NOT NULL AFTER `clave`;
+
+--creacion de la tabla alergias--
+CREATE TABLE `sp_tratamiento_alergias` (
+  `id_alergia` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_alergia` VARCHAR(50),
+  `detalle` VARCHAR(250),
+  `id_paciente` int(11) NOT NULL,
+  `creado_en` timestamp NOT NULL DEFAULT current_timestamp(),
+  `actualizado_en` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_alergia`),
+  KEY `fk_tratamiento_alergias_paciente` (`id_paciente`),
+  CONSTRAINT `fk_tratamiento_alergias_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `sp_paciente` (`id_paciente`)
+);
+--creacion de la vista de tratamiento-alergias--
+CREATE OR REPLACE VIEW `sp_view_tratamiento_alergias` AS
+select
+    `tratamiento_alergias`.`id_alergia` AS `id_alergia`,
+    `tratamiento_alergias`.`nombre_alergia` AS 'nombre_alergia', 
+    `tratamiento_alergias`.`detalle` AS `detalle`,
+    `paciente`.`id_paciente` AS `id_paciente`,
+	    
+    concat(`persona_paciente`.`nombres`, ' ', `persona_paciente`.`paterno`, ' ', `persona_paciente`.`materno`) AS `nombre_paciente`,
+    concat(`persona_paciente`.`ci`, ' ', `persona_paciente`.`expedido`) AS `ci_paciente`,
+    `tratamiento_alergias`.`creado_en` AS `creado_en`
+from
+    ((`sp_tratamiento_alergias` `tratamiento_alergias`
+join `sp_paciente` `paciente` on
+    (`tratamiento_alergias`.`id_paciente` = `paciente`.`id_paciente`))
+join `sp_persona` `persona_paciente` on
+    (`persona_paciente`.`id_persona` = `paciente`.`id_paciente`));
+
+
+--creacion de la tabla enfermedad--
+CREATE TABLE `sp_tratamiento_enfermedad` (
+  `id_enfermedad` int(11) NOT NULL AUTO_INCREMENT,
+  `tiempo_consulta` VARCHAR(50),
+  `motivo_consulta` VARCHAR(100),
+  `sintomas_principales` VARCHAR(150),
+  `tomando_medicamentos` VARCHAR(25),
+  `nombre_medicamento` VARCHAR(250),
+  `motivo_medicamento` VARCHAR(250),
+  `dosis_medicamento` VARCHAR(250),
+  `id_paciente` int(11) NOT NULL,
+  `creado_en` timestamp NOT NULL DEFAULT current_timestamp(),
+  `actualizado_en` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_enfermedad`),
+  KEY `fk_tratamiento_enfermedad_paciente` (`id_paciente`),
+  CONSTRAINT `fk_tratamiento_enfermedad_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `sp_paciente` (`id_paciente`)
+);
+
+
+--creacion de la tabla consulta--
+CREATE TABLE `sp_tratamiento_consulta` (
+  `id_consulta` int(11) NOT NULL AUTO_INCREMENT,
+  `tratamiento` VARCHAR(25),
+  `motivo_tratamiento` VARCHAR(250),
+  `tomando_medicamentos` VARCHAR(25),
+  `porque_tiempo` VARCHAR(250),
+  `alergico_medicamento` VARCHAR(25),
+  `cual_medicamento` VARCHAR(250),
+  `alguna_cirugia` VARCHAR(25),
+  `porque` VARCHAR(250),
+  `alguna_enfermedad` VARCHAR(250),
+  `cepilla_diente` VARCHAR(25),
+  `cuanto_dia` VARCHAR(150),
+  `id_paciente` int(11) NOT NULL,
+  `creado_en` timestamp NOT NULL DEFAULT current_timestamp(),
+  `actualizado_en` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_consulta`),
+  KEY `fk_tratamiento_consulta_paciente` (`id_paciente`),
+  CONSTRAINT `fk_tratamiento_consulta_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `sp_paciente` (`id_paciente`)
+);
+
+--creacion de la tabla fisico--
+CREATE TABLE `sp_tratamiento_fisico` (
+  `id_fisico` int(11) NOT NULL AUTO_INCREMENT,
+  `presion_arterial` DECIMAL,
+  `pulso` DECIMAL,
+  `temperatura` DECIMAL,
+  `frecuencia_cardiaca` DECIMAL,
+  `frecuencia_respiratoria` DECIMAL,
+  `peso` DECIMAL,
+  `talla` DECIMAL,
+  `masa_corporal` DECIMAL,
+  `id_paciente` int(11) NOT NULL,
+  `creado_en` timestamp NOT NULL DEFAULT current_timestamp(),
+  `actualizado_en` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_fisico`),
+  KEY `fk_tratamiento_fisico_paciente` (`id_paciente`),
+  CONSTRAINT `fk_tratamiento_fisico_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `sp_paciente` (`id_paciente`)
+);

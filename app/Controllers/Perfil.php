@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\PerfilModel;
 
 class Perfil extends BaseController
@@ -15,11 +16,11 @@ class Perfil extends BaseController
         $this->fecha = new \DateTime();
     }
 
-    
-	public function index()
-	{
-		return $this->templater->view("perfil/index", $this->data);
-	}
+
+    public function index()
+    {
+        return $this->templater->view("perfil/index", $this->data);
+    }
 
     public function datos_usuario()
     {
@@ -41,7 +42,7 @@ class Perfil extends BaseController
                     "domicilio"         => "required|alpha_numeric_space"
                 ],
                 [ // errors
-                    
+
                     "telefono" => [
                         "required"   => "El telefono es requerido",
                         "numeric"    => "El telefono debe llevar caracteres numéricos."
@@ -58,32 +59,30 @@ class Perfil extends BaseController
                 return $this->response->setJSON(json_encode(array(
                     "form" => $validation->listErrors()
                 )));
-
             } else {
                 // Formateo de datos
                 $data = array(
                     "telefono_celular"  => trim($this->request->getPost("telefono")),
-                    "domicilio"         => $this->request->getPost("domicilio"),                            
+                    "domicilio"         => $this->request->getPost("domicilio"),
                     "actualizado_en"         => $this->fecha->format('Y-m-d H:i:s')
                 );
 
-                $respuesta = $this->model->persona("update", $data,
+                $respuesta = $this->model->persona(
+                    "update",
+                    $data,
                     array(
                         "id_persona" => $_SESSION['id_persona']
                     ),
                     null
                 );
 
-                if($respuesta)
-                {
+                if ($respuesta) {
                     return $this->response->setJSON(json_encode(array(
                         'exito' => "Datos actualizados correctamente"
                     )));
                 }
             }
-
         }
-
     }
 
     // cambiar contrasenia
@@ -129,14 +128,34 @@ class Perfil extends BaseController
     // Subir foto
     public function subir_foto()
     {
-        
         if ($this->request->isAJAX()) {
-            
             $file = $this->request->getFile('foto');
-            
+            if ($file->isValid()) {
+                $dir = base_url('/img/users');
+                if (!is_dir($dir)) {
+                    mkdir($dir, 755, true);
+                }
+                $originalName = $file->getRandomName();
+                $file->move('./img/users/', $originalName);
+                $respuesta = $this->model->usuario(
+                    "update",
+                    ['foto' => "img/users/" . $originalName],
+                    ['id_usuario' => $_SESSION["id_persona"]]
+                );
+                if ($respuesta) {
+                    return $this->response->setJSON(json_encode(array(
+                        "success" => "Fotografia actualizado correctamente"
+                    )));
+                } else {
+                    return $this->response->setJSON(json_encode(array(
+                        "error" => "Error al subir la fotografia"
+                    )));
+                }
+            } else {
+                return $this->response->setJSON(json_encode(array(
+                    "warning" => "Fotografia no valida"
+                )));
+            }
         }
-
-
     }
-
 }

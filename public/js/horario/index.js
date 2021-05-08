@@ -1,32 +1,22 @@
-$(document).ready(function(){
-
-    // Listado de odontologos
-    $('#tbl_horarios').DataTable({
-		responsive: true,
-		processing: true,
-		serverSide: true,
-		ajax: '/horario/ajaxListarHorarios',
-		language: {
-			url: '/plugins/datatables/lang/Spanish.json',
-		},
-		columnDefs: [
-            {
-                searchable: true,
-                orderable: true,
-                visible: true,
-                targets: 0
-            },
-		],
-	});
-
-    //Modal para Horario
-  $("button#horario_cita").on("click", function(e) {
-    parametrosModal(
-        "#horario",
-        "Horario de Citas",
-        "modal-lg",
-        false,
-        true
-    );
-  });
+$('#calendar').fullCalendar({
+  defaultView: 'agendaWeek',
+  lang: 'es',
+  weekends: false,
+  columnFormat: 'dddd',
+  dayNames: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
+  header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+  defaultDate: '2018-11-11',
+  editable: true,
+  eventLimit: true,
+  weekend: true,
+  allDaySlot: false,
+  minTime: '09:00:00',
+  maxTime: '15:00:00',
+  slotDuration: '00:20:00',
+  slotLabelInterval : '00:20:00',
+  events:'cita/getEvents',
 });

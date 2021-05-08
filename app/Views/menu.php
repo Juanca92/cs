@@ -62,7 +62,7 @@
                 <li class="nav-item">
                     <a href="<?= base_url('/listarCita'); ?>" class="nav-link menu--link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p> Ver Odont&oacute;logo</p>
+                    <p> Historial Odont&oacute;logo</p>
                     </a>
                 </li>           
             </ul>

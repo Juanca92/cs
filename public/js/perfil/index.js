@@ -20,17 +20,25 @@ $(document).ready(function () {
   const limpiar_actualizar_datos = () => {
     $("#telefono").val("");
     $("#domicilio").val("");
+    $("#confirmar_datos").prop('checked', false);
+  };
+
+  // Limpiar datos Actualizar password
+  const limpiar_actualizar_clave = () => {
+    $("#password_actual").val("");
+    $("#password_nuevo").val("");
+    $("#confirmar_password").val("");
+    $("#confirmar_cambiar_password").prop('checked', false);
   };
 
   cargar_datos();
 
   // Actualizar telefono y Direccion
-  const isChecked = document.getElementById("confirmar_datos");
+  const aceptado = document.getElementById("confirmar_datos");
 
-  if (isChecked) {
-    $("#frm_actualizar_datos").on("submit", function (e) {
-      e.preventDefault();
-
+  $("#frm_actualizar_datos").on("submit", function (e) {
+    e.preventDefault();
+    if (aceptado.checked) {
       $.ajax({
         type: "POST",
         url: "/perfil/actualizar_datos",
@@ -51,41 +59,48 @@ $(document).ready(function () {
         .fail(function (e) {
           mensajeAlert("error", "Error al registrar/editar el Datos", "Error");
         });
-    });
-  } else {
-    mensajeAlert("info", "Por favor confirme sus datos", "Informacion");
-  }
+    } else {
+      mensajeAlert("info", "Por favor confirme sus datos", "Informacion");
+    }
+  });
 
   // Cambiar password
+  const aceptado_p = document.getElementById("confirmar_cambiar_password");
   $("#frm_cambiar_password").on("submit", function (e) {
     e.preventDefault();
-    e.stopPropagation();
-    $.ajax({
-      type: "POST",
-      url: "/perfil/cambiar_password",
-      data: $("#frm_cambiar_password").serialize(),
-      dataType: "JSON",
-    }).done(function (response) {
-      if (typeof response.pass !== "undefined") {
-        mensajeAlert("warning", response.pass, "Advertencia");
-        $("#password_actual").val("");
-        $("#password_actual").focus();
-      }
-
-      if (typeof response.rep !== "undefined") {
-        mensajeAlert("warning", response.rep, "Advertencia");
-        $("#confirmar_password").val("");
-        $("#confirmar_password").focus();
-      }
-
-      if (typeof response.success !== "undefined") {
-        mensajeAlert("success", response.success, "Exito");
-      }
-
-      if (typeof response.error !== "undefined") {
-        mensajeAlert("error", response.error, "Error");
-      }
-    });
+    e.stopPropagation();    
+    
+    if(aceptado_p.checked){
+      $.ajax({
+        type: "POST",
+        url: "/perfil/cambiar_password",
+        data: $("#frm_cambiar_password").serialize(),
+        dataType: "JSON",
+      }).done(function (response) {
+        if (typeof response.pass !== "undefined") {
+          mensajeAlert("warning", response.pass, "Advertencia");
+          $("#password_actual").val("");
+          $("#password_actual").focus();
+        }
+  
+        if (typeof response.rep !== "undefined") {
+          mensajeAlert("warning", response.rep, "Advertencia");
+          $("#confirmar_password").val("");
+          $("#confirmar_password").focus();
+        }
+  
+        if (typeof response.success !== "undefined") {
+          limpiar_actualizar_clave();
+          mensajeAlert("success", response.success, "Exito");
+        }
+  
+        if (typeof response.error !== "undefined") {
+          mensajeAlert("error", response.error, "Error");
+        }
+      });
+    }else{
+      mensajeAlert("info", "Por favor confirme el cambio de clave", "Informacion");
+    }    
   });
 
   // Subir foto
@@ -122,11 +137,15 @@ $(document).ready(function () {
   // Guardar foto
   $("#frm_actualizar_foto").on("submit", function (e) {
     e.preventDefault();
+    let formData = new FormData($("#frm_actualizar_foto")[0]);
 
     $.ajax({
       type: "POST",
       url: "/perfil/subir_foto",
-      data: $("#frm_actualizar_foto").serialize(),
+      data: formData,
+      cache: false,
+      contentType: false,
+      processData: false,
       dataType: "JSON",
     }).done(function (response) {
       if (typeof response.warn !== "undefined") {
@@ -145,3 +164,4 @@ $(document).ready(function () {
     });
   });
 });
+

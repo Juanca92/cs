@@ -83,5 +83,15 @@ class CitaModel extends Database
         }
         return null;
     }
+    /*
+     public function verificar_numero_cita($id)
+     {
+        if(!is_null($id)){
+            $builder = $this->db->table('cita');
+            $builder->select('fecha','hora_inicio', 'hora_final');
+            $builder->where()
+
+        }
+     }*/
     
 }

@@ -38,11 +38,6 @@
                             </button>
                         </h3>
                     </div>
-                    <style>
-                        table thead{
-                            background-color: #F481F7 ;
-                        }
-                    </style>
                     <div class="card-body">
                         <!-- /.Contenido de la vista -->
                         <table id="tbl_citas" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -255,22 +250,24 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="event-description">
-    <div class="modal-dialog modal-lg ">
+<div class="modal fade" id="modal-event" tabindex="-1" role="dialog" aria-labelledby="modal-eventLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
         <div class="modal-content">
-            <div class="modal-header bg-blue bg-draggable">
-                <h4 class="modal-title" id="event-description-title"></h4>
+            <div class="modal-header bg-yellow bg-draggable">
+                <h4 class="modal-title" id="event-title"></h4>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <!-- cuerpo-->
             <div class="modal-body">
+                <label>Descripcion</label>
                 <div id="event-description"></div>
+                <label>hora de cita</label>
+                <div id="event-start"></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -290,19 +287,10 @@
             </div>
             <div class="modal-body">
                 <!-- cuerpo-->
-                <table id="tbl_horarios"class="table table-bordered table-striped" style="margin-right:-10px">
-                    <thead>
-                        <tr>
-                            <th width="5%">#</th>
-                            <th >horas</th>
-                            <th>horas</th>
-                        </tr>
-                    </thead>
-                    <tr >
-					    <td></td>
-					    <td><input type="checkbox" name="[]"></td>
-                    </tr>
-                </table>
+                <div class="col-sm-12">
+                    <div id="calendar_hora" class="card" style="margin: 0px;" >
+                    </div>
+                </div>
 
             </div>
         </div>
