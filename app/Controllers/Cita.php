@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Libraries\Ssp;
 use App\Models\CitaModel;
 
@@ -16,24 +17,24 @@ class Cita extends BaseController
         $this->fecha = new \DateTime();
     }
 
-    
-	public function index()
-	{
-       $this->data['paciente'] = $this->model->listar_paciente();
-       $this->data['odontologo'] = $this->model->listar_odontologo();
-		return $this->templater->view("cita/index", $this->data);
-	}
+
+    public function index()
+    {
+        $this->data['paciente'] = $this->model->listar_paciente();
+        $this->data['odontologo'] = $this->model->listar_odontologo();
+        return $this->templater->view("cita/index", $this->data);
+    }
 
     // Listado de citas
-   public function ajaxListarCitas()
-	{
-        if ($this->request->isAJAX()) {		
+    public function ajaxListarCitas()
+    {
+        if ($this->request->isAJAX()) {
             $table = 'sp_view_cita';
             $primaryKey = 'id_cita';
-            $where = "estado=1"; 
+            $where = "estado=1";
 
             $columns = array(
-                array('db' => 'id_cita', 'dt'           => 0),                
+                array('db' => 'id_cita', 'dt'           => 0),
                 array('db' => 'numero_cita', 'dt'       => 1),
                 array('db' => 'nombre_paciente', 'dt'   => 2),
                 array('db' => 'tipo_tratamiento', 'dt'  => 3),
@@ -41,22 +42,22 @@ class Cita extends BaseController
                 array('db' => 'fecha', 'dt'             => 5),
                 array('db' => 'hora_inicio', 'dt'       => 6),
                 array('db' => 'hora_final', 'dt'        => 7),
-                array('db' => 'costo', 'dt'             => 8),                
+                array('db' => 'costo', 'dt'             => 8),
                 array('db' => 'nombre_odontologo', 'dt' => 9),
                 array('db' => 'estatus', 'dt'           => 10),
                 array('db' => 'creado_en', 'dt'         => 11)
             );
 
             $sql_details = array(
-                'user' => $this->db->username, 
-                'pass' => $this->db->password, 
-                'db'   => $this->db->database, 
+                'user' => $this->db->username,
+                'pass' => $this->db->password,
+                'db'   => $this->db->database,
                 'host' => $this->db->hostname
             );
 
             return $this->response->setJSON(json_encode(SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $where)));
         }
-	}
+    }
 
     // Insertar o Actualizar Una Cita
     public function guardar_cita()
@@ -66,8 +67,8 @@ class Cita extends BaseController
         if ($this->request->isAJAX()) {
 
             if ($this->request->getPost("accion") == "in" && $this->request->getPost("id") == "") {
-                
-               if (true) {
+
+                if (true) {
                     //validación de formulario
                     $validation = \Config\Services::validation();
 
@@ -85,7 +86,7 @@ class Cita extends BaseController
                             // "estatus"           => "required|alpha_space"
                         ],
                         [ // errors
-                           "numero_cita" => [
+                            "numero_cita" => [
                                 "required"   => "El numero de cita es requerido",
                                 "numeric"    => "El numero de cita debe llevar caracteres numéricos."
                             ],
@@ -95,7 +96,7 @@ class Cita extends BaseController
                             ],
                             "fecha" => [
                                 "required"   => "La fecha de cita es requerido",
-                                "max_length"=> "La fecha debe llevar como maximo 10 caracteres"
+                                "max_length" => "La fecha debe llevar como maximo 10 caracteres"
                             ],
                             "hora_inicio" => [
                                 "required"   => "La Hora inicio de cita es requerido"
@@ -128,7 +129,6 @@ class Cita extends BaseController
                         return $this->response->setJSON(json_encode(array(
                             "form" => $validation->listErrors()
                         )));
-
                     } else {
                         // Insertar datos
 
@@ -143,19 +143,18 @@ class Cita extends BaseController
                             "id_paciente"       => $this->request->getPost('id_paciente'),
                             "id_odontologo"     => $this->request->getPost('id_odontologo'),
                             "observacion"       => trim($this->request->getPost("observacion")),
-                            "estatus"           => "Cancelada",                           
+                            "estatus"           => "Cancelada",
                             "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
-                        );                        
+                        );
 
                         $respuesta = $this->model->cita("insert", $data, null, null);
-                        if(is_numeric($respuesta))
-                        {
+                        if (is_numeric($respuesta)) {
                             return $this->response->setJSON(json_encode(array(
                                 'exito' => "Cita registrado correctamente"
                             )));
                         }
                     }
-                } 
+                }
             } else {
                 // actualizar cita
                 //validación de formulario
@@ -189,7 +188,7 @@ class Cita extends BaseController
                         ],
                         "fecha" => [
                             "required"   => "La fecha de cita es requerido",
-                            "max_length"=> "La fecha debe llevar como maximo 10 caracteres"
+                            "max_length" => "La fecha debe llevar como maximo 10 caracteres"
                         ],
                         "hora_inicio" => [
                             "required"   => "La Hora de cita es requerido"
@@ -222,7 +221,6 @@ class Cita extends BaseController
                     return $this->response->setJSON(json_encode(array(
                         "form" => $validation->listErrors()
                     )));
-
                 } else {
                     // Actualizar datos
                     $data = array(
@@ -235,11 +233,13 @@ class Cita extends BaseController
                         "id_paciente"       => $this->request->getPost('id_paciente'),
                         "id_odontologo"     => $this->request->getPost('id_odontologo'),
                         "observacion"       => trim($this->request->getPost("observacion")),
-                        "estatus"           => $this->request->getPost("estatus"),                          
+                        "estatus"           => $this->request->getPost("estatus"),
                         "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
-                    ); 
+                    );
 
-                    $respuesta = $this->model->cita("update", $data,
+                    $respuesta = $this->model->cita(
+                        "update",
+                        $data,
                         array(
                             "id_cita" => $this->request->getPost("id")
                         ),
@@ -248,13 +248,12 @@ class Cita extends BaseController
 
                     if ($respuesta) {
                         // Actualizar cita
-                        
+
                         return $this->response->setJSON(json_encode(array(
                             'exito' => "Cita editado correctamente"
                         )));
-                    } 
+                    }
                 }
-               
             }
         }
     }
@@ -279,7 +278,9 @@ class Cita extends BaseController
                 "estado" => '0'
             );
 
-            $respuesta = $this->model->cita("update", $data,
+            $respuesta = $this->model->cita(
+                "update",
+                $data,
                 array(
                     "id_cita" => $this->request->getPost("id")
                 ),
@@ -301,19 +302,19 @@ class Cita extends BaseController
             return $this->response->setJSON(json_encode($respuesta));
         }
     }
-    
+
     public function verificar_numero_cita()
     {
         $id = $this->request->getPost("id");
         $respuesta = $this->model->verificar_numero_cita($id);
         // var_dump(count($respuesta));
 
-        if(count($respuesta) == 0){
-           return  $this->response->setJSON(json_encode(array(
+        if (count($respuesta) == 0) {
+            return  $this->response->setJSON(json_encode(array(
                 'numero_cita' => 1
             )));
-        }else{
-            
+        } else {
+
             return $this->response->setJSON(json_encode(array(
                 'numero_cita' => intval($respuesta[0]['numero_cita']) + 1
             )));
@@ -322,6 +323,4 @@ class Cita extends BaseController
         return null;
         // var_dump();
     }
-    
-
 }

@@ -34,15 +34,6 @@ $(document).ready(function () {
         targets: 10,
         data: null,
         render: function (data, type, row, meta) {
-<<<<<<< HEAD
-          if(data[9] == "Pendiente"){
-            return ('<a type="button" data="' +data[0]+'" class="btn btn-info btn-xs text-white" >'+data[9]+'</a>');
-          }else if(data[9] == "Cancelada"){
-            return ('<a type="button" data="' +data[0]+'" class="btn btn-warning btn-xs text-white" >'+data[9]+'</a>');
-          }else{
-            return ('<a type="button" data="' +data[0]+'" class="btn btn-success btn-xs text-white" >'+data[9]+'</a>');
-          }
-=======
           if(data[10]=="PENDIENTE"){
             return('<a type="button" data="' +data[0] +'" class="btn btn-info btn-xs text-white">' +data[10] +' </span>');
           }else if(data[10]=="CANCELADA"){
@@ -50,7 +41,6 @@ $(document).ready(function () {
           }else{
             return('<a type="button" data="' +data[0] +'" class="btn btn-success btn-xs text-white">' +data[10] +' </span>');
           }  
->>>>>>> e14614d51b989a8feaecfe0cfa92c7037c7295b0
         },
       },
       {

@@ -64,7 +64,7 @@ CREATE TABLE `sp_horario` (
   `id_cita` int(11) NOT NULL,
   `creado_en` timestamp NOT NULL DEFAULT current_timestamp(),
   `actualizado_en` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id_horario`),
+  PRIMARY KEY (`id_horario`)
 );
 
 INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '08:30:00', '09:00:00', current_timestamp(), NULL);
