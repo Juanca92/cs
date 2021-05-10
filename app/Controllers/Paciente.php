@@ -35,12 +35,14 @@ class Paciente extends BaseController
                 array('db' => 'id_persona', 'dt'        => 0),
                 array('db' => 'ci_exp', 'dt'            => 1),
                 array('db' => 'nombre_completo', 'dt'   => 2),
-                array('db' => 'telefono_celular', 'dt'  => 3),
-                array('db' => 'fecha_nacimiento', 'dt'  => 4),
-                array('db' => 'domicilio', 'dt'         => 5),
-                array('db' => 'ocupacion', 'dt'         => 6),
-                array('db' => 'estatus', 'dt'           => 7),
-                array('db' => 'creado_en', 'dt'         => 8)
+                array('db' => 'sexo', 'dt'              => 3),
+                array('db' => 'lugar_nacimiento', 'dt'  => 4),
+                array('db' => 'telefono_celular', 'dt'  => 5),
+                array('db' => 'fecha_nacimiento', 'dt'  => 6),
+                array('db' => 'domicilio', 'dt'         => 7),
+                array('db' => 'ocupacion', 'dt'         => 8),
+                array('db' => 'estatus', 'dt'           => 9),
+                array('db' => 'creado_en', 'dt'         => 10)
             );
 
             $sql_details = array(
@@ -81,6 +83,8 @@ class Paciente extends BaseController
                             "nombres"           => "required|alpha_space",
                             "paterno"           => "required|alpha_space",
                             "materno"           => "alpha_space",
+                            "sexo"              => "requerid|alpha_space",
+                            "lugar_nacimiento"  => "alpha_numeric_space",
                             "celular"           => 'required|numeric',
                             "fecha_nacimiento"  => "required|max_length[10]",
                             "id_ocupacion"      => "required",
@@ -109,6 +113,13 @@ class Paciente extends BaseController
                             ],
                             "materno" => [
                                 "alpha_space" => "El apellido materno debe llevar caracteres alfabéticos o espacios."
+                            ],
+                            "sexo" => [
+                                "required" => "El genero es requerido",
+                                "alpha_space" => "El genero debe llevar caracteres alfabéticos o espacios."
+                            ],
+                            "lugar_nacimiento" => [
+                                "alpha_numeric_space" => "EL lugar de nacimiento no puede llevar caracteres especiales"
                             ],
                             "fecha_nacimiento" => [
                                 "required"  => "La fecha de nacimiento es requerido",
@@ -148,6 +159,8 @@ class Paciente extends BaseController
                             "nombres"           => ucwords(strtolower(trim($this->request->getPost("nombres")))),
                             "paterno"           => ucwords(strtolower(trim($this->request->getPost("paterno")))),
                             "materno"           => ucwords(strtolower(trim($this->request->getPost("materno")))),
+                            "sexo"              => $this->request->getPost("sexo"),
+                            "lugar_nacimiento"  => $this->request->getPost("lugar_nacimiento"),
                             "telefono_celular"  => trim($this->request->getPost("celular")),
                             "fecha_nacimiento"  => $this->request->getPost("fecha_nacimiento"),
                             "domicilio"         => $this->request->getPost("domicilio"), 
@@ -218,6 +231,8 @@ class Paciente extends BaseController
                         "nombres"           => "required|alpha_space",
                         "paterno"           => "required|alpha_space",
                         "materno"           => "alpha_space",
+                        "sexo"              => "requerid|alpha_space",
+                        "lugar_nacimiento"  => "alpha_numeric_space",
                         "celular"           => 'required|numeric',
                         "fecha_nacimiento"  => "required|max_length[10]",
                         "id_ocupacion"      => "required",
@@ -249,6 +264,13 @@ class Paciente extends BaseController
                         ],
                         "materno" => [
                             "alpha_space" => "El apellido materno debe llevar caracteres alfabéticos o espacios."
+                        ],
+                        "sexo" => [
+                            "required" => "El genero es requerido",
+                            "alpha_space" => "El genero debe llevar caracteres alfabéticos o espacios."
+                        ],
+                        "lugar_nacimiento" => [
+                            "alpha_numeric_space" => "EL lugar de nacimiento no puede llevar caracteres especiales"
                         ],
                         "fecha_nacimiento" => [
                             "required"  => "La fecha de nacimiento es requerido",
@@ -286,6 +308,8 @@ class Paciente extends BaseController
                         "nombres"           => ucwords(strtolower(trim($this->request->getPost("nombres")))),
                         "paterno"           => ucwords(strtolower(trim($this->request->getPost("paterno")))),
                         "materno"           => ucwords(strtolower(trim($this->request->getPost("materno")))),
+                        "sexo"              => $this->request->getPost("sexo"),
+                        "lugar_nacimiento"  => $this->request->getPost("lugar_nacimiento"),
                         "telefono_celular"  => trim($this->request->getPost("celular")),
                         "fecha_nacimiento"  => $this->request->getPost("fecha_nacimiento"),
                         "domicilio"         => $this->request->getPost("domicilio"),

@@ -47,7 +47,7 @@
                                             <th>Hora final</th>
                                             <th>Costo</th>                                    
                                             <th>Odont&oacute;logo</th>
-                                            <th>Estatus</th>
+                                            <th>Estado</th>
                                             <th>Registrado</th>
                                         </tr>
                                     </thead>
@@ -70,7 +70,7 @@
                                                 <th>Hora final</th>
                                                 <th>Costo</th>                                    
                                                 <th>Odont&oacute;logo</th>
-                                                <th>Estatus</th>
+                                                <th>Estado</th>
                                                 <th>Registrado</th>
                                         </tr>
                                     </thead>
@@ -92,7 +92,7 @@
                                             <th>Hora final</th>
                                             <th>Costo</th>                                    
                                             <th>Odont&oacute;logo</th>
-                                            <th>Estatus</th>
+                                            <th>Estado</th>
                                             <th>Registrado</th>
                                         </tr>
                                     </thead>

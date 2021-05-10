@@ -39,11 +39,13 @@
                                     <th width="5%">#</th>
                                     <th>CI</th>
                                     <th>Nombres</th>
+                                    <th>sexo</th>
+                                    <th>Lugar nacimiento</th>
                                     <th>Celular</th>
                                     <th>Nacimiento</th>
                                     <th>Domicilio</th>
                                     <th>Ocupacion</th>
-                                    <th>Estatus</th>
+                                    <th>Estado</th>
                                     <th>Registrado</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -123,7 +125,7 @@
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="materno">Materno :</label>
+                                <label for="materno">Materno  <span class="text-danger">(*)</span>:</label>
                                 <input type="text" id="materno" name="materno" class="form-control"
                                     placeholder="Apellido Materno">
                             </div>
@@ -133,20 +135,20 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="">Sexo<span class="text-danger">(*)</span>:</label>
+                                <label for="sexo">Sexo<span class="text-danger">(*)</span>:</label>
                                 <div>
-                                    <label for="">M</label>
-                                    <input type="radio" id="" name="" value="">
-                                    <label for="">F</label>
-                                    <input type="radio" id="" name="" value="">
+                                    <label for="sexo">M</label>
+                                    <input type="radio"  name="sexo" value="masculino">
+                                    <label for="sexo">F</label>
+                                    <input type="radio"  name="sexo" value="femenina">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="fecha_nacimiento">Lugar de Nacimiento <span
+                                <label for="lugar_nacimiento">Lugar de Nacimiento <span
                                         class="text-danger">(*)</span>:</label>
-                                <input type="text" id="" name=""
+                                <input type="text" id="lugar_nacimiento" name="lugar_nacimiento"
                                     class="form-control">
                             </div>
                         </div>

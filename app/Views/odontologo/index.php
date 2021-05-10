@@ -43,7 +43,7 @@
                                     <th>Domicilio</th>
                                     <th>Turno</th>
                                     <th>Ingreso</th>
-                                    <th>Estatus</th>
+                                    <th>Estado</th>
                                     <th>Registrado</th>
                                     <th>Acciones</th>
                                 </tr>

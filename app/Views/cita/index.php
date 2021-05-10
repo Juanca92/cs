@@ -53,7 +53,7 @@
                                     <th>Hora Final</th>
                                     <th>Costo</th>
                                     <th>Odont&oacute;logo</th>
-                                    <th>Estatus</th>
+                                    <th>Estado</th>
                                     <th>Registrado</th>
                                     <th>Acciones</th>
                                 </tr>

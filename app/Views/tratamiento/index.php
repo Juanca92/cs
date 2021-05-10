@@ -144,7 +144,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--ocupacion y  Estatus-->
+                                        <!--ocupacion -->
                                         <div class="row">
                                             <div class="col-lg-7">
                                                 <div class="form-group">
@@ -205,102 +205,118 @@
                                     <div class="card-body">
                                         <div class="tab-content">
                                             <div class="active tab-pane" id="time">
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="form-group">
-                                                            <label for="">Tiempo de Enfermedad <span
-                                                                    class="text-danger">(*)</span>:</label>
-                                                            <input type="text" id="" name="" class="form-control"
-                                                                placeholder="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div class="form-group">
-                                                            <label for="">Motivo de Consulta <span
-                                                                    class="text-danger">(*)</span>:</label>
-                                                            <textarea type="text" id="" name="" class="form-control"
-                                                                style="overflow:auto;resize:none" rows="3"
-                                                                placeholder="datalle aqui"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="form-group">
-                                                            <label for="">Sintomas principales <span
-                                                                    class="text-danger">(*)</span>:</label>
-                                                            <textarea type="text" id="" name="" class="form-control"
-                                                                style="overflow:auto;resize:none" rows="3"
-                                                                placeholder="escriba aqui"></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div class="form-group">
-                                                            <label for="">Esta tomando algun medicamento? <span
-                                                                    class="text-danger">(*)</span>:</label>
-                                                            <div>
-                                                                <label for="">Si</label>
-                                                                <input type="radio" id="" name="" value="">
-                                                                <label for="">No</label>
-                                                                <input type="radio" id="" name="" value="">
+                                                <form id="frm_guardar_enfermedad">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group">
+                                                                <label for="tiempo_consulta">Tiempo de Enfermedad <span
+                                                                        class="text-danger">(*)</span>:</label>
+                                                                <input type="text" id="tiempo_consulta"
+                                                                    name="tiempo_consulta" class="form-control"
+                                                                    placeholder="">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="form-group">
-                                                            <label for="">Medicamento<span
-                                                                    class="text-danger">(*)</span>:</label>
-                                                            <input type="text" id="" name="" class="form-control"
-                                                                rows="3" placeholder="escriba aqui">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="motivo_consulta">Motivo de Consulta <span
+                                                                        class="text-danger">(*)</span>:</label>
+                                                                <textarea type="text" id="motivo_consulta"
+                                                                    name="motivo_consulta" class="form-control"
+                                                                    style="overflow:auto;resize:none" rows="3"
+                                                                    placeholder="datalle aqui"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="sintomas_principales">Sintomas principales
+                                                                    <span class="text-danger">(*)</span>:</label>
+                                                                <textarea type="text" id="sintomas_principales"
+                                                                    name="sintomas_principales" class="form-control"
+                                                                    style="overflow:auto;resize:none" rows="3"
+                                                                    placeholder="escriba aqui"></textarea>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div class="form-group">
-                                                            <label for="">Motivo <span
-                                                                    class="text-danger">(*)</span>:</label>
-                                                            <input type="text" id="" name="" class="form-control"
-                                                                placeholder="datalle aqui">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="tomando_medicamento">Esta tomando algun
+                                                                    medicamento? <span
+                                                                        class="text-danger">(*)</span>:</label>
+                                                                <div>
+                                                                    <label for="tomando_medicamento">Si</label>
+                                                                    <input type="radio" id="tomando_medicamento"
+                                                                        name="tomando_medicamento" value="si">
+                                                                    <label for="tomando_medicamento">No</label>
+                                                                    <input type="radio" id="tomando_medicamento"
+                                                                        name="tomando_medicamento" value="no">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="nombre_medicamento">Medicamento<span
+                                                                        class="text-danger">(*)</span>:</label>
+                                                                <input type="text" id="nombre_medicamento"
+                                                                    name="nombre_medicamento" class="form-control"
+                                                                    rows="3" placeholder="escriba aqui">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="form-group">
-                                                            <label for="">Cantidad dosis<span
-                                                                    class="text-danger">(*)</span>:</label>
-                                                            <input type="text" id="" name="" class="form-control"
-                                                                placeholder="escriba aqui">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="motivo_medicamento">Motivo <span
+                                                                        class="text-danger">(*)</span>:</label>
+                                                                <input type="text" id="motivo_medicamento"
+                                                                    name="motivo_medicamento" class="form-control"
+                                                                    placeholder="datalle aqui">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label for="dosis_medicamento">Cantidad dosis<span
+                                                                        class="text-danger">(*)</span>:</label>
+                                                                <input type="text" id="dosis_medicamento"
+                                                                    name="dosis_medicamento" class="form-control"
+                                                                    placeholder="escriba aqui">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group row text-right">
-                                                    <div class="offset-sm-2 col-sm-10">
-                                                        <button type="submit" class="btn btn-danger">Guardar</button>
+                                                    <div class="form-group row text-right">
+                                                        <div class="offset-sm-2 col-sm-10">
+                                                            <button type="submit"
+                                                                class="btn btn-danger">Guardar</button>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </form>
                                             </div>
                                             <!-- Consulta de salud-->
                                             <div class="tab-pane" id="timel">
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="">alguna vez hizo tratamiento de Ortodoncia?
+                                                            <label for="tratamiento">alguna vez hizo tratamiento de
+                                                                Ortodoncia?
                                                                 <span class="text-danger">(*)</span>:</label>
                                                             <div>
-                                                                <label for="">Si</label>
-                                                                <input type="radio" id="" name="" value="">
-                                                                <label for="">No</label>
-                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="tratamiento">Si</label>
+                                                                <input type="radio" id="tratamiento" name="tratamiento"
+                                                                    value="si">
+                                                                <label for="tratamiento">No</label>
+                                                                <input type="radio" id="tratamiento" name="tratamiento"
+                                                                    value="no">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="">Por que?<span
+                                                            <label for="motivo_tratamiento">Por que?<span
                                                                     class="text-danger">(*)</span>:</label>
-                                                            <textarea type="text" id="" name="" class="form-control"
+                                                            <textarea type="text" id="motivo_tratamiento"
+                                                                name="motivo_tratamiento" class="form-control"
                                                                 style="overflow:auto;resize:none" rows="3"
                                                                 placeholder="escriba aqui"></textarea>
                                                         </div>
@@ -309,21 +325,25 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="">Esta tomando algun medicamento? <span
+                                                            <label for="tomando_medicamentos">Esta tomando algun
+                                                                medicamento? <span
                                                                     class="text-danger">(*)</span>:</label>
                                                             <div>
-                                                                <label for="">Si</label>
-                                                                <input type="radio" id="" name="" value="">
-                                                                <label for="">No</label>
-                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="tomando_medicamentos">Si</label>
+                                                                <input type="radio" id="tomando_medicamentos"
+                                                                    name="tomando_medicamentos" value="si">
+                                                                <label for="tomando_medicamentos">No</label>
+                                                                <input type="radio" id="tomando_medicamentos"
+                                                                    name="tomando_medicamentos" value="no">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="">Por que y cuanto tiempo?<span
+                                                            <label for="porque_tiempo">Por que y cuanto tiempo?<span
                                                                     class="text-danger">(*)</span>:</label>
-                                                            <textarea type="text" id="" name="" class="form-control"
+                                                            <textarea type="text" id="porque_tiempo"
+                                                                name="porque_tiempo" class="form-control"
                                                                 style="overflow:auto;resize:none" rows="3"
                                                                 placeholder="escriba aqui"></textarea>
                                                         </div>
@@ -332,21 +352,25 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="">Es alergico a algun medicamento o anastesico?
+                                                            <label for="alergico_medicamento">Es alergico a algun
+                                                                medicamento o anastesico?
                                                                 <span class="text-danger">(*)</span>:</label>
                                                             <div>
-                                                                <label for="">Si</label>
-                                                                <input type="radio" id="" name="" value="">
-                                                                <label for="">No</label>
-                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="alergico_medicamento">Si</label>
+                                                                <input type="radio" id="alergico_medicamento"
+                                                                    name="alergico_medicamento" value="si">
+                                                                <label for="alergico_medicamento">No</label>
+                                                                <input type="radio" id="alergico_medicamento"
+                                                                    name="alergico_medicamento" value="no">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="">Cual?<span
+                                                            <label for="cual_medicamento">Cual?<span
                                                                     class="text-danger">(*)</span>:</label>
-                                                            <textarea type="text" id="" name="" class="form-control"
+                                                            <textarea type="text" id="cual_medicamento"
+                                                                name="cual_medicamento" class="form-control"
                                                                 style="overflow:auto;resize:none" rows="3"
                                                                 placeholder="escriba aqui"></textarea>
                                                         </div>
@@ -355,47 +379,57 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="">Ah tenido alguna cirugia? <span
+                                                            <label for="alguna_cirugia">Ah tenido alguna cirugia? <span
                                                                     class="text-danger">(*)</span>:</label>
                                                             <div>
-                                                                <label for="">Si</label>
-                                                                <input type="radio" id="" name="" value="">
-                                                                <label for="">No</label>
-                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="alguna_cirugia">Si</label>
+                                                                <input type="radio" id="alguna_cirugia"
+                                                                    name="alguna_cirugia" value="si">
+                                                                <label for="alguna_cirugia">No</label>
+                                                                <input type="radio" id="alguna_cirugia"
+                                                                    name="alguna_cirugia" value="no">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="">Por que?<span
+                                                            <label for="porque">Por que?<span
                                                                     class="text-danger">(*)</span>:</label>
-                                                            <textarea type="text" id="" name="" class="form-control"
-                                                                style="overflow:auto;resize:none" rows="3"
-                                                                placeholder="escriba aqui"></textarea>
+                                                            <textarea type="text" id="porque" name="porque"
+                                                                class="form-control" style="overflow:auto;resize:none"
+                                                                rows="3" placeholder="escriba aqui"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="form-group">
-                                                            <label for="">Padece de alguna de las siguientes
+                                                            <label for="alguna_enfermedad">Padece de alguna de las
+                                                                siguientes
                                                                 enfermedades?
                                                                 <span class="text-danger">(*)</span>:</label>
                                                             <div>
-                                                                <label for="">Saranpion</label>
-                                                                <input type="radio" id="" name="" value="">
-                                                                <label for="">Varicela</label>
-                                                                <input type="radio" id="" name="" value="">
-                                                                <label for="">tuberculosis</label>
-                                                                <input type="radio" id="" name="" value="">
-                                                                <label for="">diabetes</label>
-                                                                <input type="radio" id="" name="" value="">
-                                                                <label for="">Asma</label>
-                                                                <input type="radio" id="" name="" value="">
-                                                                <label for="">Epatitis</label>
-                                                                <input type="radio" id="" name="" value="">
-                                                                <label for="">Otras</label>
-                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="alguna_enfermedad">Saranpion</label>
+                                                                <input type="radio" id="alguna_enfermedad"
+                                                                    name="alguna_enfermedad" value="saranpion">
+                                                                <label for="alguna_enfermedad">Varicela</label>
+                                                                <input type="radio" id="alguna_enfermedad"
+                                                                    name="alguna_enfermedad" value="varicela">
+                                                                <label for="alguna_enfermedad">tuberculosis</label>
+                                                                <input type="radio" id="alguna_enfermedad"
+                                                                    name="alguna_enfermedad" value="tuberculosis">
+                                                                <label for="alguna_enfermedad">diabetes</label>
+                                                                <input type="radio" id="alguna_enfermedad"
+                                                                    name="alguna_enfermedad" value="diabetes">
+                                                                <label for="alguna_enfermedad">Asma</label>
+                                                                <input type="radio" id="alguna_enfermedad"
+                                                                    name="alguna_enfermedad" value="asma">
+                                                                <label for="alguna_enfermedad">Epatitis</label>
+                                                                <input type="radio" id="alguna_enfermedad"
+                                                                    name="alguna_enfermedad" value="epatitis">
+                                                                <label for="alguna_enfermedad">Otras</label>
+                                                                <input type="radio" id="alguna_enfermedad"
+                                                                    name="alguna_enfermedad" value="otras">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -403,23 +437,25 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="">Cepilla los dientes? <span
+                                                            <label for="cepilla_diente">Cepilla los dientes? <span
                                                                     class="text-danger">(*)</span>:</label>
                                                             <div>
-                                                                <label for="">Si</label>
-                                                                <input type="radio" id="" name="" value="">
-                                                                <label for="">No</label>
-                                                                <input type="radio" id="" name="" value="">
+                                                                <label for="cepilla_diente">Si</label>
+                                                                <input type="radio" id="cepilla_diente"
+                                                                    name="cepilla_diente" value="si">
+                                                                <label for="cepilla_diente">No</label>
+                                                                <input type="radio" id="cepilla_diente"
+                                                                    name="cepilla_diente" value="no">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="">Cuantas al dia?<span
+                                                            <label for="cuanto_dia">Cuantas al dia?<span
                                                                     class="text-danger">(*)</span>:</label>
-                                                            <textarea type="text" id="" name="" class="form-control"
-                                                                style="overflow:auto;resize:none" rows="3"
-                                                                placeholder="escriba aqui"></textarea>
+                                                            <textarea type="text" id="cuanto_dia" name="cuanto_dia"
+                                                                class="form-control" style="overflow:auto;resize:none"
+                                                                rows="3" placeholder="escriba aqui"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -643,16 +679,15 @@
                                                             <label for="nombre_alergia">Nombre<span
                                                                     class="text-danger">(*)</span>:</label>
                                                             <input type="text" id="nombre_alergia" name="nombre_alergia"
-                                                                class="form-control"/>
+                                                                class="form-control" />
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="detalle">Observacion<span
                                                                     class="text-danger">(*)</span>:</label>
-                                                            <textarea class="form-control" id="detalle"
-                                                                name="detalle" rows="3"
-                                                                placeholder="Describa..."></textarea>
+                                                            <textarea class="form-control" id="detalle" name="detalle"
+                                                                rows="3" placeholder="Describa..."></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -669,7 +704,7 @@
                                     <!-- /.modal-content -->
                                 </div>
                                 <!-- /.modal-dialog -->
-                            </div>  <!-- /fin modal de alergias-->
+                            </div> <!-- /fin modal de alergias-->
 
 
                             <!-- /.tab-pane -->
@@ -796,12 +831,14 @@
                         <tr>
                             <th width="5%">#</th>
                             <th>CI</th>
-                            <th width="30%">Nombres</th>
+                            <th>Nombres</th>
+                            <th>sexo</th>
+                            <th>Lugar nacimiento</th>
                             <th>Celular</th>
                             <th>Nacimiento</th>
                             <th>Domicilio</th>
                             <th>Ocupacion</th>
-                            <th>Estatus</th>
+                            <th>Estado</th>
                             <th>Registrado</th>
                             <th>Acciones</th>
                         </tr>

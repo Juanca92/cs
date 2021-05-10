@@ -1,0 +1,5 @@
+<IfModule mod_headers.c>
+  <FilesMatch "\.(eot|svg|ttf|woff|woff2)$">
+    Header set Access-Control-Allow-Origin 'https://rosas.com'
+  </FilesMatch>
+</IfModule>

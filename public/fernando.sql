@@ -57,36 +57,7 @@ p.domicilio,o.turno, o.gestion_ingreso, p.estatus, p.estado, p.creado_en
 from sp_persona p join sp_odontologo o
 on p.id_persona = o.id_odontologo;
 
-<<<<<<< HEAD
 
-=======
-CREATE TABLE `sp_horario` (
-  `id_horario` int(11) NOT NULL AUTO_INCREMENT,
-  `entrada` time not null,
-  `salida` time not null,
-  `id_cita` int(11) NOT NULL,
-  `creado_en` timestamp NOT NULL DEFAULT current_timestamp(),
-  `actualizado_en` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id_horario`)
-);
->>>>>>> a13a2c187bb549771d684aab364ee91ef785669d
-
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '08:30:00', '09:00:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '09:00:00', '09:30:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '09:30:00', '10:00:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '10:00:00', '10:30:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '10:30:00', '11:00:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '11:00:00', '11:30:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '11:30:00', '12:00:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '12:00:00', '12:30:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '14:30:00', '15:00:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '15:00:00', '15:30:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '15:30:00', '16:00:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '16:00:00', '16:30:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '16:30:00', '17:00:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '17:00:00', '17:30:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '17:30:00', '18:00:00', current_timestamp(), NULL);
-INSERT INTO `sp_horario` (`id_horario`, `entrada`, `salida`, `creado_en`, `actualizado_en`) VALUES (NULL, '18:00:00', '18:30:00', current_timestamp(), NULL);
 
 ALTER TABLE `sp_usuario` ADD `foto` VARCHAR(100) NOT NULL AFTER `clave`;
 
@@ -138,6 +109,27 @@ CREATE TABLE `sp_tratamiento_enfermedad` (
   KEY `fk_tratamiento_enfermedad_paciente` (`id_paciente`),
   CONSTRAINT `fk_tratamiento_enfermedad_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `sp_paciente` (`id_paciente`)
 );
+--creacion de la vista de tratamiento-enfermedad--
+CREATE OR REPLACE VIEW `sp_view_tratamiento_enfermedad` AS
+select
+    `tratamiento_enfermedad`.`id_enfermedad` AS `id_enfermedad`,
+    `tratamiento_enfermedad`.`tiempo_consulta` AS 'tiempo_consulta', 
+    `tratamiento_enfermedad`.`motivo_consulta` AS `motivo_consulta`,
+    `tratamiento_enfermedad`.`sintomas_principales` AS `sintomas_principales`,
+    `tratamiento_enfermedad`.`tomando_medicamentos` AS `tomando_medicamento`,
+    `tratamiento_enfermedad`.`nombre_medicamento` AS `nombre_medicamento`,
+    `tratamiento_enfermedad`.`motivo_medicamento` AS `motivo_medicamento`,
+    `tratamiento_enfermedad`.`dosis_medicamento` AS `dosis_medicamento`,
+    `paciente`.`id_paciente` AS `id_paciente`,
+	    
+    concat(`persona_paciente`.`nombres`, ' ', `persona_paciente`.`paterno`, ' ', `persona_paciente`.`materno`) AS `nombre_paciente`,
+    `tratamiento_enfermedad`.`creado_en` AS `creado_en`
+from
+    ((`sp_tratamiento_enfermedad` `tratamiento_enfermedad`
+join `sp_paciente` `paciente` on
+    (`tratamiento_enfermdad`.`id_paciente` = `paciente`.`id_paciente`))
+join `sp_persona` `persona_paciente` on
+    (`persona_paciente`.`id_persona` = `paciente`.`id_paciente`));
 
 
 --creacion de la tabla consulta--
@@ -162,6 +154,32 @@ CREATE TABLE `sp_tratamiento_consulta` (
   CONSTRAINT `fk_tratamiento_consulta_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `sp_paciente` (`id_paciente`)
 );
 
+--creacion de la vista de tratamiento-consulta--
+CREATE OR REPLACE VIEW `sp_view_tratamiento_consulta` AS
+select
+    `tratamiento_consulta`.`id_consulta` AS `id_consulta`,
+    `tratamiento_consulta`.`tratamiento` AS 'tratamiento', 
+    `tratamiento_consulta`.`motivo_tratamiento` AS `motivo_tratamiento`,
+    `tratamiento_consulta`.`tomando_medicamentos` AS `tomando_medicamentos`,
+    `tratamiento_consulta`.`porque_tiempo` AS `porque_tiempo`,
+    `tratamiento_consulta`.`alergico_medicamento` AS `alergico_medicamento`,
+    `tratamiento_consulta`.`cual_medicamento` AS `cual_medicamento`,
+    `tratamiento_consulta`.`alguna_cirugia` AS `alguna_cirugia`,
+    `tratamiento_consulta`.`porque` AS `porque`,
+    `tratamiento_consulta`.`alguna_enfermedad` AS `alguna_enfermedad`,
+    `tratamiento_consulta`.`cepilla_diente` AS `cepilla_diente`,
+    `tratamiento_consulta`.`cuanto_dia` AS `cuanto_dia`,
+    `paciente`.`id_paciente` AS `id_paciente`,
+	    
+    concat(`persona_paciente`.`nombres`, ' ', `persona_paciente`.`paterno`, ' ', `persona_paciente`.`materno`) AS `nombre_paciente`,
+    `tratamiento_consulta`.`creado_en` AS `creado_en`
+from
+    ((`sp_tratamiento_consulta` `tratamiento_consulta`
+join `sp_paciente` `paciente` on
+    (`tratamiento_consulta`.`id_paciente` = `paciente`.`id_paciente`))
+join `sp_persona` `persona_paciente` on
+    (`persona_paciente`.`id_persona` = `paciente`.`id_paciente`));
+
 --creacion de la tabla fisico--
 CREATE TABLE `sp_tratamiento_fisico` (
   `id_fisico` int(11) NOT NULL AUTO_INCREMENT,
@@ -180,3 +198,37 @@ CREATE TABLE `sp_tratamiento_fisico` (
   KEY `fk_tratamiento_fisico_paciente` (`id_paciente`),
   CONSTRAINT `fk_tratamiento_fisico_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `sp_paciente` (`id_paciente`)
 );
+--creacion de la vista de tratamiento-fisico--
+CREATE OR REPLACE VIEW `sp_view_tratamiento_fisico` AS
+select
+    `tratamiento_fisico`.`id_fisico` AS `id_fisico`,
+    `tratamiento_fisico`.`presion_arterial` AS 'presion_alterial', 
+    `tratamiento_fisico`.`pulso` AS `pulso`,
+    `tratamiento_fisico`.`temperatura` AS `temperatura`,
+    `tratamiento_fisico`.`frecuencia_cardiaca` AS `frecuencia_cardiaca`,
+    `tratamiento_fisico`.`frecuencia_respiratoria` AS `frecuencia_respiratoria`,
+    `tratamiento_fisico`.`peso` AS `peso`,
+    `tratamiento_fisico`.`talla` AS `talla`,
+    `tratamiento_fisico`.`masa_corporal` AS `masa_corporal`,
+    `paciente`.`id_paciente` AS `id_paciente`,
+	    
+    concat(`persona_paciente`.`nombres`, ' ', `persona_paciente`.`paterno`, ' ', `persona_paciente`.`materno`) AS `nombre_paciente`,
+    `tratamiento_fisico`.`creado_en` AS `creado_en`
+from
+    ((`sp_tratamiento_fisico` `tratamiento_fisico`
+join `sp_paciente` `paciente` on
+    (`tratamiento_fisico`.`id_paciente` = `paciente`.`id_paciente`))
+join `sp_persona` `persona_paciente` on
+    (`persona_paciente`.`id_persona` = `paciente`.`id_paciente`));
+
+--tabla alterada de persona--
+ALTER TABLE `sp_persona` ADD `sexo` VARCHAR(20) NOT NULL AFTER `materno`, ADD `lugar_nacimiento` VARCHAR(100) NOT NULL AFTER `sexo`;
+
+-- Vista de Paciente y Persona alterada--
+CREATE OR REPLACE VIEW `sp_view_paciente`  AS  
+select p.id_persona, CONCAT(p.ci, ' ' ,p.expedido) AS ci_exp, 
+CONCAT(p.nombres, ' ', p.paterno,' ', p.materno) AS nombre_completo, p.sexo, p.lugar_nacimiento, p.telefono_celular, p.fecha_nacimiento,
+p.domicilio,o.id_ocupacion, o.nombre as ocupacion, p.estatus, p.estado, p.creado_en
+from sp_persona p join sp_paciente pa 
+on p.id_persona = pa.id_paciente
+join sp_ocupacion o on pa.id_ocupacion = o.id_ocupacion;

@@ -143,7 +143,7 @@ class Cita extends BaseController
                             "id_paciente"       => $this->request->getPost('id_paciente'),
                             "id_odontologo"     => $this->request->getPost('id_odontologo'),
                             "observacion"       => trim($this->request->getPost("observacion")),
-                            "estatus"           => "Cancelada",
+                            "estatus"           => "Pendiente",
                             "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
                         );
 
@@ -323,7 +323,6 @@ class Cita extends BaseController
         return null;
         // var_dump();
     }
-<<<<<<< HEAD
     /*
     public function verificar_hora_cita()
     {
@@ -337,6 +336,3 @@ class Cita extends BaseController
     
 
 }
-=======
-}
->>>>>>> a13a2c187bb549771d684aab364ee91ef785669d
