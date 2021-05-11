@@ -32,7 +32,7 @@ class Auth extends Controller
 		if (authenticated()) {
 			return redirect()->to(base_url('/'));
 		} else {
-			$this->templater->login();
+			echo view('login');
 		}
 	}
 
