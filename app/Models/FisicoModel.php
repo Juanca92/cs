@@ -7,7 +7,7 @@ use CodeIgniter\Database\BaseBuilder;
 
 class FisicoModel extends Database
 {
-    
+
     public $db = null;
 
     public function __construct()
@@ -57,5 +57,4 @@ class FisicoModel extends Database
         $builder->select('p.id_persona, p.nombre_completo');
         return $builder->get()->getResultArray();
     }
-    
 }

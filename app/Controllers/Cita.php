@@ -333,6 +333,4 @@ class Cita extends BaseController
 
 
     }*/
-    
-
 }

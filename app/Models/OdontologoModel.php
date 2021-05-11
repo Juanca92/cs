@@ -7,7 +7,7 @@ use CodeIgniter\Database\BaseBuilder;
 
 class OdontologoModel extends Database
 {
-    
+
     public $db = null;
 
     public function __construct()
@@ -159,6 +159,4 @@ class OdontologoModel extends Database
         $builder->where("gu.id_usuario", $id);
         return $builder->get()->getResultArray();
     }
-    
-
 }

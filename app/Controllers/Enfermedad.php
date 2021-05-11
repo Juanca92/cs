@@ -126,7 +126,7 @@ class Enfermedad extends BaseController
                             "nombre_medicamento"    => $this->request->getPost("nombre_medicamento"),
                             "motivo_medicamento"    => $this->request->getPost("motivo_medicamento"),
                             "dosis_medicamento"     => $this->request->getPost("dosis_medicamento"),
-                            "id_paciente"           => "id_paciente"
+                            "id_paciente"           => "id_paciente",
                             "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
                         );
 
@@ -202,7 +202,7 @@ class Enfermedad extends BaseController
                         "nombre_medicamento"    => $this->request->getPost("nombre_medicamento"),
                         "motivo_medicamento"    => $this->request->getPost("motivo_medicamento"),
                         "dosis_medicamento"     => $this->request->getPost("dosis_medicamento"),
-                        "id_paciente"           => "id_paciente"
+                        "id_paciente"           => "id_paciente",
                         "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
                     );
 
@@ -236,6 +236,4 @@ class Enfermedad extends BaseController
             return $this->response->setJSON(json_encode($respuesta));
         }
     }
-    
-
 }

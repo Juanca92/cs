@@ -24,15 +24,15 @@
                     <div class="card-body">
                         <!-- /.Contenido de la vista -->
                         <div class="container">
-						<h1 align="center">Calendario de Citas Medicas</h1>
-						<div id="calendar" class="card" style="padding: 0px;">
-							</div>
+                            <h1 align="center">Calendario de Citas Medicas</h1>
+                            <div id="calendar" class="card" style="padding: 0px;">
+                            </div>
 
-							</div>
+                        </div>
 
                     </div>
 
-                </div>                
+                </div>
             </div>
         </div>
     </div>

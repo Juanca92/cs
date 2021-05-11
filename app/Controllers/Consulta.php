@@ -92,7 +92,7 @@ class Consulta extends BaseController
                             "otras"                 => "alpha_space",
                             "cepilla_diente"        => "required|alpha_space",
                             "cuanto_dia"            => "alpha_space",
-                            
+
                         ],
                         [ // errors
                             "tratamiento" => [
@@ -181,7 +181,7 @@ class Consulta extends BaseController
                             "otras"                     => ucwords(strtolower(trim($this->request->getPost("otras")))),
                             "cepilla_dientes"           => $this->request->getPost("cepilla_dientes"),
                             "cuanto_dia"                => $this->request->getPost("cuanto_dia"),
-                            "id_paciente"               => "id_paciente"
+                            "id_paciente"               => "id_paciente",
                             "creado_en"                 => $this->fecha->format('Y-m-d H:i:s')
                         );
 
@@ -307,7 +307,7 @@ class Consulta extends BaseController
                         "otras"                     => ucwords(strtolower(trim($this->request->getPost("otras")))),
                         "cepilla_dientes"           => $this->request->getPost("cepilla_dientes"),
                         "cuanto_dia"                => $this->request->getPost("cuanto_dia"),
-                        "id_paciente"               => "id_paciente"
+                        "id_paciente"               => "id_paciente",
                         "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
                     );
 
@@ -341,6 +341,4 @@ class Consulta extends BaseController
             return $this->response->setJSON(json_encode($respuesta));
         }
     }
-    
-
 }

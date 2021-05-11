@@ -135,7 +135,7 @@ class Fisico extends BaseController
                             "peso"                      => $this->request->getPost("peso"),
                             "talla"                     => $this->request->getPost("talla"),
                             "masa_corporal"             => $this->request->getPost("masa_corporal"),
-                            "id_paciente"               => "id_paciente"
+                            "id_paciente"               => "id_paciente",
                             "creado_en"                 => $this->fecha->format('Y-m-d H:i:s')
                         );
 
@@ -219,7 +219,7 @@ class Fisico extends BaseController
                         "peso"                      => $this->request->getPost("peso"),
                         "talla"                     => $this->request->getPost("talla"),
                         "masa_corporal"             => $this->request->getPost("masa_corporal"),
-                        "id_paciente"               => "id_paciente"
+                        "id_paciente"               => "id_paciente",
                         "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
                     );
 
@@ -253,6 +253,4 @@ class Fisico extends BaseController
             return $this->response->setJSON(json_encode($respuesta));
         }
     }
-    
-
 }

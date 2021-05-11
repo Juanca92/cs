@@ -7,7 +7,7 @@ use CodeIgniter\Database\BaseBuilder;
 
 class PacienteModel extends Database
 {
-    
+
     public $db = null;
 
     public function __construct()
@@ -168,6 +168,4 @@ class PacienteModel extends Database
         $builder->where("gu.id_usuario", $id);
         return $builder->get()->getResultArray();
     }
-    
-
 }

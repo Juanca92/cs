@@ -36,8 +36,7 @@
         <div class="container">
           <div class="navbar-header">
             <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-              aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -47,22 +46,21 @@
             <!-- TEXT BASED LOGO -->
             <aside class="main-sidebar sidebar-light-navy elevation-4">
               <a href="/" class="brand-link navbar-navy elevation-4">
-                <img src="images/cs.jpg" alt="Logo San Pedro" class="brand-image img-circle elevation-3"
-                  style="opacity: 0.8" />
+                <img src="images/cs.jpg" alt="Logo San Pedro" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
                 <span class="brand-text font-weight-light text-black">SAN PEDRO</span>
               </a>
             </aside>
             <!-- IMG BASED LOGO  -->
-            <!--  <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>   -->
+            <!--  <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="logo"></a>   -->
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-              <li class="active"><a href="index.html">Inicio</a></li>
-              <li><a href="acercaDel-centro.html">Acerca del centro</a></li>
-              <li><a href="nuestros-doctores.html">Nuestros-doctores</a></li>
-              <li><a href="servicio-odontologico.html">Servicio-odontologico</a></li>
-              <li><a href="contactos.html">Contacto</a></li>
-              <li><a href="index.php">Ingresar</a></li>
+              <li class="active"><a href="<?= base_url('/inicio') ?>">Inicio</a></li>
+              <li><a href="<?= base_url('/inicio/acercaDelcentro') ?>">Acerca del centro</a></li>
+              <li><a href="<?= base_url('/inicio/nuestrosDoctores') ?>">Nuestros-doctores</a></li>
+              <li><a href="<?= base_url('/inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
+              <li><a href="<?= base_url('/inicio/contactos') ?>">Contacto</a></li>
+              <li><a href="<?= base_url('/auth/login') ?>">Ingresar</a></li>
             </ul>
           </div>
           <!--/.nav-collapse -->
@@ -226,8 +224,7 @@
           <div class="footer-social">
             <div class="float-right d-sm-block color-palette-set">
               <label id="ahora" style="padding: 2px 6px; border-radius: 6px; 
-              background-color: lightblue; color:navy; font-size:.9rem;" data-toggle="tooltip" data-placement="top"
-                title="<?php echo date('d-m-Y'); ?>">
+              background-color: lightblue; color:navy; font-size:.9rem;" data-toggle="tooltip" data-placement="top" title="<?php echo date('d-m-Y'); ?>">
                 <i style="color: royalblue;" class="fa fa-clock"></i>
                 <small style="color: royalblue;">10:52:12</small>
               </label>

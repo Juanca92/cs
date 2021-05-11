@@ -20,13 +20,13 @@ class Auth extends Controller
 		$this->db = \Config\Database::connect();
 	}
 
-    #Index
+	#Index
 	public function index()
 	{
 		return redirect()->to(base_url('/auth/login'));
 	}
 
-    #Login
+	#Login
 	public function login()
 	{
 		if (authenticated()) {
@@ -47,8 +47,8 @@ class Auth extends Controller
 		// var_dump($this->db->getLastQuery());
 		#Contamos si $userSearched es ugual a 1 si lo es entendemos que podemos aprobar el inicio de sesion
 		if (count($userSearched) >= 1) {
-            
-            # Agregamos una sesion al navegador
+
+			# Agregamos una sesion al navegador
 			$this->session->set(['id_persona' => $userSearched[0]['id_persona']]);
 			$this->session->set(['nombre_grupo' => $userSearched[0]['nombre_grupo']]);
 			$_SESSION['id_persona'] = $userSearched[0]['id_persona'];
@@ -58,13 +58,12 @@ class Auth extends Controller
 			$_SESSION['foto'] 	 = $userSearched[0]['foto'];
 			$_SESSION['nombre_grupo']     = $userSearched[0]['nombre_grupo'];
 			$_SESSION['telefono_celular'] = $userSearched[0]['telefono_celular'];
-			$_SESSION['avatar']  		  = substr($userSearched[0]['nombres'], 0,1).''.substr($userSearched[0]['paterno'], 0,1);
+			$_SESSION['avatar']  		  = substr($userSearched[0]['nombres'], 0, 1) . '' . substr($userSearched[0]['paterno'], 0, 1);
 
 			# Redireccionamos a la pagina principal
 			return redirect()->to(base_url('/'));
-		}		
-		else {
-            #Si $userSearched no es igual a 1 debemos devolverlo al mismo login
+		} else {
+			#Si $userSearched no es igual a 1 debemos devolverlo al mismo login
 			$this->session->destroy();
 			return redirect()->to(base_url('/auth/login'));
 		}
@@ -75,12 +74,11 @@ class Auth extends Controller
 		$this->session->set(['nombre_grupo' => $this->request->getPost('nombre_grupo')]);
 		return redirect()->to(base_url('/'));
 	}
-	
-    // funcion para cerrar sesion
+
+	// funcion para cerrar sesion
 	public function logout()
 	{
 		$this->session->destroy();
 		return redirect()->to(base_url('/'));
 	}
-    
 }// class

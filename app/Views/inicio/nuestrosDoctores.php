@@ -72,12 +72,12 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-              <li class="active"><a href="index.html">Inicio</a></li>
-              <li><a href="acercaDel-centro.html">Acerca del centro</a></li>
-              <li><a href="nuestros-doctores.html">Nuestros-doctores</a></li>
-              <li><a href="servicio-odontologico.html">Servicio-odontologico</a></li>
-              <li><a href="contactos.html">Contacto</a></li>
-              <li><a href="index.php">Ingresar</a></li>
+            <li class="active"><a href="<?= base_url('inicio') ?>">Inicio</a></li>
+              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>">Acerca del centro</a></li>
+              <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>">Nuestros-doctores</a></li>
+              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
+              <li><a href="<?= base_url('inicio/contactos') ?>">Contacto</a></li>
+              <li><a href="<?= base_url('auth/login') ?>">Ingresar</a></li>
             </ul>
           </div>
           <!--/.nav-collapse -->

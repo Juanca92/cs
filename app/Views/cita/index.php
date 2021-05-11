@@ -72,7 +72,7 @@
 <!--  Modal de registro cita-->
 
 <div class="modal fade" id="agregar-cita">
-    <div class="modal-dialog " >
+    <div class="modal-dialog ">
         <div class="modal-content">
             <div class="modal-header bg-green">
                 <h4 class="modal-title" id="agregar-cita-title"></h4>
@@ -87,21 +87,19 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="numero_cita">Numero cita <span class="text-danger">(*)</span>:</label>
-                                <input type="text" id="numero_cita" name="numero_cita" class="form-control"
-                                    placeholder="seleccione Paciente ->" readonly="" />
+                                <input type="text" id="numero_cita" name="numero_cita" class="form-control" placeholder="seleccione Paciente ->" readonly="" />
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="id_paciente">Paciente<span class="text-danger">(*)</span>:</label>
-                                <select class="form-control select2bs4" style="width: 100%;" id="id_paciente"
-                                    name="id_paciente">
+                                <select class="form-control select2bs4" style="width: 100%;" id="id_paciente" name="id_paciente">
                                     <option value="">seleccione un Paciente</option>
                                     <?php
                                     foreach ($this->data["paciente"] as $key => $value) {
                                         echo '<option value="' . $value["id_persona"] . '">' . $value["nombre_completo"] . '</option>';
                                     }
-                                 ?>
+                                    ?>
                                 </select>
                             </div>
                         </div>
@@ -123,8 +121,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="fecha">Fecha Cita<span class="text-danger">(*)</span>:</label>
-                                <input type="datepicker " id="fecha" name="fecha" class="form-control "
-                                    placeholder="Seleccione la fecha" readonly="" />
+                                <input type="datepicker " id="fecha" name="fecha" class="form-control " placeholder="Seleccione la fecha" readonly="" />
                             </div>
                         </div>
                     </div>
@@ -133,16 +130,14 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="hora_inicio">Hora Inicio<span class="text-danger">(*)</span>:</label>
-                                <input type="clockpicker" id="hora_inicio" name="hora_inicio" class="form-control "
-                                data-autoclose="true" placeholder="Seleccione la hora inicio" readonly="" />
+                                <input type="clockpicker" id="hora_inicio" name="hora_inicio" class="form-control " data-autoclose="true" placeholder="Seleccione la hora inicio" readonly="" />
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group ">
                                 <label for="hora_final">Hora Final<span class="text-danger">(*)</span>:</label>
-                                <input type="clockpicker" id="hora_final" name="hora_final" class="form-control"
-                                    data-autoclose="true" placeholder="Seleccione la hora final" readonly="" />
+                                <input type="clockpicker" id="hora_final" name="hora_final" class="form-control" data-autoclose="true" placeholder="Seleccione la hora final" readonly="" />
 
                             </div>
                         </div>
@@ -153,8 +148,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="tipo_atencion">Tipo Atenc&oacute;n <span
-                                        class="text-danger">(*)</span>:</label>
+                                <label for="tipo_atencion">Tipo Atenc&oacute;n <span class="text-danger">(*)</span>:</label>
                                 <select class="custom-select" id="tipo_atencion" name="tipo_atencion">
                                     <option value="costo">--con costo--</option>
                                     <option value="Gratuito">Gratuito</option>
@@ -175,16 +169,14 @@
 
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="id_odontologo">Odont&oacute;logo <span
-                                        class="text-danger">(*)</span>:</label>
-                                <select class="form-control select2bs4" style="width: 100%;" id="id_odontologo"
-                                    name="id_odontologo">
+                                <label for="id_odontologo">Odont&oacute;logo <span class="text-danger">(*)</span>:</label>
+                                <select class="form-control select2bs4" style="width: 100%;" id="id_odontologo" name="id_odontologo">
                                     <!-- <option value="">-- Seleccione Ocupaci&oacute;n --</option> -->
                                     <option value="">seleccione un Odontologo</option>
                                     <?php
-                                        foreach ($this->data["odontologo"] as $key => $value) {
-                                            echo '<option value="' . $value["id_persona"] . '">' . $value["nombre_completo"] . '</option>';
-                                        }
+                                    foreach ($this->data["odontologo"] as $key => $value) {
+                                        echo '<option value="' . $value["id_persona"] . '">' . $value["nombre_completo"] . '</option>';
+                                    }
                                     ?>
                                 </select>
                             </div>
@@ -195,8 +187,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="observacion">Observacion<span class="text-danger">(*)</span>:</label>
-                                <textarea class="form-control" id="observacion" name="observacion" rows="3"
-                                    placeholder="Describa..."></textarea>
+                                <textarea class="form-control" id="observacion" name="observacion" rows="3" placeholder="Describa..."></textarea>
                             </div>
                         </div>
                     </div>
@@ -217,8 +208,7 @@
 
 
                     <div class="panel-footer text-right">
-                        <button class="btn btn-default" id="btn-cerrar" data-dismiss="modal"
-                            type="button">Cerrar</button>
+                        <button class="btn btn-default" id="btn-cerrar" data-dismiss="modal" type="button">Cerrar</button>
                         <button type="submit" id="btn-guardar-cita" class="btn btn-success">Guardar</button>
                     </div>
 
@@ -239,11 +229,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            
+
             <div class="modal-body">
                 <!-- cuerpo-->
                 <div class="col-12">
-                    <div id="calendar_fecha" class="card" style="margin: 0px;" >
+                    <div id="calendar_fecha" class="card" style="margin: 0px;">
                     </div>
                 </div>
             </div>
@@ -288,7 +278,7 @@
             <div class="modal-body">
                 <!-- cuerpo-->
                 <div class="col-sm-12">
-                    <div id="calendar_hora" class="card" style="margin: 0px;" >
+                    <div id="calendar_hora" class="card" style="margin: 0px;">
                     </div>
                 </div>
 

@@ -18,7 +18,7 @@
 <!-- Main content -->
 <section class="content" id="content">
     <div class="container-fluid">
-        <div class="row">            
+        <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header p-2">
@@ -33,7 +33,7 @@
                         <div class="tab-content">
                             <div class="active tab-pane" id="Pendientes">
                                 <!-- Post -->
-                               
+
                                 <table id="tbl_citas_pendientes" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
@@ -45,14 +45,14 @@
                                             <th>Fecha</th>
                                             <th>Hora</th>
                                             <th>Hora final</th>
-                                            <th>Costo</th>                                    
+                                            <th>Costo</th>
                                             <th>Odont&oacute;logo</th>
                                             <th>Estado</th>
                                             <th>Registrado</th>
                                         </tr>
                                     </thead>
                                 </table>
-                                
+
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="Atendidas">
@@ -60,28 +60,6 @@
                                 <table id="tbl_citas_atendidas" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
-                                                <th width="5%">#</th>
-                                                <th># cita</th>
-                                                <th>Paciente</th>
-                                                <th>Tratamiento</th>
-                                                <th>Observaci&oacute;n</th>
-                                                <th>Fecha</th>
-                                                <th>Hora</th>
-                                                <th>Hora final</th>
-                                                <th>Costo</th>                                    
-                                                <th>Odont&oacute;logo</th>
-                                                <th>Estado</th>
-                                                <th>Registrado</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                            <!-- /.tab-pane -->
-
-                            <div class=" tab-pane" id="Canceladas">
-                            <table id="tbl_citas_canceladas" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                    <thead>
-                                         <tr>
                                             <th width="5%">#</th>
                                             <th># cita</th>
                                             <th>Paciente</th>
@@ -90,7 +68,29 @@
                                             <th>Fecha</th>
                                             <th>Hora</th>
                                             <th>Hora final</th>
-                                            <th>Costo</th>                                    
+                                            <th>Costo</th>
+                                            <th>Odont&oacute;logo</th>
+                                            <th>Estado</th>
+                                            <th>Registrado</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <!-- /.tab-pane -->
+
+                            <div class=" tab-pane" id="Canceladas">
+                                <table id="tbl_citas_canceladas" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th width="5%">#</th>
+                                            <th># cita</th>
+                                            <th>Paciente</th>
+                                            <th>Tratamiento</th>
+                                            <th>Observaci&oacute;n</th>
+                                            <th>Fecha</th>
+                                            <th>Hora</th>
+                                            <th>Hora final</th>
+                                            <th>Costo</th>
                                             <th>Odont&oacute;logo</th>
                                             <th>Estado</th>
                                             <th>Registrado</th>
@@ -110,4 +110,3 @@
     </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
-

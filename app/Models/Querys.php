@@ -12,7 +12,7 @@ class Querys extends Database
     {
         $this->db = \Config\Database::connect();
     }
-    
+
     public function view_users($condicion = null, $busqueda = null)
     {
         $builder = $this->db->table('view_users');
@@ -47,5 +47,4 @@ class Querys extends Database
             return null;
         }
     }
-
 }

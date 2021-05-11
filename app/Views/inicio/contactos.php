@@ -50,8 +50,7 @@
         <div class="container">
           <div class="navbar-header">
             <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-              aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -61,8 +60,7 @@
             <!-- TEXT BASED LOGO -->
             <aside class="main-sidebar sidebar-light-navy elevation-4">
               <a href="/" class="brand-link navbar-navy elevation-4">
-                <img src="images/cs.jpg" alt="Logo San Pedro" class="brand-image img-circle elevation-3"
-                  style="opacity: 0.8" />
+                <img src="images/cs.jpg" alt="Logo San Pedro" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
                 <span class="brand-text font-weight-light text-black">SAN PEDRO</span>
               </a>
             </aside>
@@ -71,12 +69,12 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-              <li class="active"><a href="index.html">Inicio</a></li>
-              <li><a href="acercaDel-centro.html">Acerca del centro</a></li>
-              <li><a href="nuestros-doctores.html">Nuestros-doctores</a></li>
-              <li><a href="servicio-odontologico.html">Servicio-odontologico</a></li>
-              <li><a href="contactos.html">Contacto</a></li>
-              <li><a href="index.php">Ingresar</a></li>
+              <li class="active"><a href="<?= base_url('inicio') ?>">Inicio</a></li>
+              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>">Acerca del centro</a></li>
+              <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>">Nuestros-doctores</a></li>
+              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
+              <li><a href="<?= base_url('inicio/contactos') ?>">Contacto</a></li>
+              <li><a href="<?= base_url('auth/login') ?>">Ingresar</a></li>
             </ul>
           </div>
           <!--/.nav-collapse -->
@@ -124,54 +122,53 @@
           </div>
         </div>
         <div class="col-lg-6 col-md-4">
-            <div class="contact-address">
-              <div class="section-heading">
-                <h2>Informacion de contacto medicina General</h2>
-                <div class="line"></div>
-              </div>
-              <p>Para mayor informacion consulte a su medico en medicina General</p>
-              <address class="contact-info">
-                <p><span class="fa fa-home"></span>Dr. German Choque</p>
-                <p><span class="fa fa-phone"></span>74852392</p>
-                <p><span class="fa fa-envelope"></span>germanchoque@gmail.com</p>
-              </address>
+          <div class="contact-address">
+            <div class="section-heading">
+              <h2>Informacion de contacto medicina General</h2>
+              <div class="line"></div>
             </div>
+            <p>Para mayor informacion consulte a su medico en medicina General</p>
+            <address class="contact-info">
+              <p><span class="fa fa-home"></span>Dr. German Choque</p>
+              <p><span class="fa fa-phone"></span>74852392</p>
+              <p><span class="fa fa-envelope"></span>germanchoque@gmail.com</p>
+            </address>
           </div>
         </div>
       </div>
+    </div>
   </section>
 
   <!--=========== Start Footer SECTION ================-->
   <footer id="footer">
     <!-- pie de la pagina-->
-  <div class="footer-middle">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="footer-copyright">
-            <strong>
-              Copyright &copy; 2021
-              <a href="/">C.S. San Pedro</a>.
-            </strong>
-  
-          Todos los derechos reservados.
+    <div class="footer-middle">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="footer-copyright">
+              <strong>
+                Copyright &copy; 2021
+                <a href="/">C.S. San Pedro</a>.
+              </strong>
+
+              Todos los derechos reservados.
+            </div>
           </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="footer-social">
-            <div class="float-right d-sm-block color-palette-set">
-              <label id="ahora" style="padding: 2px 6px; border-radius: 6px; 
-              background-color: lightblue; color:navy; font-size:.9rem;"
-                  data-toggle="tooltip" data-placement="top" title="<?php echo date('d-m-Y'); ?>">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="footer-social">
+              <div class="float-right d-sm-block color-palette-set">
+                <label id="ahora" style="padding: 2px 6px; border-radius: 6px; 
+              background-color: lightblue; color:navy; font-size:.9rem;" data-toggle="tooltip" data-placement="top" title="<?php echo date('d-m-Y'); ?>">
                   <i style="color: royalblue;" class="fa fa-clock"></i>
                   <small style="color: royalblue;">10:52:12</small>
-              </label>
-          </div>
+                </label>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   </footer>
   <!--=========== End Footer SECTION ================-->
 
