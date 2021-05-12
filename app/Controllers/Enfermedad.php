@@ -125,7 +125,12 @@ class Enfermedad extends BaseController
                             "nombre_medicamento"    => $this->request->getPost("nombre_medicamento"),
                             "motivo_medicamento"    => $this->request->getPost("motivo_medicamento"),
                             "dosis_medicamento"     => $this->request->getPost("dosis_medicamento"),
+<<<<<<< HEAD
                             "id_paciente"           => $this->request->getPost("id_paciente")
+=======
+                            "id_paciente"           => "id_paciente",
+                            "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                         );
 
                         $respuesta = $this->model->enfermedad("insert", $data, null, null);
@@ -196,7 +201,12 @@ class Enfermedad extends BaseController
                         "nombre_medicamento"    => $this->request->getPost("nombre_medicamento"),
                         "motivo_medicamento"    => $this->request->getPost("motivo_medicamento"),
                         "dosis_medicamento"     => $this->request->getPost("dosis_medicamento"),
+<<<<<<< HEAD
                         "id_paciente"           => $this->request->getPost("id_paciente")
+=======
+                        "id_paciente"           => "id_paciente",
+                        "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                     );
 
                     $respuesta = $this->model->enfermedad(

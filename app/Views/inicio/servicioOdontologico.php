@@ -7,18 +7,27 @@
     ================================================== -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<<<<<<< HEAD
   <title>Centro de salud | Odontologia</title>
+=======
+  <title>Centro de salud: Odontologica</title>
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 
   <!-- Mobile Specific Metas
     ================================================== -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Favicon -->
+<<<<<<< HEAD
   <link rel="shortcut icon" type="image/icon" href="<?php echo base_url('images/centroSalud.jpg') ?>" />
+=======
+  <link rel="shortcut icon" type="image/icon" href="images/favicon.ico" />
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 
   <!-- CSS
     ================================================== -->
   <!-- Bootstrap css file-->
+<<<<<<< HEAD
   <link href="<?php echo base_url('css/bootstrap.min.css') ?>" rel="stylesheet">
   <!-- Font awesome css file-->
   <link href="<?php echo base_url('css/font-awesome.min.css') ?>" rel="stylesheet">
@@ -29,6 +38,18 @@
 
   <!-- Main structure css file -->
   <link href="<?php echo base_url('style.css') ?>" rel="stylesheet">
+=======
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font awesome css file-->
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <!-- Default Theme css file -->
+  <link id="switcher" href="css/themes/blue-theme.css" rel="stylesheet">
+  <!-- Slick slider css file -->
+  <link href="css/slick.css" rel="stylesheet">
+
+  <!-- Main structure css file -->
+  <link href="style.css" rel="stylesheet">
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 
 
 </head>
@@ -57,8 +78,13 @@
             <!-- TEXT BASED LOGO -->
             <aside class="main-sidebar sidebar-light-navy elevation-4">
               <a href="/" class="brand-link navbar-navy elevation-4">
+<<<<<<< HEAD
                 <img src="<?php echo base_url('images/sanpedro.jpg') ?>" alt="Logo San Pedro" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
                 <span class="brand-text font-weight-light text-black">C.S. | SAN PEDRO</span>
+=======
+                <img src="images/cs.jpg" alt="Logo San Pedro" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
+                <span class="brand-text font-weight-light text-black">SAN PEDRO</span>
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
               </a>
             </aside>
             <!-- IMG BASED LOGO  -->
@@ -210,6 +236,7 @@
               <div class="whyChoose-left">
                 <div class="whychoose-slider">
                   <div class="whychoose-singleslide">
+<<<<<<< HEAD
                     <img src="<?php echo base_url('images/odonto2.jpg') ?>" alt="img">
                   </div>
                   <div class="whychoose-singleslide">
@@ -223,6 +250,15 @@
                   </div>
                   <div class="whychoose-singleslide">
                     <img src="<?php echo base_url('images/odonto1.jpg') ?>" alt="img">
+=======
+                    <img src="images/choose-us-img1.jpg" alt="img">
+                  </div>
+                  <div class="whychoose-singleslide">
+                    <img src="images/choose-us-img2.jpg" alt="img">
+                  </div>
+                  <div class="whychoose-singleslide">
+                    <img src="images/choose-us-img3.jpg" alt="img">
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                   </div>
                 </div>
               </div>
@@ -303,6 +339,7 @@
   <!--=========== End Footer SECTION ================-->
 
   <!-- jQuery Library  -->
+<<<<<<< HEAD
   <script src="<?php echo base_url('js/jquery.js') ?>"></script>
   <!-- Bootstrap default js -->
   <script src="<?php echo base_url('js/bootstrap.min.js') ?>"></script>
@@ -318,6 +355,23 @@
 
   <!-- Custom JS -->
   <script src="<?php echo base_url('js/custom.js') ?>"></script>
+=======
+  <script src="js/jquery.js"></script>
+  <!-- Bootstrap default js -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- slick slider -->
+  <script src="js/slick.min.js"></script>
+  <script type="text/javascript" src="js/modernizr.custom.79639.js"></script>
+  <!-- counter -->
+  <script src="js/waypoints.min.js"></script>
+  <script src="js/jquery.counterup.min.js"></script>
+  <!-- Doctors hover effect -->
+  <script src="js/snap.svg-min.js"></script>
+  <script src="js/hovers.js"></script>
+
+  <!-- Custom JS -->
+  <script src="js/custom.js"></script>
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 
 </body>
 

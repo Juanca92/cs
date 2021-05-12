@@ -6,18 +6,27 @@
     ================================================== -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<<<<<<< HEAD
   <title>Centro de salud | Doctores</title>
+=======
+  <title>Centro de Salud : Sobre Nosotros</title>
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 
   <!-- Mobile Specific Metas
     ================================================== -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Favicon -->
+<<<<<<< HEAD
   <link rel="shortcut icon" type="image/icon" href="<?php echo base_url('images/centroSalud.jpg') ?>" />
+=======
+  <link rel="shortcut icon" type="image/icon" href="images/favicon.ico" />
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 
   <!-- CSS
     ================================================== -->
   <!-- Bootstrap css file-->
+<<<<<<< HEAD
   <link href="<?php echo base_url('css/bootstrap.min.css') ?>" rel="stylesheet">
   <!-- Font awesome css file-->
   <link href="<?php echo base_url('css/fontawesome.min.css') ?>" rel="stylesheet">
@@ -28,12 +37,28 @@
 
   <!-- Main structure css file -->
   <link href="<?php echo base_url('style.css') ?>" rel="stylesheet">
+=======
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font awesome css file-->
+  <link href="css/fontawesome.min.css" rel="stylesheet">
+  <!-- Default Theme css file -->
+  <link id="switcher" href="css/themes/blue-theme.css" rel="stylesheet">
+  <!-- Slick slider css file -->
+  <link href="css/slick.css" rel="stylesheet">
+
+  <!-- Main structure css file -->
+  <link href="style.css" rel="stylesheet">
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 
   <!-- Google fonts -->
   <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Habibi' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative:900' rel='stylesheet' type='text/css'>
+<<<<<<< HEAD
   
+=======
+  <![endif]-->
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 </head>
 
 <body>
@@ -62,9 +87,15 @@
             <!-- TEXT BASED LOGO -->
             <aside class="main-sidebar sidebar-light-navy elevation-4">
               <a href="/" class="brand-link navbar-navy elevation-4">
+<<<<<<< HEAD
                 <img src="<?php echo base_url('images/sanpedro.jpg') ?>" alt="Logo San Pedro" class="brand-image img-circle elevation-3"
                   style="opacity: 0.8" />
                 <span class="brand-text font-weight-light text-black">C.S. | SAN PEDRO</span>
+=======
+                <img src="images/cs.jpg" alt="Logo San Pedro" class="brand-image img-circle elevation-3"
+                  style="opacity: 0.8" />
+                <span class="brand-text font-weight-light text-black">SAN PEDRO</span>
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
               </a>
             </aside>
             <!-- IMG BASED LOGO  -->
@@ -123,7 +154,11 @@
                   <div class="single-doctor">
                     <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
                       <figure>
+<<<<<<< HEAD
                         <img src="<?php echo base_url('images/doctor1.jpg') ?>" />
+=======
+                        <img src="images/doctor-1.jpg" />
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                         <svg viewBox="0 0 180 320" preserveAspectRatio="none">
                           <path d="M 180,160 0,218 0,0 180,0 z" />
                         </svg>
@@ -142,7 +177,11 @@
                     <div class="single-doctor">
                       <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
                         <figure>
+<<<<<<< HEAD
                           <img src="<?php echo base_url('images/doctor2.jpg') ?>" />
+=======
+                          <img src="images/doctor-2.jpg" />
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                           <svg viewBox="0 0 180 320" preserveAspectRatio="none">
                             <path d="M 180,160 0,218 0,0 180,0 z" />
                           </svg>
@@ -162,7 +201,11 @@
                     <div class="single-doctor">
                       <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
                         <figure>
+<<<<<<< HEAD
                           <img src="<?php echo base_url('images/doctor-3.jpg') ?>" />
+=======
+                          <img src="images/doctor-3.jpg" />
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                           <svg viewBox="0 0 180 320" preserveAspectRatio="none">
                             <path d="M 180,160 0,218 0,0 180,0 z" />
                           </svg>
@@ -183,7 +226,11 @@
                     <div class="single-doctor">
                       <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
                         <figure>
+<<<<<<< HEAD
                           <img src="<?php echo base_url('images/doctora1.jpg') ?>" />
+=======
+                          <img src="images/doctor-5.jpg" />
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                           <svg viewBox="0 0 180 320" preserveAspectRatio="none">
                             <path d="M 180,160 0,218 0,0 180,0 z" />
                           </svg>
@@ -202,7 +249,11 @@
                   <div class="single-doctor">
                     <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
                       <figure>
+<<<<<<< HEAD
                         <img src="<?php echo base_url('images/doctor-1.jpg') ?>" />
+=======
+                        <img src="images/doctor-1.jpg" />
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                         <svg viewBox="0 0 180 320" preserveAspectRatio="none">
                           <path d="M 180,160 0,218 0,0 180,0 z" />
                         </svg>
@@ -221,7 +272,11 @@
                     <div class="single-doctor">
                       <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
                         <figure>
+<<<<<<< HEAD
                           <img src="<?php echo base_url('images/doctora2.jpg') ?>" />
+=======
+                          <img src="images/doctor-3.jpg" />
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                           <svg viewBox="0 0 180 320" preserveAspectRatio="none">
                             <path d="M 180,160 0,218 0,0 180,0 z" />
                           </svg>
@@ -278,6 +333,7 @@
   <!--=========== End Footer SECTION ================-->
 
   <!-- jQuery Library  -->
+<<<<<<< HEAD
   <script src="<?php echo base_url('js/jquery.js') ?>"></script>
   <!-- Bootstrap default js -->
   <script src="<?php echo base_url('js/bootstrap.min.js') ?>"></script>
@@ -297,6 +353,27 @@
 
   <!-- Custom JS -->
   <script src="<?php echo base_url('js/custom.js') ?>"></script>
+=======
+  <script src="js/jquery.js"></script>
+  <!-- Bootstrap default js -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- slick slider -->
+  <script src="js/slick.min.js"></script>
+  <script type="text/javascript" src="js/modernizr.custom.79639.js"></script>
+  <!-- counter -->
+  <script src="js/waypoints.min.js"></script>
+  <script src="js/jquery.counterup.min.js"></script>
+  <!-- Doctors hover effect -->
+  <script src="js/snap.svg-min.js"></script>
+  <script src="js/hovers.js"></script>
+  <!-- Photo Swipe Gallery Slider -->
+  <script src='js/photoswipe.min.js'></script>
+  <script src='js/photoswipe-ui-default.min.js'></script>
+  <script src="js/photoswipe-gallery.js"></script>
+
+  <!-- Custom JS -->
+  <script src="js/custom.js"></script>
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 
 </body>
 

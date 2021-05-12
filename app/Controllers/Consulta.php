@@ -181,7 +181,11 @@ class Consulta extends BaseController
                             "otras"                     => ucwords(strtolower(trim($this->request->getPost("otras")))),
                             "cepilla_dientes"           => $this->request->getPost("cepilla_dientes"),
                             "cuanto_dia"                => $this->request->getPost("cuanto_dia"),
+<<<<<<< HEAD
                             "id_paciente"               => $this->request->getPost("id_paciente"),
+=======
+                            "id_paciente"               => "id_paciente",
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                             "creado_en"                 => $this->fecha->format('Y-m-d H:i:s')
                         );
 
@@ -307,7 +311,11 @@ class Consulta extends BaseController
                         "otras"                     => ucwords(strtolower(trim($this->request->getPost("otras")))),
                         "cepilla_dientes"           => $this->request->getPost("cepilla_dientes"),
                         "cuanto_dia"                => $this->request->getPost("cuanto_dia"),
+<<<<<<< HEAD
                         "id_paciente"               => $this->request->getPost("id_paciente"),
+=======
+                        "id_paciente"               => "id_paciente",
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                         "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
                     );
 

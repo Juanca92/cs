@@ -232,6 +232,7 @@ $(document).ready(function () {
 				mensajeAlert('error', 'Error al registrar/editar la enfermedad', 'Error');
 			});
 	});
+<<<<<<< HEAD
 	// capturando el id al Editar enfermedad
 	$('#tbl_tratamiento_enfermedades_ver').on('click', '.btn_ver_tratamientos', function (e) {
 		let id = $(this).attr('data');
@@ -262,5 +263,7 @@ $(document).ready(function () {
 			});
 	});
 
+=======
+>>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 	// Mostrar alergias al hacer click en ver tratamientos
 }); //fin principio
