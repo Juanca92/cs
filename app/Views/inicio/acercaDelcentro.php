@@ -55,13 +55,8 @@
             <!-- TEXT BASED LOGO -->
             <aside class="main-sidebar sidebar-light-navy elevation-4">
               <a href="/" class="brand-link navbar-navy elevation-4">
-<<<<<<< HEAD:app/Views/inicio/acercaDelcentro.php
                 <img src="<?php echo base_url('images/sanpedro.jpg') ?>" alt="Logo San Pedro" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
                 <span class="brand-text font-weight-light text-black">C.S. | SAN PEDRO</span>
-=======
-                <img src="images/cs.jpg" alt="Logo San Pedro" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
-                <span class="brand-text font-weight-light text-black">SAN PEDRO</span>
->>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94:app/Views/inicio/acercaDel-centro.html
               </a>
             </aside>
             <!-- IMG BASED LOGO  -->

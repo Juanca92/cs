@@ -1,0 +1,518 @@
+CRITICAL - 2021-05-10 03:44:26 --> SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY `id_alergia` ASC
+			 LIMIT 0, 10' at line 4
+#0 C:\xampp\htdocs\cs\app\Libraries\Ssp.php(465): PDOStatement->execute()
+#1 C:\xampp\htdocs\cs\app\Libraries\Ssp.php(367): App\Libraries\Ssp::sql_exec(Object(PDO), Array, 'SELECT `id_aler...')
+#2 C:\xampp\htdocs\cs\app\Controllers\Tratamiento.php(54): App\Libraries\Ssp::complex(Array, Array, 'sp_view_tratami...', 'id_alergia', Array, ' ')
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Tratamiento->ajaxListarAlergias()
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tratamiento))
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-05-10 08:44:33 --> Invalid file: inicio/index.php
+#0 C:\xampp\htdocs\cs\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('inicio/index.ph...')
+#1 C:\xampp\htdocs\cs\system\Common.php(1217): CodeIgniter\View\View->render('inicio/index', Array, true)
+#2 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(11): view('inicio/index')
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-05-10 08:48:11 --> Call to undefined method App\Controllers\Inicio::view()
+#0 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-05-10 09:30:18 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 11, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 09:34:42 --> syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ';'
+#0 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(893): class_exists('\\App\\Controller...', true)
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(417): CodeIgniter\CodeIgniter->startController()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 09:34:45 --> syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ';'
+#0 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(893): class_exists('\\App\\Controller...', true)
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(417): CodeIgniter\CodeIgniter->startController()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 09:39:39 --> syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ';'
+#0 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(893): class_exists('\\App\\Controller...', true)
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(417): CodeIgniter\CodeIgniter->startController()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 09:39:45 --> syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ';'
+#0 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(893): class_exists('\\App\\Controller...', true)
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(417): CodeIgniter\CodeIgniter->startController()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 09:39:45 --> syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ';'
+#0 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(893): class_exists('\\App\\Controller...', true)
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(417): CodeIgniter\CodeIgniter->startController()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 09:39:45 --> syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ';'
+#0 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(893): class_exists('\\App\\Controller...', true)
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(417): CodeIgniter\CodeIgniter->startController()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 09:39:45 --> syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ';'
+#0 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(893): class_exists('\\App\\Controller...', true)
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(417): CodeIgniter\CodeIgniter->startController()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 09:39:45 --> syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ';'
+#0 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\cs\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(893): class_exists('\\App\\Controller...', true)
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(417): CodeIgniter\CodeIgniter->startController()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 09:40:36 --> Undefined property: App\Controllers\Inicio::$data
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 11, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 09:40:51 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 11, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 09:43:36 --> Undefined property: App\Controllers\Inicio::$templater
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 11, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 10:01:39 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 11, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 10:02:05 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 10:02:08 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 10:02:08 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 10:02:09 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 10:02:09 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 10:02:09 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 10:03:03 --> Invalid file: inicio/index.php
+#0 C:\xampp\htdocs\cs\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('inicio/index.ph...')
+#1 C:\xampp\htdocs\cs\system\Common.php(1217): CodeIgniter\View\View->render('inicio/index', Array, true)
+#2 C:\xampp\htdocs\cs\app\Libraries\Templater.php(34): view('inicio/index', Array)
+#3 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): App\Libraries\Templater->view('inicio/index')
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 10:03:59 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 10:05:38 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 10:05:39 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 10:05:40 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 10:05:40 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 10:32:35 --> Invalid file: inicio/index.php
+#0 C:\xampp\htdocs\cs\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('inicio/index.ph...')
+#1 C:\xampp\htdocs\cs\system\Common.php(1217): CodeIgniter\View\View->render('inicio/index', Array, true)
+#2 C:\xampp\htdocs\cs\app\Libraries\Templater.php(34): view('inicio/index', Array)
+#3 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): App\Libraries\Templater->view('inicio/index')
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 10:57:27 --> Undefined property: App\Controllers\Inicio::$load
+#0 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 10:58:04 --> Invalid file: inicio/index.php
+#0 C:\xampp\htdocs\cs\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('inicio/index.ph...')
+#1 C:\xampp\htdocs\cs\system\Common.php(1217): CodeIgniter\View\View->render('inicio/index', Array, true)
+#2 C:\xampp\htdocs\cs\app\Libraries\Templater.php(34): view('inicio/index', Array)
+#3 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(9): App\Libraries\Templater->view('inicio/index')
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 17:12:08 --> SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY `id_alergia` ASC
+			 LIMIT 0, 10' at line 4
+#0 C:\xampp\htdocs\cs\app\Libraries\Ssp.php(465): PDOStatement->execute()
+#1 C:\xampp\htdocs\cs\app\Libraries\Ssp.php(367): App\Libraries\Ssp::sql_exec(Object(PDO), Array, 'SELECT `id_aler...')
+#2 C:\xampp\htdocs\cs\app\Controllers\Tratamiento.php(54): App\Libraries\Ssp::complex(Array, Array, 'sp_view_tratami...', 'id_alergia', Array, ' ')
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Tratamiento->ajaxListarAlergias()
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tratamiento))
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-05-10 18:03:28 --> requerid is not a valid rule.
+#0 C:\xampp\htdocs\cs\system\Validation\Validation.php(314): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('requerid')
+#1 C:\xampp\htdocs\cs\system\Validation\Validation.php(164): CodeIgniter\Validation\Validation->processRules('sexo', 'sexo', NULL, Array, Array)
+#2 C:\xampp\htdocs\cs\system\Controller.php(181): CodeIgniter\Validation\Validation->run()
+#3 C:\xampp\htdocs\cs\app\Controllers\Paciente.php(244): CodeIgniter\Controller->validate(Array, Array)
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Paciente->guardar_paciente()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Paciente))
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 18:03:56 --> requerid is not a valid rule.
+#0 C:\xampp\htdocs\cs\system\Validation\Validation.php(314): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('requerid')
+#1 C:\xampp\htdocs\cs\system\Validation\Validation.php(164): CodeIgniter\Validation\Validation->processRules('sexo', 'sexo', NULL, Array, Array)
+#2 C:\xampp\htdocs\cs\system\Controller.php(181): CodeIgniter\Validation\Validation->run()
+#3 C:\xampp\htdocs\cs\app\Controllers\Paciente.php(244): CodeIgniter\Controller->validate(Array, Array)
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Paciente->guardar_paciente()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Paciente))
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 18:26:25 --> requerid is not a valid rule.
+#0 C:\xampp\htdocs\cs\system\Validation\Validation.php(314): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('requerid')
+#1 C:\xampp\htdocs\cs\system\Validation\Validation.php(164): CodeIgniter\Validation\Validation->processRules('sexo', 'sexo', NULL, Array, Array)
+#2 C:\xampp\htdocs\cs\system\Controller.php(181): CodeIgniter\Validation\Validation->run()
+#3 C:\xampp\htdocs\cs\app\Controllers\Paciente.php(244): CodeIgniter\Controller->validate(Array, Array)
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Paciente->guardar_paciente()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Paciente))
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 18:26:36 --> requerid is not a valid rule.
+#0 C:\xampp\htdocs\cs\system\Validation\Validation.php(314): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('requerid')
+#1 C:\xampp\htdocs\cs\system\Validation\Validation.php(164): CodeIgniter\Validation\Validation->processRules('sexo', 'sexo', NULL, Array, Array)
+#2 C:\xampp\htdocs\cs\system\Controller.php(181): CodeIgniter\Validation\Validation->run()
+#3 C:\xampp\htdocs\cs\app\Controllers\Paciente.php(244): CodeIgniter\Controller->validate(Array, Array)
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Paciente->guardar_paciente()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Paciente))
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-10 18:27:41 --> syntax error, unexpected '"creado_en"' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+#0 C:\xampp\htdocs\cs\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('enfermedad/guar...')
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('enfermedad/guar...')
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 18:27:52 --> syntax error, unexpected '"creado_en"' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+#0 C:\xampp\htdocs\cs\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('enfermedad/guar...')
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('enfermedad/guar...')
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 19:38:02 --> syntax error, unexpected '"creado_en"' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+#0 C:\xampp\htdocs\cs\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('enfermedad/guar...')
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('enfermedad/guar...')
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 19:38:16 --> syntax error, unexpected '"creado_en"' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+#0 C:\xampp\htdocs\cs\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('enfermedad/guar...')
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('enfermedad/guar...')
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2021-05-10 20:18:59 --> mysqli_sql_exception: Unknown column 'tomando_medicamento' in 'field list' in C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `sp_trat...')
+#1 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sp_trat...')
+#2 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sp_trat...')
+#3 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `sp_trat...', Array, false)
+#4 C:\xampp\htdocs\cs\app\Models\EnfermedadModel.php(36): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 C:\xampp\htdocs\cs\app\Controllers\Enfermedad.php(207): App\Models\EnfermedadModel->enfermedad('update', Array, Array, NULL)
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Enfermedad->guardar_enfermedad()
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Enfermedad))
+#8 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-10 20:18:59 --> Unknown column 'tomando_medicamento' in 'field list'
+#0 C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `sp_trat...')
+#1 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sp_trat...')
+#2 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sp_trat...')
+#3 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `sp_trat...', Array, false)
+#4 C:\xampp\htdocs\cs\app\Models\EnfermedadModel.php(36): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 C:\xampp\htdocs\cs\app\Controllers\Enfermedad.php(207): App\Models\EnfermedadModel->enfermedad('update', Array, Array, NULL)
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Enfermedad->guardar_enfermedad()
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Enfermedad))
+#8 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2021-05-10 20:19:08 --> mysqli_sql_exception: Unknown column 'tomando_medicamento' in 'field list' in C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `sp_trat...')
+#1 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sp_trat...')
+#2 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sp_trat...')
+#3 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `sp_trat...', Array, false)
+#4 C:\xampp\htdocs\cs\app\Models\EnfermedadModel.php(36): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 C:\xampp\htdocs\cs\app\Controllers\Enfermedad.php(207): App\Models\EnfermedadModel->enfermedad('update', Array, Array, NULL)
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Enfermedad->guardar_enfermedad()
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Enfermedad))
+#8 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-10 20:19:08 --> Unknown column 'tomando_medicamento' in 'field list'
+#0 C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `sp_trat...')
+#1 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sp_trat...')
+#2 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sp_trat...')
+#3 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `sp_trat...', Array, false)
+#4 C:\xampp\htdocs\cs\app\Models\EnfermedadModel.php(36): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 C:\xampp\htdocs\cs\app\Controllers\Enfermedad.php(207): App\Models\EnfermedadModel->enfermedad('update', Array, Array, NULL)
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Enfermedad->guardar_enfermedad()
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Enfermedad))
+#8 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2021-05-10 20:19:16 --> mysqli_sql_exception: Unknown column 'tomando_medicamento' in 'field list' in C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `sp_trat...')
+#1 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sp_trat...')
+#2 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sp_trat...')
+#3 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `sp_trat...', Array, false)
+#4 C:\xampp\htdocs\cs\app\Models\EnfermedadModel.php(36): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 C:\xampp\htdocs\cs\app\Controllers\Enfermedad.php(207): App\Models\EnfermedadModel->enfermedad('update', Array, Array, NULL)
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Enfermedad->guardar_enfermedad()
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Enfermedad))
+#8 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-10 20:19:16 --> Unknown column 'tomando_medicamento' in 'field list'
+#0 C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `sp_trat...')
+#1 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sp_trat...')
+#2 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sp_trat...')
+#3 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `sp_trat...', Array, false)
+#4 C:\xampp\htdocs\cs\app\Models\EnfermedadModel.php(36): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 C:\xampp\htdocs\cs\app\Controllers\Enfermedad.php(207): App\Models\EnfermedadModel->enfermedad('update', Array, Array, NULL)
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Enfermedad->guardar_enfermedad()
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Enfermedad))
+#8 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2021-05-10 20:28:07 --> mysqli_sql_exception: Unknown column 'tomando_medicamento' in 'field list' in C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `sp_trat...')
+#1 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sp_trat...')
+#2 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sp_trat...')
+#3 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `sp_trat...', Array, false)
+#4 C:\xampp\htdocs\cs\app\Models\EnfermedadModel.php(36): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 C:\xampp\htdocs\cs\app\Controllers\Enfermedad.php(207): App\Models\EnfermedadModel->enfermedad('update', Array, Array, NULL)
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Enfermedad->guardar_enfermedad()
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Enfermedad))
+#8 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-10 20:28:07 --> Unknown column 'tomando_medicamento' in 'field list'
+#0 C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `sp_trat...')
+#1 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sp_trat...')
+#2 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sp_trat...')
+#3 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `sp_trat...', Array, false)
+#4 C:\xampp\htdocs\cs\app\Models\EnfermedadModel.php(36): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 C:\xampp\htdocs\cs\app\Controllers\Enfermedad.php(207): App\Models\EnfermedadModel->enfermedad('update', Array, Array, NULL)
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Enfermedad->guardar_enfermedad()
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Enfermedad))
+#8 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2021-05-10 20:40:47 --> mysqli_sql_exception: Unknown column 'tomando_medicamento' in 'field list' in C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `sp_trat...')
+#1 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sp_trat...')
+#2 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sp_trat...')
+#3 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `sp_trat...', Array, false)
+#4 C:\xampp\htdocs\cs\app\Models\EnfermedadModel.php(36): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 C:\xampp\htdocs\cs\app\Controllers\Enfermedad.php(207): App\Models\EnfermedadModel->enfermedad('update', Array, Array, NULL)
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Enfermedad->guardar_enfermedad()
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Enfermedad))
+#8 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-10 20:40:47 --> Unknown column 'tomando_medicamento' in 'field list'
+#0 C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `sp_trat...')
+#1 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sp_trat...')
+#2 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sp_trat...')
+#3 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `sp_trat...', Array, false)
+#4 C:\xampp\htdocs\cs\app\Models\EnfermedadModel.php(36): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 C:\xampp\htdocs\cs\app\Controllers\Enfermedad.php(207): App\Models\EnfermedadModel->enfermedad('update', Array, Array, NULL)
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Enfermedad->guardar_enfermedad()
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Enfermedad))
+#8 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2021-05-10 22:03:42 --> mysqli_sql_exception: Unknown column 'tomando_medicamento' in 'field list' in C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `sp_trat...')
+#1 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sp_trat...')
+#2 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sp_trat...')
+#3 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `sp_trat...', Array, false)
+#4 C:\xampp\htdocs\cs\app\Models\EnfermedadModel.php(36): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 C:\xampp\htdocs\cs\app\Controllers\Enfermedad.php(206): App\Models\EnfermedadModel->enfermedad('update', Array, Array, NULL)
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Enfermedad->guardar_enfermedad()
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Enfermedad))
+#8 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-10 22:03:42 --> Unknown column 'tomando_medicamento' in 'field list'
+#0 C:\xampp\htdocs\cs\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `sp_trat...')
+#1 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sp_trat...')
+#2 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sp_trat...')
+#3 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `sp_trat...', Array, false)
+#4 C:\xampp\htdocs\cs\app\Models\EnfermedadModel.php(36): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 C:\xampp\htdocs\cs\app\Controllers\Enfermedad.php(206): App\Models\EnfermedadModel->enfermedad('update', Array, Array, NULL)
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Enfermedad->guardar_enfermedad()
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Enfermedad))
+#8 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2021-05-10 22:41:02 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2021-05-10 22:41:02 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\cs\app\Models\Querys.php(32): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\cs\app\Helpers\SanPedro_helper.php(10): App\Models\Querys->verifyUser(Array)
+#4 C:\xampp\htdocs\cs\app\Controllers\Auth.php(32): authenticated()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->login()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2021-05-10 22:49:31 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2021-05-10 22:49:31 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\cs\app\Models\Querys.php(32): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\cs\app\Helpers\SanPedro_helper.php(10): App\Models\Querys->verifyUser(Array)
+#4 C:\xampp\htdocs\cs\app\Controllers\Auth.php(32): authenticated()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->login()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2021-05-10 23:14:26 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2021-05-10 23:14:26 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\cs\app\Models\Querys.php(32): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\cs\app\Helpers\SanPedro_helper.php(10): App\Models\Querys->verifyUser(Array)
+#4 C:\xampp\htdocs\cs\app\Controllers\Auth.php(32): authenticated()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->login()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}

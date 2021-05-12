@@ -1,0 +1,27 @@
+CRITICAL - 2021-03-18 09:44:39 --> Undefined array key "foto"
+#0 C:\xampp\htdocs\cs\app\Controllers\Auth.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 58)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->authenticate()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-18 22:41:07 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 C:\xampp\htdocs\cs\system\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\cs\system\bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\cs\public\index.php(35): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2021-03-18 20:54:13 --> Undefined index: foto
+#0 C:\xampp\htdocs\cs\app\Controllers\Auth.php(58): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 58, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->authenticate()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-18 21:06:02 --> Undefined index: foto
+#0 C:\xampp\htdocs\cs\app\Controllers\Auth.php(58): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 58, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->authenticate()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}

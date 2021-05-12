@@ -1,0 +1,57 @@
+ERROR - 2021-05-12 01:55:27 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2021-05-12 01:55:27 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\cs\app\Models\Querys.php(32): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\cs\app\Helpers\SanPedro_helper.php(10): App\Models\Querys->verifyUser(Array)
+#4 C:\xampp\htdocs\cs\app\Controllers\Auth.php(32): authenticated()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->login()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2021-05-12 01:58:04 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2021-05-12 01:58:04 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\cs\app\Models\Querys.php(32): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\cs\app\Helpers\SanPedro_helper.php(10): App\Models\Querys->verifyUser(Array)
+#4 C:\xampp\htdocs\cs\app\Controllers\Auth.php(32): authenticated()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->login()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2021-05-12 02:05:41 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2021-05-12 02:05:41 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\cs\app\Models\Querys.php(32): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\cs\app\Helpers\SanPedro_helper.php(10): App\Models\Querys->verifyUser(Array)
+#4 C:\xampp\htdocs\cs\app\Controllers\Auth.php(32): authenticated()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->login()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-05-12 02:11:41 --> syntax error, unexpected '?>', expecting ')'
+#0 C:\xampp\htdocs\cs\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\cs\system\Common.php(1217): CodeIgniter\View\View->render('inicio/index', Array, true)
+#2 C:\xampp\htdocs\cs\app\Controllers\Inicio.php(11): view('inicio/index')
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Inicio->index()
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inicio))
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2021-05-12 02:28:17 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2021-05-12 02:28:17 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\cs\app\Models\Querys.php(32): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\cs\app\Helpers\SanPedro_helper.php(10): App\Models\Querys->verifyUser(Array)
+#4 C:\xampp\htdocs\cs\app\Controllers\Auth.php(32): authenticated()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->login()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}

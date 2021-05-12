@@ -7,6 +7,7 @@
     <title>Centro de Salud | San Pedro</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/jpg" href="<?php echo base_url('images/centroSalud.jpg') ?>" />
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo base_url('plugins/fontawesome-free/css/all.min.css') ?>">
@@ -19,7 +20,6 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<<<<<<< HEAD
 
 <body class="hold-transition login-page" style="background: url('../img/iniciarSesion.jpg') no-repeat; background-size: cover;">
     <div class="login-box">
@@ -81,65 +81,6 @@
     <script src="<?php echo base_url('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
     <!-- AdminLTE App -->
     <script src="<?php echo base_url('js/adminlte.min.js') ?>"></script>
-=======
-
-<body class="hold-transition login-page">
-  <div class="login-box">
-    <!-- /.login-logo -->
-    <div class="card">
-      <div class="card-body login-card-body">
-        <div class="login-logo">
-          <a href="/">
-            <img src="<?php echo base_url('img/logo_login.png') ?>" alt="Logotipo del Centro de Salud San Pedro">
-          </a>
-        </div>
-        <p class="login-box-msg">Iniciar Sesión</p>
-
-        <form action="<?php echo base_url('/auth/authenticate'); ?>" method="POST">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" autocomplete="off" placeholder="Usuario" id="username" name="username">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-user"></span>
-              </div>
-            </div>
-          </div>
-          <div class="input-group mb-3">
-            <input type="password" class="form-control" autocomplete="off" placeholder="Password" id="password" name="password">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-lock"></span>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-            </div>
-            <!-- /.col -->
-            <div class="col-6">
-              <button type="submit" class="btn btn-info btn-block">Ingresar</button>
-            </div>
-            <!-- /.col -->
-          </div>
-        </form>
-
-        <p class="mt-3">
-          <a href="#">Olvidé mi contraseña</a>
-        </p>
-
-      </div>
-      <!-- /.login-card-body -->
-    </div>
-  </div>
-  <!-- /.login-box -->
-
-  <!-- jQuery -->
-  <script src="<?php echo base_url('plugins/jquery/jquery.min.js') ?>"></script>
-  <!-- Bootstrap 4 -->
-  <script src="<?php echo base_url('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-  <!-- AdminLTE App -->
-  <script src="<?php echo base_url('js/adminlte.min.js') ?>"></script>
->>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 
 </body>
 

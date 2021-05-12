@@ -1,0 +1,10 @@
+CRITICAL - 2021-05-02 10:53:45 --> SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY `id_alergia` ASC
+			 LIMIT 0, 10' at line 4
+#0 C:\xampp\htdocs\cs\app\Libraries\Ssp.php(465): PDOStatement->execute()
+#1 C:\xampp\htdocs\cs\app\Libraries\Ssp.php(367): App\Libraries\Ssp::sql_exec(Object(PDO), Array, 'SELECT `id_aler...')
+#2 C:\xampp\htdocs\cs\app\Controllers\Tratamiento.php(54): App\Libraries\Ssp::complex(Array, Array, 'sp_view_tratami...', 'id_alergia', Array, ' ')
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Tratamiento->ajaxListarAlergias()
+#4 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tratamiento))
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}

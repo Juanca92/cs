@@ -1,0 +1,35 @@
+CRITICAL - 2021-03-22 11:04:44 --> Undefined index: foto
+#0 C:\xampp\htdocs\cs\app\Controllers\Auth.php(58): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 58, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->authenticate()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-22 11:16:29 --> Undefined index: foto
+#0 C:\xampp\htdocs\cs\app\Controllers\Auth.php(58): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 58, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->authenticate()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-22 11:19:20 --> Undefined index: foto
+#0 C:\xampp\htdocs\cs\app\Controllers\Auth.php(58): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 58, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->authenticate()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-22 11:20:59 --> Undefined index: foto
+#0 C:\xampp\htdocs\cs\app\Controllers\Auth.php(58): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 58, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->authenticate()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-22 14:17:17 --> Undefined index: foto
+#0 C:\xampp\htdocs\cs\app\Controllers\Auth.php(58): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 58, Array)
+#1 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->authenticate()
+#2 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#3 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}

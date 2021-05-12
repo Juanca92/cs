@@ -4,23 +4,23 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Centro de salud: San Pedro</title>
+  <title>Centro de salud | Inicio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/icon" href="images/favicon.ico" />
+  <link rel="shortcut icon" type="image/jpg" href="<?php echo base_url('images/centroSalud.jpg') ?>" />
   <!-- Bootstrap css file-->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url('css/bootstrap.min.css') ?>" rel="stylesheet">
   <!-- Font awesome css file-->
-  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="<?php echo base_url('css/font-awesome.min.css') ?>" rel="stylesheet">
   <!-- Default Theme css file -->
-  <link id="switcher" href="css/themes/blue-theme.css" rel="stylesheet">
+  <link id="switcher" href="<?php echo base_url('css/themes/blue-theme.css') ?>" rel="stylesheet">
   <!-- Slick slider css file -->
-  <link href="css/slick.css" rel="stylesheet">
+  <link href="<?php echo base_url('css/slick.css') ?>" rel="stylesheet">
   <!-- Photo Swipe Image Gallery -->
-  <link rel='stylesheet prefetch' href='css/photoswipe.css'>
-  <link rel='stylesheet prefetch' href='css/default-skin.css'>
+  <link rel='stylesheet prefetch' href='<?php echo base_url('css/photoswipe.css') ?>'>
+  <link rel='stylesheet prefetch' href='<?php echo base_url('css/default-skin.css') ?>'>
 
   <!-- Main structure css file -->
-  <link href="style.css" rel="stylesheet">
+  <link href="<?php echo base_url('style.css') ?>" rel="stylesheet">
 
 <body>
 
@@ -46,8 +46,8 @@
             <!-- TEXT BASED LOGO -->
             <aside class="main-sidebar sidebar-light-navy elevation-4">
               <a href="/" class="brand-link navbar-navy elevation-4">
-                <img src="images/cs.jpg" alt="Logo San Pedro" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
-                <span class="brand-text font-weight-light text-black">SAN PEDRO</span>
+                <img src="images/sanpedro.jpg" alt="Logo San Pedro" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
+                <span class="brand-text font-weight-light text-black">C.S. | SAN PEDRO</span>
               </a>
             </aside>
             <!-- IMG BASED LOGO  -->
@@ -78,7 +78,7 @@
       <!-- Start First slide -->
       <div class="top-slide-inner">
         <div class="slider-img">
-          <img src="images/14.jpg" alt="">
+          <img src="images/port1.jpg" alt="">
         </div>
         <div class="slider-text">
           <h2>BIENVENIDOS <strong>centro de salud</strong>San Pedro de Curahuara </h2>
@@ -90,7 +90,7 @@
       <!-- diapositiva-->
       <div class="top-slide-inner">
         <div class="slider-img">
-          <img src="images/15.jpg" alt="">
+          <img src="images/port3.jpg" alt="">
         </div>
         <div class="slider-text">
           <h2>BIENVENIDOS a <strong>Centro de Salud</strong> San Pedro de Curahuara </h2>
@@ -102,7 +102,7 @@
       <!-- diapositiva -->
       <div class="top-slide-inner">
         <div class="slider-img">
-          <img src="images/7.jpg" alt="">
+          <img src="images/port4.jpg" alt="">
         </div>
         <div class="slider-text">
           <h2>BIENVENIDOS a <strong>Centro de salud</strong> San Pedro de Curahuara</h2>
@@ -110,30 +110,6 @@
         </div>
       </div>
       <!--fin-->
-
-      <!-- diapositiva -->
-      <div class="top-slide-inner">
-        <div class="slider-img">
-          <img src="images/12.jpg" alt="">
-        </div>
-        <div class="slider-text">
-          <h2>BIENVENIDOS a<strong>Centro de Salud</strong> San Pedro de Curahuara</h2>
-          <p><strong>informacion:</strong> Estamos a disposicion de todos ustedes visitenos para cualquier consulta</p>
-        </div>
-      </div>
-      <!-- fin diapositiva -->
-
-      <!-- diapositiva -->
-      <div class="top-slide-inner">
-        <div class="slider-img">
-          <img src="images/9.jpg" alt="">
-        </div>
-        <div class="slider-text">
-          <h2>BIENVENIDOS a <strong>Centro de Salud</strong> San Pedro de Curahuara </h2>
-          <p><strong>Informacion:</strong> atencion de lunes a domingo</p>
-        </div>
-      </div>
-      <!-- fin diapositiva -->
     </div><!-- /top-slider -->
   </section>
   <!--=========== END SLIDER SECTION ================-->
@@ -237,25 +213,25 @@
   <!--=========== End Footer SECTION ================-->
 
   <!-- jQuery Library  -->
-  <script src="js/jquery.js"></script>
+  <script src="<?php echo base_url('js/jquery.js') ?>"></script>
   <!-- Bootstrap default js -->
-  <script src="js/bootstrap.min.js"></script>
+  <script src="<?php echo base_url('js/bootstrap.min.js') ?>"></script>
   <!-- slick slider -->
-  <script src="js/slick.min.js"></script>
-  <script type="text/javascript" src="js/modernizr.custom.79639.js"></script>
+  <script src="<?php echo base_url('js/slick.min.js') ?>"></script>
+  <script type="text/javascript" src="<?php echo base_url('js/modernizr.custom.79639.js') ?>"></script>
   <!-- counter -->
-  <script src="js/waypoints.min.js"></script>
-  <script src="js/jquery.counterup.min.js"></script>
+  <script src="<?php echo base_url('js/waypoints.min.js') ?>"></script>
+  <script src="<?php echo base_url('js/jquery.counterup.min.js') ?>"></script>
   <!-- Doctors hover effect -->
-  <script src="js/snap.svg-min.js"></script>
-  <script src="js/hovers.js"></script>
+  <script src="<?php echo base_url('js/snap.svg-min.js') ?>"></script>
+  <script src="<?php echo base_url('js/hovers.js') ?>"></script>
   <!-- Photo Swipe Gallery Slider -->
-  <script src='js/photoswipe.min.js'></script>
-  <script src='js/photoswipe-ui-default.min.js'></script>
-  <script src="js/photoswipe-gallery.js"></script>
+  <script src='<?php echo base_url('js/photoswipe.min.js') ?>'></script>
+  <script src='<?php echo base_url('js/photoswipe-ui-default.min.js')?>'></script>
+  <script src="<?php echo base_url('js/photoswipe-gallery.js') ?>"></script>
 
   <!-- Custom JS -->
-  <script src="js/custom.js"></script>
+  <script src="<?php echo base_url('js/custom.js') ?>"></script>
 
 </body>
 
