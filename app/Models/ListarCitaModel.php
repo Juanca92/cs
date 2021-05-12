@@ -7,7 +7,7 @@ use CodeIgniter\Database\BaseBuilder;
 
 class ListarCitaModel extends Database
 {
-    
+
     public $db = null;
 
     public function __construct()
@@ -60,6 +60,5 @@ class ListarCitaModel extends Database
         $builder->select('*');
         $builder->where('id_odontologo = 2');
         return $builder->get()->getResultArray();
-      
     }
 }

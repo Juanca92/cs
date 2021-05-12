@@ -19,14 +19,12 @@
 <section class="content" id="content">
     <div class="container-fluid">
         <div class="row">
-        <div class="col-md-3">
+            <div class="col-md-3">
                 <!-- Profile Image -->
                 <div class="card card-primary card-outline">
-                    <div class="card-body box-profile">                        
+                    <div class="card-body box-profile">
                         <div class="text-center">
-                            <img class="profile-user-img img-fluid img-circle" id="perfil_foto"
-                            src="<?= base_url('img/users/default/default.png'); ?>"
-                            alt="User profile picture" />
+                            <img class="profile-user-img img-fluid img-circle" id="perfil_foto" src="<?= base_url('img/users/default/default.png'); ?>" alt="User profile picture" />
                         </div>
 
                         <h3 id="perfil_nombre_completo" class="profile-username text-center"></h3>
@@ -34,14 +32,14 @@
                         <p id="perfil_grupo" class="text-muted text-center"></p>
 
                         <ul class="list-group list-group-unbordered mb-3">
-                        <li class="list-group-item">
+                            <li class="list-group-item">
                                 <b>Nacimiento</b> <a id="perfil_nacimiento" class="float-right"></a>
-                            </li> 
+                            </li>
                             <li class="list-group-item">
                                 <b>Edad</b> <a id="perfil_edad" class="float-right">40 años</a>
-                            </li>                            
+                            </li>
                         </ul>
-                        
+
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -59,7 +57,7 @@
                         <p id="perfil_celular" class="text-muted"></p>
 
                         <hr>
-                        
+
                         <strong><i class="fas fa-map-marker-alt mr-1"></i> Domicilio</strong>
 
                         <p id="perfil_domicilio" class="text-muted"></p>
@@ -69,7 +67,7 @@
                 </div>
                 <!-- /.card -->
             </div>
-            <!-- /.col -->         
+            <!-- /.col -->
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header p-2">
@@ -85,7 +83,7 @@
                             <div class="tab-pane active" id="actualizar_datos">
                                 <div class="container">
                                     <form class="form-horizontal" id="frm_actualizar_datos">
-                                
+
                                         <div class="form-group row">
                                             <label for="telefono" class="col-sm-2 col-form-label">Celular</label>
                                             <div class="col-sm-10">
@@ -100,10 +98,10 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="offset-sm-2 col-sm-10">
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="confirmar_datos" name="confirmar_datos" />
-                                                <label class="form-check-label" for="confirmar_datos"> Confirmo mis datos</label>
-                                            </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" id="confirmar_datos" name="confirmar_datos" />
+                                                    <label class="form-check-label" for="confirmar_datos"> Confirmo mis datos</label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -111,8 +109,8 @@
                                                 <button type="submit" class="btn btn-danger">Actualizar Datos</button>
                                             </div>
                                         </div>
-                                    </form>  
-                                </div>                          
+                                    </form>
+                                </div>
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="subir_foto">
@@ -125,9 +123,9 @@
                                                 <label class="custom-file-label" for="foto">Seleccione foto</label>
                                             </div>
                                         </div>
-                                        <div class="form-group row">    
-                                            <label for="" class="col-sm-2 col-form-label"></label>                                                                              
-                                            <img src="<?= base_url('img/users/default/default.png');?>" class="previsualizar img" alt="imagen user" width="200px" height="200px" />
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-2 col-form-label"></label>
+                                            <img src="<?= base_url('img/users/default/default.png'); ?>" class="previsualizar img" alt="imagen user" width="200px" height="200px" />
                                             <p class="text-muted"> Peso máximo de la foto 2MB</p>
                                         </div>
                                         <div class="form-group row">
@@ -135,8 +133,8 @@
                                                 <button type="submit" class="btn btn-danger">Subir Foto</button>
                                             </div>
                                         </div>
-                                    </form>  
-                                </div> 
+                                    </form>
+                                </div>
                             </div>
                             <!-- /.tab-pane -->
 
@@ -157,15 +155,15 @@
                                     <div class="form-group row">
                                         <label for="confirmar_password" class="col-sm-3 col-form-label">Repita Contraseña</label>
                                         <div class="col-sm-9">
-                                            <input type="password" class="form-control" id="confirmar_password" name="confirmar_password"  placeholder="Repita contraseña">
+                                            <input type="password" class="form-control" id="confirmar_password" name="confirmar_password" placeholder="Repita contraseña">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="offset-sm-3 col-sm-9">
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="confirmar_cambiar_password">
-                                            <label class="form-check-label" for="confirmar_cambiar_password"> Confirmo mis datos</label>
-                                        </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="confirmar_cambiar_password">
+                                                <label class="form-check-label" for="confirmar_cambiar_password"> Confirmo mis datos</label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -182,7 +180,7 @@
                 </div>
                 <!-- /.nav-tabs-custom -->
             </div>
-            <!-- /.col -->            
+            <!-- /.col -->
         </div>
         <!-- /.row -->
     </div><!-- /.container-fluid -->

@@ -7,7 +7,7 @@ use CodeIgniter\Database\BaseBuilder;
 
 class TratamientoModel extends Database
 {
-    
+
     public $db = null;
 
     public function __construct()
@@ -15,7 +15,7 @@ class TratamientoModel extends Database
         $this->db = \Config\Database::connect();
     }
 
-   
+
     public function tratamiento($accion, $datos, $condicion = null, $busqueda = null)
     {
 

@@ -32,8 +32,7 @@
                     </div>
                     <div class="card-body">
                         <!-- /.Contenido de la vista -->
-                        <table id="tbl_pacientes" class="table table-striped table-bordered" cellspacing="0"
-                            width="100%">
+                        <table id="tbl_pacientes" class="table table-striped table-bordered" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
@@ -107,8 +106,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="nombres">Nombres <span class="text-danger">(*)</span>:</label>
-                                <input type="text" class="form-control" id="nombres" name="nombres"
-                                    placeholder="Nombres" required>
+                                <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombres" required>
                             </div>
                         </div>
                     </div>
@@ -118,16 +116,14 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="paterno">Paterno <span class="text-danger">(*)</span>:</label>
-                                <input type="text" id="paterno" name="paterno" class="form-control"
-                                    placeholder="Apellido Paterno">
+                                <input type="text" id="paterno" name="paterno" class="form-control" placeholder="Apellido Paterno">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="materno">Materno  <span class="text-danger">(*)</span>:</label>
-                                <input type="text" id="materno" name="materno" class="form-control"
-                                    placeholder="Apellido Materno">
+                                <label for="materno">Materno <span class="text-danger">(*)</span>:</label>
+                                <input type="text" id="materno" name="materno" class="form-control" placeholder="Apellido Materno">
                             </div>
                         </div>
                     </div>
@@ -138,18 +134,16 @@
                                 <label for="sexo">Sexo<span class="text-danger">(*)</span>:</label>
                                 <div>
                                     <label for="sexo">M</label>
-                                    <input type="radio"  name="sexo" value="masculino">
+                                    <input type="radio" name="sexo" value="masculino">
                                     <label for="sexo">F</label>
-                                    <input type="radio"  name="sexo" value="femenina">
+                                    <input type="radio" name="sexo" value="femenina">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="lugar_nacimiento">Lugar de Nacimiento <span
-                                        class="text-danger">(*)</span>:</label>
-                                <input type="text" id="lugar_nacimiento" name="lugar_nacimiento"
-                                    class="form-control">
+                                <label for="lugar_nacimiento">Lugar de Nacimiento <span class="text-danger">(*)</span>:</label>
+                                <input type="text" id="lugar_nacimiento" name="lugar_nacimiento" class="form-control">
                             </div>
                         </div>
                         <input type="hidden" name="id" id="id">
@@ -162,17 +156,14 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="celular">Celular <span class="text-danger">(*)</span>:</label>
-                                <input type="number" id="celular" name="celular" class="form-control"
-                                    placeholder="Celular">
+                                <input type="number" id="celular" name="celular" class="form-control" placeholder="Celular">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="fecha_nacimiento">Fecha Nacimiento <span
-                                        class="text-danger">(*)</span>:</label>
-                                <input type="datepicker" id="fecha_nacimiento" name="fecha_nacimiento"
-                                    class="form-control" readonly="">
+                                <label for="fecha_nacimiento">Fecha Nacimiento <span class="text-danger">(*)</span>:</label>
+                                <input type="datepicker" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" readonly="">
                             </div>
                         </div>
                         <input type="hidden" name="id" id="id">
@@ -186,8 +177,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="domicilio">Domicilio <span class="text-danger">(*)</span>:</label>
-                                <textarea class="form-control" id="domicilio" name="domicilio" rows="1"
-                                    placeholder="Domicilio ..."></textarea>
+                                <textarea class="form-control" id="domicilio" name="domicilio" rows="1" placeholder="Domicilio ..."></textarea>
                             </div>
                         </div>
                     </div>
@@ -196,14 +186,13 @@
                         <div class="col-lg-7">
                             <div class="form-group">
                                 <label for="ocupacion">Ocupaci&oacute;n <span class="text-danger">(*)</span>:</label>
-                                <select class="form-control select2bs4" style="width: 100%;" id="id_ocupacion"
-                                    name="id_ocupacion">
+                                <select class="form-control select2bs4" style="width: 100%;" id="id_ocupacion" name="id_ocupacion">
                                     <!-- <option value="">-- Seleccione Ocupaci&oacute;n --</option> -->
                                     <?php
                                     foreach ($this->data["ocupaciones"] as $key => $value) {
                                         echo '<option value="' . $value["id_ocupacion"] . '">' . $value["nombre"] . '</option>';
                                     }
-                                ?>
+                                    ?>
                                 </select>
                             </div>
                         </div>
@@ -221,8 +210,7 @@
                     </div>
 
                     <div class="panel-footer text-right">
-                        <button class="btn btn-default" id="btn-cerrar" data-dismiss="modal"
-                            type="button">Cerrar</button>
+                        <button class="btn btn-default" id="btn-cerrar" data-dismiss="modal" type="button">Cerrar</button>
                         <button type="submit" id="btn-guardar-paciente" class="btn btn-primary"></button>
                     </div>
 

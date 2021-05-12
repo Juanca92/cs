@@ -7,7 +7,7 @@ use CodeIgniter\Database\BaseBuilder;
 
 class HorarioModel extends Database
 {
-    
+
     public $db = null;
 
     public function __construct()

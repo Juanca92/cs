@@ -92,7 +92,7 @@ class Consulta extends BaseController
                             "otras"                 => "alpha_space",
                             "cepilla_diente"        => "required|alpha_space",
                             "cuanto_dia"            => "alpha_space",
-                            
+
                         ],
                         [ // errors
                             "tratamiento" => [
@@ -166,7 +166,7 @@ class Consulta extends BaseController
                         $data = array(
                             "tratamiento"               => $this->request->getPost("tratamiento"),
                             "motivo_tratamiento"        => $this->request->getPost("motivo_tratamiento"),
-                            "tomando_medicamento"       => $this->request->getPost("tomando_medicamento"),
+                            "tomando_medicamentos"       => $this->request->getPost("tomando_medicamentos"),
                             "porque_tiempo"             => $this->request->getPost("porque_tiempo"),
                             "alergico_medicamento"      => $this->request->getPost("alergico_medicamento"),
                             "cual_medicamento"          => $this->request->getPost("cual_medicamento"),
@@ -181,11 +181,11 @@ class Consulta extends BaseController
                             "otras"                     => ucwords(strtolower(trim($this->request->getPost("otras")))),
                             "cepilla_dientes"           => $this->request->getPost("cepilla_dientes"),
                             "cuanto_dia"                => $this->request->getPost("cuanto_dia"),
-                            "id_paciente"               => "id_paciente"
+                            "id_paciente"               => $this->request->getPost("id_paciente"),
                             "creado_en"                 => $this->fecha->format('Y-m-d H:i:s')
                         );
 
-                        $respuesta = $this->model->cita("insert", $data, null, null);
+                        $respuesta = $this->model->consulta("insert", $data, null, null);
                         if (is_numeric($respuesta)) {
                             return $this->response->setJSON(json_encode(array(
                                 'exito' => "Consulta registrado correctamente"
@@ -292,7 +292,7 @@ class Consulta extends BaseController
                     $data = array(
                         "tratamiento"               => $this->request->getPost("tratamiento"),
                         "motivo_tratamiento"        => $this->request->getPost("motivo_tratamiento"),
-                        "tomando_medicamento"       => $this->request->getPost("tomando_medicamento"),
+                        "tomando_medicamentos"       => $this->request->getPost("tomando_medicamentos"),
                         "porque_tiempo"             => $this->request->getPost("porque_tiempo"),
                         "alergico_medicamento"      => $this->request->getPost("alergico_medicamento"),
                         "cual_medicamento"          => $this->request->getPost("cual_medicamento"),
@@ -307,7 +307,7 @@ class Consulta extends BaseController
                         "otras"                     => ucwords(strtolower(trim($this->request->getPost("otras")))),
                         "cepilla_dientes"           => $this->request->getPost("cepilla_dientes"),
                         "cuanto_dia"                => $this->request->getPost("cuanto_dia"),
-                        "id_paciente"               => "id_paciente"
+                        "id_paciente"               => $this->request->getPost("id_paciente"),
                         "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
                     );
 
@@ -341,6 +341,4 @@ class Consulta extends BaseController
             return $this->response->setJSON(json_encode($respuesta));
         }
     }
-    
-
 }

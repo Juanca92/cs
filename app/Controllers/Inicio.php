@@ -2,10 +2,32 @@
 
 namespace App\Controllers;
 
-class Inicio extends BaseController
+use CodeIgniter\Controller;
+
+class Inicio extends Controller
 {
 	public function index()
 	{
-		return $this->templater->view("inicio/index.html");
+		echo view("inicio/index");
+	}
+
+	public function acercaDelcentro()
+	{
+		echo view("inicio/acercaDelcentro");
+	}
+
+	public function nuestrosDoctores()
+	{
+		echo view("inicio/nuestrosDoctores");
+	}
+
+	public function servicioOdontologico()
+	{
+		echo view("inicio/servicioOdontologico");
+	}
+
+	public function contactos()
+	{
+		echo view("inicio/contactos");
 	}
 }

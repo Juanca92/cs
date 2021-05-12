@@ -7,7 +7,7 @@ use CodeIgniter\Database\BaseBuilder;
 
 class AlergiaModel extends Database
 {
-    
+
     public $db = null;
 
     public function __construct()
@@ -15,7 +15,7 @@ class AlergiaModel extends Database
         $this->db = \Config\Database::connect();
     }
 
-   
+
     public function alergia($accion, $datos, $condicion = null, $busqueda = null)
     {
 

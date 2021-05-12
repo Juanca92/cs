@@ -7,7 +7,7 @@ use CodeIgniter\Database\BaseBuilder;
 
 class CitaModel extends Database
 {
-    
+
     public $db = null;
 
     public function __construct()
@@ -67,16 +67,16 @@ class CitaModel extends Database
     {
         $builder = $this->db->table("view_cita ");
         $builder->select('id_cita AS id, nombre_paciente AS title, CONCAT(fecha," ",hora_inicio) AS start, CONCAT(fecha," ",hora_final) AS end,observacion AS description');
-      
+
         return $builder->get()->getResultArray();
     }
 
     public function verificar_numero_cita($id)
     {
-        if(!is_null($id)){
+        if (!is_null($id)) {
             $builder = $this->db->table('cita');
             $builder->select('numero_cita');
-            $builder->where('id_paciente',$id);
+            $builder->where('id_paciente', $id);
             $builder->orderBy('numero_cita', 'DESC');
             $builder->limit(1);
             return $builder->get()->getResultArray();
@@ -93,5 +93,4 @@ class CitaModel extends Database
 
         }
      }*/
-    
 }

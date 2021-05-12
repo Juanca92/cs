@@ -7,7 +7,7 @@ use CodeIgniter\Database\BaseBuilder;
 
 class EnfermedadModel extends Database
 {
-    
+
     public $db = null;
 
     public function __construct()
@@ -57,5 +57,4 @@ class EnfermedadModel extends Database
         $builder->select('p.id_persona, p.nombre_completo');
         return $builder->get()->getResultArray();
     }
-    
 }

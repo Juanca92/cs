@@ -12,14 +12,14 @@
                     <i class="fa fa-user-edit"></i>
                 </a>
                 <a href="<?= base_url('auth/logout'); ?>" class="icon-circle" data-toggle="tooltip" title="Salir">
-                <i class="fa fa-lock"></i>
+                    <i class="fa fa-lock"></i>
                 </a>
 
                 <a href="<?= base_url('auth/logout'); ?>" class="icon-circle" data-toggle="tooltip" title="Salir">
                     <ion-icon class="lock-close"></ion-icon>
                 </a>
-            </div>            
-            
+            </div>
+
         </li>
 
         <li class="nav-header pt-3">
@@ -31,7 +31,7 @@
             <a href="<?= base_url('/home'); ?>" class="nav-link menu--link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>Inicio</p>
-            </a>            
+            </a>
         </li>
 
         <!-- Menu Paciente -->
@@ -54,17 +54,17 @@
             <ul class="nav nav-treeview">
                 <li class="nav-item">
                     <a href="<?= base_url('/odontologo'); ?>" class="nav-link menu--link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Odont&oacute;logo</p>
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Odont&oacute;logo</p>
                     </a>
-                </li>  
+                </li>
 
                 <li class="nav-item">
                     <a href="<?= base_url('/listarCita'); ?>" class="nav-link menu--link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p> Historial Odont&oacute;logo</p>
+                        <i class="far fa-circle nav-icon"></i>
+                        <p> Historial Odont&oacute;logo</p>
                     </a>
-                </li>           
+                </li>
             </ul>
         </li>
 
@@ -80,27 +80,27 @@
             <ul class="nav nav-treeview">
                 <li class="nav-item">
                     <a href="<?= base_url('/cita'); ?>" class="nav-link menu--link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Cita M&eacute;dica</p>
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Cita M&eacute;dica</p>
                     </a>
-                </li> 
+                </li>
                 <li class="nav-item">
                     <a href="<?= base_url('/gestionarCita'); ?>" class="nav-link menu--link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p> Gesti&oacute;n de Citas</p>
+                        <i class="far fa-circle nav-icon"></i>
+                        <p> Gesti&oacute;n de Citas</p>
                     </a>
-                </li>           
+                </li>
             </ul>
         </li>
 
         <!-- Menu Tratamiento -->
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-tooth"></i>
-            <p>
-                Tratamiento
-                <i class="fas fa-angle-left right"></i>
-            </p>
+                <i class="nav-icon fas fa-tooth"></i>
+                <p>
+                    Tratamiento
+                    <i class="fas fa-angle-left right"></i>
+                </p>
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
@@ -108,7 +108,7 @@
                         <i class="far fa-circle nav-icon"></i>
                         <p>Ver Pacientes</p>
                     </a>
-                </li>                
+                </li>
             </ul>
         </li>
 
@@ -134,18 +134,18 @@
             <ul class="nav nav-treeview">
                 <li class="nav-item">
                     <a href="../tables/simple.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Configuraci&oacute;n</p>
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Configuraci&oacute;n</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../tables/data.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Usuarios</p>
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Usuarios</p>
                     </a>
                 </li>
             </ul>
-        </li>   
+        </li>
 
     </ul>
 </nav>

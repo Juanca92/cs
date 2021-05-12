@@ -7,7 +7,7 @@ use CodeIgniter\Database\BaseBuilder;
 
 class AgendaModel extends Database
 {
-    
+
     public $db = null;
 
     public function __construct()

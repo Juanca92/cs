@@ -41,8 +41,7 @@ class Enfermedad extends BaseController
                 array('db' => 'nombre_medicamento', 'dt'      => 5),
                 array('db' => 'motivo_medicamento', 'dt'      => 6),
                 array('db' => 'dosis_medicamento', 'dt'       => 7),
-                array('db' => 'nombre_paciente', 'dt'         => 8),
-                array('db' => 'creado_en', 'dt'               => 9)
+                array('db' => 'nombre_paciente', 'dt'         => 8)
             );
 
             $sql_details = array(
@@ -71,18 +70,17 @@ class Enfermedad extends BaseController
 
                     $val = $this->validate(
                         [ // rules
-                            "tiempo_consulta"       => 'required|alpha_space',
+                            "tiempo_consulta"       => 'required',
                             "motivo_consulta"       => "required|alpha_space",
                             "sintomas_principales"  => "required|alpha_space",
                             "tomando_medicamento"   => "required",
                             "nombre_medicamento"    => "required|alpha_space",
                             "motivo_medicamento"    => "required|alpha_space",
-                            "dosis_medicamento"     => "required|alpha_space",
+                            "dosis_medicamento"     => "required|numeric",
                         ],
                         [ // errors
                             "tiempo_consulta" => [
                                 "required" => " El tiempo de enfermedad es requerido",
-                                "alpha_space" => "El tiempo de enfermedad debe llevar caracteres alfabéticos o espacios."
                             ],
                             "motivo_consulta" => [
                                 "required" => " El motivo de la consulta es requerido",
@@ -104,8 +102,8 @@ class Enfermedad extends BaseController
                                 "alpha_space" => "El motivo de la consulta debe llevar caracteres alfabéticos o espacios."
                             ],
                             "dosis_medicamento" => [
-                                "required" => " La cantidad de dosis de medicamento es requerido",
-                                "alpha_space" => "La cantidad de dosis de medicamento debe llevar caracteres alfabéticos o espacios."
+                                "required"   => "Dosis de medicamento es requerido",
+                                "numeric"    => "Dosis de medicamento debe llevar caracteres numéricos."
                             ]
                         ]
                     );
@@ -122,15 +120,15 @@ class Enfermedad extends BaseController
                         $data = array(
                             "tiempo_consulta"       => $this->request->getPost("tiempo_consulta"),
                             "motivo_consulta"       => $this->request->getPost("motivo_consulta"),
+                            "sintomas_principales"  => $this->request->getPost("sintomas_principales"),
                             "tomando_medicamento"   => $this->request->getPost("tomando_medicamento"),
                             "nombre_medicamento"    => $this->request->getPost("nombre_medicamento"),
                             "motivo_medicamento"    => $this->request->getPost("motivo_medicamento"),
                             "dosis_medicamento"     => $this->request->getPost("dosis_medicamento"),
-                            "id_paciente"           => "id_paciente"
-                            "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
+                            "id_paciente"           => $this->request->getPost("id_paciente")
                         );
 
-                        $respuesta = $this->model->cita("insert", $data, null, null);
+                        $respuesta = $this->model->enfermedad("insert", $data, null, null);
                         if (is_numeric($respuesta)) {
                             return $this->response->setJSON(json_encode(array(
                                 'exito' => "enfermedad registrado correctamente"
@@ -145,22 +143,17 @@ class Enfermedad extends BaseController
                 helper(['form', 'url']);
                 $val = $this->validate(
                     [ // rules
-                        'id'                    => 'required',
-                        "tiempo_consulta"       => 'required|alpha_space',
+                        "tiempo_consulta"       => 'required',
                         "motivo_consulta"       => "required|alpha_space",
                         "sintomas_principales"  => "required|alpha_space",
                         "tomando_medicamento"   => "required",
                         "nombre_medicamento"    => "required|alpha_space",
                         "motivo_medicamento"    => "required|alpha_space",
-                        "dosis_medicamento"     => "required|alpha_space",
+                        "dosis_medicamento"     => "required|numeric",
                     ],
                     [ // errors
-                        "id" => [
-                            "required"  => "Error al editar la enfermedad por favor vuelve a empezar"
-                        ],
                         "tiempo_consulta" => [
                             "required" => " El tiempo de enfermedad es requerido",
-                            "alpha_space" => "El tiempo de enfermedad debe llevar caracteres alfabéticos o espacios."
                         ],
                         "motivo_consulta" => [
                             "required" => " El motivo de la consulta es requerido",
@@ -182,8 +175,8 @@ class Enfermedad extends BaseController
                             "alpha_space" => "El motivo de la consulta debe llevar caracteres alfabéticos o espacios."
                         ],
                         "dosis_medicamento" => [
-                            "required" => " La cantidad de dosis de medicamento es requerido",
-                            "alpha_space" => "La cantidad de dosis de medicamento debe llevar caracteres alfabéticos o espacios."
+                            "required"   => "Dosis de medicamento es requerido",
+                            "numeric"    => "Dosis de medicamento debe llevar caracteres numéricos."
                         ]
                     ]
                 );
@@ -198,12 +191,12 @@ class Enfermedad extends BaseController
                     $data = array(
                         "tiempo_consulta"       => $this->request->getPost("tiempo_consulta"),
                         "motivo_consulta"       => $this->request->getPost("motivo_consulta"),
+                        "sintomas_principales"  => $this->request->getPost("sintomas_principales"),
                         "tomando_medicamento"   => $this->request->getPost("tomando_medicamento"),
                         "nombre_medicamento"    => $this->request->getPost("nombre_medicamento"),
                         "motivo_medicamento"    => $this->request->getPost("motivo_medicamento"),
                         "dosis_medicamento"     => $this->request->getPost("dosis_medicamento"),
-                        "id_paciente"           => "id_paciente"
-                        "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
+                        "id_paciente"           => $this->request->getPost("id_paciente")
                     );
 
                     $respuesta = $this->model->enfermedad(
@@ -236,6 +229,4 @@ class Enfermedad extends BaseController
             return $this->response->setJSON(json_encode($respuesta));
         }
     }
-    
-
 }

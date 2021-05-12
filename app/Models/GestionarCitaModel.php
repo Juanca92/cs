@@ -7,7 +7,7 @@ use CodeIgniter\Database\BaseBuilder;
 
 class GestionarCitaModel extends Database
 {
-    
+
     public $db = null;
 
     public function __construct()
@@ -55,11 +55,10 @@ class GestionarCitaModel extends Database
         return $builder->get()->getResultArray();
     }
     public function pacientes_pendientes()
-        {
-            $builder = $this->db->table("view_cita ");
-            $builder->select('*');
-            $builder->where('estatus = 1' );
-            return $builder->get()->getResultArray();
-        }
-    
+    {
+        $builder = $this->db->table("view_cita ");
+        $builder->select('*');
+        $builder->where('estatus = 1');
+        return $builder->get()->getResultArray();
+    }
 }

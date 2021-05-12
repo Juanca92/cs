@@ -29,8 +29,7 @@
                     <div class="card-body">
                         <div class="tab-content">
                             <!-- Post -->
-                            <table id="tbl_citas_ver" class="table table-striped table-bordered" cellspacing="0"
-                                width="100%">
+                            <table id="tbl_citas_ver" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th width="5%">#</th>
