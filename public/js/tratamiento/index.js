@@ -232,7 +232,40 @@ $(document).ready(function () {
 				mensajeAlert('error', 'Error al registrar/editar la enfermedad', 'Error');
 			});
 	});
-<<<<<<< HEAD
+	$('#guardar-odontograma').on('click', function () {
+		$.ajax({
+			type: 'post',
+			data: allStorage(),
+			url: '/paciente/guardar_odontograma',
+			dataType: 'json',
+			processData: false,
+			contentType: false,
+			cache: false,
+			async: false,
+		})
+			.done(function (response) {
+				if (typeof response.exito !== 'undefined') mensajeAlert('success', response.exito, 'Exito');
+				else mensajeAlert('error', response.error, 'Error');
+			})
+			.fail(function (e) {
+				mensajeAlert('error', 'Ocurrio un Error al Guardar el Odontograma', 'Error');
+			});
+	});
+	function recuperarOdontograma() {}
+	function allStorage() {
+		let s = new FormData();
+		s.append('id_paciente', id_paciente);
+		var archive = {},
+			keys = Object.keys(localStorage),
+			i = keys.length;
+
+		while (i--) {
+			archive[keys[i]] = JSON.parse(localStorage.getItem(keys[i]));
+			s.append(keys[i], JSON.stringify(localStorage.getItem(keys[i])));
+		}
+
+		return s;
+	}
 	// capturando el id al Editar enfermedad
 	$('#tbl_tratamiento_enfermedades_ver').on('click', '.btn_ver_tratamientos', function (e) {
 		let id = $(this).attr('data');
@@ -263,7 +296,5 @@ $(document).ready(function () {
 			});
 	});
 
-=======
->>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 	// Mostrar alergias al hacer click en ver tratamientos
 }); //fin principio

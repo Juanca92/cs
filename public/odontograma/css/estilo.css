@@ -1,0 +1,15 @@
+* {
+	box-sizing: border-box;
+}
+
+.columna {
+	float: left;
+	width: 33%;
+	padding-right: 5px;
+}
+
+.fila {
+	float: left;
+	width: 100%;
+	padding-right: 5px;
+}
