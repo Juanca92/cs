@@ -59,15 +59,22 @@ class Paciente extends BaseController
 
     public function editar_odontograma()
     {
-        # code...
+        if ($this->request->isAJAX()) {
+            $odontograma = [];
+            foreach ($this->db->table('odontograma')->getWhere(['id_paciente' => $this->request->getPost('id_paciente')])->getResultArray() as $key => $value) {
+                $odontograma[$value['id_pieza_dental']] = $value;
+                foreach ($this->db->table('lesiones_cariosas')->getWhere(['id_odontograma' => $value['id_odontograma']])->getResultArray() as $k => $v) {
+                    $odontograma[$value['id_pieza_dental']]['lesiones_cariosas'][] = $v;
+                }
+            }
+            return $this->response->setJSON(json_encode($odontograma));
+        }
     }
 
     public function guardar_odontograma()
     {
         // return var_dump($_REQUEST);
         if ($this->request->isAJAX()) {
-
-
             try {
                 foreach ($this->db->table('odontograma')->getWhere(['id_paciente' => $this->request->getPost('id_paciente')])->getResultArray() as $key => $value) {
                     foreach ($this->db->table('lesiones_cariosas')->getWhere(['id_odontograma' => $value['id_odontograma']])->getResultArray() as $k => $v) {

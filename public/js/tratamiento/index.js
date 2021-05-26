@@ -85,6 +85,7 @@ $(document).ready(function () {
 		}
 
 		$('#content').show();
+		recuperarOdontograma();
 	});
 
 	// datos del Paciente
@@ -251,7 +252,67 @@ $(document).ready(function () {
 				mensajeAlert('error', 'Ocurrio un Error al Guardar el Odontograma', 'Error');
 			});
 	});
-	function recuperarOdontograma() {}
+
+	function recuperarOdontograma() {
+		$.post('/paciente/editar_odontograma', { id_paciente: id_paciente }, function (r) {
+			localStorage.clear();
+			$.each(r, function (index, value) {
+				datos = [];
+				$.each(value.lesiones_cariosas, function (i, v) {
+					datos.push(`${v.posicion},${v.id_tratamiento_diagnostico}`);
+
+					// console.log(value.id_pieza_dental, v.posicion, v.id_tratamiento_diagnostico);
+					color = v.id_tratamiento_diagnostico;
+					let objeto;
+					$.each($(`#${value.id_pieza_dental} polygon`), function (j, val) {
+						if ($(val).attr('value') == v.posicion) {
+							// console.log(value.id_pieza_dental, v.posicion, val);
+							objeto = val;
+						}
+					});
+
+					if (color == 1) {
+						$(objeto).attr({ class: 'marcadoRojo marcado', estado: color });
+					} else if (color == 2) {
+						$(objeto).attr({ class: 'marcadoAmarillo marcado', estado: color });
+					} else if (color == 3) {
+						$(objeto)
+							.parent()
+							.find('.endodoncia')
+							.each(function () {
+								$(this).attr({ class: 'marcadoNaranja marcado', estado: color });
+							});
+					} else if (color == 4) {
+						$(objeto)
+							.parent()
+							.find('.ausente')
+							.each(function () {
+								$(this).attr({ class: 'marcadoTomate marcado', estado: color });
+							});
+					} else if (color == 5) {
+						$(objeto).attr({ class: 'marcadoMarron marcado', estado: color });
+					} else if (color == 6) {
+						$(objeto)
+							.parent()
+							.find('.implante')
+							.each(function () {
+								$(this).attr({ class: 'marcadoMorado marcado', estado: color });
+							});
+					} else if (color == 7) {
+						$(objeto).attr({ class: 'marcadoVerde marcado', estado: color });
+					} else if (color == 8) {
+						$(objeto)
+							.parent()
+							.find('.corona')
+							.each(function () {
+								$(this).attr({ class: 'marcadoAzul marcado', estado: color });
+							});
+					}
+				});
+				localStorage.setItem(value.id_pieza_dental, JSON.stringify(datos));
+			});
+		});
+	}
 	function allStorage() {
 		let s = new FormData();
 		s.append('id_paciente', id_paciente);
