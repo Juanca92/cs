@@ -61,7 +61,7 @@ class Auth extends Controller
 			$_SESSION['avatar']  		  = substr($userSearched[0]['nombres'], 0, 1) . '' . substr($userSearched[0]['paterno'], 0, 1);
 
 			# Redireccionamos a la pagina principal
-			return redirect()->to(base_url('/'));
+			return redirect()->to(base_url('/home'));
 		} else {
 			#Si $userSearched no es igual a 1 debemos devolverlo al mismo login
 			$this->session->destroy();
