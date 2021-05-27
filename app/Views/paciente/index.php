@@ -36,6 +36,7 @@
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
+                                    <th>Foto</th>
                                     <th>CI</th>
                                     <th>Nombres</th>
                                     <th>sexo</th>
@@ -50,9 +51,7 @@
                                 </tr>
                             </thead>
                         </table>
-
                     </div>
-
                 </div>
             </div>
         </div>
@@ -62,7 +61,7 @@
 
 <!--  Modal de registro paciente -->
 <div class="modal fade" id="agregar-paciente">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header bg-blue">
                 <h4 class="modal-title" id="agregar-paciente-title"></h4>
@@ -73,6 +72,17 @@
             <div class="modal-body">
                 <form id="frm_guardar_paciente">
 
+                    <!-- Campos para la foto -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                            <label for="foto">Foto <span class="text-danger">(*)</span>:</label>
+                            <input type="file" id="foto" name="foto" class="form-control" >
+                            </div>
+                        </div>
+                        <input type="hidden" name="id" id="id">
+                        <input type="hidden" name="accion" id="accion">
+                    </div>
                     <!-- Campos de Ci y Expedido -->
                     <div class="row">
                         <div class="col-lg-7">
@@ -131,12 +141,12 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="sexo">Sexo<span class="text-danger">(*)</span>:</label>
+                                <label for="sexo">Genero<span class="text-danger">(*)</span>:</label>
                                 <div>
-                                    <label for="sexo">M</label>
+                                    <label for="sexo">Masculino</label>
                                     <input type="radio" name="sexo" value="masculino">
-                                    <label for="sexo">F</label>
-                                    <input type="radio" name="sexo" value="femenina">
+                                    <label for="sexo">Femenino</label>
+                                    <input type="radio" name="sexo" value="femenino">
                                 </div>
                             </div>
                         </div>
@@ -146,9 +156,6 @@
                                 <input type="text" id="lugar_nacimiento" name="lugar_nacimiento" class="form-control">
                             </div>
                         </div>
-                        <input type="hidden" name="id" id="id">
-                        <input type="hidden" name="accion" id="accion">
-
                     </div>
 
                     <!-- Celular y Fecha de Nacimiento -->
@@ -166,8 +173,6 @@
                                 <input type="datepicker" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" readonly="">
                             </div>
                         </div>
-                        <input type="hidden" name="id" id="id">
-                        <input type="hidden" name="accion" id="accion">
                     </div>
                     <!-- Ocupacion -->
 
@@ -177,7 +182,8 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="domicilio">Domicilio <span class="text-danger">(*)</span>:</label>
-                                <textarea class="form-control" id="domicilio" name="domicilio" rows="1" placeholder="Domicilio ..."></textarea>
+                                <textarea class="form-control" id="domicilio" name="domicilio" style="overflow:auto;resize:none" rows="2" placeholder="Domicilio ..."></textarea>
+                                
                             </div>
                         </div>
                     </div>
@@ -199,7 +205,7 @@
 
                         <div class="col-lg-5">
                             <div class="form-group">
-                                <label for="estatus">Estatus<span class="text-danger">(*)</span>:</label>
+                                <label for="estatus">Estado<span class="text-danger">(*)</span>:</label>
                                 <select class="custom-select" id="estatus" name="estatus" required>
                                     <option value="">-- Seleccione --</option>
                                     <option value="ACTIVO">Activo</option>

@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Libraries\Ssp;
 use App\Models\PacienteModel;
 
+
 class Paciente extends BaseController
 {
     public $model = null;
@@ -34,16 +35,17 @@ class Paciente extends BaseController
 
             $columns = array(
                 array('db' => 'id_persona', 'dt'        => 0),
-                array('db' => 'ci_exp', 'dt'            => 1),
-                array('db' => 'nombre_completo', 'dt'   => 2),
-                array('db' => 'sexo', 'dt'              => 3),
-                array('db' => 'lugar_nacimiento', 'dt'  => 4),
-                array('db' => 'telefono_celular', 'dt'  => 5),
-                array('db' => 'fecha_nacimiento', 'dt'  => 6),
-                array('db' => 'domicilio', 'dt'         => 7),
-                array('db' => 'ocupacion', 'dt'         => 8),
-                array('db' => 'estatus', 'dt'           => 9),
-                array('db' => 'creado_en', 'dt'         => 10)
+                array('db' => 'foto', 'dt'              => 1),
+                array('db' => 'ci_exp', 'dt'            => 2),
+                array('db' => 'nombre_completo', 'dt'   => 3),
+                array('db' => 'sexo', 'dt'              => 4),
+                array('db' => 'lugar_nacimiento', 'dt'  => 5),
+                array('db' => 'telefono_celular', 'dt'  => 6),
+                array('db' => 'fecha_nacimiento', 'dt'  => 7),
+                array('db' => 'domicilio', 'dt'         => 8),
+                array('db' => 'ocupacion', 'dt'         => 9),
+                array('db' => 'estatus', 'dt'           => 10),
+                array('db' => 'creado_en', 'dt'         => 11)
             );
 
             $sql_details = array(
@@ -54,6 +56,62 @@ class Paciente extends BaseController
             );
 
             return $this->response->setJSON(json_encode(SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $where)));
+        }
+    }
+    //odontograma
+    public function editar_odontograma()
+    {
+        if ($this->request->isAJAX()) {
+            $odontograma = [];
+            foreach ($this->db->table('odontograma')->getWhere(['id_paciente' => $this->request->getPost('id_paciente')])->getResultArray() as $key => $value) {
+                $odontograma[$value['id_pieza_dental']] = $value;
+                foreach ($this->db->table('lesiones_cariosas')->getWhere(['id_odontograma' => $value['id_odontograma']])->getResultArray() as $k => $v) {
+                    $odontograma[$value['id_pieza_dental']]['lesiones_cariosas'][] = $v;
+                }
+            }
+            return $this->response->setJSON(json_encode($odontograma));
+        }
+    }
+
+    public function guardar_odontograma()
+    {
+        // return var_dump($_REQUEST);
+        if ($this->request->isAJAX()) {
+            try {
+                foreach ($this->db->table('odontograma')->getWhere(['id_paciente' => $this->request->getPost('id_paciente')])->getResultArray() as $key => $value) {
+                    foreach ($this->db->table('lesiones_cariosas')->getWhere(['id_odontograma' => $value['id_odontograma']])->getResultArray() as $k => $v) {
+                        $this->db->table('lesiones_cariosas')->delete(['id_lesiones_cariosas' => $v['id_lesiones_cariosas']]);
+                    }
+                    $this->db->table('odontograma')->delete(['id_odontograma' => $value['id_odontograma']]);
+                }
+                foreach (empty($this->request->getPost()) ? [] : $this->request->getPost() as $key => $value) {
+                    if (is_numeric($key)) {
+                        $this->db->table('odontograma')->insert([
+                            'id_paciente' => $this->request->getPost('id_paciente'),
+                            'id_pieza_dental' => $key
+                        ]);
+                        $id_odontograma =  $this->db->insertID();
+                        if (is_numeric($id_odontograma)) {
+                            foreach (empty(json_decode(json_decode($value))) ? [] : json_decode(json_decode($value)) as $k => $v) {
+                                $this->db->table('lesiones_cariosas')->insert([
+                                    'id_odontograma' => $id_odontograma,
+                                    'id_tratamiento_diagnostico' => explode(',', $v)[1],
+                                    'posicion' => explode(',', $v)[0],
+
+                                ]);
+                            }
+                        }
+                    }
+                }
+                return $this->response->setJSON(json_encode(array(
+                    'exito' => "El Odontograma se Guardo Correctamente"
+                )));
+            } catch (\Exception $e) {
+                // die($e->getMessage());
+                return $this->response->setJSON(json_encode(array(
+                    'error' => "Ocurrio un Error al Guardar el Odontograma"
+                )));
+            }
         }
     }
 
@@ -79,12 +137,13 @@ class Paciente extends BaseController
 
                     $val = $this->validate(
                         [ // rules
+                            "foto"              => "alpha_space",
                             "ci"                => "required|alpha_numeric|min_length[5]",
                             "expedido"          => "required|max_length[2]|alpha",
                             "nombres"           => "required|alpha_space",
                             "paterno"           => "required|alpha_space",
                             "materno"           => "alpha_space",
-                            "sexo"              => "requerid|alpha_space",
+                            "sexo"              => "required",
                             "lugar_nacimiento"  => "alpha_numeric_space",
                             "celular"           => 'required|numeric',
                             "fecha_nacimiento"  => "required|max_length[10]",
@@ -93,6 +152,9 @@ class Paciente extends BaseController
                             "estatus"           => "required|alpha_numeric_space"
                         ],
                         [ // errors
+                            "foto" => [
+                             "alpha_space" => "La foto debe llevar caracteres alfabéticos o espacios."
+                           ],
                             "ci" => [
                                 "required" => "El CI del paciente es requerido",
                                 "alpha_numeric" => "El CI del usuario no debe llevar caracteres especiales",
@@ -116,7 +178,6 @@ class Paciente extends BaseController
                             ],
                             "sexo" => [
                                 "required" => "El genero es requerido",
-                                "alpha_space" => "El genero debe llevar caracteres alfabéticos o espacios."
                             ],
                             "lugar_nacimiento" => [
                                 "alpha_numeric_space" => "EL lugar de nacimiento no puede llevar caracteres especiales"
@@ -153,6 +214,7 @@ class Paciente extends BaseController
 
                         // Formateo de datos
                         $data = array(
+                            "foto"              => $this->request->getPost("foto"),
                             "ci"                => trim($this->request->getPost("ci")),
                             "expedido"          => trim($this->request->getPost("expedido")),
                             "nombres"           => ucwords(strtolower(trim($this->request->getPost("nombres")))),
@@ -222,12 +284,13 @@ class Paciente extends BaseController
                 $val = $this->validate(
                     [ // rules
                         "id"                => "required",
+                        "foto"              => "alpha_space",
                         "ci"                => "required|alpha_numeric|min_length[5]",
                         "expedido"          => "required|max_length[2]|alpha",
                         "nombres"           => "required|alpha_space",
                         "paterno"           => "required|alpha_space",
                         "materno"           => "alpha_space",
-                        "sexo"              => "requerid|alpha_space",
+                        "sexo"              => "required",
                         "lugar_nacimiento"  => "alpha_numeric_space",
                         "celular"           => 'required|numeric',
                         "fecha_nacimiento"  => "required|max_length[10]",
@@ -238,6 +301,9 @@ class Paciente extends BaseController
                     [ // errors
                         "id" => [
                             "required" => "El id es requerido"
+                        ],
+                        "foto" => [
+                            "alpha_space" => "La foto debe llevar caracteres alfabéticos o espacios."
                         ],
                         "ci" => [
                             "required" => "El CI del paciente es requerido",
@@ -262,7 +328,6 @@ class Paciente extends BaseController
                         ],
                         "sexo" => [
                             "required" => "El genero es requerido",
-                            "alpha_space" => "El genero debe llevar caracteres alfabéticos o espacios."
                         ],
                         "lugar_nacimiento" => [
                             "alpha_numeric_space" => "EL lugar de nacimiento no puede llevar caracteres especiales"
@@ -298,6 +363,7 @@ class Paciente extends BaseController
 
                     // Actualizar datos
                     $data = array(
+                        "foto"              => $this->request->getPost("foto"),
                         "ci"                => trim($this->request->getPost("ci")),
                         "expedido"          => trim($this->request->getPost("expedido")),
                         "nombres"           => ucwords(strtolower(trim($this->request->getPost("nombres")))),
@@ -385,7 +451,8 @@ class Paciente extends BaseController
     // Editar Paciente
     public function editar_paciente()
     {
-        // se Verifica si es petición ajax
+
+    // se Verifica si es petición ajax
         if ($this->request->isAJAX()) {
             $respuesta = $this->model->editar_paciente(trim($this->request->getPost("id")));
             return $this->response->setJSON(json_encode($respuesta));
@@ -425,4 +492,39 @@ class Paciente extends BaseController
 
         return $_SERVER['REMOTE_ADDR'];
     }
+    // Subir foto
+    public function subir_foto()
+    {
+        if ($this->request->isAJAX()) {
+            $file = $this->request->getFile('foto');
+            if ($file->isValid()) {
+                $dir = base_url('/img/users');
+                if (!is_dir($dir)) {
+                    mkdir($dir, 755, true);
+                }
+                $originalName = $file->getRandomName();
+                $file->move('./img/users/', $originalName);
+                $respuesta = $this->model->usuario(
+                    "update",
+                    ['foto' => "img/users/" . $originalName],
+                    ['id_paciente' => $_SESSION["id_persona"]]
+                );
+                if ($respuesta) {
+                    return $this->response->setJSON(json_encode(array(
+                        "success" => "Fotografia actualizado correctamente"
+                    )));
+                } else {
+                    return $this->response->setJSON(json_encode(array(
+                        "error" => "Error al subir la fotografia"
+                    )));
+                }
+            } else {
+                return $this->response->setJSON(json_encode(array(
+                    "warning" => "Fotografia no valida"
+                )));
+            }
+        }
+    }
+    
+
 }

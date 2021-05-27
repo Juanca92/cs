@@ -31,7 +31,7 @@ class ListarCita extends BaseController
         if ($this->request->isAJAX()) {
             $table = 'sp_view_cita';
             $primaryKey = 'id_cita';
-            $where = "id_odontologo=id_odontologo";
+            $where = "";
 
             $columns = array(
                 array('db' => 'id_cita', 'dt'           => 0),

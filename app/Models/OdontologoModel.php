@@ -138,7 +138,7 @@ class OdontologoModel extends Database
     public function editar_odontologo($id)
     {
         $builder = $this->db->table('persona as p');
-        $builder->select('p.id_persona, p.ci, p.expedido, p.nombres, p.paterno, p.materno, p.telefono_celular, p.fecha_nacimiento, p.domicilio, o.turno, o.gestion_ingreso, p.estado');
+        $builder->select('p.id_persona, p.foto, p.ci, p.expedido, p.nombres, p.paterno, p.materno, p.telefono_celular, p.fecha_nacimiento, p.domicilio, o.turno, o.gestion_ingreso, p.estado');
         $builder->join('odontologo as o', 'p.id_persona = o.id_odontologo');
         $builder->where('p.id_persona', $id);
         return $builder->get()->getResultArray();

@@ -57,6 +57,14 @@
   <!-- datepicker -->
   <link rel="stylesheet" href="<?php echo base_url('plugins/jquery-ui-1.12.1.custom/jquery-ui.css') ?>" />
 
+  <!-- chart para los datos estadisticos-->
+  <link rel="stylesheet" href="<?php echo base_url('plugins/chart.js/chart.min.css') ?>" />
+
+   
+
+
+    
+
 
 </head>
 

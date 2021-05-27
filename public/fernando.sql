@@ -37,25 +37,6 @@ join `sp_odontologo` `odontologo` on
 join `sp_persona` `persona_odontologo` on
     (`odontologo`.`id_odontologo` = `persona_odontologo`.`id_persona`));
 
---tabla de PERSONA alterada
-ALTER TABLE `sp_persona` ADD `estatus` ENUM('ACTIVO','INACTIVO') NOT NULL AFTER `domicilio`;
-
--- Vista de Paciente y Persona alterada--
-CREATE OR REPLACE VIEW `sp_view_paciente`  AS  
-select p.id_persona, CONCAT(p.ci, ' ' ,p.expedido) AS ci_exp, 
-CONCAT(p.nombres, ' ', p.paterno,' ', p.materno) AS nombre_completo, p.telefono_celular, p.fecha_nacimiento,
-p.domicilio,o.id_ocupacion, o.nombre as ocupacion, p.estatus, p.estado, p.creado_en
-from sp_persona p join sp_paciente pa 
-on p.id_persona = pa.id_paciente
-join sp_ocupacion o on pa.id_ocupacion = o.id_ocupacion;
-
--- Vista de Odontologo y Persona alterada--
-CREATE OR REPLACE VIEW `sp_view_odontologo`  AS  
-select p.id_persona, CONCAT(p.ci, ' ' ,p.expedido) AS ci_exp, 
-CONCAT(p.nombres, ' ', p.paterno,' ', p.materno) AS nombre_completo, p.telefono_celular, p.fecha_nacimiento,
-p.domicilio,o.turno, o.gestion_ingreso, p.estatus, p.estado, p.creado_en
-from sp_persona p join sp_odontologo o
-on p.id_persona = o.id_odontologo;
 
 
 
@@ -223,12 +204,125 @@ join `sp_persona` `persona_paciente` on
 
 --tabla alterada de persona--
 ALTER TABLE `sp_persona` ADD `sexo` VARCHAR(20) NOT NULL AFTER `materno`, ADD `lugar_nacimiento` VARCHAR(100) NOT NULL AFTER `sexo`;
+ALTER TABLE `sp_persona` ADD `foto` VARCHAR(100) NOT NULL AFTER `id_persona`;
+--tabla de PERSONA alterada
+ALTER TABLE `sp_persona` ADD `estatus` ENUM('ACTIVO','INACTIVO') NOT NULL AFTER `domicilio`;
 
 -- Vista de Paciente y Persona alterada--
 CREATE OR REPLACE VIEW `sp_view_paciente`  AS  
-select p.id_persona, CONCAT(p.ci, ' ' ,p.expedido) AS ci_exp, 
+select p.id_persona, p.foto, CONCAT(p.ci, ' ' ,p.expedido) AS ci_exp, 
 CONCAT(p.nombres, ' ', p.paterno,' ', p.materno) AS nombre_completo, p.sexo, p.lugar_nacimiento, p.telefono_celular, p.fecha_nacimiento,
 p.domicilio,o.id_ocupacion, o.nombre as ocupacion, p.estatus, p.estado, p.creado_en
 from sp_persona p join sp_paciente pa 
 on p.id_persona = pa.id_paciente
 join sp_ocupacion o on pa.id_ocupacion = o.id_ocupacion;
+
+-- Vista de Odontologo y Persona alterada--
+CREATE OR REPLACE VIEW `sp_view_odontologo`  AS  
+select p.id_persona, p.foto, CONCAT(p.ci, ' ' ,p.expedido) AS ci_exp, 
+CONCAT(p.nombres, ' ', p.paterno,' ', p.materno) AS nombre_completo, p.telefono_celular, p.fecha_nacimiento,
+p.domicilio,o.turno, o.gestion_ingreso, p.estatus, p.estado, p.creado_en
+from sp_persona p join sp_odontologo o
+on p.id_persona = o.id_odontologo;
+
+
+
+
+--odontograma--
+CREATE  table sp_pieza_dental(
+	id_pieza_dental int primary key AUTO_INCREMENT,
+	numero_pieza_dental int
+);
+
+create table sp_odontograma(
+	id_odontograma int primary key AUTO_INCREMENT,
+	id_paciente int, 
+	id_pieza_dental int, 
+	creado_en timestamp NOT NULL DEFAULT current_timestamp(),
+	actualizado_en timestamp NULL DEFAULT NULL
+);
+alter table sp_odontograma add constraint sp_odontograma_fk foreign key(id_paciente) references sp_paciente(id_paciente);
+alter table sp_odontograma add constraint sp_odontograma_fk1 foreign key(id_pieza_dental) references sp_pieza_dental(id_pieza_dental);
+
+create table sp_tratamiento_diagnostico(
+	id_tratamiento_diagnostico int primary key AUTO_INCREMENT,
+	nombre_tratamiento_diagnostico varchar(100),
+	estado tinyint(1) NOT NULL DEFAULT 1
+);
+
+
+create table sp_lesiones_cariosas(
+	id_lesiones_cariosas int primary key AUTO_INCREMENT,
+	id_odontograma int,
+	id_tratamiento_diagnostico int, 
+	posicion int,
+	creado_en timestamp NOT NULL DEFAULT current_timestamp(),
+	actualizado_en timestamp NULL DEFAULT NULL
+);
+alter table sp_lesiones_cariosas add constraint sp_lesiones_cariosas_fk foreign key(id_odontograma) references sp_odontograma(id_odontograma);
+alter table sp_lesiones_cariosas add constraint sp_lesiones_cariosas_fk1 foreign key(id_tratamiento_diagnostico) references sp_tratamiento_diagnostico(id_tratamiento_diagnostico);
+
+
+INSERT INTO sanpedro.sp_tratamiento_diagnostico (nombre_tratamiento_diagnostico, estado) VALUES('Amalgama', 1);
+INSERT INTO sanpedro.sp_tratamiento_diagnostico (nombre_tratamiento_diagnostico, estado) VALUES('Caries', 1);
+INSERT INTO sanpedro.sp_tratamiento_diagnostico (nombre_tratamiento_diagnostico, estado) VALUES('Endodoncia', 1);
+INSERT INTO sanpedro.sp_tratamiento_diagnostico (nombre_tratamiento_diagnostico, estado) VALUES('Ausente', 1);
+INSERT INTO sanpedro.sp_tratamiento_diagnostico (nombre_tratamiento_diagnostico, estado) VALUES('Resina', 1);
+INSERT INTO sanpedro.sp_tratamiento_diagnostico (nombre_tratamiento_diagnostico, estado) VALUES('Implante', 1);
+INSERT INTO sanpedro.sp_tratamiento_diagnostico (nombre_tratamiento_diagnostico, estado) VALUES('Sellante', 1);
+INSERT INTO sanpedro.sp_tratamiento_diagnostico (nombre_tratamiento_diagnostico, estado) VALUES('Corona', 1);
+
+
+
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	1	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	2	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	3	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	4	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	5	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	6	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	7	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	8	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	9	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	10	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	11	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	12	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	13	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	14	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	15	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	16	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	17	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	18	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	19	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	20	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	21	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	22	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	23	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	24	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	25	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	26	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	27	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	28	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	29	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	30	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	31	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	32	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	33	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	34	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	35	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	36	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	37	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	38	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	39	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	40	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	41	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	42	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	43	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	44	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	45	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	46	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	47	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	48	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	49	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	50	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	51	);
+INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	52	);

@@ -36,6 +36,7 @@
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
+                                    <th>Foto</th>
                                     <th>CI</th>
                                     <th>Nombres</th>
                                     <th>Celular</th>
@@ -71,7 +72,15 @@
             </div>
             <div class="modal-body">
                 <form id="frm_guardar_odontologo">
-
+                    <!-- Campos para la foto -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                            <label for="foto">Foto <span class="text-danger">(*)</span>:</label>
+                            <input type="file" id="foto" name="foto" class="form-control" placeholder="inserte">
+                            </div>
+                        </div>
+                    </div>
                     <!-- Campos de Ci y Expedido -->
                     <div class="row">
                         <div class="col-lg-7">
@@ -157,6 +166,7 @@
                                     <option value="">-- Seleccione Turno --</option>
                                     <option value="MAÑANA">MAÑANA</option>
                                     <option value="TARDE">TARDE</option>
+                                    <option value="MAÑANA-TARDE">MAÑANA-TARDE</option>
                                 </select>
                             </div>
                         </div>
@@ -174,7 +184,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="domicilio">Domicilio <span class="text-danger">(*)</span>:</label>
-                                <textarea class="form-control" id="domicilio" name="domicilio" rows="1" placeholder="Domicilio ..."></textarea>
+                                <textarea class="form-control" id="domicilio" name="domicilio" style="overflow:auto;resize:none" rows="2" placeholder="Domicilio ..."></textarea>
                             </div>
                         </div>
                     </div>

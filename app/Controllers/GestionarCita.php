@@ -57,6 +57,15 @@ class GestionarCita extends BaseController
 
             return $this->response->setJSON(json_encode(SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $where)));
         }
+
+        public function pendientes()
+        {
+        // se Verifica si es petición ajax
+        if ($this->request->isAJAX()) {
+            $respuesta = $this->model->pendientes();
+            return $this->response->setJSON(json_encode($respuesta));
+        }
+    }
     }
 
     public function ajaxListarCitasAtendidas()

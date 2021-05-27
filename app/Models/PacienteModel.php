@@ -138,7 +138,7 @@ class PacienteModel extends Database
     public function editar_paciente($id)
     {
         $builder = $this->db->table('persona as p');
-        $builder->select('p.id_persona, p.ci, p.expedido, p.nombres, p.paterno, p.materno, p.sexo, p.lugar_nacimiento, p.telefono_celular, 
+        $builder->select('p.id_persona, p.foto, p.ci, p.expedido, p.nombres, p.paterno, p.materno, p.sexo, p.lugar_nacimiento, p.telefono_celular, 
         p.fecha_nacimiento, p.domicilio, o.id_ocupacion, o.nombre, p.estatus, p.estado');
         $builder->join('paciente as pa', 'p.id_persona = pa.id_paciente');
         $builder->join('ocupacion as o', 'o.id_ocupacion = pa.id_ocupacion');
