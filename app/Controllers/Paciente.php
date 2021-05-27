@@ -115,6 +115,61 @@ class Paciente extends BaseController
         }
     }
 
+    public function editar_odontograma()
+    {
+        if ($this->request->isAJAX()) {
+            $odontograma = [];
+            foreach ($this->db->table('odontograma')->getWhere(['id_paciente' => $this->request->getPost('id_paciente')])->getResultArray() as $key => $value) {
+                $odontograma[$value['id_pieza_dental']] = $value;
+                foreach ($this->db->table('lesiones_cariosas')->getWhere(['id_odontograma' => $value['id_odontograma']])->getResultArray() as $k => $v) {
+                    $odontograma[$value['id_pieza_dental']]['lesiones_cariosas'][] = $v;
+                }
+            }
+            return $this->response->setJSON(json_encode($odontograma));
+        }
+    }
+
+    public function guardar_odontograma()
+    {
+        // return var_dump($_REQUEST);
+        if ($this->request->isAJAX()) {
+            try {
+                foreach ($this->db->table('odontograma')->getWhere(['id_paciente' => $this->request->getPost('id_paciente')])->getResultArray() as $key => $value) {
+                    foreach ($this->db->table('lesiones_cariosas')->getWhere(['id_odontograma' => $value['id_odontograma']])->getResultArray() as $k => $v) {
+                        $this->db->table('lesiones_cariosas')->delete(['id_lesiones_cariosas' => $v['id_lesiones_cariosas']]);
+                    }
+                    $this->db->table('odontograma')->delete(['id_odontograma' => $value['id_odontograma']]);
+                }
+                foreach (empty($this->request->getPost()) ? [] : $this->request->getPost() as $key => $value) {
+                    if (is_numeric($key)) {
+                        $this->db->table('odontograma')->insert([
+                            'id_paciente' => $this->request->getPost('id_paciente'),
+                            'id_pieza_dental' => $key
+                        ]);
+                        $id_odontograma =  $this->db->insertID();
+                        if (is_numeric($id_odontograma)) {
+                            foreach (empty(json_decode(json_decode($value))) ? [] : json_decode(json_decode($value)) as $k => $v) {
+                                $this->db->table('lesiones_cariosas')->insert([
+                                    'id_odontograma' => $id_odontograma,
+                                    'id_tratamiento_diagnostico' => explode(',', $v)[1],
+                                    'posicion' => explode(',', $v)[0],
+
+                                ]);
+                            }
+                        }
+                    }
+                }
+                return $this->response->setJSON(json_encode(array(
+                    'exito' => "El Odontograma se Guardo Correctamente"
+                )));
+            } catch (\Exception $e) {
+                // die($e->getMessage());
+                return $this->response->setJSON(json_encode(array(
+                    'error' => "Ocurrio un Error al Guardar el Odontograma"
+                )));
+            }
+        }
+    }
     // Insertar o Actualizar Un Paciente
     public function guardar_paciente()
     {
