@@ -297,7 +297,6 @@ $(document).ready(function () {
 				mensajeAlert('error', 'Error al registrar/editar la enfermedad', 'Error');
 			});
 	});
-<<<<<<< HEAD
 });
 	
 
@@ -403,104 +402,6 @@ $(document).ready(function () {
 
 	// Editar alergias
 	$('#tbl_tratamiento_alergias').on('click', '.btn_ver_tratamientos', function (e) {
-=======
-	$('#guardar-odontograma').on('click', function () {
-		$.ajax({
-			type: 'post',
-			data: allStorage(),
-			url: '/paciente/guardar_odontograma',
-			dataType: 'json',
-			processData: false,
-			contentType: false,
-			cache: false,
-			async: false,
-		})
-			.done(function (response) {
-				if (typeof response.exito !== 'undefined') mensajeAlert('success', response.exito, 'Exito');
-				else mensajeAlert('error', response.error, 'Error');
-			})
-			.fail(function (e) {
-				mensajeAlert('error', 'Ocurrio un Error al Guardar el Odontograma', 'Error');
-			});
-	});
-
-	function recuperarOdontograma() {
-		$.post('/paciente/editar_odontograma', { id_paciente: id_paciente }, function (r) {
-			localStorage.clear();
-			$.each(r, function (index, value) {
-				datos = [];
-				$.each(value.lesiones_cariosas, function (i, v) {
-					datos.push(`${v.posicion},${v.id_tratamiento_diagnostico}`);
-
-					// console.log(value.id_pieza_dental, v.posicion, v.id_tratamiento_diagnostico);
-					color = v.id_tratamiento_diagnostico;
-					let objeto;
-					$.each($(`#${value.id_pieza_dental} polygon`), function (j, val) {
-						if ($(val).attr('value') == v.posicion) {
-							// console.log(value.id_pieza_dental, v.posicion, val);
-							objeto = val;
-						}
-					});
-
-					if (color == 1) {
-						$(objeto).attr({ class: 'marcadoRojo marcado', estado: color });
-					} else if (color == 2) {
-						$(objeto).attr({ class: 'marcadoAmarillo marcado', estado: color });
-					} else if (color == 3) {
-						$(objeto)
-							.parent()
-							.find('.endodoncia')
-							.each(function () {
-								$(this).attr({ class: 'marcadoNaranja marcado', estado: color });
-							});
-					} else if (color == 4) {
-						$(objeto)
-							.parent()
-							.find('.ausente')
-							.each(function () {
-								$(this).attr({ class: 'marcadoTomate marcado', estado: color });
-							});
-					} else if (color == 5) {
-						$(objeto).attr({ class: 'marcadoMarron marcado', estado: color });
-					} else if (color == 6) {
-						$(objeto)
-							.parent()
-							.find('.implante')
-							.each(function () {
-								$(this).attr({ class: 'marcadoMorado marcado', estado: color });
-							});
-					} else if (color == 7) {
-						$(objeto).attr({ class: 'marcadoVerde marcado', estado: color });
-					} else if (color == 8) {
-						$(objeto)
-							.parent()
-							.find('.corona')
-							.each(function () {
-								$(this).attr({ class: 'marcadoAzul marcado', estado: color });
-							});
-					}
-				});
-				localStorage.setItem(value.id_pieza_dental, JSON.stringify(datos));
-			});
-		});
-	}
-	function allStorage() {
-		let s = new FormData();
-		s.append('id_paciente', id_paciente);
-		var archive = {},
-			keys = Object.keys(localStorage),
-			i = keys.length;
-
-		while (i--) {
-			archive[keys[i]] = JSON.parse(localStorage.getItem(keys[i]));
-			s.append(keys[i], JSON.stringify(localStorage.getItem(keys[i])));
-		}
-
-		return s;
-	}
-	// capturando el id al Editar enfermedad
-	$('#tbl_tratamiento_enfermedades_ver').on('click', '.btn_ver_tratamientos', function (e) {
->>>>>>> 35761cceaf3a558bb244e53e378821d94234d264
 		let id = $(this).attr('data');
 		$.ajax({
 			type: 'POST',
@@ -524,7 +425,6 @@ $(document).ready(function () {
 			});
 	});
 
-<<<<<<< HEAD
 	// Eliminar alergias
 	$('#tbl_tratamiento_alergias').on('click', '.btn_eliminar_alergia', function (e) {
 		let id = $(this).attr('data');
@@ -648,7 +548,4 @@ $(document).ready(function () {
 		return s;
 	}
 
-=======
-	// Mostrar alergias al hacer click en ver tratamientos
->>>>>>> 35761cceaf3a558bb244e53e378821d94234d264
 }); //fin principio
