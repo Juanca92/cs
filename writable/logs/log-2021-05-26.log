@@ -61,3 +61,149 @@ CRITICAL - 2021-05-26 12:04:37 --> SQLSTATE[42S22]: Column not found: 1054 Unkno
 #5 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
 #6 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
 #7 {main}
+CRITICAL - 2021-05-26 12:08:54 --> SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sexo' in 'field list'
+#0 /var/www/html/cs/app/Libraries/Ssp.php(465): PDOStatement->execute()
+#1 /var/www/html/cs/app/Libraries/Ssp.php(367): App\Libraries\Ssp::sql_exec()
+#2 /var/www/html/cs/app/Controllers/Paciente.php(56): App\Libraries\Ssp::complex()
+#3 /var/www/html/cs/system/CodeIgniter.php(936): App\Controllers\Paciente->ajaxListarPacientes()
+#4 /var/www/html/cs/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2021-05-26 12:14:22 --> mysqli_sql_exception: Table 'sanpedro.sp_odontograma' doesn't exist in /var/www/html/cs/system/Database/MySQLi/Connection.php:314
+Stack trace:
+#0 /var/www/html/cs/system/Database/MySQLi/Connection.php(314): mysqli->query()
+#1 /var/www/html/cs/system/Database/BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/html/cs/system/Database/BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/html/cs/system/Database/BaseBuilder.php(2035): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/html/cs/app/Controllers/Paciente.php(64): CodeIgniter\Database\BaseBuilder->getWhere()
+#5 /var/www/html/cs/system/CodeIgniter.php(936): App\Controllers\Paciente->editar_odontograma()
+#6 /var/www/html/cs/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController()
+#7 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
+#8 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-05-26 12:14:22 --> Table 'sanpedro.sp_odontograma' doesn't exist
+#0 /var/www/html/cs/system/Database/MySQLi/Connection.php(314): mysqli->query()
+#1 /var/www/html/cs/system/Database/BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/html/cs/system/Database/BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/html/cs/system/Database/BaseBuilder.php(2035): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/html/cs/app/Controllers/Paciente.php(64): CodeIgniter\Database\BaseBuilder->getWhere()
+#5 /var/www/html/cs/system/CodeIgniter.php(936): App\Controllers\Paciente->editar_odontograma()
+#6 /var/www/html/cs/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController()
+#7 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
+#8 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2021-05-26 12:14:51 --> mysqli_sql_exception: Table 'sanpedro.sp_odontograma' doesn't exist in /var/www/html/cs/system/Database/MySQLi/Connection.php:314
+Stack trace:
+#0 /var/www/html/cs/system/Database/MySQLi/Connection.php(314): mysqli->query()
+#1 /var/www/html/cs/system/Database/BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/html/cs/system/Database/BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/html/cs/system/Database/BaseBuilder.php(2035): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/html/cs/app/Controllers/Paciente.php(79): CodeIgniter\Database\BaseBuilder->getWhere()
+#5 /var/www/html/cs/system/CodeIgniter.php(936): App\Controllers\Paciente->guardar_odontograma()
+#6 /var/www/html/cs/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController()
+#7 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
+#8 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-05-26 20:37:05 --> requerid is not a valid rule.
+#0 /var/www/html/cs/system/Validation/Validation.php(314): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound()
+#1 /var/www/html/cs/system/Validation/Validation.php(164): CodeIgniter\Validation\Validation->processRules()
+#2 /var/www/html/cs/system/Controller.php(181): CodeIgniter\Validation\Validation->run()
+#3 /var/www/html/cs/app/Controllers/Paciente.php(295): CodeIgniter\Controller->validate()
+#4 /var/www/html/cs/system/CodeIgniter.php(936): App\Controllers\Paciente->guardar_paciente()
+#5 /var/www/html/cs/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-26 20:37:19 --> requerid is not a valid rule.
+#0 /var/www/html/cs/system/Validation/Validation.php(314): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound()
+#1 /var/www/html/cs/system/Validation/Validation.php(164): CodeIgniter\Validation\Validation->processRules()
+#2 /var/www/html/cs/system/Controller.php(181): CodeIgniter\Validation\Validation->run()
+#3 /var/www/html/cs/app/Controllers/Paciente.php(295): CodeIgniter\Controller->validate()
+#4 /var/www/html/cs/system/CodeIgniter.php(936): App\Controllers\Paciente->guardar_paciente()
+#5 /var/www/html/cs/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-26 20:38:10 --> requerid is not a valid rule.
+#0 /var/www/html/cs/system/Validation/Validation.php(314): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound()
+#1 /var/www/html/cs/system/Validation/Validation.php(164): CodeIgniter\Validation\Validation->processRules()
+#2 /var/www/html/cs/system/Controller.php(181): CodeIgniter\Validation\Validation->run()
+#3 /var/www/html/cs/app/Controllers/Paciente.php(295): CodeIgniter\Controller->validate()
+#4 /var/www/html/cs/system/CodeIgniter.php(936): App\Controllers\Paciente->guardar_paciente()
+#5 /var/www/html/cs/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-26 20:56:06 --> Invalid file: usuario/index.php
+#0 /var/www/html/cs/system/View/View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /var/www/html/cs/system/Common.php(1217): CodeIgniter\View\View->render()
+#2 /var/www/html/cs/app/Libraries/Templater.php(34): view()
+#3 /var/www/html/cs/app/Controllers/Usuario.php(23): App\Libraries\Templater->view()
+#4 /var/www/html/cs/system/CodeIgniter.php(936): App\Controllers\Usuario->index()
+#5 /var/www/html/cs/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController()
+#6 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
+#7 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-05-26 20:57:02 --> Undefined index: ocupaciones
+#0 /var/www/html/cs/app/Views/usuario/index.php(186): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/cs/system/View/View.php(220): include('/var/www/html/c...')
+#2 /var/www/html/cs/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/cs/system/Common.php(1217): CodeIgniter\View\View->render()
+#4 /var/www/html/cs/app/Libraries/Templater.php(34): view()
+#5 /var/www/html/cs/app/Controllers/Usuario.php(23): App\Libraries\Templater->view()
+#6 /var/www/html/cs/system/CodeIgniter.php(936): App\Controllers\Usuario->index()
+#7 /var/www/html/cs/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController()
+#8 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
+#9 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-26 21:02:15 --> SQLSTATE[42S22]: Column not found: 1054 Unknown column 'exp' in 'field list'
+#0 /var/www/html/cs/app/Libraries/Ssp.php(465): PDOStatement->execute()
+#1 /var/www/html/cs/app/Libraries/Ssp.php(367): App\Libraries\Ssp::sql_exec()
+#2 /var/www/html/cs/app/Controllers/Usuario.php(55): App\Libraries\Ssp::complex()
+#3 /var/www/html/cs/system/CodeIgniter.php(936): App\Controllers\Usuario->ajaxListarUsuarios()
+#4 /var/www/html/cs/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-05-26 21:02:54 --> SQLSTATE[42S22]: Column not found: 1054 Unknown column 'celular' in 'field list'
+#0 /var/www/html/cs/app/Libraries/Ssp.php(465): PDOStatement->execute()
+#1 /var/www/html/cs/app/Libraries/Ssp.php(367): App\Libraries\Ssp::sql_exec()
+#2 /var/www/html/cs/app/Controllers/Usuario.php(55): App\Libraries\Ssp::complex()
+#3 /var/www/html/cs/system/CodeIgniter.php(936): App\Controllers\Usuario->ajaxListarUsuarios()
+#4 /var/www/html/cs/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-05-26 21:03:15 --> SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ocupacion' in 'field list'
+#0 /var/www/html/cs/app/Libraries/Ssp.php(465): PDOStatement->execute()
+#1 /var/www/html/cs/app/Libraries/Ssp.php(367): App\Libraries\Ssp::sql_exec()
+#2 /var/www/html/cs/app/Controllers/Usuario.php(55): App\Libraries\Ssp::complex()
+#3 /var/www/html/cs/system/CodeIgniter.php(936): App\Controllers\Usuario->ajaxListarUsuarios()
+#4 /var/www/html/cs/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController()
+#5 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
+#6 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2021-05-26 21:32:59 --> mysqli_sql_exception: Table 'sanpedro.sp_odontograma' doesn't exist in /var/www/html/cs/system/Database/MySQLi/Connection.php:314
+Stack trace:
+#0 /var/www/html/cs/system/Database/MySQLi/Connection.php(314): mysqli->query()
+#1 /var/www/html/cs/system/Database/BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/html/cs/system/Database/BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/html/cs/system/Database/BaseBuilder.php(2035): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/html/cs/app/Controllers/Paciente.php(64): CodeIgniter\Database\BaseBuilder->getWhere()
+#5 /var/www/html/cs/system/CodeIgniter.php(936): App\Controllers\Paciente->editar_odontograma()
+#6 /var/www/html/cs/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController()
+#7 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
+#8 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-05-26 21:32:59 --> Table 'sanpedro.sp_odontograma' doesn't exist
+#0 /var/www/html/cs/system/Database/MySQLi/Connection.php(314): mysqli->query()
+#1 /var/www/html/cs/system/Database/BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/html/cs/system/Database/BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/html/cs/system/Database/BaseBuilder.php(2035): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/html/cs/app/Controllers/Paciente.php(64): CodeIgniter\Database\BaseBuilder->getWhere()
+#5 /var/www/html/cs/system/CodeIgniter.php(936): App\Controllers\Paciente->editar_odontograma()
+#6 /var/www/html/cs/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController()
+#7 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
+#8 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}

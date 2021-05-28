@@ -133,13 +133,13 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="../tables/simple.html" class="nav-link">
+                    <a href="../tables/simple.html" class="nav-link menu--link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Configuraci&oacute;n</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../tables/data.html" class="nav-link">
+                    <a href="<?= base_url('/usuario'); ?>" class="nav-link menu--link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Usuarios</p>
                     </a>
