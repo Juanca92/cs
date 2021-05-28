@@ -119,10 +119,9 @@
                       <span class="fa fa-trauma service-icon-effect"></span>
                     </div>
                     <h3><a href="#">Medicina General</a></h3>
-                    <p>En la parte de la medicina General atendemos a nuestros pacientes para la prevencion, deteccion
-                      y poner un oportuno tratamient, seguimiento de las enfermedades que posee el paciente con nuestros
-                      medicos
-                      altamente capacitados.</p>
+                    <p>En la parte de la medicina General el centro de salud atiende a sus pacientes
+                     para la prevención, detección y poner un oportuno tratamiento, seguimiento de las enfermedades 
+                     que posee el paciente con los médicos altamente capacitados.</p>
                   </div>
                 </div>
                 <!-- Start Single Service -->
@@ -132,9 +131,8 @@
                       <span class="fa fa-stethoscope service-icon-effect"></span>
                     </div>
                     <h3><a href="#">Enfermeria</a></h3>
-                    <p>Tenemos enfermeras que asisten a los médicos en el diagnóstico y tratamiento de pacientes,
-                      realizando para ello exámenes, administrándoles medicamentos y haciéndole seguimiento
-                      a su condición física y mental</p>
+                    <p>El centro de salud tiene enfermeras que asisten a los médicos en el diagnóstico y tratamiento de pacientes, 
+                    realizando para ello exámenes, administrándoles medicamentos y haciéndole seguimiento a su condición física y mental.</p>
                   </div>
                 </div>
                 <!-- Start Single Service -->
@@ -144,9 +142,9 @@
                       <span class="fas fa-syringe service-icon-effect"></span>
                     </div>
                     <h3><a href="#">Vacunas</a></h3>
-                    <p>La población puede acudir a los Centros de Salud para hacer vacunar a su niños
-                      según la edad y la vacuna que le corresponda, aún si tiene un retraso en el periodo
-                      de vacunación de su niño o niña puede recibir la vacuna sin ningún problema</p>
+                    <p>La población puede acudir al Centro de Salud para hacer vacunar a su niño
+                      según la edad y la vacuna que le corresponda, aun si tiene un retraso en el periodo de vacunación
+                      de su niño o niña puede recibir la vacuna sin ningún problema</p>
                   </div>
                 </div>
                 <!-- Start Single Service -->
@@ -156,9 +154,9 @@
                       <span class="fa fa-medkit service-icon-effect"></span>
                     </div>
                     <h3><a href="#">Ecografias</a></h3>
-                    <p>Realizamos pruebas de diagnostico para crear imagenes de organos, tejidos y estructuras
-                      del interior del cuerpo para detectar embarazos, Buscar defectos congénitos en el cerebro,
-                      la médula espinal, el corazón y otras partes del cuerpo.
+                    <p>El Centro de salud hace pruebas de diagnóstico para crear imágenes de órganos, tejidos y estructuras
+                      del interior del cuerpo para detectar embarazos, Buscar defectos congénitos en el cerebro, la médula espinal, el corazón y 
+                      otras partes del cuerpo.
                     </p>
                   </div>
                 </div>
@@ -169,10 +167,10 @@
                       <span class="fa fa-user-md service-icon-effect"></span>
                     </div>
                     <h3><a href="#">Odontologia</a></h3>
-                    <p>En la parte de odontologia tenemos un medico especialista en odontologia que realiza tratamientos
-                      de:
-                      prevencion restauracion de los dientes, periodoncia, endodoncia, cirugia bucal
-                      estos tratamientos se los realiza tanto a los niños como a los adultos. </p>
+                    <p>
+                      El centro de salud tiene un médico especialista en odontología que realiza tratamientos
+                      de: prevención restauración de los dientes, periodoncia, endodoncia, cirugía bucal estos 
+                      tratamientos se los realiza tanto a los niños como a los adultos. </p>
                   </div>
                 </div>
                 <!-- Servicios -->
@@ -237,9 +235,9 @@
                     </a>
                   </div>
                   <div class="media-body">
-                    <h4 class="media-heading">Nuestra Infraestructura</h4>
-                    <p>Tenemos ambientes nuevos una infraestructura recien elaborada por parte del municio
-                      laboratorio para cada tratamiento que se realiza.
+                    <h4 class="media-heading">La Infraestructura</h4>
+                    <p> La infraestructura del centro de salud San Pedro es recién elaborada por parte del municipio,
+                        laboratorios para cada tratamiento que se realiza.
                     </p>
                   </div>
                 </div>
@@ -251,7 +249,7 @@
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Calidad de Doctores</h4>
-                    <p>El centro de salud tiene doctores especializados para cada area y tratmiento</p>
+                    <p>El centro de salud tiene doctores especializados para cada area y tratamiento</p>
                   </div>
                 </div>
                 <div class="media">

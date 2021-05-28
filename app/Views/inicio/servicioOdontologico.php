@@ -87,7 +87,7 @@
         <div class="blog-breadcrumbs-area">
           <div class="container">
             <div class="blog-breadcrumbs-left">
-              <h2>Brindamos los siguientes Tratamientos</h2>
+              <h2>Se brinda los siguientes Tratamientos</h2>
             </div>
             <div class="blog-breadcrumbs-right">
               <ol class="breadcrumb">
@@ -121,7 +121,7 @@
                       <span class="fa fa-stethoscope service-icon-effect"></span>
                     </div>
                     <h3><a href="#">Prevencion</a></h3>
-                    <p>Realizamos limpiezas dentales con fluor y profilaxis para prevenir
+                    <p>Se realiza limpiezas dentales con flúor y profilaxis para prevenir
                       cualquier enfermedad en los dientes tanto en los niños como en adultos
                     </p>
                   </div>
@@ -133,7 +133,7 @@
                       <span class="fa fa-heartbeat service-icon-effect"></span>
                     </div>
                     <h3><a href="#">Restauracion</a></h3>
-                    <p>extraemos dientes que sufrieron destruccion, fractura, desgaste o afeccion irreversible
+                    <p>Se extrae piezas dentales que sufrieron destrucción, fractura, desgaste o afección irreversible
                       provocada por una caries o por traumatismo.
                     </p>
                   </div>
@@ -145,7 +145,7 @@
                       <span class="fa fa-h-square service-icon-effect"></span>
                     </div>
                     <h3><a href="#">Periodoncia</a></h3>
-                    <p>diagnosticamos los tratamiento de las enfermedades y
+                    <p>Se diagnostica los tratamientos de las enfermedades y
                       condiciones que afectan a los tejidos que dan soporte a los órganos dentarios,</p>
                   </div>
                 </div>
@@ -156,7 +156,7 @@
                       <span class="fa fa-medkit service-icon-effect"></span>
                     </div>
                     <h3><a href="#">Endodoncia</a></h3>
-                    <p>Realizamos tratamiento dental conocido comúnmente para “matar el nervio”. Consiste en eliminar
+                    <p>Se realiza tratamiento dental conocido comúnmente para “matar el nervio”. Consiste en eliminar
                       la parte profunda del diente cuando se encuentra lesionado o infectado. El objetivo
                       de este tratamiento es limpiar el diente por dentro y rellenarlo de un material inerte</p>
                   </div>
@@ -168,7 +168,7 @@
                       <span class="fa fa-user-md service-icon-effect"></span>
                     </div>
                     <h3><a href="#">Cirugia Bucal</a></h3>
-                    <p>Nos encargamos de diagnosticar y tratar quirúrgicamente las enfermedades, defectos y traumatismos
+                    <p>También se encarga de diagnosticar y tratar quirúrgicamente las enfermedades, defectos y traumatismos
                       de los dientes, huesos maxilares y sus tejidos adyacentes </p>
                   </div>
                 </div>
@@ -237,7 +237,7 @@
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Nuestra Infraestructura</h4>
-                    <p>Tenemos nuestro propio ambiente donde se realiza cualquier tratamiento a los pacientes.
+                    <p>Se tiene un propio ambiente donde se realiza cualquier tratamiento a los pacientes.
                     </p>
                   </div>
                 </div>
@@ -249,7 +249,7 @@
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Calidad de Doctores</h4>
-                    <p>La atencion es con un especialista en odontologia que tenemos en el Centro de Salud.</p>
+                    <p>La atencion es con un especialista en odontologia que hay en el Centro de Salud.</p>
                   </div>
                 </div>
                 <div class="media">

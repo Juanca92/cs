@@ -30,7 +30,7 @@ class Fisico extends BaseController
         if ($this->request->isAJAX()) {
             $table = 'sp_view_tratamiento_fisico';
             $primaryKey = 'id_fisico';
-            $where = " ";
+            $where = "";
 
             $columns = array(
                 array('db' => 'id_fisico', 'dt'                 => 0),
@@ -80,6 +80,7 @@ class Fisico extends BaseController
                             "peso"                      => 'required|numeric',
                             "talla"                     => 'required|numeric',
                             "masa_corporal"             => 'required|numeric',
+                            "id_paciente"               => 'required',
                         ],
                         [ // errors
                             "presion_alterial" => [
@@ -113,6 +114,9 @@ class Fisico extends BaseController
                             "masa_corporal" => [
                                 "required"   => "La masa muscular es requerido",
                                 "numeric"    => "La masa muscular debe llevar caracteres numéricos."
+                            ],
+                            "id_paciente" => [
+                                "required"   => "El id del paciente es requerio"
                             ]
                         ]
                     );
@@ -135,11 +139,11 @@ class Fisico extends BaseController
                             "peso"                      => $this->request->getPost("peso"),
                             "talla"                     => $this->request->getPost("talla"),
                             "masa_corporal"             => $this->request->getPost("masa_corporal"),
-                            "id_paciente"               => "id_paciente",
+                            "id_paciente"               => $this->request->getPost("id_paciente"),
                             "creado_en"                 => $this->fecha->format('Y-m-d H:i:s')
                         );
 
-                        $respuesta = $this->model->cita("insert", $data, null, null);
+                        $respuesta = $this->model->fisico("insert", $data, null, null);
                         if (is_numeric($respuesta)) {
                             return $this->response->setJSON(json_encode(array(
                                 'exito' => "Tratamiento fisico registrado correctamente"
@@ -163,6 +167,7 @@ class Fisico extends BaseController
                         "peso"                      => 'required|numeric',
                         "talla"                     => 'required|numeric',
                         "masa_corporal"             => 'required|numeric',
+                        "id_paciente"               => 'required',
                     ],
                     [ // errors
                         "id" => [
@@ -199,6 +204,9 @@ class Fisico extends BaseController
                         "masa_corporal" => [
                             "required"   => "La masa muscular es requerido",
                             "numeric"    => "La masa muscular debe llevar caracteres numéricos."
+                        ],
+                        "id_paciente" => [
+                            "required"   => "El id del paciente es requerio"
                         ]
                     ]
                 );
@@ -219,11 +227,11 @@ class Fisico extends BaseController
                         "peso"                      => $this->request->getPost("peso"),
                         "talla"                     => $this->request->getPost("talla"),
                         "masa_corporal"             => $this->request->getPost("masa_corporal"),
-                        "id_paciente"               => "id_paciente",
-                        "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
+                        "id_paciente"               => $this->request->getPost("id_paciente"),
+                        "actualizado_en"            => $this->fecha->format('Y-m-d H:i:s')
                     );
 
-                    $respuesta = $this->model->enfermedad(
+                    $respuesta = $this->model->fisico(
                         "update",
                         $data,
                         array(

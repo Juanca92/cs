@@ -70,6 +70,7 @@
                     <thead>
                         <tr>
                             <th width="5%">#</th>
+                            <th>Foto</th>
                             <th>CI</th>
                             <th>Nombres</th>
                             <th>Celular</th>

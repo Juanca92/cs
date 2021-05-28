@@ -23,7 +23,7 @@ $(document).ready(function () {
 				searchable: true,
 				orderable: true,
 				visible: false,
-				targets: 4,
+				targets: 1,
 			},
 			{
 				searchable: true,
@@ -32,16 +32,22 @@ $(document).ready(function () {
 				targets: 5,
 			},
 			{
+				searchable: true,
+				orderable: true,
+				visible: false,
+				targets: 6,
+			},
+			{
 				searchable: false,
 				orderable: false,
 				visible: true,
-				targets: 8,
+				targets: 9,
 				data: null,
 				render: function (data, type, row, meta) {
-					if (data[8] == 'ACTIVO') {
-						return '<a type="button" data="' + data[0] + '" class="btn btn-success btn-xs text-white">' + data[8] + ' </span>';
+					if (data[9] == 'ACTIVO') {
+						return '<a type="button" data="' + data[0] + '" class="btn btn-success btn-xs text-white">' + data[9] + ' </span>';
 					} else {
-						return '<a type="button" data="' + data[0] + '" class="btn btn-danger btn-xs text-white">' + data[8] + ' </span>';
+						return '<a type="button" data="' + data[0] + '" class="btn btn-danger btn-xs text-white">' + data[9] + ' </span>';
 					}
 				},
 			},

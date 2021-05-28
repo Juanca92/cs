@@ -70,18 +70,9 @@ class AlergiaModel extends Database
 
         return null;
     }
-
-    // Datos del usuario en tratamiento
-    public function datos_usuario_tratamiento($id)
-    {
-        $builder = $this->db->table('view_users as u');
-        $builder->select('CONCAT(u.nombres, " ", u.paterno," ", u.materno) AS nombre_completo, u.telefono_celular, u.domicilio, u.fecha_nacimiento, u.foto');
-        $builder->where('id_persona', $id);
-        return $builder->get()->getResultArray();
-    }
     public function editar_alergia($id)
     {
-        $builder = $this->db->table('tratamiento_alergias as t');
+        $builder = $this->db->table('view_tratamiento_alergias as ta');
         $builder->select('*');
         $builder->where('id_alergia', $id);
         return $builder->get()->getResultArray();
@@ -91,12 +82,6 @@ class AlergiaModel extends Database
     {
         $builder = $this->db->table("view_paciente as p");
         $builder->select('p.id_persona, p.nombre_completo');
-        return $builder->get()->getResultArray();
-    }
-    public function listar_ocupaciones()
-    {
-        $builder = $this->db->table("ocupacion as o");
-        $builder->select('o.id_ocupacion, o.nombre');
         return $builder->get()->getResultArray();
     }
 }

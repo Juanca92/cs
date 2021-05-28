@@ -4312,7 +4312,7 @@ input[type="button"].btn-block {
 }
 
 .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
-  border-color: #e9ecef #e9ecef #dee2e6;
+  border-color: #e9ecef #e9ecef #fefeff;
 }
 
 .nav-tabs .nav-link.disabled {
@@ -22347,7 +22347,7 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 }
 
 .slider-warning .slider .slider-selection {
-  background: #ffc107;
+  background: #eeb303;
 }
 
 .slider-danger .slider .slider-selection {
@@ -27879,11 +27879,11 @@ blockquote.quote-gray-dark h6 {
 }
 
 .elevation-4 {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(80, 96, 245, 0.925) !important;
 }
 
 .elevation-5 {
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22) !important;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(57, 233, 22, 0.781) !important;
 }
 
 .bg-primary {
@@ -28016,7 +28016,7 @@ blockquote.quote-gray-dark h6 {
 }
 
 .bg-light.btn:hover {
-  border-color: #dae0e5;
+  border-color: #1376c7;
   color: #121a24;
 }
 
@@ -28032,7 +28032,7 @@ blockquote.quote-gray-dark h6 {
 
 .bg-dark,
 .bg-dark > a {
-  color: #ffffff !important;
+  color: #aa1b1b !important;
 }
 
 .bg-dark.btn:hover {

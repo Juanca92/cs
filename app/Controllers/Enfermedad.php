@@ -30,7 +30,7 @@ class Enfermedad extends BaseController
         if ($this->request->isAJAX()) {
             $table = 'sp_view_tratamiento_enfermedad';
             $primaryKey = 'id_enfermedad';
-            $where = " ";
+            $where = "";
 
             $columns = array(
                 array('db' => 'id_enfermedad', 'dt'           => 0),
@@ -77,6 +77,7 @@ class Enfermedad extends BaseController
                             "nombre_medicamento"    => "required|alpha_space",
                             "motivo_medicamento"    => "required|alpha_space",
                             "dosis_medicamento"     => "required|numeric",
+                            "id_consulta"           => "required"
                         ],
                         [ // errors
                             "tiempo_consulta" => [
@@ -104,6 +105,9 @@ class Enfermedad extends BaseController
                             "dosis_medicamento" => [
                                 "required"   => "Dosis de medicamento es requerido",
                                 "numeric"    => "Dosis de medicamento debe llevar caracteres numéricos."
+                            ],
+                            "id_paciente" => [
+                                "required"   => "el id del paciente es requerido"
                             ]
                         ]
                     );
@@ -125,12 +129,7 @@ class Enfermedad extends BaseController
                             "nombre_medicamento"    => $this->request->getPost("nombre_medicamento"),
                             "motivo_medicamento"    => $this->request->getPost("motivo_medicamento"),
                             "dosis_medicamento"     => $this->request->getPost("dosis_medicamento"),
-<<<<<<< HEAD
                             "id_paciente"           => $this->request->getPost("id_paciente")
-=======
-                            "id_paciente"           => "id_paciente",
-                            "creado_en"         => $this->fecha->format('Y-m-d H:i:s')
->>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                         );
 
                         $respuesta = $this->model->enfermedad("insert", $data, null, null);
@@ -155,6 +154,7 @@ class Enfermedad extends BaseController
                         "nombre_medicamento"    => "required|alpha_space",
                         "motivo_medicamento"    => "required|alpha_space",
                         "dosis_medicamento"     => "required|numeric",
+                        "id_paciente"           => "required"
                     ],
                     [ // errors
                         "tiempo_consulta" => [
@@ -182,6 +182,9 @@ class Enfermedad extends BaseController
                         "dosis_medicamento" => [
                             "required"   => "Dosis de medicamento es requerido",
                             "numeric"    => "Dosis de medicamento debe llevar caracteres numéricos."
+                        ],
+                        "id_paciente" => [
+                            "required"   => "el id del paciente es requerido"
                         ]
                     ]
                 );
@@ -201,12 +204,7 @@ class Enfermedad extends BaseController
                         "nombre_medicamento"    => $this->request->getPost("nombre_medicamento"),
                         "motivo_medicamento"    => $this->request->getPost("motivo_medicamento"),
                         "dosis_medicamento"     => $this->request->getPost("dosis_medicamento"),
-<<<<<<< HEAD
                         "id_paciente"           => $this->request->getPost("id_paciente")
-=======
-                        "id_paciente"           => "id_paciente",
-                        "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
->>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                     );
 
                     $respuesta = $this->model->enfermedad(

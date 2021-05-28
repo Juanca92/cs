@@ -88,3 +88,17 @@
 
     <!--traduccion al español datepicker-->
     <script src="<?php echo base_url('plugins/jquery-ui-1.12.1.custom/locales/es.min.js') ?>"></script>
+
+    <!--chart para los datos estasisticos-->
+    <script src="<?php echo base_url('plugins/chart.js/chart.min.js') ?>"></script>
+
+
+
+   
+   
+   
+
+
+
+
+  

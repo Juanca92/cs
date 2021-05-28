@@ -61,4 +61,10 @@ class GestionarCitaModel extends Database
         $builder->where('estatus = 1');
         return $builder->get()->getResultArray();
     }
+    public function pendientes()
+    {
+        $builder = $this->db->table("view_cita ");
+        $builder->select(count(*));
+        return $builder->get()->getResultArray();
+    }
 }

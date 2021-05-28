@@ -25,12 +25,12 @@ class Consulta extends BaseController
     }
 
     // Listado de citas
-    public function ajaxListarConsulta()
+    public function ajaxListarConsultas()
     {
         if ($this->request->isAJAX()) {
             $table = 'sp_view_tratamiento_consulta';
             $primaryKey = 'id_consulta';
-            $where = " ";
+            $where = "";
 
             $columns = array(
                 array('db' => 'id_consulta', 'dt'           => 0),
@@ -92,6 +92,7 @@ class Consulta extends BaseController
                             "otras"                 => "alpha_space",
                             "cepilla_diente"        => "required|alpha_space",
                             "cuanto_dia"            => "alpha_space",
+                            "id_paciente"           => "required",
 
                         ],
                         [ // errors
@@ -150,6 +151,9 @@ class Consulta extends BaseController
                             ],
                             "cuanto_dia" => [
                                 "alpha_space" => "Cuanto al dia debe llevar caracteres alfabéticos o espacios."
+                            ],
+                            "id_paciente" => [
+                                "required" => "el id del paciente es requerido."
                             ]
                         ]
                     );
@@ -181,11 +185,7 @@ class Consulta extends BaseController
                             "otras"                     => ucwords(strtolower(trim($this->request->getPost("otras")))),
                             "cepilla_dientes"           => $this->request->getPost("cepilla_dientes"),
                             "cuanto_dia"                => $this->request->getPost("cuanto_dia"),
-<<<<<<< HEAD
                             "id_paciente"               => $this->request->getPost("id_paciente"),
-=======
-                            "id_paciente"               => "id_paciente",
->>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                             "creado_en"                 => $this->fecha->format('Y-m-d H:i:s')
                         );
 
@@ -222,6 +222,7 @@ class Consulta extends BaseController
                         "otras"                 => "alpha_space",
                         "cepilla_diente"        => "required|alpha_space",
                         "cuanto_dia"            => "alpha_space",
+                        'id_paciente'           => 'required',
                     ],
                     [ // errors
                         "id" => [
@@ -282,7 +283,9 @@ class Consulta extends BaseController
                         ],
                         "cuanto_dia" => [
                             "alpha_space" => "Cuanto al dia debe llevar caracteres alfabéticos o espacios."
-                        ]
+                        ],
+                        "id_paciente" => [
+                            "required"  => "el id del paciente es requerido"
                     ]
                 );
 
@@ -311,11 +314,7 @@ class Consulta extends BaseController
                         "otras"                     => ucwords(strtolower(trim($this->request->getPost("otras")))),
                         "cepilla_dientes"           => $this->request->getPost("cepilla_dientes"),
                         "cuanto_dia"                => $this->request->getPost("cuanto_dia"),
-<<<<<<< HEAD
                         "id_paciente"               => $this->request->getPost("id_paciente"),
-=======
-                        "id_paciente"               => "id_paciente",
->>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
                         "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
                     );
 

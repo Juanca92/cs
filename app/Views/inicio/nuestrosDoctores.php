@@ -129,7 +129,7 @@
                         </svg>
                         <figcaption>
                           <h2>Dr. Wilmer Gamboa</h2>
-                          <p>Odontologo</p>
+                          <p>Odontólogo</p>
                         </figcaption>
                       </figure>
                     </a>

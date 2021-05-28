@@ -23,7 +23,7 @@ $(document).ready(function () {
 				searchable: true,
 				orderable: true,
 				visible: false,
-				targets: 3,
+				targets: 1,
 			},
 			{
 				searchable: true,
@@ -35,19 +35,25 @@ $(document).ready(function () {
 				searchable: true,
 				orderable: true,
 				visible: false,
-				targets: 6,
+				targets: 5,
+			},
+			{
+				searchable: true,
+				orderable: true,
+				visible: false,
+				targets: 7,
 			},
 			{
 				searchable: false,
 				orderable: false,
 				visible: true,
-				targets: 9,
+				targets: 10,
 				data: null,
 				render: function (data, type, row, meta) {
-					if (data[9] == 'ACTIVO') {
-						return '<a type="button" data="' + data[0] + '" class="btn btn-success btn-xs text-white">' + data[9] + ' </span>';
+					if (data[10] == 'ACTIVO') {
+						return '<a type="button" data="' + data[0] + '" class="btn btn-success btn-xs text-white">' + data[10] + ' </span>';
 					} else {
-						return '<a type="button" data="' + data[0] + '" class="btn btn-danger btn-xs text-white">' + data[9] + ' </span>';
+						return '<a type="button" data="' + data[0] + '" class="btn btn-danger btn-xs text-white">' + data[10] + ' </span>';
 					}
 				},
 			},
@@ -75,6 +81,7 @@ $(document).ready(function () {
 		$('#listado-pacientes').modal('hide');
 		let id = $(this).attr('data');
 		id_paciente = id;
+		$("#id").val(id_paciente);
 
 		if (id_paciente == null) {
 			setInterval(function () {
@@ -87,7 +94,6 @@ $(document).ready(function () {
 		$('#content').show();
 		recuperarOdontograma();
 	});
-
 	// datos del Paciente
 	$('#tbl_pacientes_ver').on('click', '.btn_ver_tratamientos', function (e) {
 		let id = $(this).attr('data');
@@ -101,11 +107,14 @@ $(document).ready(function () {
 		})
 			.done(function (response) {
 				$('#id').val(response[0]['id_persona']);
+				$('#foto').val(response[0]['foto']);
 				$('#ci').val(response[0]['ci']);
 				$('#expedido').val(response[0]['expedido']);
 				$('#nombres').val(response[0]['nombres']);
 				$('#paterno').val(response[0]['paterno']);
 				$('#materno').val(response[0]['materno']);
+				$('#sexo').val(response[0]['sexo']);
+				$('#lugar_nacimiento').val(response[0]['lugar_nacimiento']);
 				$('#celular').val(response[0]['telefono_celular']);
 				$('#fecha_nacimiento').val(response[0]['fecha_nacimiento']);
 				$('#id_ocupacion').val(response[0]['id_ocupacion']).trigger('change');
@@ -179,8 +188,65 @@ $(document).ready(function () {
 	});
 
 	// traendo la tabla de enfermedad actual
+
+
+	
 	// Editar enfermedad
-	$('#tbl_tratamiento_enfermedades').on('click', '.btn_editar_enfermedad', function (e) {
+	$(document).ready(function () {
+		//Id de enfermedad para el tratamiento
+		let id_enfermedad = null;
+		$('#content').hide();
+		// Listado de enfermedades
+		$('#tbl_tratamiento_enfermedade_ver').DataTable({
+			responsive: true,
+			processing: true,
+			serverSide: true,
+			ajax: '/enfermedad/ajaxListarEnfermedad',
+			language: {
+				url: '/plugins/datatables/lang/Spanish.json',
+			},
+			columnDefs: [
+				{
+					searchable: true,
+					orderable: true,
+					visible: false,
+					targets: 0,
+				},
+				{
+					searchable: false,
+					orderable: false,
+					targets: -1,
+					data: null,
+					render: function (data, type, row, meta) {
+						return '<div class="btn-group" role="group">' + '<a data="' + data[0] + '" class="btn btn-warning btn-sm mdi mdi-tooltip-edit text-black btn_editar_enfermedad" data-toggle="tooltip" title="Editar">' + '<i class="fa fa-pen">Editar</i></a>' + '</div>';
+					},
+				},
+			],
+		});
+
+
+		// Habilitar el fomulario de ver los detalles de tratamiento, exploracion fisica
+	$('#tbl_tratamiento_enfermedad_ver').on('click', '.btn_ver_tratamientos', function (e) {
+		//ocultar el modal
+		$('#listado-enfermedad').modal('hide');
+		let id = $(this).attr('data');
+		id_enfermedad = id;
+
+		if (id_enfermedad == null) {
+			setInterval(function () {
+				window.location = '/';
+			}, 1000);
+
+			mensajeAlert('info', 'Por favor seleccione un paciente !!!', 'Informacion');
+		}
+
+		$('#content').show();
+		recuperarOdontograma();
+	});
+
+
+	// capturando el id al Editar enfermedad
+	$('#tbl_tratamiento_enfermedades_ver').on('click', '.btn_ver_tratamientos', function (e) {
 		let id = $(this).attr('data');
 		$.ajax({
 			type: 'POST',
@@ -233,6 +299,162 @@ $(document).ready(function () {
 				mensajeAlert('error', 'Error al registrar/editar la enfermedad', 'Error');
 			});
 	});
+});
+	
+
+	// Mostrar alergias al hacer click en ver tratamientos
+	// traendo tabla de alergias
+$(document).ready(function () {
+	let id_alergia = null;
+	$('#content').hide();
+	// Listado de alergias
+	$('#tbl_tratamiento_alergias_ver').DataTable({
+		responsive: true,
+		processing: true,
+		serverSide: true,
+		ajax: '/alergia/ajaxListarAlergias',
+		language: {
+			url: '/plugins/datatables/lang/Spanish.json',
+		},
+		columnDefs: [
+			{
+				searchable: true,
+				orderable: true,
+				visible: true,
+				targets: 0,
+			},
+			{
+				searchable: false,
+				orderable: false,
+				targets: -1,
+				data: null,
+				render: function (data, type, row, meta) {
+					return '<div class="btn-group" role="group">' + 
+					'<a data="' + data[0] + 
+					'" class="btn btn-warning btn-sm mdi mdi-tooltip-edit text-white btn_editar_alergia" data-toggle="tooltip" title="Editar">' + 
+					'<i class="fa fa-pen"></i></a>' + 
+					'<a data="' + data[0] + 
+					'" class="btn btn-danger btn-sm mdi mdi-delete-forever text-white btn_eliminar_alergia" data-toggle="tooltip" title="Eliminar">' + 
+					'<i class="fa fa-trash"></i></a>' + '</div>';
+				},
+			},
+		],
+	});
+	// Habilitar el fomulario de ver los detalles de tratamiento, exploracion fisica
+	$('#tbl_tratamiento_alergias_ver').on('click', '.btn_ver_tratamientos', function (e) {
+		//ocultar el modal
+		$('#listado-enfermedad').modal('hide');
+		let id = $(this).attr('data');
+		id_alergia = id;
+
+		if (id_alergia == null) {
+			setInterval(function () {
+				window.location = '/';
+			}, 1000);
+
+			mensajeAlert('info', 'Por favor seleccione un paciente !!!', 'Informacion');
+		}
+
+		$('#content').show();
+	});
+
+	// Modal para agregar alergias
+	$('button#agregar_alergia').on('click', function (e) {
+		$('#btn-guardar-alergia').html('Guardar');
+		$('#accion').val('in');
+
+		parametrosModal('#agregar-alergia', 'Agregar Alergias', 'modal-lg', false, true);
+	});
+	// Guardar alergias
+	$('#frm_guardar_alergia').on('submit', function (e) {
+		e.preventDefault();
+		$.ajax({
+			type: 'POST',
+			url: '/alergia/guardar_alergia',
+			data: $('#frm_guardar_alergia').serialize(),
+			dataType: 'JSON',
+		})
+			.done(function (response) {
+				if (typeof response.warning !== 'undefined') {
+					mensajeAlert('warning', response.warning, 'Advertencia');
+				}
+
+				if (typeof response.form !== 'undefined') {
+					mensajeAlert('warning', response.form, 'Advertencia');
+				}
+
+				if (typeof response.exito !== 'undefined') {
+					$('#tbl_tratameiento_alergias').DataTable().draw();
+					$('#agregar-alergia').modal('hide');
+					mensajeAlert('success', response.exito, 'Exito');
+					limpiarCampos();
+				}
+			})
+			.fail(function (e) {
+				mensajeAlert('error', 'Error al registrar/editar las alergias', 'Error');
+			});
+	});
+	// Limpiar Campos
+	function limpiarCampos() {
+		$('#id').val('');
+		$('#nombre_alergia').val('');
+		$('#detalle').val('');
+		$('#accion').val('');
+	}
+
+	// Editar alergias
+	$('#tbl_tratamiento_alergias').on('click', '.btn_ver_tratamientos', function (e) {
+		let id = $(this).attr('data');
+		$.ajax({
+			type: 'POST',
+			url: '/alergia/editar_alergia',
+			data: {
+				id: id,
+			},
+			dataType: 'JSON',
+		})
+			.done(function (response) {
+				$('#id').val(response[0]['id_alergia']);
+				$('#nombre_alergia').val(response[0]['nombre_alergia']);
+				$('#detalle').val(response[0]['detalle']);
+				$('#accion').val('up');
+
+				$('#btn-guardar-alergia').html('Editar');
+				parametrosModal('#agregar-alergia', 'Editar alergia', 'modal-lg', false, true);
+			})
+			.fail(function (e) {
+				$('#agregar-alergia').modal('hide');
+			});
+	});
+
+	// Eliminar alergias
+	$('#tbl_tratamiento_alergias').on('click', '.btn_eliminar_alergia', function (e) {
+		let id = $(this).attr('data');
+		bootbox.confirm('¿Estas seguro de eliminar las alergias?', function (result) {
+			if (result) {
+				$.ajax({
+					type: 'POST',
+					url: '/alergia/eliminar_alergia',
+					data: {
+						id: id,
+					},
+					dataType: 'JSON',
+				})
+					.done(function (response) {
+						if (typeof response.exito !== 'undefined') {
+							$('#tbl_tratamiento_alergias').DataTable().draw();
+							mensajeAlert('success', response.exito, 'Exito');
+						}
+					})
+					.fail(function (e) {
+						mensajeAlert('error', 'Error al procesar la peticion', 'Error');
+					});
+			}
+		});
+	});
+}); 
+
+	//odontograma
 	$('#guardar-odontograma').on('click', function () {
 		$.ajax({
 			type: 'post',
@@ -327,35 +549,5 @@ $(document).ready(function () {
 
 		return s;
 	}
-	// capturando el id al Editar enfermedad
-	$('#tbl_tratamiento_enfermedades_ver').on('click', '.btn_ver_tratamientos', function (e) {
-		let id = $(this).attr('data');
-		$.ajax({
-			type: 'POST',
-			url: '/enfermedad/editar_enfermedad',
-			data: {
-				id: id,
-			},
-			dataType: 'JSON',
-		})
-			.done(function (response) {
-				$('#id').val(response[0]['id_enfermedad']);
-				$('#tiempo_consulta').val(response[0]['tiempo_consulta']);
-				$('#motivo_consulta').val(response[0]['motivo_consulta']);
-				$('#sintomas_principales').val(response[0]['sintomas_principales']);
-				$('#tomando_medicamento').val(response[0]['tomando_medicamento']);
-				$('#nombre_medicamento').val(response[0]['nombre_medicamento']);
-				$('#motivo_medicamento').val(response[0]['motivo_medicamento']);
-				$('#dosis_medicamento').val(response[0]['dosis_medicamento']);
-				$('#accion').val('up');
 
-				$('#btn-guardar-enfermedad').html('Editar');
-				parametrosModal('#agregar-enfermedad', 'Editar enfermedad', 'modal-lg', false, true);
-			})
-			.fail(function (e) {
-				$('#agregar-enfermedad').modal('hide');
-			});
-	});
-
-	// Mostrar alergias al hacer click en ver tratamientos
 }); //fin principio

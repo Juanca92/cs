@@ -50,12 +50,28 @@ $(document).ready(function () {
 				targets: 10,
 			},
 			{
+				searchable: true,
+				orderable: true,
+				visible: false,
+				targets: 11,
+			},
+			{
 				searchable: false,
 				orderable: false,
 				targets: -1,
 				data: null,
 				render: function (data, type, row, meta) {
-					return '<div class="btn-group" role="group">' + '<a data="' + data[0] + '" class="btn btn-warning btn-sm mdi mdi-tooltip-edit text-black btn_editar_cita" data-toggle="tooltip" title="Editar">' + '<i class="fa fa-pen">Editar</i></a>' + '</div>';
+					return (
+					'<div class="btn-group" role="group">' + 
+					'<a data="' + data[0] + 
+					'" class="btn btn-warning btn-sm mdi mdi-tooltip-edit text-black btn_editar_cita" data-toggle="tooltip" title="Editar">' + 
+					'<i class="fa fa-pen">Editar</i></a>' + 
+					'<a data="' +
+                    data[0] +
+                    '" class="btn btn-danger btn-sm mdi mdi-delete-forever text-white btn_eliminar_cita" data-toggle="tooltip" title="Eliminar">' +
+                    '<i class="fa fa-trash"></i></a>' +
+                    '</div>'
+					);
 				},
 			},
 		],
@@ -240,6 +256,7 @@ $(document).ready(function () {
 	//agenda
 	$(document).ready(function () {
 		$('#calendar_fecha').fullCalendar({
+			locale: 'es',
 			header: {
 				left: 'prev,next',
 				center: 'title',
@@ -251,16 +268,18 @@ $(document).ready(function () {
 			eventLimit: true,
 			events: 'cita/getEvents',
 			eventColor: 'lime',
+			timeFormat: 'H:mm',
 
 			dayClick: function (date, jsEvent, view) {
 				alert('Has hecho click en: ' + date.format());
 			},
-			eventClick: function (calEvent, jsEvent, view) {
+			eventClick: function (calEvent, time, jsEvent, view) {
 				$('#event-title').text(calEvent.title);
 				$('#event-description').html(calEvent.description);
-				$('#event-start').html(calEvent.start);
+				$('#event-start').text(calEvent.start);
 				$('#modal-event').modal();
 			},
+			
 		});
 	});
 

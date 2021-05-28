@@ -19,7 +19,7 @@ $(document).ready(function () {
 				searchable: true,
 				orderable: true,
 				visible: false,
-				targets: 3,
+				targets: 1,
 			},
 			{
 				searchable: true,
@@ -31,19 +31,25 @@ $(document).ready(function () {
 				searchable: true,
 				orderable: true,
 				visible: false,
-				targets: 10,
+				targets: 5,
+			},
+			{
+				searchable: true,
+				orderable: true,
+				visible: false,
+				targets: 11,
 			},
 			{
 				searchable: false,
 				orderable: false,
 				visible: true,
-				targets: 9,
+				targets: 10,
 				data: null,
 				render: function (data, type, row, meta) {
-					if (data[9] == 'ACTIVO') {
-						return '<a type="button" data="' + data[0] + '" class="btn btn-success btn-xs text-white">' + data[9] + ' </span>';
+					if (data[10] == 'ACTIVO') {
+						return '<a type="button" data="' + data[0] + '" class="btn btn-success btn-xs text-white">' + data[10] + ' </span>';
 					} else {
-						return '<a type="button" data="' + data[0] + '" class="btn btn-danger btn-xs text-white">' + data[9] + ' </span>';
+						return '<a type="button" data="' + data[0] + '" class="btn btn-danger btn-xs text-white">' + data[10] + ' </span>';
 					}
 				},
 			},
@@ -53,7 +59,17 @@ $(document).ready(function () {
 				targets: -1,
 				data: null,
 				render: function (data, type, row, meta) {
-					return '<div class="btn-group" role="group">' + '<a data="' + data[0] + '" class="btn btn-warning btn-sm mdi mdi-tooltip-edit text-black btn_editar_paciente" data-toggle="tooltip" title="Editar">' + '<i class="fa fa-pen">Editar</i></a>' + '</div>';
+					return(
+					'<div class="btn-group" role="group">' + 
+					'<a data="' + data[0] + 
+					'" class="btn btn-warning btn-sm mdi mdi-tooltip-edit text-black btn_editar_paciente" data-toggle="tooltip" title="Editar">' + 
+					'<i class="fa fa-pen">Editar</i></a>' + 
+					'<a data="' +
+                    data[0] +
+                    '" class="btn btn-danger btn-sm mdi mdi-delete-forever text-white btn_eliminar_paciente" data-toggle="tooltip" title="Eliminar">' +
+                    '<i class="fa fa-trash"></i></a>' +
+                    '</div>'
+					);
 				},
 			},
 		],
@@ -108,9 +124,14 @@ $(document).ready(function () {
 			});
 	});
 
+
+	//checked de genero o sexo
+	
+
 	// Limpiar Campos
 	function limpiarCampos() {
 		$('#id').val('');
+		$('#foto').val('');
 		$('#ci').val('');
 		$('#expedido').val('');
 		$('#nombres').val('');
@@ -139,6 +160,7 @@ $(document).ready(function () {
 		})
 			.done(function (response) {
 				$('#id').val(response[0]['id_persona']);
+				$('#foto').val(response[0]['foto']);
 				$('#ci').val(response[0]['ci']);
 				$('#expedido').val(response[0]['expedido']);
 				$('#nombres').val(response[0]['nombres']);
@@ -160,6 +182,9 @@ $(document).ready(function () {
 				$('#agregar-paciente').modal('hide');
 			});
 	});
+	$(document).ready(function(){
+		$("#sexo").attr("checked","checked");
+	  })
 
 	// Eliminar Paciente
 	$('#tbl_pacientes').on('click', '.btn_eliminar_paciente', function (e) {
@@ -213,5 +238,60 @@ $(document).ready(function () {
 		changeYear: true,
 		yearRange: '-100:+0',
 		dateFormat: 'yy-mm-dd',
+	});
+
+
+
+
+
+	// Cargando la foto subida
+	$('#foto').change(function () {
+		var imagen = this.files[0];
+		// se valida el formato de la imagen png y jpeg
+		if (imagen['type'] != 'image/jpeg' && imagen['type'] != 'image/png') {
+			$('#foto').val('');
+			mensajeAlert('error', '¡La imagen debe estar en formato JPG o PNG!', 'Error al subir la imagen');
+		} else if (imagen['size'] > 2000000) {
+			$('#foto').val('');
+			mensajeAlert('error', '¡La imagen no debe pesar más de 2MB!', 'Error al subir la imagen');
+		} else {
+			var datosImagen = new FileReader();
+			datosImagen.readAsDataURL(imagen);
+
+			$(datosImagen).on('load', function (event) {
+				var rutaImagen = event.target.result;
+				$('.previsualizar').attr('src', rutaImagen);
+			});
+		}
+	});
+
+	// Guardar foto
+	$('#foto').on('submit', function (e) {
+		e.preventDefault();
+		let formData = new FormData($('#foto')[0]);
+
+		$.ajax({
+			type: 'POST',
+			url: '/paciente/subir_foto',
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false,
+			dataType: 'JSON',
+		}).done(function (response) {
+			if (typeof response.warn !== 'undefined') {
+				mensajeAlert('warning', response.warn, 'Advertencia');
+				$('#foto').val('');
+			}
+
+			if (typeof response.success !== 'undefined') {
+				mensajeAlert('success', response.success, 'Exito');
+				cargar_datos();
+			}
+
+			if (typeof response.error !== 'undefined') {
+				mensajeAlert('error', response.error, 'Error');
+			}
+		});
 	});
 });

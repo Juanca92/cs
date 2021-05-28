@@ -122,9 +122,10 @@
         <div class="row">
           <div class="single-top-feature">
             <span class="fa fa-flask"></span>
-            <h3>Emergencia</h3>
-            <p>La emergencia se atiende de manera inmdiata
-              por lo cual visitenos y lo atenderemos para poder hacer la revision</p>
+            <h3>Atenciones de emergencias</h3>
+            <p>El centro de salud San Pedro vela por la salud de sus pacientes
+             es por eso que  atiende de manera inmediata a pacientes que visitan de
+              emergencia.</p>
             <div class="readmore_area">
               <a data-toggle="modal" data-target="#myModal" href="#" data-hover="C.S. San Pedro"><span>Visite el centro
                   de
@@ -166,9 +167,9 @@
         <div class="row">
           <div class="single-top-feature">
             <span class="fa fa-hospital-o"></span>
-            <h3>Cita</h3>
-            <p>Para reservar citas en nuestro centro de salud San Pedro de curahura visitenos le atenderemos y fijaremos
-              una fecha para la cita ya sea medica u odontologica</p>
+            <h3>Informacion para las citas medicas</h3>
+            <p>Para la reserva de cita médicas odontológicas, visite el centro de salud San Pedro, 
+            para una previa revisión de la enfermedad que lo aqueja y posterior cita con fecha y hora.</p>
             <div class="readmore_area">
               <a data-toggle="modal" data-target="#myModal" href="#" data-hover="C.S. San Pedro"><span>Visite el centro
                   de

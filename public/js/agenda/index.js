@@ -9,6 +9,7 @@ $(document).ready(function () {
 		buttonIcons: true,
 		weekNumbers: false,
 		eventLimit: true,
+		editable: true,
 		events: 'cita/getEvents',
 		eventColor: 'fuchsia',
 
