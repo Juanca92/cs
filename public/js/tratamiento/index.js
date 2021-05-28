@@ -82,6 +82,11 @@ $(document).ready(function () {
 		let id = $(this).attr('data');
 		id_paciente = id;
 		$("#id").val(id_paciente);
+		$("#id1").val(id_paciente);
+		$("#id2").val(id_paciente);
+		$("#id3").val(id_paciente);
+		$("#id4").val(id_paciente);
+		$("#id5").val(id_paciente);
 
 		if (id_paciente == null) {
 			setInterval(function () {

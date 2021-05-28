@@ -61,6 +61,7 @@ CRITICAL - 2021-05-26 12:04:37 --> SQLSTATE[42S22]: Column not found: 1054 Unkno
 #5 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
 #6 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
 #7 {main}
+<<<<<<< HEAD
 CRITICAL - 2021-05-26 12:08:54 --> SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sexo' in 'field list'
 #0 /var/www/html/cs/app/Libraries/Ssp.php(465): PDOStatement->execute()
 #1 /var/www/html/cs/app/Libraries/Ssp.php(367): App\Libraries\Ssp::sql_exec()
@@ -207,3 +208,65 @@ CRITICAL - 2021-05-26 21:32:59 --> Table 'sanpedro.sp_odontograma' doesn't exist
 #7 /var/www/html/cs/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest()
 #8 /var/www/html/cs/public/index.php(44): CodeIgniter\CodeIgniter->run()
 #9 {main}
+=======
+ERROR - 2021-05-26 22:10:50 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2021-05-26 22:10:50 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\cs\system\Database\BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\cs\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\cs\app\Models\Querys.php(32): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\cs\app\Helpers\SanPedro_helper.php(10): App\Models\Querys->verifyUser(Array)
+#4 C:\xampp\htdocs\cs\app\Controllers\Auth.php(32): authenticated()
+#5 C:\xampp\htdocs\cs\system\CodeIgniter.php(936): App\Controllers\Auth->login()
+#6 C:\xampp\htdocs\cs\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\xampp\htdocs\cs\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\cs\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-05-26 22:11:53 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:13:14 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:13:15 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:13:16 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:13:33 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:13:36 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:13:36 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:13:36 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:13:37 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:19:26 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:19:28 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:19:29 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:19:29 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:19:29 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:19:42 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:27:15 --> Cannot redeclare App\Controllers\Paciente::editar_odontograma()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+>>>>>>> b8a78c99725d4adb1d83b551a560a0e302af8f96

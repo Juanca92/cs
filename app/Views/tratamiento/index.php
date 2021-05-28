@@ -250,8 +250,8 @@
                                                                     placeholder="">
                                                             </div>
                                                         </div>
-                                                        <input type="hidden" name="id" id="id">
-                                                    <input type="hidden" name="accion" id="accion">
+                                                        <input type="hidden" name="id1" id="id1">
+                                                        <input type="hidden" name="accion" id="accion">
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-lg-6">
@@ -346,7 +346,7 @@
                                                                     value="no">
                                                             </div>
                                                         </div>
-                                                        <input type="hidden" name="id" id="id">
+                                                        <input type="hidden" name="id2" id="id2">
                                                     <input type="hidden" name="accion" id="accion">
                                                     </div>
                                                     <div class="col-lg-6">
@@ -650,7 +650,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <input type="hidden" name="id" id="id">
+                                                    <input type="hidden" name="id4" id="id4">
                                                     <input type="hidden" name="accion" id="accion">
                                                 </div>
                                                 <div class="form-group row text-right">
@@ -756,6 +756,7 @@
                                     <!-- /.modal-content -->
                                 </div>
                             </div>
+
                             <div class="tab-pane" id="odontograma">
                                 <div ng-app='app'>
                                     <div ng-controller='dientes' class="container" id='container'>
