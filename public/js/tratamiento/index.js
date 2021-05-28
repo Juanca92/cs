@@ -81,6 +81,7 @@ $(document).ready(function () {
 		$('#listado-pacientes').modal('hide');
 		let id = $(this).attr('data');
 		id_paciente = id;
+		$("#id").val(id_paciente);
 
 		if (id_paciente == null) {
 			setInterval(function () {
@@ -244,7 +245,8 @@ $(document).ready(function () {
 	});
 
 
-	$('#tbl_tratamiento_enfermedad_ver').on('click', '.btn_ver_tratamientos', function (e) {
+	// capturando el id al Editar enfermedad
+	$('#tbl_tratamiento_enfermedades_ver').on('click', '.btn_ver_tratamientos', function (e) {
 		let id = $(this).attr('data');
 		$.ajax({
 			type: 'POST',

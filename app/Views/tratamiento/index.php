@@ -250,6 +250,8 @@
                                                                     placeholder="">
                                                             </div>
                                                         </div>
+                                                        <input type="hidden" name="id" id="id">
+                                                    <input type="hidden" name="accion" id="accion">
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-lg-6">
@@ -344,6 +346,8 @@
                                                                     value="no">
                                                             </div>
                                                         </div>
+                                                        <input type="hidden" name="id" id="id">
+                                                    <input type="hidden" name="accion" id="accion">
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
@@ -646,6 +650,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <input type="hidden" name="id" id="id">
+                                                    <input type="hidden" name="accion" id="accion">
                                                 </div>
                                                 <div class="form-group row text-right">
                                                     <div class="offset-sm-2 col-sm-10">
