@@ -52,13 +52,6 @@
                                         <h3 class="card-title">Datos del paciente</h3>
                                     </div>
                                     <form id="frm_guardar_paciente">
-                                        <!-- Campos para la foto -->
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <label for="foto">Foto <span class="text-danger">(*)</span>:</label>
-                                                <input type="file" id="foto" name="foto" class="form-control">
-                                            </div>
-                                        </div>
                                         <div class="row">
                                             <div class="col-lg-7">
                                                 <div class="form-group">
@@ -1193,7 +1186,6 @@
                     <thead>
                         <tr>
                             <th width="5%">#</th>
-                            <th>Foto</th>
                             <th>CI</th>
                             <th>Nombres</th>
                             <th>sexo</th>

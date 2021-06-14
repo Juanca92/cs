@@ -23,7 +23,7 @@ $(document).ready(function () {
 				searchable: true,
 				orderable: true,
 				visible: false,
-				targets: 1,
+				targets: 3,
 			},
 			{
 				searchable: true,
@@ -35,25 +35,19 @@ $(document).ready(function () {
 				searchable: true,
 				orderable: true,
 				visible: false,
-				targets: 5,
-			},
-			{
-				searchable: true,
-				orderable: true,
-				visible: false,
-				targets: 7,
+				targets: 6,
 			},
 			{
 				searchable: false,
 				orderable: false,
 				visible: true,
-				targets: 10,
+				targets: 9,
 				data: null,
 				render: function (data, type, row, meta) {
-					if (data[10] == 'ACTIVO') {
-						return '<a type="button" data="' + data[0] + '" class="btn btn-success btn-xs text-white">' + data[10] + ' </span>';
+					if (data[9] == 'ACTIVO') {
+						return '<a type="button" data="' + data[0] + '" class="btn btn-success btn-xs text-white">' + data[9] + ' </span>';
 					} else {
-						return '<a type="button" data="' + data[0] + '" class="btn btn-danger btn-xs text-white">' + data[10] + ' </span>';
+						return '<a type="button" data="' + data[0] + '" class="btn btn-danger btn-xs text-white">' + data[9] + ' </span>';
 					}
 				},
 			},
@@ -102,7 +96,6 @@ $(document).ready(function () {
 				console.log(response.respuesta1);
 				// set data data paciente
 				$('#id').val(response.respuesta1[0]['id_persona']);
-				$('#foto').val(response.respuesta1[0]['foto']);
 				$('#ci').val(response.respuesta1[0]['ci']);
 				$('#expedido').val(response.respuesta1[0]['expedido']);
 				$('#nombres').val(response.respuesta1[0]['nombres']);
