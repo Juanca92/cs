@@ -24,7 +24,7 @@ class Horario extends BaseController
         return $this->templater->view("cita/index", $this->data);
     }
 
-    // Listado de citas
+    //Listado de citas
     public function ajaxListarHorarios()
     {
         if ($this->request->isAJAX()) {

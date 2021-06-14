@@ -161,14 +161,12 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="costo">Costo <span class="text-danger">(*)</span>:</label>
                                 <input type="number" id="costo" name="costo" step="0000.000" class="form-control" />
                             </div>
                         </div>
-
                     </div>
                     <!--  odontologo-->
                     <div class="row">

@@ -34,7 +34,7 @@ class Fisico extends BaseController
 
             $columns = array(
                 array('db' => 'id_fisico', 'dt'                 => 0),
-                array('db' => 'presion_alterial', 'dt'          => 1),
+                array('db' => 'presion_arterial', 'dt'          => 1),
                 array('db' => 'pulso', 'dt'                     => 2),
                 array('db' => 'temperatura', 'dt'               => 3),
                 array('db' => 'frecuencia_cardiaca', 'dt'       => 4),
@@ -64,15 +64,15 @@ class Fisico extends BaseController
 
         if ($this->request->isAJAX()) {
 
-            if ($this->request->getPost("accion") == "in" && $this->request->getPost("id") == "") {
-
-                if (true) {
+            if(empty($this->request->getPost('id_fisico')))
+            {
+               
                     //validación de formulario
                     $validation = \Config\Services::validation();
 
                     $val = $this->validate(
                         [ // rules
-                            "presion_alterial"          => 'required|numeric',
+                            "presion_arterial"          => 'required|decimal',
                             "pulso"                     => 'required|numeric',
                             "temperatura"               => 'required|numeric',
                             "frecuencia_cardiaca"       => 'required|numeric',
@@ -80,12 +80,12 @@ class Fisico extends BaseController
                             "peso"                      => 'required|numeric',
                             "talla"                     => 'required|numeric',
                             "masa_corporal"             => 'required|numeric',
-                            "id_paciente"               => 'required',
+                            "id_persona2"               => 'required',
                         ],
                         [ // errors
-                            "presion_alterial" => [
+                            "presion_arterial" => [
                                 "required"   => "la presion arterial es requerido",
-                                "numeric"    => "la presion arterial debe llevar caracteres numéricos."
+                                "decimal"    => "la presion arterial debe llevar numeros decimales."
                             ],
                             "pulso" => [
                                 "required"   => "El pulso es requerido",
@@ -115,7 +115,7 @@ class Fisico extends BaseController
                                 "required"   => "La masa muscular es requerido",
                                 "numeric"    => "La masa muscular debe llevar caracteres numéricos."
                             ],
-                            "id_paciente" => [
+                            "id_persona2" => [
                                 "required"   => "El id del paciente es requerio"
                             ]
                         ]
@@ -131,7 +131,7 @@ class Fisico extends BaseController
 
                         // Formateo de datos
                         $data = array(
-                            "presion_alterial"          => $this->request->getPost("presion_alterial"),
+                            "presion_arterial"          => $this->request->getPost("presion_arterial"),
                             "pulso"                     => $this->request->getPost("pulso"),
                             "temperatura"               => $this->request->getPost("temperatura"),
                             "frecuencia_cardiaca"       => $this->request->getPost("frecuencia_cardiaca"),
@@ -139,18 +139,19 @@ class Fisico extends BaseController
                             "peso"                      => $this->request->getPost("peso"),
                             "talla"                     => $this->request->getPost("talla"),
                             "masa_corporal"             => $this->request->getPost("masa_corporal"),
-                            "id_paciente"               => $this->request->getPost("id_paciente"),
+                            "id_paciente"               => $this->request->getPost("id_persona2"),
                             "creado_en"                 => $this->fecha->format('Y-m-d H:i:s')
                         );
 
                         $respuesta = $this->model->fisico("insert", $data, null, null);
                         if (is_numeric($respuesta)) {
                             return $this->response->setJSON(json_encode(array(
-                                'exito' => "Tratamiento fisico registrado correctamente"
+                                'exito' => "Tratamiento fisico registrado correctamente", 
+                                "id_fisico"=> $respuesta
                             )));
                         }
                     }
-                }
+                
             } else {
                 // actualizar tratamiento fisico
                 //validación de formulario
@@ -158,8 +159,8 @@ class Fisico extends BaseController
                 helper(['form', 'url']);
                 $val = $this->validate(
                     [ // rules
-                        'id'                        => 'required',
-                        "presion_alterial"          => 'required|numeric',
+                        'id_fisico'                 => 'required',
+                        "presion_arterial"          => 'required|decimal',
                         "pulso"                     => 'required|numeric',
                         "temperatura"               => 'required|numeric',
                         "frecuencia_cardiaca"       => 'required|numeric',
@@ -167,15 +168,15 @@ class Fisico extends BaseController
                         "peso"                      => 'required|numeric',
                         "talla"                     => 'required|numeric',
                         "masa_corporal"             => 'required|numeric',
-                        "id_paciente"               => 'required',
+                        "id_persona2"               => 'required',
                     ],
                     [ // errors
-                        "id" => [
+                        "id_fisico" => [
                             "required"  => "Error al editar el tratamiento fisico por favor vuelve a empezar"
                         ],
-                        "presion_alterial" => [
+                        "presion_arterial" => [
                             "required"   => "la presion arterial es requerido",
-                            "numeric"    => "la presion arterial debe llevar caracteres numéricos."
+                            "decimal"    => "la presion arterial debe llevar numeros decimales."
                         ],
                         "pulso" => [
                             "required"   => "El pulso es requerido",
@@ -205,7 +206,7 @@ class Fisico extends BaseController
                             "required"   => "La masa muscular es requerido",
                             "numeric"    => "La masa muscular debe llevar caracteres numéricos."
                         ],
-                        "id_paciente" => [
+                        "id_persona2" => [
                             "required"   => "El id del paciente es requerio"
                         ]
                     ]
@@ -219,7 +220,7 @@ class Fisico extends BaseController
                 } else {
                     // Actualizar datos
                     $data = array(
-                        "presion_alterial"          => $this->request->getPost("presion_alterial"),
+                        "presion_arterial"          => $this->request->getPost("presion_arterial"),
                         "pulso"                     => $this->request->getPost("pulso"),
                         "temperatura"               => $this->request->getPost("temperatura"),
                         "frecuencia_cardiaca"       => $this->request->getPost("frecuencia_cardiaca"),
@@ -227,7 +228,7 @@ class Fisico extends BaseController
                         "peso"                      => $this->request->getPost("peso"),
                         "talla"                     => $this->request->getPost("talla"),
                         "masa_corporal"             => $this->request->getPost("masa_corporal"),
-                        "id_paciente"               => $this->request->getPost("id_paciente"),
+                        "id_paciente"               => $this->request->getPost("id_persona2"),
                         "actualizado_en"            => $this->fecha->format('Y-m-d H:i:s')
                     );
 
@@ -235,7 +236,7 @@ class Fisico extends BaseController
                         "update",
                         $data,
                         array(
-                            "id_fisico" => $this->request->getPost("id")
+                            "id_fisico" => $this->request->getPost("id_fisico")
                         ),
                         null
                     );
@@ -244,7 +245,8 @@ class Fisico extends BaseController
                         // Actualizar tratamiento fisico
 
                         return $this->response->setJSON(json_encode(array(
-                            'exito' => "Tratamiento fisico editado correctamente"
+                            'exito' => "Tratamiento fisico editado correctamente", 
+                            "id_fisico"=> $respuesta
                         )));
                     }
                 }

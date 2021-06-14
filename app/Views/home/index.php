@@ -88,14 +88,14 @@
     </div>
 </section>
 <!--seccion de calendario-->
-<section class="content">
+<section class="content" >
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card" id="calendario_tabla">
                     <div class="card-body">
                         <!-- /.Contenido de la vista -->
-                        <div class="container">
+                        <div class="container" id="calendario_citas">
                             <h1 align="center">Calendario de Citas Medicas</h1>
                             <div id="calendar" class="card" style="padding: 0px;">
                             </div>

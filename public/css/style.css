@@ -471,7 +471,7 @@ img{
 	transform: translateX(0%);
 }
 .slider-text {
-  left: 0;
+  left: -1;
   margin: 0 auto;
   padding: 100px 30px 10px;
   position: absolute;

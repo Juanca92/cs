@@ -19,7 +19,7 @@ $(document).ready(function () {
 				searchable: true,
 				orderable: true,
 				visible: false,
-				targets: 1,
+				targets: 3,
 			},
 			{
 				searchable: true,
@@ -31,25 +31,19 @@ $(document).ready(function () {
 				searchable: true,
 				orderable: true,
 				visible: false,
-				targets: 5,
-			},
-			{
-				searchable: true,
-				orderable: true,
-				visible: false,
-				targets: 11,
+				targets: 10,
 			},
 			{
 				searchable: false,
 				orderable: false,
 				visible: true,
-				targets: 10,
+				targets: 9,
 				data: null,
 				render: function (data, type, row, meta) {
-					if (data[10] == 'ACTIVO') {
-						return '<a type="button" data="' + data[0] + '" class="btn btn-success btn-xs text-white">' + data[10] + ' </span>';
+					if (data[9] == 'ACTIVO') {
+						return '<a type="button" data="' + data[0] + '" class="btn btn-success btn-xs text-white">' + data[9] + ' </span>';
 					} else {
-						return '<a type="button" data="' + data[0] + '" class="btn btn-danger btn-xs text-white">' + data[10] + ' </span>';
+						return '<a type="button" data="' + data[0] + '" class="btn btn-danger btn-xs text-white">' + data[9] + ' </span>';
 					}
 				},
 			},
@@ -131,7 +125,6 @@ $(document).ready(function () {
 	// Limpiar Campos
 	function limpiarCampos() {
 		$('#id').val('');
-		$('#foto').val('');
 		$('#ci').val('');
 		$('#expedido').val('');
 		$('#nombres').val('');
@@ -159,20 +152,20 @@ $(document).ready(function () {
 			dataType: 'JSON',
 		})
 			.done(function (response) {
-				$('#id').val(response[0]['id_persona']);
-				$('#foto').val(response[0]['foto']);
-				$('#ci').val(response[0]['ci']);
-				$('#expedido').val(response[0]['expedido']);
-				$('#nombres').val(response[0]['nombres']);
-				$('#paterno').val(response[0]['paterno']);
-				$('#materno').val(response[0]['materno']);
-				$('#sexo').val(response[0]['sexo']);
-				$('#lugar_nacimiento').val(response[0]['lugar_nacimiento']);
-				$('#celular').val(response[0]['telefono_celular']);
-				$('#fecha_nacimiento').val(response[0]['fecha_nacimiento']);
-				$('#id_ocupacion').val(response[0]['id_ocupacion']).trigger('change');
-				$('#domicilio').val(response[0]['domicilio']);
-				$('#estatus').val(response[0]['estatus']);
+				console.log(response.respuesta1);
+				$('#id').val(response.respuesta1[0]['id_persona']);
+				$('#ci').val(response.respuesta1[0]['ci']);
+				$('#expedido').val(response.respuesta1[0]['expedido']);
+				$('#nombres').val(response.respuesta1[0]['nombres']);
+				$('#paterno').val(response.respuesta1[0]['paterno']);
+				$('#materno').val(response.respuesta1[0]['materno']);
+				$('input:radio[name="sexo"]').filter(`[value="${response.respuesta1[0]['sexo']}"]`).attr('checked', true);
+				$('#lugar_nacimiento').val(response.respuesta1[0]['lugar_nacimiento']);
+				$('#celular').val(response.respuesta1[0]['telefono_celular']);
+				$('#fecha_nacimiento').val(response.respuesta1[0]['fecha_nacimiento']);
+				$('#id_ocupacion').val(response.respuesta1[0]['id_ocupacion']).trigger('change');
+				$('#domicilio').val(response.respuesta1[0]['domicilio']);
+				$('#estatus').val(response.respuesta1[0]['estatus']);
 				$('#accion').val('up');
 
 				$('#btn-guardar-paciente').html('Editar');
@@ -182,9 +175,6 @@ $(document).ready(function () {
 				$('#agregar-paciente').modal('hide');
 			});
 	});
-	$(document).ready(function(){
-		$("#sexo").attr("checked","checked");
-	  })
 
 	// Eliminar Paciente
 	$('#tbl_pacientes').on('click', '.btn_eliminar_paciente', function (e) {
@@ -263,35 +253,5 @@ $(document).ready(function () {
 				$('.previsualizar').attr('src', rutaImagen);
 			});
 		}
-	});
-
-	// Guardar foto
-	$('#foto').on('submit', function (e) {
-		e.preventDefault();
-		let formData = new FormData($('#foto')[0]);
-
-		$.ajax({
-			type: 'POST',
-			url: '/paciente/subir_foto',
-			data: formData,
-			cache: false,
-			contentType: false,
-			processData: false,
-			dataType: 'JSON',
-		}).done(function (response) {
-			if (typeof response.warn !== 'undefined') {
-				mensajeAlert('warning', response.warn, 'Advertencia');
-				$('#foto').val('');
-			}
-
-			if (typeof response.success !== 'undefined') {
-				mensajeAlert('success', response.success, 'Exito');
-				cargar_datos();
-			}
-
-			if (typeof response.error !== 'undefined') {
-				mensajeAlert('error', response.error, 'Error');
-			}
-		});
 	});
 });

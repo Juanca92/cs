@@ -55,12 +55,12 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-              <li class="active"><a href="<?= base_url('/inicio') ?>">Inicio</a></li>
-              <li><a href="<?= base_url('/inicio/acercaDelcentro') ?>">Acerca del centro</a></li>
-              <li><a href="<?= base_url('/inicio/nuestrosDoctores') ?>">Nuestros-doctores</a></li>
-              <li><a href="<?= base_url('/inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
-              <li><a href="<?= base_url('/inicio/contactos') ?>">Contacto</a></li>
-              <li><a href="<?= base_url('/auth/login') ?>">Ingresar</a></li>
+              <li class="active"><a href="<?= base_url('/inicio') ?>"><i> Inicio</i></a></li>
+              <li><a href="<?= base_url('/inicio/acercaDelcentro') ?>"> <i>Acerca del centro</i></a></li>
+              <li><a href="<?= base_url('/inicio/nuestrosDoctores') ?>"> <i>Doctores</i> </a></li>
+              <li><a href="<?= base_url('/inicio/servicioOdontologico') ?>"> <i>Servicio-odontologico</i></a></li>
+              <li><a href="<?= base_url('/inicio/contactos') ?>"><i>Contacto</i></a></li>
+              <li><a href="<?= base_url('/auth/login') ?>"><i>Ingresar</i></a></li>
             </ul>
           </div>
           <!--/.nav-collapse -->
@@ -81,9 +81,9 @@
           <img src="images/port1.jpg" alt="">
         </div>
         <div class="slider-text">
-          <h2>BIENVENIDOS <strong>centro de salud</strong>San Pedro de Curahuara </h2>
-          <p><strong>Informacion:</strong>Aqui encontraras los servicios que brinda el centro de salud como tambien el
-            consultorio dental</p>
+          <h2><i>BIENVENIDOS A:</i> <i>centro de salud San Pedro de Curahuara</i></h2>
+          <p><strong>Informacion:<br></strong> <span style="">Aqui encontraras los servicios que brinda el centro de salud como tambien el
+            consultorio dental</span> </p>
         </div>
       </div>
 
@@ -93,8 +93,8 @@
           <img src="images/port3.jpg" alt="">
         </div>
         <div class="slider-text">
-          <h2>BIENVENIDOS a <strong>Centro de Salud</strong> San Pedro de Curahuara </h2>
-          <p><strong>Informacion:</strong> Brindamos los servicios de la mejor calidad </p>
+        <h2><i>BIENVENIDOS A:</i> <i>centro de salud San Pedro de Curahuara</i></h2>
+        <p><strong>Informacion:<br></strong>Se brinda el mejor servicio y la mejor atencion</p>
         </div>
       </div>
       <!-- fin -->
@@ -105,8 +105,8 @@
           <img src="images/port4.jpg" alt="">
         </div>
         <div class="slider-text">
-          <h2>BIENVENIDOS a <strong>Centro de salud</strong> San Pedro de Curahuara</h2>
-          <p><strong>Informacion:</strong> siempre al servicio de tod@s los pacientes </p>
+        <h2><i>BIENVENIDOS A:</i> <i>centro de salud San Pedro de Curahuara</i></h2>
+          <p><strong>Informacion:<br></strong>Siempre al servicio para Tod@s</p>
         </div>
       </div>
       <!--fin-->
@@ -166,7 +166,7 @@
       <div class="col-lg-4 col-md-4">
         <div class="row">
           <div class="single-top-feature">
-            <span class="fa fa-hospital-o"></span>
+            <span  class="fa fa-calendar"></span>
             <h3>Informacion para las citas medicas</h3>
             <p>Para la reserva de cita médicas odontológicas, visite el centro de salud San Pedro, 
             para una previa revisión de la enfermedad que lo aqueja y posterior cita con fecha y hora.</p>

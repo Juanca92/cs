@@ -1,7 +1,7 @@
 app.controller('dientes',['$scope',function($scope){ 
 		var jsonArmado
 
-		var adultoArriva = [];
+		var adultoArriva = [] ;
 		for (var i = 1; i < 17; i++) {
 			if (i > 3 && i < 14) {
 				jsonArmado = {id:i,tipoDiente:'decidua mixta'};

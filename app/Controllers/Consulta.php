@@ -67,92 +67,58 @@ class Consulta extends BaseController
 
         if ($this->request->isAJAX()) {
 
-            if ($this->request->getPost("accion") == "in" && $this->request->getPost("id") == "") {
-
-                if (true) {
+            if(empty($this->request->getPost('id_consulta')))
+            {
                     //validación de formulario
                     $validation = \Config\Services::validation();
 
                     $val = $this->validate(
                         [ // rules
-                            "tratamiento"           => 'required|alpha_space',
+                            "tratamiento"           => 'required',
                             "motivo_tratamiento"    => "alpha_space",
-                            "tomando_medicamentos"  => "required|alpha_space",
+                            "tomando_medicamentos"  => "required",
                             "porque_tiempo"         => "alpha_space",
-                            "alergico_medicamento"  => "required|alpha_space",
+                            "alergico_medicamento"  => "required",
                             "cual_medicamento"      => "alpha_space",
-                            "alguna_cirugia"        => "required|alpha_space",
+                            "alguna_cirugia"        => "required",
                             "porque"                => "alpha_space",
-                            "saranpion"             => "alpha_space",
-                            "varicela"              => "alpha_space",
-                            "tuberculosis"          => "alpha_space",
-                            "diabetes"              => "alpha_space",
-                            "asma"                  => "alpha_space",
-                            "epatitis"              => "alpha_space",
-                            "otras"                 => "alpha_space",
-                            "cepilla_diente"        => "required|alpha_space",
+                            "cepilla_diente"        => "required",
                             "cuanto_dia"            => "alpha_space",
-                            "id_paciente"           => "required",
+                            "id_persona1"           => "required",
 
                         ],
                         [ // errors
                             "tratamiento" => [
-                                "required" => " El tratamiento es requerido",
-                                "alpha_space" => "El tratamiento debe llevar caracteres alfabéticos o espacios."
+                                "required" => " El tratamiento es requerido"
                             ],
                             "motivo_tratamiento" => [
                                 "alpha_space" => "El motivo del tratamiento debe llevar caracteres alfabéticos o espacios."
                             ],
                             "tomando_medicamentos" => [
-                                "required" => " Esta tomando medicamentos? es requerido",
-                                "alpha_space" => "Las sintomas principales debe llevar caracteres alfabéticos o espacios."
+                                "required" => " Esta tomando medicamentos? es requerido"
                             ],
                             "porque_tiempo" => [
                                 "alpha_space" => "El por que y cuanto tiempo debe llevar caracteres alfabéticos o espacios."
                             ],
                             "alergico_medicamento" => [
-                                "required" => " El alergico a medicamento es requerido",
-                                "alpha_space" => "El alergico a medicamento debe llevar caracteres alfabéticos o espacios."
+                                "required" => " El alergico a medicamento es requerido"
                             ],
                             "cual_medicamento" => [
                                 "alpha_space" => "Cual medicamento debe llevar caracteres alfabéticos o espacios."
                             ],
                             "alguna_cirugia" => [
-                                "required" => " La cirugia es requerido",
-                                "alpha_space" => "La cirugia debe llevar caracteres alfabéticos o espacios."
+                                "required" => " La cirugia es requerido"
                             ],
                             "porque" => [
                                 "alpha_space" => "El por que  debe llevar caracteres alfabéticos o espacios."
                             ],
-                            "saranpion" => [
-                                "alpha_space" => "Saranpion  debe llevar caracteres alfabéticos o espacios."
-                            ],
-                            "varicela" => [
-                                "alpha_space" => "Varicela debe llevar caracteres alfabéticos o espacios."
-                            ],
-                            "tuberculosis" => [
-                                "alpha_space" => "Tuberculosis debe llevar caracteres alfabéticos o espacios."
-                            ],
-                            "diabetes" => [
-                                "alpha_space" => "Diabetes debe llevar caracteres alfabéticos o espacios."
-                            ],
-                            "asma" => [
-                                "alpha_space" => "Asma debe llevar caracteres alfabéticos o espacios."
-                            ],
-                            "epatitis" => [
-                                "alpha_space" => "Epatitis debe llevar caracteres alfabéticos o espacios."
-                            ],
-                            "otras" => [
-                                "alpha_space" => "Otras debe llevar caracteres alfabéticos o espacios."
-                            ],
                             "cepilla_diente" => [
-                                "required" => " El cepilla diente es requerido",
-                                "alpha_space" => "El cepilla diente debe llevar caracteres alfabéticos o espacios."
+                                "required" => " El cepilla diente es requerido"
                             ],
                             "cuanto_dia" => [
                                 "alpha_space" => "Cuanto al dia debe llevar caracteres alfabéticos o espacios."
                             ],
-                            "id_paciente" => [
+                            "id_persona1" => [
                                 "required" => "el id del paciente es requerido."
                             ]
                         ]
@@ -176,27 +142,21 @@ class Consulta extends BaseController
                             "cual_medicamento"          => $this->request->getPost("cual_medicamento"),
                             "alguna_cirugia"            => $this->request->getPost("alguna_cirugia"),
                             "porque"                    => $this->request->getPost("porque"),
-                            "saranpion"                 => ucwords(strtolower(trim($this->request->getPost("saranpion")))),
-                            "varicela"                  => ucwords(strtolower(trim($this->request->getPost("varicela")))),
-                            "tuberculosis"              => ucwords(strtolower(trim($this->request->getPost("tuberculosis")))),
-                            "diabetes"                  => ucwords(strtolower(trim($this->request->getPost("diabetes")))),
-                            "asma"                      => ucwords(strtolower(trim($this->request->getPost("asma")))),
-                            "epatitis"                  => ucwords(strtolower(trim($this->request->getPost("epatitis")))),
-                            "otras"                     => ucwords(strtolower(trim($this->request->getPost("otras")))),
-                            "cepilla_dientes"           => $this->request->getPost("cepilla_dientes"),
+                            "alguna_enfermedad"         => implode(',',empty($this->request->getPost("alguna_enfermedad[]"))?[]: $this->request->getPost("alguna_enfermedad[]")),
+                            "cepilla_diente"           => $this->request->getPost("cepilla_diente"),
                             "cuanto_dia"                => $this->request->getPost("cuanto_dia"),
-                            "id_paciente"               => $this->request->getPost("id_paciente"),
+                            "id_paciente"               => $this->request->getPost("id_persona1"),
                             "creado_en"                 => $this->fecha->format('Y-m-d H:i:s')
                         );
-
+                       
                         $respuesta = $this->model->consulta("insert", $data, null, null);
                         if (is_numeric($respuesta)) {
                             return $this->response->setJSON(json_encode(array(
-                                'exito' => "Consulta registrado correctamente"
+                                'exito' => "Consulta registrado correctamente",
+                                "id_consulta"=> $respuesta
                             )));
                         }
                     }
-                }
             } else {
                 // actualizar enfermedad
                 //validación de formulario
@@ -204,89 +164,57 @@ class Consulta extends BaseController
                 helper(['form', 'url']);
                 $val = $this->validate(
                     [ // rules
-                        'id'                    => 'required',
-                        "tratamiento"           => 'required|alpha_space',
+                        'id_consulta'           => 'required',
+                        "tratamiento"           => 'required',
                         "motivo_tratamiento"    => "alpha_space",
-                        "tomando_medicamentos"  => "required|alpha_space",
+                        "tomando_medicamentos"  => "required",
                         "porque_tiempo"         => "alpha_space",
-                        "alergico_medicamento"  => "required|alpha_space",
+                        "alergico_medicamento"  => "required",
                         "cual_medicamento"      => "alpha_space",
-                        "alguna_cirugia"        => "required|alpha_space",
+                        "alguna_cirugia"        => "required",
                         "porque"                => "alpha_space",
-                        "saranpion"             => "alpha_space",
-                        "varicela"              => "alpha_space",
-                        "tuberculosis"          => "alpha_space",
-                        "diabetes"              => "alpha_space",
-                        "asma"                  => "alpha_space",
-                        "epatitis"              => "alpha_space",
-                        "otras"                 => "alpha_space",
-                        "cepilla_diente"        => "required|alpha_space",
+                        "cepilla_diente"        => "required",
                         "cuanto_dia"            => "alpha_space",
-                        'id_paciente'           => 'required',
+                        'id_persona1'           => 'required',
                     ],
                     [ // errors
-                        "id" => [
-                            "required"  => "Error al editar la enfermedad por favor vuelve a empezar"
+                        "id_consulta" => [
+                            "required"  => "Error al editar la consulta por favor vuelve a empezar"
                         ],
                         "tratamiento" => [
-                            "required" => " El tratamiento es requerido",
-                            "alpha_space" => "El tratamiento debe llevar caracteres alfabéticos o espacios."
+                            "required" => " El tratamiento es requerido"
                         ],
                         "motivo_tratamiento" => [
                             "alpha_space" => "El motivo del tratamiento debe llevar caracteres alfabéticos o espacios."
                         ],
                         "tomando_medicamentos" => [
-                            "required" => " Esta tomando medicamentos? es requerido",
-                            "alpha_space" => "Las sintomas principales debe llevar caracteres alfabéticos o espacios."
+                            "required" => " Esta tomando medicamentos? es requerido"
                         ],
                         "porque_tiempo" => [
                             "alpha_space" => "El por que y cuanto tiempo debe llevar caracteres alfabéticos o espacios."
                         ],
                         "alergico_medicamento" => [
-                            "required" => " El alergico a medicamento es requerido",
-                            "alpha_space" => "El alergico a medicamento debe llevar caracteres alfabéticos o espacios."
+                            "required" => " El alergico a medicamento es requerido"
                         ],
                         "cual_medicamento" => [
                             "alpha_space" => "Cual medicamento debe llevar caracteres alfabéticos o espacios."
                         ],
                         "alguna_cirugia" => [
-                            "required" => " La cirugia es requerido",
-                            "alpha_space" => "La cirugia debe llevar caracteres alfabéticos o espacios."
+                            "required" => " La cirugia es requerido"
                         ],
                         "porque" => [
                             "alpha_space" => "El por que  debe llevar caracteres alfabéticos o espacios."
                         ],
-                        "saranpion" => [
-                            "alpha_space" => "Saranpion  debe llevar caracteres alfabéticos o espacios."
-                        ],
-                        "varicela" => [
-                            "alpha_space" => "Varicela debe llevar caracteres alfabéticos o espacios."
-                        ],
-                        "tuberculosis" => [
-                            "alpha_space" => "Tuberculosis debe llevar caracteres alfabéticos o espacios."
-                        ],
-                        "diabetes" => [
-                            "alpha_space" => "Diabetes debe llevar caracteres alfabéticos o espacios."
-                        ],
-                        "asma" => [
-                            "alpha_space" => "Asma debe llevar caracteres alfabéticos o espacios."
-                        ],
-                        "epatitis" => [
-                            "alpha_space" => "Epatitis debe llevar caracteres alfabéticos o espacios."
-                        ],
-                        "otras" => [
-                            "alpha_space" => "Otras debe llevar caracteres alfabéticos o espacios."
-                        ],
                         "cepilla_diente" => [
-                            "required" => " El cepilla diente es requerido",
-                            "alpha_space" => "El cepilla diente debe llevar caracteres alfabéticos o espacios."
+                            "required" => " El cepilla diente es requerido"
                         ],
                         "cuanto_dia" => [
                             "alpha_space" => "Cuanto al dia debe llevar caracteres alfabéticos o espacios."
                         ],
-                        "id_paciente" => [
+                        "id_persona1" => [
                             "required"  => "el id del paciente es requerido"
                     ]
+                  ]
                 );
 
                 if (!$val) {
@@ -296,33 +224,30 @@ class Consulta extends BaseController
                     )));
                 } else {
                     // Actualizar datos
+                    $alguna_enfermedad = 
                     $data = array(
                         "tratamiento"               => $this->request->getPost("tratamiento"),
                         "motivo_tratamiento"        => $this->request->getPost("motivo_tratamiento"),
-                        "tomando_medicamentos"       => $this->request->getPost("tomando_medicamentos"),
+                        "tomando_medicamentos"      => $this->request->getPost("tomando_medicamentos"),
                         "porque_tiempo"             => $this->request->getPost("porque_tiempo"),
                         "alergico_medicamento"      => $this->request->getPost("alergico_medicamento"),
                         "cual_medicamento"          => $this->request->getPost("cual_medicamento"),
                         "alguna_cirugia"            => $this->request->getPost("alguna_cirugia"),
                         "porque"                    => $this->request->getPost("porque"),
-                        "saranpion"                 => ucwords(strtolower(trim($this->request->getPost("saranpion")))),
-                        "varicela"                  => ucwords(strtolower(trim($this->request->getPost("varicela")))),
-                        "tuberculosis"              => ucwords(strtolower(trim($this->request->getPost("tuberculosis")))),
-                        "diabetes"                  => ucwords(strtolower(trim($this->request->getPost("diabetes")))),
-                        "asma"                      => ucwords(strtolower(trim($this->request->getPost("asma")))),
-                        "epatitis"                  => ucwords(strtolower(trim($this->request->getPost("epatitis")))),
-                        "otras"                     => ucwords(strtolower(trim($this->request->getPost("otras")))),
-                        "cepilla_dientes"           => $this->request->getPost("cepilla_dientes"),
+                        "alguna_enfermedad"         => implode(',', empty($this->request->getPost("alguna_enfermedad[]"))?[]: $this->request->getPost("alguna_enfermedad[]")),
+                        "cepilla_diente"            => $this->request->getPost("cepilla_diente"),
                         "cuanto_dia"                => $this->request->getPost("cuanto_dia"),
-                        "id_paciente"               => $this->request->getPost("id_paciente"),
-                        "actualizado_en"    => $this->fecha->format('Y-m-d H:i:s')
+                        "id_paciente"               => $this->request->getPost("id_persona1"),
+                        "actualizado_en"            => $this->fecha->format('Y-m-d H:i:s')
                     );
-
+                    //var_dump($this->request->getPost("id_consulta"));
+                   // return var_dump($data);
+                    //return var_dump(implode(',',empty($this->request->getPost("alguna_enfermedad[]"))?[]: $this->request->getPost("alguna_enfermedad[]")));
                     $respuesta = $this->model->consulta(
                         "update",
                         $data,
                         array(
-                            "id_consulta" => $this->request->getPost("id")
+                            "id_consulta" => $this->request->getPost("id_consulta")
                         ),
                         null
                     );
@@ -331,7 +256,8 @@ class Consulta extends BaseController
                         // Actualizar cita
 
                         return $this->response->setJSON(json_encode(array(
-                            'exito' => "Consulta editado correctamente"
+                            'exito' => "Consulta editado correctamente",
+                            "id_consulta"=> $respuesta
                         )));
                     }
                 }

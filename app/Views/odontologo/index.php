@@ -36,7 +36,6 @@
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
-                                    <th>Foto</th>
                                     <th>CI</th>
                                     <th>Nombres</th>
                                     <th>Celular</th>
@@ -50,9 +49,7 @@
                                 </tr>
                             </thead>
                         </table>
-
                     </div>
-
                 </div>
             </div>
         </div>
@@ -72,15 +69,6 @@
             </div>
             <div class="modal-body">
                 <form id="frm_guardar_odontologo">
-                    <!-- Campos para la foto -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                            <label for="foto">Foto <span class="text-danger">(*)</span>:</label>
-                            <input type="file" id="foto" name="foto" class="form-control" placeholder="inserte">
-                            </div>
-                        </div>
-                    </div>
                     <!-- Campos de Ci y Expedido -->
                     <div class="row">
                         <div class="col-lg-7">
@@ -108,7 +96,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Campo Nombres -->
                     <div class="row">
                         <div class="col-lg-12">
@@ -118,7 +105,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Campos Paterno y Materno -->
                     <div class="row">
                         <div class="col-lg-6">
@@ -127,7 +113,6 @@
                                 <input type="text" id="paterno" name="paterno" class="form-control" placeholder="Apellido Paterno">
                             </div>
                         </div>
-
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="materno">Materno :</label>
@@ -135,7 +120,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Celular y Fecha de Nacimiento -->
                     <div class="row">
                         <div class="col-lg-6">
@@ -144,7 +128,6 @@
                                 <input type="number" id="celular" name="celular" class="form-control" placeholder="Celular">
                             </div>
                         </div>
-
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="fecha_nacimiento">Fecha Nacimiento <span class="text-danger">(*)</span>:</label>
@@ -154,9 +137,6 @@
                         <input type="hidden" name="id" id="id">
                         <input type="hidden" name="accion" id="accion">
                     </div>
-
-
-
                     <!-- Turno y gestion de ingreso -->
                     <div class="row">
                         <div class="col-lg-6">
@@ -170,7 +150,6 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="gestion">Gesti&oacute;n Ingreso <span class="text-danger">(*)</span>:</label>
@@ -178,7 +157,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Domicilio -->
                     <div class="row">
                         <div class="col-lg-12">
@@ -201,16 +179,12 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="panel-footer text-right">
                         <button class="btn btn-default" id="btn-cerrar" data-dismiss="modal" type="button">Cerrar</button>
                         <button type="submit" id="btn-guardar-odontologo" class="btn btn-primary"></button>
                     </div>
-
                 </form>
             </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>

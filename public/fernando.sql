@@ -326,3 +326,25 @@ INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	49	);
 INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	50	);
 INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	51	);
 INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	52	);
+
+
+
+
+--cambios del 2 al 13 dde junioo--
+
+-- Vista de Paciente y Persona alterada--
+CREATE OR REPLACE VIEW `sp_view_paciente`  AS  
+select p.id_persona, CONCAT(p.ci, ' ' ,p.expedido) AS ci_exp, 
+CONCAT(p.nombres, ' ', p.paterno,' ', p.materno) AS nombre_completo, p.sexo, p.lugar_nacimiento, p.telefono_celular, p.fecha_nacimiento,
+p.domicilio,o.id_ocupacion, o.nombre as ocupacion, p.estatus, p.estado, p.creado_en
+from sp_persona p join sp_paciente pa 
+on p.id_persona = pa.id_paciente
+join sp_ocupacion o on pa.id_ocupacion = o.id_ocupacion;
+
+-- Vista de Odontologo y Persona alterada--
+CREATE OR REPLACE VIEW `sp_view_odontologo`  AS  
+select p.id_persona, CONCAT(p.ci, ' ' ,p.expedido) AS ci_exp, 
+CONCAT(p.nombres, ' ', p.paterno,' ', p.materno) AS nombre_completo, p.telefono_celular, p.fecha_nacimiento,
+p.domicilio,o.turno, o.gestion_ingreso, p.estatus, p.estado, p.creado_en
+from sp_persona p join sp_odontologo o
+on p.id_persona = o.id_odontologo;

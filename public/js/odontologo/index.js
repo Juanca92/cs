@@ -19,25 +19,19 @@ $(document).ready(function () {
 				searchable: true,
 				orderable: true,
 				visible: false,
-				targets: 1,
-			},
-			{
-				searchable: true,
-				orderable: true,
-				visible: false,
-				targets: 10,
+				targets: 9,
 			},
 			{
 				searchable: false,
 				orderable: false,
 				visible: true,
-				targets: 9,
+				targets: 8,
 				data: null,
 				render: function (data, type, row, meta) {
-					if (data[9] == 'ACTIVO') {
-						return '<a type="button" data="' + data[0] + '" class="btn btn-success btn-xs text-white">' + data[9] + ' </span>';
+					if (data[8] == 'ACTIVO') {
+						return '<a type="button" data="' + data[0] + '" class="btn btn-success btn-xs text-white">' + data[8] + ' </span>';
 					} else {
-						return '<a type="button" data="' + data[0] + '" class="btn btn-danger btn-xs text-white">' + data[9] + ' </span>';
+						return '<a type="button" data="' + data[0] + '" class="btn btn-danger btn-xs text-white">' + data[8] + ' </span>';
 					}
 				},
 			},
@@ -110,7 +104,6 @@ $(document).ready(function () {
 	// Limpiar Campos
 	function limpiarCampos() {
 		$('#id').val('');
-		$('#foto').val('');
 		$('#ci').val('');
 		$('#expedido').val('');
 		$('#nombres').val('');
@@ -138,7 +131,6 @@ $(document).ready(function () {
 		})
 			.done(function (response) {
 				$('#id').val(response[0]['id_persona']);
-				$('#foto').val(response[0]['foto']);
 				$('#ci').val(response[0]['ci']);
 				$('#expedido').val(response[0]['expedido']);
 				$('#nombres').val(response[0]['nombres']);
@@ -151,7 +143,6 @@ $(document).ready(function () {
 				$('#domicilio').val(response[0]['domicilio']);
 				$('#estatus').val(response[0]['estatus']);
 				$('#accion').val('up');
-
 				$('#btn-guardar-odontologo').html('Editar');
 				parametrosModal('#agregar-odontologo', 'Editar Odont\u00F3logo', 'modal-lg', false, true);
 			})
@@ -159,7 +150,6 @@ $(document).ready(function () {
 				$('#agregar-odontologo').modal('hide');
 			});
 	});
-
 	// Eliminar Odontologo
 	$('#tbl_odontologos').on('click', '.btn_eliminar_odontologo', function (e) {
 		let id = $(this).attr('data');

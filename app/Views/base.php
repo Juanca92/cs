@@ -60,6 +60,9 @@
   <!-- chart para los datos estadisticos-->
   <link rel="stylesheet" href="<?php echo base_url('plugins/chart.js/chart.min.css') ?>" />
 
+  <!-- chart para los datos estadisticos-->
+  <link rel="stylesheet" href="<?php echo base_url('css/sanpedro.css') ?>" />
+
    
 
 

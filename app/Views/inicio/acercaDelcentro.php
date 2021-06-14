@@ -64,12 +64,12 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-              <li class="active"><a href="<?= base_url('inicio') ?>">Inicio</a></li>
-              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>">Acerca del centro</a></li>
-              <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>">Nuestros-doctores</a></li>
-              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
-              <li><a href="<?= base_url('inicio/contactos') ?>">Contacto</a></li>
-              <li><a href="<?= base_url('auth/login') ?>">Ingresar</a></li>
+              <li class="active"><a href="<?= base_url('inicio') ?>"><i>Inicio</i></a></li>
+              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>"><i>Acerca del centro</i></a></li>
+              <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>"><i>Doctores</i></a></li>
+              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>"><i>Servicio-odontologico</i></a></li>
+              <li><a href="<?= base_url('inicio/contactos') ?>"><i>Contacto</i></a></li>
+              <li><a href="<?= base_url('auth/login') ?>"><i>Ingresar</i></a></li>
             </ul>
           </div>
           <!--/.nav-collapse -->
@@ -85,7 +85,7 @@
         <div class="blog-breadcrumbs-area">
           <div class="container">
             <div class="blog-breadcrumbs-left">
-              <h2>Brindamos los siguientes servicios</h2>
+              <h2>Se brinda los siguientes servicios</h2>
             </div>
             <div class="blog-breadcrumbs-right">
               <ol class="breadcrumb">
@@ -106,7 +106,7 @@
           <div class="service-area">
             <!-- Start Service Title -->
             <div class="section-heading">
-              <h2>Nuestros Servicios</h2>
+              <h2><i>Los Servicios</i></h2>
               <div class="line"></div>
             </div>
             <!-- Start Service Content -->
@@ -116,7 +116,7 @@
                 <div class="col-lg-4 col-md-4">
                   <div class="single-service">
                     <div class="service-icon">
-                      <span class="fa fa-trauma service-icon-effect"></span>
+                    <img src="<?php echo base_url('images/dientes/mgeneral.jpg') ?>" alt="diente" class="brand-image img-circle elevation-3 service-icon-effect" style="opacity: 0.8"  />
                     </div>
                     <h3><a href="#">Medicina General</a></h3>
                     <p>En la parte de la medicina General el centro de salud atiende a sus pacientes
@@ -128,7 +128,7 @@
                 <div class="col-lg-4 col-md-4">
                   <div class="single-service">
                     <div class="service-icon">
-                      <span class="fa fa-stethoscope service-icon-effect"></span>
+                    <img src="<?php echo base_url('images/dientes/enfermeria.png') ?>" alt="diente" class="brand-image img-circle elevation-3 service-icon-effect" style="opacity: 0.8"  />
                     </div>
                     <h3><a href="#">Enfermeria</a></h3>
                     <p>El centro de salud tiene enfermeras que asisten a los médicos en el diagnóstico y tratamiento de pacientes, 
@@ -139,7 +139,7 @@
                 <div class="col-lg-4 col-md-4">
                   <div class="single-service">
                     <div class="service-icon">
-                      <span class="fas fa-syringe service-icon-effect"></span>
+                    <img src="<?php echo base_url('images/dientes/vacunas.png') ?>" alt="diente" class="brand-image img-circle elevation-3 service-icon-effect" style="opacity: 0.8"  />
                     </div>
                     <h3><a href="#">Vacunas</a></h3>
                     <p>La población puede acudir al Centro de Salud para hacer vacunar a su niño
@@ -151,7 +151,7 @@
                 <div class="col-lg-4 col-md-4">
                   <div class="single-service">
                     <div class="service-icon">
-                      <span class="fa fa-medkit service-icon-effect"></span>
+                    <img src="<?php echo base_url('images/dientes/ecografia.png') ?>" alt="diente" class="brand-image img-circle elevation-3 service-icon-effect" style="opacity: 0.8"  />
                     </div>
                     <h3><a href="#">Ecografias</a></h3>
                     <p>El Centro de salud hace pruebas de diagnóstico para crear imágenes de órganos, tejidos y estructuras
@@ -164,7 +164,7 @@
                 <div class="col-lg-4 col-md-4">
                   <div class="single-service">
                     <div class="service-icon">
-                      <span class="fa fa-user-md service-icon-effect"></span>
+                    <img src="<?php echo base_url('images/dientes/odontologia.png') ?>" alt="diente" class="brand-image img-circle elevation-3 service-icon-effect" style="opacity: 0.8"  />
                     </div>
                     <h3><a href="#">Odontologia</a></h3>
                     <p>
@@ -177,7 +177,7 @@
                 <div class="col-lg-4 col-md-4">
                   <div class="single-service">
                     <div class="service-icon">
-                      <span class="fa fa-money service-icon-effect"></span>
+                    <img src="<?php echo base_url('images/dientes/billete.jpg') ?>" alt="diente" class="brand-image img-circle elevation-3 service-icon-effect" style="opacity: 0.8"  />
                     </div>
                     <h3><a href="#">Costo de los tratamientos</a></h3>
                     <p>El Centro de Salud San Pedro de curahura no cobra por los tratamientos realizados hacia los

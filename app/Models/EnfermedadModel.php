@@ -72,7 +72,7 @@ class EnfermedadModel extends Database
 
     public function editar_enfermedad($id)
     {
-        $builder = $this->db->table('tratamiento_enfermedad as te');
+        $builder = $this->db->table('view_tratamiento_enfermedad as te');
         $builder->select('*');
         $builder->where('id_enfermedad', $id);
         return $builder->get()->getResultArray();

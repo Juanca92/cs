@@ -4,32 +4,23 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<<<<<<< HEAD
   <title>Centro de salud | Contactos</title>
-=======
-  <title>Centro de salud: Contactos</title>
->>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 
   <!-- Mobile Specific Metas
     ================================================== -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Favicon -->
-<<<<<<< HEAD
   <link rel="shortcut icon" type="image/icon" href="<?php echo base_url('images/centroSalud.jpg') ?>" />
-=======
-  <link rel="shortcut icon" type="image/icon" href="images/favicon.ico" />
->>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 
   <!-- CSS
     ================================================== -->
   <!-- Bootstrap css file-->
-<<<<<<< HEAD
   <link href="<?php echo base_url('css/bootstrap.min.css') ?>" rel="stylesheet">
   <!-- Font awesome css file-->
   <link href="<?php echo base_url('css/font-awesome.min.css') ?>" rel="stylesheet">
   <!-- Default Theme css file -->
-  <link id="switcher" href="<?php echo base_url('css/themes/lite-blue-theme.css') ?>" rel="stylesheet">
+  <link id="switcher" href="<?php echo base_url('css/themes/blue-theme.css') ?>" rel="stylesheet">
   <!-- Slick slider css file -->
   <link href="<?php echo base_url('css/slick.css') ?>" rel="stylesheet">
   <!-- Photo Swipe Image Gallery -->
@@ -38,21 +29,6 @@
 
   <!-- Main structure css file -->
   <link href="<?php echo base_url('style.css') ?>" rel="stylesheet">
-=======
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font awesome css file-->
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <!-- Default Theme css file -->
-  <link id="switcher" href="css/themes/lite-blue-theme.css" rel="stylesheet">
-  <!-- Slick slider css file -->
-  <link href="css/slick.css" rel="stylesheet">
-  <!-- Photo Swipe Image Gallery -->
-  <link rel='stylesheet prefetch' href='css/photoswipe.css'>
-  <link rel='stylesheet prefetch' href='css/default-skin.css'>
-
-  <!-- Main structure css file -->
-  <link href="style.css" rel="stylesheet">
->>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 </head>
 
 <body>
@@ -93,12 +69,12 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-              <li class="active"><a href="<?= base_url('inicio') ?>">Inicio</a></li>
-              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>">Acerca del centro</a></li>
-              <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>">Nuestros-doctores</a></li>
-              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
-              <li><a href="<?= base_url('inicio/contactos') ?>">Contacto</a></li>
-              <li><a href="<?= base_url('auth/login') ?>">Ingresar</a></li>
+              <li class="active"><a href="<?= base_url('inicio') ?>"><i>Inicio</i></a></li>
+              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>"><i>Acerca del centro</i></a></li>
+              <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>"><i>Doctores</i></a></li>
+              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>"><i>Servicio-odontologico</i></a></li>
+              <li><a href="<?= base_url('inicio/contactos') ?>"><i>Contacto</i></a></li>
+              <li><a href="<?= base_url('auth/login') ?>"><i>Ingresar</i></a></li>
             </ul>
           </div>
           <!--/.nav-collapse -->
@@ -197,7 +173,6 @@
   <!--=========== End Footer SECTION ================-->
 
   <!-- jQuery Library  -->
-<<<<<<< HEAD
   <script src="<?php echo base_url('js/jquery.js') ?>"></script>
   <!-- Bootstrap default js -->
   <script src="<?php echo base_url('js/bootstrap.min.js') ?>"></script>
@@ -217,27 +192,6 @@
 
   <!-- Custom JS -->
   <script src="<?php echo base_url('js/custom.js') ?>"></script>
-=======
-  <script src="js/jquery.js"></script>
-  <!-- Bootstrap default js -->
-  <script src="js/bootstrap.min.js"></script>
-  <!-- slick slider -->
-  <script src="js/slick.min.js"></script>
-  <script type="text/javascript" src="js/modernizr.custom.79639.js"></script>
-  <!-- counter -->
-  <script src="js/waypoints.min.js"></script>
-  <script src="js/jquery.counterup.min.js"></script>
-  <!-- Doctors hover effect -->
-  <script src="js/snap.svg-min.js"></script>
-  <script src="js/hovers.js"></script>
-  <!-- Photo Swipe Gallery Slider -->
-  <script src='js/photoswipe.min.js'></script>
-  <script src='js/photoswipe-ui-default.min.js'></script>
-  <script src="js/photoswipe-gallery.js"></script>
-
-  <!-- Custom JS -->
-  <script src="js/custom.js"></script>
->>>>>>> 736905ead1e81ea593a479dd4b00b8bec256ff94
 
 </body>
 

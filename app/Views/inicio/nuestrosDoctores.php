@@ -28,29 +28,18 @@
 
   <!-- Main structure css file -->
   <link href="<?php echo base_url('style.css') ?>" rel="stylesheet">
-
-  <!-- Google fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Habibi' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative:900' rel='stylesheet' type='text/css'>
   
 </head>
 
 <body>
-  <!-- BEGAIN PRELOADER -->
   <div id="preloader">
     <div id="status">&nbsp;</div>
   </div>
-  <!-- END PRELOADER -->
-
-  <!--=========== BEGIN HEADER SECTION ================-->
   <header id="header">
-    <!-- BEGIN MENU -->
     <div class="menu_area">
       <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
               aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
@@ -72,12 +61,12 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-            <li class="active"><a href="<?= base_url('inicio') ?>">Inicio</a></li>
-              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>">Acerca del centro</a></li>
-              <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>">Nuestros-doctores</a></li>
-              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
-              <li><a href="<?= base_url('inicio/contactos') ?>">Contacto</a></li>
-              <li><a href="<?= base_url('auth/login') ?>">Ingresar</a></li>
+            <li class="active"><a href="<?= base_url('inicio') ?>"><i>Inicio</i></a></li>
+              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>"><i>Acerca del centro</i></a></li>
+              <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>"><i>Doctores</i></a></li>
+              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>"><i>Servicio-odontologico</i></a></li>
+              <li><a href="<?= base_url('inicio/contactos') ?>"><i>Contacto</i></a></li>
+              <li><a href="<?= base_url('auth/login') ?>"><i>Ingresar</i></a></li>
             </ul>
           </div>
           <!--/.nav-collapse -->
@@ -93,7 +82,7 @@
         <div class="blog-breadcrumbs-area">
           <div class="container">
             <div class="blog-breadcrumbs-left">
-              <h2>Conozca nuestros especialistas</h2>
+              <h2>Conozca a los especialistas</h2>
             </div>
             <div class="blog-breadcrumbs-right">
               <ol class="breadcrumb">
@@ -114,7 +103,7 @@
           <div class="meetDoctors-area">
             <!-- Start Service Title -->
             <div class="section-heading">
-              <h2>Doctores</h2>
+              <h2><i>Doctores</i></h2>
               <div class="line"></div>
             </div>
             <div class="doctors-area">

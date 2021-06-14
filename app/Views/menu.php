@@ -60,7 +60,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="<?= base_url('/listarCita'); ?>" class="nav-link menu--link">
+                    <a href="<?= base_url('/historialOdontologo'); ?>" class="nav-link menu--link">
                         <i class="far fa-circle nav-icon"></i>
                         <p> Historial Odont&oacute;logo</p>
                     </a>
@@ -146,7 +146,15 @@
                 </li>
             </ul>
         </li>
-
+        <!-- Menu de respaldo  -->
+        <li class="nav-item has-treeview">
+            <a href="<?= base_url('/respaldo'); ?>" class="nav-link menu--link">
+                <i class="nav-icon fas fa-edit"></i>
+                <p>
+                    respaldo
+                </p>
+            </a>
+        </li>
     </ul>
 </nav>
 <!-- /.sidebar-menu -->

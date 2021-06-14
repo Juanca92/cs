@@ -20,7 +20,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card  card-info">
                     <div class="card-header">
                         <h3 class="card-title">
                             Paciente
@@ -36,7 +36,6 @@
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
-                                    <th>Foto</th>
                                     <th>CI</th>
                                     <th>Nombres</th>
                                     <th>sexo</th>
@@ -61,7 +60,7 @@
 
 <!--  Modal de registro paciente -->
 <div class="modal fade" id="agregar-paciente">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-blue">
                 <h4 class="modal-title" id="agregar-paciente-title"></h4>
@@ -71,18 +70,6 @@
             </div>
             <div class="modal-body">
                 <form id="frm_guardar_paciente">
-
-                    <!-- Campos para la foto -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                            <label for="foto">Foto <span class="text-danger">(*)</span>:</label>
-                            <input type="file" id="foto" name="foto" class="form-control" >
-                            </div>
-                        </div>
-                        <input type="hidden" name="id" id="id">
-                        <input type="hidden" name="accion" id="accion">
-                    </div>
                     <!-- Campos de Ci y Expedido -->
                     <div class="row">
                         <div class="col-lg-7">
@@ -91,7 +78,6 @@
                                 <input type="text" id="ci" name="ci" class="form-control" placeholder="CI ..">
                             </div>
                         </div>
-
                         <div class="col-lg-5">
                             <div class="form-group">
                                 <label for="expedido">Expedido <span class="text-danger">(*)</span>:</label>
@@ -110,7 +96,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Campo Nombres -->
                     <div class="row">
                         <div class="col-lg-12">
@@ -120,7 +105,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Campos Paterno y Materno -->
                     <div class="row">
                         <div class="col-lg-6">
@@ -129,13 +113,14 @@
                                 <input type="text" id="paterno" name="paterno" class="form-control" placeholder="Apellido Paterno">
                             </div>
                         </div>
-
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="materno">Materno <span class="text-danger">(*)</span>:</label>
                                 <input type="text" id="materno" name="materno" class="form-control" placeholder="Apellido Materno">
                             </div>
                         </div>
+                        <input type="hidden" name="id" id="id">
+                        <input type="hidden" name="accion" id="accion">
                     </div>
                     <!-- sexo y lugar de Nacimiento -->
                     <div class="row">
@@ -157,7 +142,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Celular y Fecha de Nacimiento -->
                     <div class="row">
                         <div class="col-lg-6">
@@ -174,9 +158,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Ocupacion -->
-
-
                     <!-- Domicilio -->
                     <div class="row">
                         <div class="col-lg-12">

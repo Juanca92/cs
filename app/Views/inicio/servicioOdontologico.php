@@ -66,12 +66,12 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-              <li class="active"><a href="<?= base_url('inicio') ?>">Inicio</a></li>
-              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>">Acerca del centro</a></li>
-              <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>">Nuestros-doctores</a></li>
-              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
-              <li><a href="<?= base_url('inicio/contactos') ?>">Contacto</a></li>
-              <li><a href="<?= base_url('auth/login') ?>">Ingresar</a></li>
+              <li class="active"><a href="<?= base_url('inicio') ?>"><i>Inicio</i></a></li>
+              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>"><i>Acerca del centro</i></a></li>
+              <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>"><i>Doctores</i></a></li>
+              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>"><i>Servicio-odontologico</i></a></li>
+              <li><a href="<?= base_url('inicio/contactos') ?>"><i>Contacto</i></a></li>
+              <li><a href="<?= base_url('auth/login') ?>"><i>Ingresar</i></a></li>
             </ul>
           </div>
           <!--/.nav-collapse -->
@@ -108,7 +108,7 @@
           <div class="service-area">
             <!-- Start Service Title -->
             <div class="section-heading">
-              <h2>Tratamientos Odontologicas</h2>
+              <h2><i>Tratamientos Odontológicas</i></h2>
               <div class="line"></div>
             </div>
             <!-- Start Service Content -->
@@ -118,7 +118,7 @@
                 <div class="col-lg-4 col-md-4">
                   <div class="single-service">
                     <div class="service-icon">
-                      <span class="fa fa-stethoscope service-icon-effect"></span>
+                    <img src="<?php echo base_url('images/dientes/prevencion.png') ?>" alt="diente" class="brand-image img-circle elevation-3 service-icon-effect" style="opacity: 0.8"  />
                     </div>
                     <h3><a href="#">Prevencion</a></h3>
                     <p>Se realiza limpiezas dentales con flúor y profilaxis para prevenir
@@ -130,7 +130,7 @@
                 <div class="col-lg-4 col-md-4">
                   <div class="single-service">
                     <div class="service-icon">
-                      <span class="fa fa-heartbeat service-icon-effect"></span>
+                    <img src="<?php echo base_url('images/dientes/restauracion.png') ?>" alt="diente" class="brand-image img-circle elevation-3 service-icon-effect" style="opacity: 0.8"  />
                     </div>
                     <h3><a href="#">Restauracion</a></h3>
                     <p>Se extrae piezas dentales que sufrieron destrucción, fractura, desgaste o afección irreversible
@@ -142,7 +142,7 @@
                 <div class="col-lg-4 col-md-4">
                   <div class="single-service">
                     <div class="service-icon">
-                      <span class="fa fa-h-square service-icon-effect"></span>
+                    <img src="<?php echo base_url('images/dientes/periodoncia.png') ?>" alt="diente" class="brand-image img-circle elevation-3 service-icon-effect" style="opacity: 0.8"  />
                     </div>
                     <h3><a href="#">Periodoncia</a></h3>
                     <p>Se diagnostica los tratamientos de las enfermedades y
@@ -153,7 +153,7 @@
                 <div class="col-lg-4 col-md-4">
                   <div class="single-service">
                     <div class="service-icon">
-                      <span class="fa fa-medkit service-icon-effect"></span>
+                    <img src="<?php echo base_url('images/dientes/endodoncia.png') ?>" alt="diente" class="brand-image img-circle elevation-3 service-icon-effect" style="opacity: 0.8"  />
                     </div>
                     <h3><a href="#">Endodoncia</a></h3>
                     <p>Se realiza tratamiento dental conocido comúnmente para “matar el nervio”. Consiste en eliminar
@@ -165,7 +165,7 @@
                 <div class="col-lg-4 col-md-4">
                   <div class="single-service">
                     <div class="service-icon">
-                      <span class="fa fa-user-md service-icon-effect"></span>
+                    <img src="<?php echo base_url('images/dientes/cirugia.png') ?>" alt="diente" class="brand-image img-circle elevation-3 service-icon-effect" style="opacity: 0.8"  />
                     </div>
                     <h3><a href="#">Cirugia Bucal</a></h3>
                     <p>También se encarga de diagnosticar y tratar quirúrgicamente las enfermedades, defectos y traumatismos
@@ -176,7 +176,7 @@
                 <div class="col-lg-4 col-md-4">
                   <div class="single-service">
                     <div class="service-icon">
-                      <span class="fa fa-ambulance service-icon-effect"></span>
+                    <img src="<?php echo base_url('images/dientes/billete.jpg') ?>" alt="diente" class="brand-image img-circle elevation-3 service-icon-effect" style="opacity: 0.8"  />
                     </div>
                     <h3><a href="#">Costo de los tratamientos</a></h3>
                     <p>El Centro de Salud San Pedro de curahura no cobra por los tratamientos realizados hacia los

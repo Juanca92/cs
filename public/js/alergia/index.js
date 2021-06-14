@@ -77,7 +77,7 @@ $(document).ready(function () {
 		let id = $(this).attr('data');
 		$.ajax({
 			type: 'POST',
-			url: '/tratamiento/editar_alergia',
+			url: '/alergia/editar_alergia',
 			data: {
 				id: id,
 			},

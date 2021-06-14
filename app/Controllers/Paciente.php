@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Libraries\Ssp;
 use App\Models\PacienteModel;
 
-
 class Paciente extends BaseController
 {
     public $model = null;
@@ -35,17 +34,16 @@ class Paciente extends BaseController
 
             $columns = array(
                 array('db' => 'id_persona', 'dt'        => 0),
-                array('db' => 'foto', 'dt'              => 1),
-                array('db' => 'ci_exp', 'dt'            => 2),
-                array('db' => 'nombre_completo', 'dt'   => 3),
-                array('db' => 'sexo', 'dt'              => 4),
-                array('db' => 'lugar_nacimiento', 'dt'  => 5),
-                array('db' => 'telefono_celular', 'dt'  => 6),
-                array('db' => 'fecha_nacimiento', 'dt'  => 7),
-                array('db' => 'domicilio', 'dt'         => 8),
-                array('db' => 'ocupacion', 'dt'         => 9),
-                array('db' => 'estatus', 'dt'           => 10),
-                array('db' => 'creado_en', 'dt'         => 11)
+                array('db' => 'ci_exp', 'dt'            => 1),
+                array('db' => 'nombre_completo', 'dt'   => 2),
+                array('db' => 'sexo', 'dt'              => 3),
+                array('db' => 'lugar_nacimiento', 'dt'  => 4),
+                array('db' => 'telefono_celular', 'dt'  => 5),
+                array('db' => 'fecha_nacimiento', 'dt'  => 6),
+                array('db' => 'domicilio', 'dt'         => 7),
+                array('db' => 'ocupacion', 'dt'         => 8),
+                array('db' => 'estatus', 'dt'           => 9),
+                array('db' => 'creado_en', 'dt'         => 10)
             );
 
             $sql_details = array(
@@ -138,7 +136,6 @@ class Paciente extends BaseController
 
                     $val = $this->validate(
                         [ // rules
-                            "foto"              => "alpha_space",
                             "ci"                => "required|alpha_numeric|min_length[5]",
                             "expedido"          => "required|max_length[2]|alpha",
                             "nombres"           => "required|alpha_space",
@@ -153,9 +150,6 @@ class Paciente extends BaseController
                             "estatus"           => "required|alpha_numeric_space"
                         ],
                         [ // errors
-                            "foto" => [
-                             "alpha_space" => "La foto debe llevar caracteres alfabéticos o espacios."
-                           ],
                             "ci" => [
                                 "required" => "El CI del paciente es requerido",
                                 "alpha_numeric" => "El CI del usuario no debe llevar caracteres especiales",
@@ -215,7 +209,6 @@ class Paciente extends BaseController
 
                         // Formateo de datos
                         $data = array(
-                            "foto"              => $this->request->getPost("foto"),
                             "ci"                => trim($this->request->getPost("ci")),
                             "expedido"          => trim($this->request->getPost("expedido")),
                             "nombres"           => ucwords(strtolower(trim($this->request->getPost("nombres")))),
@@ -285,7 +278,6 @@ class Paciente extends BaseController
                 $val = $this->validate(
                     [ // rules
                         "id"                => "required",
-                        "foto"              => "alpha_space",
                         "ci"                => "required|alpha_numeric|min_length[5]",
                         "expedido"          => "required|max_length[2]|alpha",
                         "nombres"           => "required|alpha_space",
@@ -302,9 +294,6 @@ class Paciente extends BaseController
                     [ // errors
                         "id" => [
                             "required" => "El id es requerido"
-                        ],
-                        "foto" => [
-                            "alpha_space" => "La foto debe llevar caracteres alfabéticos o espacios."
                         ],
                         "ci" => [
                             "required" => "El CI del paciente es requerido",
@@ -364,7 +353,6 @@ class Paciente extends BaseController
 
                     // Actualizar datos
                     $data = array(
-                        "foto"              => $this->request->getPost("foto"),
                         "ci"                => trim($this->request->getPost("ci")),
                         "expedido"          => trim($this->request->getPost("expedido")),
                         "nombres"           => ucwords(strtolower(trim($this->request->getPost("nombres")))),
@@ -411,7 +399,6 @@ class Paciente extends BaseController
                             "clave"         => hash("sha512", trim($this->request->getPost("fecha_nacimiento"))),
                             "actualizado_en" => $this->fecha->format('Y-m-d H:i:s')
                         );
-
                         $respuesta2 = $this->model->usuario(
                             "update",
                             $data2,
@@ -420,7 +407,7 @@ class Paciente extends BaseController
                             ),
                             null
                         );
-
+                        
                         // Actualizar Grupo Usuario
                         $id_grupo_usuario = $this->model->verificar_id_grupo_usuario($this->request->getPost("id")); //verificar id_grupo con rol PACIENTE
                         $data3 = array(
@@ -428,7 +415,6 @@ class Paciente extends BaseController
                             "navegador"      => $_SERVER["HTTP_USER_AGENT"],
                             "actualizado_en" => $this->fecha->format('Y-m-d H:i:s')
                         );
-
                         $respuesta3 = $this->model->grupo_usuario(
                             "update",
                             $data3,
@@ -437,7 +423,6 @@ class Paciente extends BaseController
                             ),
                             null
                         );
-
                         if ($respuesta1 && $respuesta2 && $respuesta3) {
                             return $this->response->setJSON(json_encode(array(
                                 'exito' => "Paciente editado correctamente"
@@ -452,11 +437,27 @@ class Paciente extends BaseController
     // Editar Paciente
     public function editar_paciente()
     {
-
+        // var_dump($_REQUEST);
     // se Verifica si es petición ajax
         if ($this->request->isAJAX()) {
-            $respuesta = $this->model->editar_paciente(trim($this->request->getPost("id")));
-            return $this->response->setJSON(json_encode($respuesta));
+            
+            $respuesta1 = $this->model->editar_paciente(trim($this->request->getPost("id")));
+            $respuesta2 = $this->model->editar_enfermedad(trim($this->request->getPost("id")));
+            $respuesta3 = $this->model->editar_consulta(trim($this->request->getPost("id")));
+            $respuesta4 = $this->model->editar_fisico(trim($this->request->getPost("id")));
+            $respuesta5 = $this->model->editar_alergia(trim($this->request->getPost("id")));
+            $respuesta6 = $this->model->mostrar_tratamientos(trim($this->request->getPost("id")));
+            $respuesta7 = $this->model->datos_usuario_perfil(trim($this->request->getPost("id")));
+            return $this->response->setJSON( json_encode([
+                "respuesta1" => $respuesta1,
+                "respuesta2" => $respuesta2,
+                "respuesta3" => $respuesta3,
+                "respuesta4" => $respuesta4,
+                "respuesta5" => $respuesta5,
+                "respuesta6" => $respuesta6,
+                "respuesta6" => $respuesta7
+            ])
+            );
         }
     }
 
@@ -493,39 +494,39 @@ class Paciente extends BaseController
 
         return $_SERVER['REMOTE_ADDR'];
     }
-    // Subir foto
-    public function subir_foto()
+
+    // Listado de citas
+    public function ajaxListarCitas()
     {
         if ($this->request->isAJAX()) {
-            $file = $this->request->getFile('foto');
-            if ($file->isValid()) {
-                $dir = base_url('/img/users');
-                if (!is_dir($dir)) {
-                    mkdir($dir, 755, true);
-                }
-                $originalName = $file->getRandomName();
-                $file->move('./img/users/', $originalName);
-                $respuesta = $this->model->usuario(
-                    "update",
-                    ['foto' => "img/users/" . $originalName],
-                    ['id_paciente' => $_SESSION["id_persona"]]
-                );
-                if ($respuesta) {
-                    return $this->response->setJSON(json_encode(array(
-                        "success" => "Fotografia actualizado correctamente"
-                    )));
-                } else {
-                    return $this->response->setJSON(json_encode(array(
-                        "error" => "Error al subir la fotografia"
-                    )));
-                }
-            } else {
-                return $this->response->setJSON(json_encode(array(
-                    "warning" => "Fotografia no valida"
-                )));
-            }
+            $table = 'sp_view_cita';
+            $primaryKey = 'id_cita';
+            $where = 'id_paciente='.$this->request->getGet('id_persona');
+
+            $columns = array(
+                array('db' => 'id_cita', 'dt'           => 0),
+                array('db' => 'numero_cita', 'dt'       => 1),
+                array('db' => 'nombre_paciente', 'dt'   => 2),
+                array('db' => 'tipo_tratamiento', 'dt'  => 3),
+                array('db' => 'observacion', 'dt'       => 4),
+                array('db' => 'fecha', 'dt'             => 5),
+                array('db' => 'hora_inicio', 'dt'       => 6),
+                array('db' => 'hora_final', 'dt'        => 7),
+                array('db' => 'costo', 'dt'             => 8),
+                array('db' => 'nombre_odontologo', 'dt' => 9),
+                array('db' => 'estatus', 'dt'           => 10),
+                array('db' => 'creado_en', 'dt'         => 11)
+            );
+
+            $sql_details = array(
+                'user' => $this->db->username,
+                'pass' => $this->db->password,
+                'db'   => $this->db->database,
+                'host' => $this->db->hostname
+            );
+
+            return $this->response->setJSON(json_encode(SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $where)));
         }
     }
-    
 
 }

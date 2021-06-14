@@ -32,16 +32,15 @@ class Odontologo extends BaseController
 
             $columns = array(
                 array('db' => 'id_persona', 'dt'        => 0),
-                array('db' => 'foto', 'dt'              => 1),
-                array('db' => 'ci_exp', 'dt'            => 2),
-                array('db' => 'nombre_completo', 'dt'   => 3),
-                array('db' => 'telefono_celular', 'dt'  => 4),
-                array('db' => 'fecha_nacimiento', 'dt'  => 5),
-                array('db' => 'domicilio', 'dt'         => 6),
-                array('db' => 'turno', 'dt'             => 7),
-                array('db' => 'gestion_ingreso', 'dt'   => 8),
-                array('db' => 'estatus', 'dt'           => 9),
-                array('db' => 'creado_en', 'dt'         => 10)
+                array('db' => 'ci_exp', 'dt'            => 1),
+                array('db' => 'nombre_completo', 'dt'   => 2),
+                array('db' => 'telefono_celular', 'dt'  => 3),
+                array('db' => 'fecha_nacimiento', 'dt'  => 4),
+                array('db' => 'domicilio', 'dt'         => 5),
+                array('db' => 'turno', 'dt'             => 6),
+                array('db' => 'gestion_ingreso', 'dt'   => 7),
+                array('db' => 'estatus', 'dt'           => 8),
+                array('db' => 'creado_en', 'dt'         => 9)
             );
 
             $sql_details = array(
@@ -77,7 +76,6 @@ class Odontologo extends BaseController
 
                     $val = $this->validate(
                         [ // rules
-                            "foto"              => "alpha_space",
                             "ci"                => "required|alpha_numeric|min_length[5]",
                             "expedido"          => "required|max_length[2]|alpha",
                             "nombres"           => "required|alpha_space",
@@ -90,9 +88,6 @@ class Odontologo extends BaseController
                             "estatus"           => "required|alpha_numeric_space"
                         ],
                         [ // errors
-                            "foto" => [
-                                "alpha_space" => "La foto debe llevar caracteres alfabéticos o espacios."
-                            ],
                             "ci" => [
                                 "required"      => "El CI del paciente es requerido",
                                 "alpha_numeric" => "El CI del usuario no debe llevar caracteres especiales",
@@ -147,7 +142,6 @@ class Odontologo extends BaseController
 
                         // Formateo de datos
                         $data = array(
-                            "foto"              => $this->request->getPost("foto"),
                             "ci"                => trim($this->request->getPost("ci")),
                             "expedido"          => trim($this->request->getPost("expedido")),
                             "nombres"           => ucwords(strtolower(trim($this->request->getPost("nombres")))),
@@ -216,7 +210,6 @@ class Odontologo extends BaseController
                 $val = $this->validate(
                     [ // rules
                         "id"                => "required",
-                        "foto"              => "alpha_space",
                         "ci"                => "required|alpha_numeric|min_length[5]",
                         "expedido"          => "required|max_length[2]|alpha",
                         "nombres"           => "required|alpha_space",
@@ -231,9 +224,6 @@ class Odontologo extends BaseController
                     [ // errors
                         "id" => [
                             "required" => "El id es requerido"
-                        ],
-                        "foto" => [
-                            "alpha_space" => "La foto debe llevar caracteres alfabéticos o espacios."
                         ],
                         "ci" => [
                             "required"      => "El CI del paciente es requerido",
@@ -288,7 +278,6 @@ class Odontologo extends BaseController
 
                     // Actualizar datos
                     $data = array(
-                        "foto"              => $this->request->getPost("foto"),
                         "ci"                => trim($this->request->getPost("ci")),
                         "expedido"          => trim($this->request->getPost("expedido")),
                         "nombres"           => ucwords(strtolower(trim($this->request->getPost("nombres")))),

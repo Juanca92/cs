@@ -22,13 +22,14 @@ class Alergia extends BaseController
     {
         return $this->templater->view("tratamiento/index", $this->data);
     }
-    // Listado de pacientes
+    // Listado de alergias
     public function ajaxListarAlergias()
     {
+        //return var_dump($_REQUEST);
         if ($this->request->isAJAX()) {
             $table = 'sp_view_tratamiento_alergias';
             $primaryKey = 'id_alergia';
-            $where = "";
+            $where = 'id_paciente='.$this->request->getGet('id_persona');
 
             $columns = array(
                 array('db' => 'id_alergia', 'dt'        => 0),
@@ -56,9 +57,8 @@ class Alergia extends BaseController
 
         if ($this->request->isAJAX()) {
 
-            if ($this->request->getPost("accion") == "in" && $this->request->getPost("id") == "") {
-
-                if (true) {
+            if(empty($this->request->getPost('id_alergia')))
+            {
                     //validación de formulario
                     $validation = \Config\Services::validation();
 
@@ -66,7 +66,7 @@ class Alergia extends BaseController
                         [ // rules
                             "nombre_alergia"    => "required|alpha_space",
                             "detalle"           => "required|alpha_space",
-                            "id_paciente"       => "required"
+                            "id_persona3"        => "required"
                         ],
                         [ // errors
                             "nombre_alergia" => [
@@ -77,7 +77,7 @@ class Alergia extends BaseController
                                 "required" => " El detalle es requerido",
                                 "alpha_space" => "El detalle debe llevar caracteres alfabéticos o espacios."
                             ],
-                            "id_paciente" => [
+                            "id_persona3" => [
                                 "required" => " El id del paciente es requerido"
                             ]
                         ]
@@ -95,18 +95,18 @@ class Alergia extends BaseController
                         $data = array(
                             "nombre_alergia"        => $this->request->getPost("nombre_alergia"),
                             "detalle"               => $this->request->getPost("detalle"),
-                            "id_paciente"           => $this->request->getPost("id_paciente"),
+                            "id_paciente"           => $this->request->getPost("id_persona3"),
                             "creado_en"             => $this->fecha->format('Y-m-d H:i:s')
                         );
 
                         $respuesta = $this->model->alergia("insert", $data, null, null);
                         if (is_numeric($respuesta)) {
                             return $this->response->setJSON(json_encode(array(
-                                'exito' => "Alergia registrado correctamente"
+                                'exito' => "Alergia registrado correctamente",
+                                "id_alergia"=> $respuesta
                             )));
                         }
                     }
-                }
             } else {
                 // actualizar alergia
                 //validación de formulario
@@ -114,13 +114,13 @@ class Alergia extends BaseController
                 helper(['form', 'url']);
                 $val = $this->validate(
                     [ // rules
-                        'id'                => 'required',
+                        'id_alergia'        => 'required',
                         "nombre_alergia"    => "required|alpha_space",
                         "detalle"           => "required|alpha_space",
-                        'id_paciente'       => 'required',
+                        'id_persona3'       => 'required',
                     ],
                     [ // errors
-                        "id" => [
+                        "id_alergia" => [
                             "required"  => "Error al editar alergia por favor vuelve a empezar"
                         ],
                         "nombre_alergia" => [
@@ -131,7 +131,7 @@ class Alergia extends BaseController
                             "required" => " El detalle es requerido",
                             "alpha_space" => "El detalle debe llevar caracteres alfabéticos o espacios."
                         ],
-                        "id_paciente" => [
+                        "id_persona3" => [
                             "required" => " El id del paciente es requerido",
                         ]
                     ]
@@ -147,7 +147,7 @@ class Alergia extends BaseController
                     $data = array(
                         "nombre_alergia"        => $this->request->getPost("nombre_alergia"),
                         "detalle"               => $this->request->getPost("detalle"),
-                        "id_paciente"           => $this->request->getPost("id_paciente"),
+                        "id_paciente"           => $this->request->getPost("id_persona3"),
                         "actualizado_en"        => $this->fecha->format('Y-m-d H:i:s')
                     );
 
@@ -155,7 +155,7 @@ class Alergia extends BaseController
                         "update",
                         $data,
                         array(
-                            "id_alergia" => $this->request->getPost("id")
+                            "id_alergia" => $this->request->getPost("id_alergia")
                         ),
                         null
                     );
@@ -164,7 +164,8 @@ class Alergia extends BaseController
                         // Actualizar cita
 
                         return $this->response->setJSON(json_encode(array(
-                            'exito' => "Alergia editado correctamente"
+                            'exito' => "Alergia editado correctamente",
+                            "id_alergia"=> $respuesta
                         )));
                     }
                 }
@@ -172,13 +173,35 @@ class Alergia extends BaseController
         }
     }
 
-    // Editar Cita
+    // Editar alergia
     public function editar_alergia()
     {
-        // se Verifica si es petición ajax
+    // se Verifica si es petición ajax
         if ($this->request->isAJAX()) {
             $respuesta = $this->model->editar_alergia(trim($this->request->getPost("id")));
             return $this->response->setJSON(json_encode($respuesta));
+        }
+    }
+
+    // Eliminar Paciente
+    public function eliminar_alergia()
+    {
+        // se Verifica si es petición ajax
+        if ($this->request->isAJAX()) {
+
+            $data = array(
+                "estado" => '0'
+            );
+
+            $respuesta = $this->model->persona("update", $data, array(
+                "id_alergia" => trim($this->request->getPost("id"))
+            ), null);
+
+            if ($respuesta) {
+                return $this->response->setJSON(json_encode(array(
+                    'exito' => "Paciente Eliminado correctamente"
+                )));
+            }
         }
     }
 }

@@ -77,6 +77,7 @@ $(document).ready(function () {
 		$('#nombre_medicamento').val('');
 		$('#motivo_medicamento').val('');
 		$('#dosis_medicamento').val('');
+		$('#id_paciente').val('').trigger('change');
 		$('#accion').val('');
 	}
 
@@ -100,6 +101,7 @@ $(document).ready(function () {
 				$('#nombre_medicamento').val(response[0]['nombre_medicamento']);
 				$('#motivo_medicamento').val(response[0]['motivo_medicamento']);
 				$('#dosis_medicamento').val(response[0]['dosis_medicamento']);
+				$('#id_paciente').val(response[0]['id_paciente']).trigger('change');
 				$('#accion').val('up');
 
 				$('#btn-guardar-enfermedad').html('Editar');

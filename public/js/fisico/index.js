@@ -70,7 +70,7 @@ $(document).ready(function () {
 	// Limpiar Campos
 	function limpiarCampos() {
 		$('#id').val('');
-		$('#presion_alterial').val('');
+		$('#presion_arterial').val('');
 		$('#pulso').val('');
 		$('#temperatura').val('');
 		$('#frecuencia_cardiaca').val('');
@@ -94,7 +94,7 @@ $(document).ready(function () {
 		})
 			.done(function (response) {
 				$('#id').val(response[0]['id_fisico']);
-				$('#presion_alterial').val(response[0]['presion_alterial']);
+				$('#presion_arterial').val(response[0]['presion_arterial']);
 				$('#pulso').val(response[0]['pulso']);
 				$('#temperatura').val(response[0]['temperatura']);
 				$('#frecuencia_cardiaca').val(response[0]['frecuencia_cardiaca']);

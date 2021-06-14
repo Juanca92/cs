@@ -138,7 +138,7 @@ class PacienteModel extends Database
     public function editar_paciente($id)
     {
         $builder = $this->db->table('persona as p');
-        $builder->select('p.id_persona, p.foto, p.ci, p.expedido, p.nombres, p.paterno, p.materno, p.sexo, p.lugar_nacimiento, p.telefono_celular, 
+        $builder->select('p.id_persona, p.ci, p.expedido, p.nombres, p.paterno, p.materno, p.sexo, p.lugar_nacimiento, p.telefono_celular, 
         p.fecha_nacimiento, p.domicilio, o.id_ocupacion, o.nombre, p.estatus, p.estado');
         $builder->join('paciente as pa', 'p.id_persona = pa.id_paciente');
         $builder->join('ocupacion as o', 'o.id_ocupacion = pa.id_ocupacion');
@@ -166,6 +166,49 @@ class PacienteModel extends Database
         $builder = $this->db->table("grupo_usuario as gu");
         $builder->select('gu.id_grupo_usuario');
         $builder->where("gu.id_usuario", $id);
+        return $builder->get()->getResultArray();
+    }
+
+    public function editar_enfermedad($id)
+    {
+        $builder = $this->db->table('view_tratamiento_enfermedad as te');
+        $builder->select('*');
+        $builder->where('id_paciente', $id);
+        return $builder->get()->getResultArray();
+    }
+    public function editar_consulta($id)
+    {
+        $builder = $this->db->table('tratamiento_consulta as tc');
+        $builder->select('*');
+        $builder->where('id_consulta', $id);
+        return $builder->get()->getResultArray();
+    }
+    public function editar_fisico($id)
+    {
+        $builder = $this->db->table('tratamiento_fisico as tf');
+        $builder->select('*');
+        $builder->where('id_fisico', $id);
+        return $builder->get()->getResultArray();
+    }
+    public function editar_alergia($id)
+    {
+        $builder = $this->db->table('view_tratamiento_alergias as ta');
+        $builder->select('*');
+        $builder->where('id_paciente', $id);
+        return $builder->get()->getResultArray();
+    }
+    public function Mostrar_tratamientos($id)
+    {
+        $builder = $this->db->table('view_cita as c');
+        $builder->select('c.tipo_tratamiento, c.fecha, c.hora_inicio, c.estatus');
+        $builder->where('id_paciente', $id);
+        return $builder->get()->getResultArray();
+    }
+    public function datos_usuario_perfil($id)
+    {
+        $builder = $this->db->table('view_users as u');
+        $builder->select('CONCAT(u.nombres, " ", u.paterno," ", u.materno) AS nombre_completo, u.telefono_celular, u.domicilio, u.fecha_nacimiento, u.foto');
+        $builder->where('id_persona', $id);
         return $builder->get()->getResultArray();
     }
 }
