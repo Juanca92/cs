@@ -26,7 +26,6 @@ $(document).ready(function () {
 
 	// tablas estadisticos
 
-	var areaChartData = {};
 	$.get('/home/reporteCitas', function (r) {
 		labelsTitle = [];
 		dataPendiente = [];
@@ -39,7 +38,7 @@ $(document).ready(function () {
 			dataCancelada.push(value.CANCELADA);
 		});
 		var areaChartCanvas = $('#barChart').get(0).getContext('2d');
-		areaChartData = {
+		var areaChartData = {
 			labels: labelsTitle,
 			datasets: [
 				{
