@@ -6,7 +6,7 @@ use CodeIgniter\Controller;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
-
+use App\Models\Querys;
 use App\Libraries\Templater;
 
 /**
@@ -58,7 +58,8 @@ class BaseController extends Controller
 			return $this->response->redirect(base_url('auth/login'));
 		}
 		$this->data['user'] = $this->user;
-
+		$this->data['access'] = (new Querys())->verifyUser(['id_persona' => (\Config\Services::session())->get('id_persona')])->getResultArray();
+		// var_dump($this->data['access']);
 		//--------------------------------------------------------------------
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------

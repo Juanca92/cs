@@ -13,7 +13,19 @@
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-
+            <?php if (isset($access)) : echo 'dsflkjds'; ?>
+                <?php if (count($access) >= 1) : ?>
+                    <form method="post" action="<?= base_url('auth/access'); ?>">
+                        <select class="form-control" name="nombre_grupo" onchange="submit()">
+                            <?php foreach ($access as $key => $value) : ?>
+                                <option value="<?= $value['nombre_grupo']; ?>" <?= ($value['nombre_grupo'] === (\Config\Services::session())->get('nombre_grupo') ? 'selected' : ''); ?>>
+                                    Rol: <?= $value['nombre_grupo']; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </form>
+                <?php endif; ?>
+            <?php endif; ?>
             <li class="nav-item dropdown" style="margin-left: 10px;">
                 <div class="topbar-item" data-toggle="dropdown">
                     <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2">

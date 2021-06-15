@@ -35,12 +35,14 @@
         </li>
 
         <!-- Menu Paciente -->
-        <li class="nav-item">
-            <a href="<?= base_url('/paciente'); ?>" class="nav-link menu--link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>Pacientes</p>
-            </a>
-        </li>
+        <?php if (is(['PACIENTE'])) : ?>
+            <li class="nav-item">
+                <a href="<?= base_url('/paciente'); ?>" class="nav-link menu--link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>Pacientes</p>
+                </a>
+            </li>
+        <?php endif ?>
 
         <!-- Menu Odontologos -->
         <li class="nav-item has-treeview">
