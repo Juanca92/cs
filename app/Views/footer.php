@@ -92,13 +92,7 @@
     <!--chart para los datos estasisticos-->
     <script src="<?php echo base_url('plugins/chart.js/chart.min.js') ?>"></script>
 
-
-
-   
-   
-   
-
-
-
-
-  
+    <?php $js = str_replace('\\', '/', FCPATH . 'js/' . strtolower(explode('\\', (\Config\Services::router())->controllerName())[3]) . '/' . (\Config\Services::router())->methodName() . '.js');
+    if (is_file($js)) : ?>
+        <script src="<?php echo base_url('js/' . strtolower(explode('\\', (\Config\Services::router())->controllerName())[3]) . '/' . (\Config\Services::router())->methodName() . '.js'); ?>"></script>
+    <?php endif; ?>
