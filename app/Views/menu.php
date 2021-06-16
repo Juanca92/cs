@@ -149,7 +149,7 @@
         <!-- Menu de respaldo  -->
         <li class="nav-item has-treeview">
             <a href="<?= base_url('/respaldo'); ?>" class="nav-link menu--link">
-                <i class="nav-icon fas fa-edit"></i>
+            <i class="fas fa-arrow-alt-circle-down"></i>
                 <p>
                     respaldo
                 </p>

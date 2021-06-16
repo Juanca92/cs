@@ -20,7 +20,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card  card-info">
+                <div class="card " id="tabla_paciente">
                     <div class="card-header">
                         <h3 class="card-title">
                             Paciente
@@ -59,7 +59,7 @@
 <!-- /.content -->
 
 <!--  Modal de registro paciente -->
-<div class="modal fade" id="agregar-paciente">
+<div class="modal fade" id="agregar-paciente" id="modal_paciente">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-blue">

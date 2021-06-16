@@ -274,6 +274,10 @@ img{
 /* HOME SLIDER */
 /*--------------------*/
 
+#navbar{
+	margin: 4px;
+}
+
 #sliderArea {
   display: inline;
   float: left;

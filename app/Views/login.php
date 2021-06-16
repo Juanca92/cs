@@ -21,7 +21,8 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
-<body class="hold-transition login-page" style="background: url('../img/iniciarSesion.jpg') no-repeat; background-size: cover;">
+<body class="hold-transition login-page"
+    style="background: url('../img/iniciarSesion.jpg') no-repeat; background-size: cover;">
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="card">
@@ -36,22 +37,22 @@
 
                 <form action="<?php echo base_url('/auth/authenticate'); ?>" method="POST">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" autocomplete="off" placeholder="Usuario" id="username"
-                            name="username">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
                             </div>
                         </div>
+                        <input type="text" class="form-control" autocomplete="off" placeholder="Ingrese usuario" id="username"
+                            name="username">
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" autocomplete="off" placeholder="Password"
-                            id="password" name="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
+                        <input type="password" class="form-control" autocomplete="off" placeholder="Ingrese su contraseña"
+                            id="password" name="password">
                     </div>
                     <div class="row">
                         <div class="col-6">

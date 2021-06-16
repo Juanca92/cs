@@ -25,9 +25,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9">
-                <div class="card card-light">
+                <div class="card " id="card_tratamiento">
                     <div class="card-header p-2">
-                        <ul class="nav nav-pills">
+                        <ul class="nav nav-tabs" id="tabs_tratamiento">
                             <li class="nav-item"><a class="nav-link active" href="#datos_paciente"
                                     data-toggle="tab">Datos
                                     Personales</a></li>
@@ -53,43 +53,62 @@
                                     </div>
                                     <form id="frm_guardar_paciente">
                                         <div class="row">
-                                            <div class="col-lg-7">
+                                            <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="ci">CI <span class="text-danger">(*)</span>:</label>
-                                                    <input type="text" id="ci" name="ci" class="form-control"
-                                                        placeholder="CI ..">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-id-card"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="text" id="ci" name="ci" class="form-control"
+                                                            placeholder="CI ..">
+                                                    </div>
                                                 </div>
                                             </div>
-
-                                            <div class="col-lg-5">
+                                            <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="expedido">Expedido <span
                                                             class="text-danger">(*)</span>:</label>
-                                                    <select class="custom-select" id="expedido" name="expedido"
-                                                        required>
-                                                        <option value="">-- Expedido en --</option>
-                                                        <option value="CH">LP</option>
-                                                        <option value="LP">OR</option>
-                                                        <option value="CB">CB</option>
-                                                        <option value="OR">PT</option>
-                                                        <option value="PT">CH</option>
-                                                        <option value="SC">TJ</option>
-                                                        <option value="PA">SC</option>
-                                                        <option value="TJ">BE</option>
-                                                        <option value="BN">PD</option>
-                                                    </select>
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-list-alt"></i>
+                                                            </div>
+                                                        </div>
+                                                        <select class="custom-select" id="expedido" name="expedido"
+                                                            required>
+                                                            <option value="">-- Expedido en --</option>
+                                                            <option value="CH">LP</option>
+                                                            <option value="LP">OR</option>
+                                                            <option value="CB">CB</option>
+                                                            <option value="OR">PT</option>
+                                                            <option value="PT">CH</option>
+                                                            <option value="SC">TJ</option>
+                                                            <option value="PA">SC</option>
+                                                            <option value="TJ">BE</option>
+                                                            <option value="BN">PD</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-
                                         <!-- Campo Nombres -->
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label for="nombres">Nombres <span
                                                             class="text-danger">(*)</span>:</label>
-                                                    <input type="text" class="form-control" id="nombres" name="nombres"
-                                                        placeholder="Nombres" required>
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-user-circle"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="nombres"
+                                                            name="nombres" placeholder="Nombres" required>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -100,16 +119,29 @@
                                                 <div class="form-group">
                                                     <label for="paterno">Paterno <span
                                                             class="text-danger">(*)</span>:</label>
-                                                    <input type="text" id="paterno" name="paterno" class="form-control"
-                                                        placeholder="Apellido Paterno">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-user-circle"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="text" id="paterno" name="paterno"
+                                                            class="form-control" placeholder="Apellido Paterno">
+                                                    </div>
                                                 </div>
                                             </div>
-
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="materno">Materno :</label>
-                                                    <input type="text" id="materno" name="materno" class="form-control"
-                                                        placeholder="Apellido Materno">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-user-circle"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="text" id="materno" name="materno"
+                                                            class="form-control" placeholder="Apellido Materno">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -121,7 +153,7 @@
                                                             class="text-danger">(*)</span>:</label>
                                                     <div>
                                                         <label for="sexo">Masculino</label>
-                                                        <input type="radio" name="sexo" value="masculino">
+                                                        <input type="radio" name="sexo" value="masculino"> <br>
                                                         <label for="sexo">Femenino</label>
                                                         <input type="radio" name="sexo" value="femenino">
                                                     </div>
@@ -131,29 +163,48 @@
                                                 <div class="form-group">
                                                     <label for="lugar_nacimiento">Lugar de Nacimiento <span
                                                             class="text-danger">(*)</span>:</label>
-                                                    <input type="text" id="lugar_nacimiento" name="lugar_nacimiento"
-                                                        class="form-control">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text">
+                                                            <i class="fas fa-place-of-worship"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="text" id="lugar_nacimiento" name="lugar_nacimiento"
+                                                            class="form-control">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-
                                         <!-- Celular y Fecha de Nacimiento -->
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="celular">Celular <span
                                                             class="text-danger">(*)</span>:</label>
-                                                    <input type="number" id="celular" name="celular"
-                                                        class="form-control" placeholder="Celular">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text">
+                                                            <i class="fas fa-tty"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="number" id="celular" name="celular"
+                                                            class="form-control" placeholder="Celular">
+                                                    </div>
                                                 </div>
                                             </div>
-
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="fecha_nacimiento">Fecha Nacimiento <span
                                                             class="text-danger">(*)</span>:</label>
-                                                    <input type="datepicker" id="fecha_nacimiento"
-                                                        name="fecha_nacimiento" class="form-control" readonly="">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text">
+                                                            <i class="fas fa-calendar-alt"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="datepicker" id="fecha_nacimiento"
+                                                            name="fecha_nacimiento" class="form-control" readonly="">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="id" id="id">
@@ -165,9 +216,16 @@
                                                 <div class="form-group">
                                                     <label for="domicilio">Domicilio <span
                                                             class="text-danger">(*)</span>:</label>
-                                                    <textarea class="form-control" id="domicilio" name="domicilio"
-                                                        style="overflow:auto;resize:none" rows="1"
-                                                        placeholder="Domicilio ..."></textarea>
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text">
+                                                            <i class="fas fa-map-marked"></i>
+                                                            </div>
+                                                        </div>
+                                                        <textarea class="form-control" id="domicilio" name="domicilio"
+                                                            style="overflow:auto;resize:none" rows="1"
+                                                            placeholder="Domicilio ..."></textarea>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -177,34 +235,48 @@
                                                 <div class="form-group">
                                                     <label for="ocupacion">Ocupaci&oacute;n <span
                                                             class="text-danger">(*)</span>:</label>
-                                                    <select class="form-control select2bs4" style="width: 100%;"
-                                                        id="id_ocupacion" name="id_ocupacion">
-                                                        <!-- <option value="">-- Seleccione Ocupaci&oacute;n --</option> -->
-                                                        <?php
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text">
+                                                            <i class="fas fa-list-alt"></i>
+                                                            </div>
+                                                        </div>
+                                                        <select class="form-control select2bs4" style="width: 100%;"
+                                                            id="id_ocupacion" name="id_ocupacion">
+                                                            <!-- <option value="">-- Seleccione Ocupaci&oacute;n --</option> -->
+                                                            <?php
                                                         foreach ($this->data["ocupaciones"] as $key => $value) {
                                                             echo '<option value="' . $value["id_ocupacion"] . '">' . $value["nombre"] . '</option>';
                                                         }
                                                         ?>
-                                                    </select>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
-
                                             <div class="col-lg-5">
                                                 <div class="form-group">
                                                     <label for="estatus">Estado<span
                                                             class="text-danger">(*)</span>:</label>
-                                                    <select class="custom-select" id="estatus" name="estatus" required>
-                                                        <option value="">-- Seleccione --</option>
-                                                        <option value="ACTIVO">Activo</option>
-                                                        <option value="INACTIVO">Inactivo</option>
-                                                    </select>
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text">
+                                                            <i class="fas fa-toggle-on"></i>
+                                                            </div>
+                                                        </div>
+                                                        <select class="custom-select" id="estatus" name="estatus"
+                                                            required>
+                                                            <option value="">-- Seleccione --</option>
+                                                            <option value="ACTIVO">Activo</option>
+                                                            <option value="INACTIVO">Inactivo</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="form-group row text-right">
                                             <div class="offset-sm-2 col-sm-10">
-                                                <button type="submit" class="btn btn-danger">Guardar</button>
+                                                <button type="submit" class="btn btn-info">Guardar</button>
                                             </div>
                                         </div>
                                     </form>
@@ -213,9 +285,9 @@
                             <!-- /.tab-pane -->
 
                             <div class="tab-pane" id="exploracion_fisica">
-                                <div class="card card-secondary">
+                                <div class="card ">
                                     <div class="card-header p-2">
-                                        <ul class="nav nav-pills">
+                                        <ul class="nav nav-tabs">
                                             <li class="nav-item"><a class="nav-link active" href="#enfermedad_actual"
                                                     data-toggle="tab">Enfermerdad actual</a></li>
                                             <li class="nav-item"><a class="nav-link" href="#consulta_salud"
@@ -276,7 +348,7 @@
                                                                 <div>
                                                                     <label for="tomando_medicamento">Si</label>
                                                                     <input type="radio" name="tomando_medicamento"
-                                                                        value="si">
+                                                                        value="si"><br>
                                                                     <label for="tomando_medicamento">No</label>
                                                                     <input type="radio" name="tomando_medicamento"
                                                                         value="no">
@@ -316,7 +388,7 @@
                                                     <div class="form-group row text-right">
                                                         <div class="offset-sm-2 col-sm-10">
                                                             <button type="submit"
-                                                                class="btn btn-danger">Guardar</button>
+                                                                class="btn btn-info">Guardar</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -332,7 +404,7 @@
                                                                     <span class="text-danger">(*)</span>:</label>
                                                                 <div>
                                                                     <label for="tratamiento">Si</label>
-                                                                    <input type="radio" name="tratamiento" value="si">
+                                                                    <input type="radio" name="tratamiento" value="si"><br>
                                                                     <label for="tratamiento">No</label>
                                                                     <input type="radio" name="tratamiento" value="no">
                                                                 </div>
@@ -387,7 +459,7 @@
                                                                 <div>
                                                                     <label for="alergico_medicamento">Si</label>
                                                                     <input type="radio" name="alergico_medicamento"
-                                                                        value="si">
+                                                                        value="si"><br>
                                                                     <label for="alergico_medicamento">No</label>
                                                                     <input type="radio" name="alergico_medicamento"
                                                                         value="no">
@@ -413,7 +485,7 @@
                                                                 <div>
                                                                     <label for="alguna_cirugia">Si</label>
                                                                     <input type="radio" name="alguna_cirugia"
-                                                                        value="si">
+                                                                        value="si"><br>
                                                                     <label for="alguna_cirugia">No</label>
                                                                     <input type="radio" name="alguna_cirugia"
                                                                         value="no">
@@ -464,7 +536,7 @@
                                                                 <div>
                                                                     <label for="cepilla_diente">Si</label>
                                                                     <input type="radio" name="cepilla_diente"
-                                                                        value="si">
+                                                                        value="si"><br>
                                                                     <label for="cepilla_diente">No</label>
                                                                     <input type="radio" name="cepilla_diente"
                                                                         value="no">
@@ -485,7 +557,7 @@
                                                     <div class="form-group row text-right">
                                                         <div class="offset-sm-2 col-sm-10">
                                                             <button type="submit"
-                                                                class="btn btn-danger">Guardar</button>
+                                                                class="btn btn-info">Guardar</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -646,7 +718,7 @@
                                                     <div class="form-group row text-right">
                                                         <div class="offset-sm-2 col-sm-10">
                                                             <button type="submit"
-                                                                class="btn btn-danger">Guardar</button>
+                                                                class="btn btn-info">Guardar</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -658,7 +730,7 @@
                                                     <div class="container-fluid">
                                                         <div class="row">
                                                             <div class="col-12">
-                                                                <div class="card card-info">
+                                                                <div class="card ">
                                                                     <div class="card-header">
                                                                         <h3 class="card-title">
                                                                             Alergias del paciente
@@ -744,343 +816,344 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="odontograma">
-                                <div class="card card-info">
+                                <div class="card ">
                                     <div class="card-header">
-                                        <h3 class="card-title">Odontograma</h3>
+                                        <h3 class="card-title">Esquema grafico dental</h3>
                                     </div>
-                                    
-                                    <div ng-app='app'>
-                                    <section id="piezas">
-                                        <div ng-controller='dientes' class="container" id='container'>
-                                            <center>
-                                                <div class="fila">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-18.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-17.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-16.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-15.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-14.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-13.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-12.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-11.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-21.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-22.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-23.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-24.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-25.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-26.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-27.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-28.png') ?>"
-                                                        width="40" height="100">
-                                                </div>
-                                                <div >
-                                                    <svg height="50" class="{{i.tipoDiente}}" width="50"
-                                                        data-ng-repeat="i in adultoArriva" id="{{i.id}}">
-                                                        <polygon points="10,15 15,10 50,45 45,50" estado="4" value="6"
-                                                            class="ausente" />
-                                                        <polygon points="45,10 50,15 15,50 10,45" estado="4" value="7"
-                                                            class="ausente" />
-                                                        <circle cx="30" cy="30" r="16" estado="8" value="8"
-                                                            class="corona" />
-                                                        <circle cx="30" cy="30" r="20" estado="3" value="9"
-                                                            class="endodoncia" />
-                                                        <polygon
-                                                            points="50,10 40,10 10,26 10,32 46,32 10,50 20,50 50,36 50,28 14,28"
-                                                            estado="6" value="10" class="implante" />
-                                                        <polygon points="10,10 50,10 40,20 20,20" estado="0" value="1"
-                                                            class="diente" />
-                                                        <polygon points="50,10 50,50 40,40 40,20" estado="0" value="2"
-                                                            class="diente" />
-                                                        <polygon points="50,50 10,50 20,40 40,40" estado="0" value="3"
-                                                            class="diente" />
-                                                        <polygon points="10,50 20,40 20,20 10,10" estado="0" value="4"
-                                                            class="diente" />
-                                                        <polygon points="20,20 40,20 40,40 20,40" estado="0" value="5"
-                                                            class="diente" />
-                                                    </svg>
-                                                </div>
-                                                <div class="fila">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-55.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-54.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-53.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-52.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-51.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-61.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-62.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-63.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-64.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-sup-65.png') ?>"
-                                                        width="40" height="100">
-                                                </div>
-                                                <div>
-                                                    <svg height="50" class="{{i.tipoDiente}}" width="50"
-                                                        data-ng-repeat="i in ninoArriva" id="{{i.id}}">
-                                                        <polygon points="10,15 15,10 50,45 45,50" estado="4" value="6"
-                                                            class="ausente" />
-                                                        <polygon points="45,10 50,15 15,50 10,45" estado="4" value="7"
-                                                            class="ausente" />
-                                                        <circle cx="30" cy="30" r="16" estado="8" value="8"
-                                                            class="corona" />
-                                                        <circle cx="30" cy="30" r="20" estado="3" value="9"
-                                                            class="endodoncia" />
-                                                        <polygon
-                                                            points="50,10 40,10 10,26 10,32 46,32 10,50 20,50 50,36 50,28 14,28"
-                                                            estado="6" value="10" class="implante" />
-                                                        <polygon points="10,10 50,10 40,20 20,20" estado="0" value="1"
-                                                            class="diente" />
-                                                        <polygon points="50,10 50,50 40,40 40,20" estado="0" value="2"
-                                                            class="diente" />
-                                                        <polygon points="50,50 10,50 20,40 40,40" estado="0" value="3"
-                                                            class="diente" />
-                                                        <polygon points="10,50 20,40 20,20 10,10" estado="0" value="4"
-                                                            class="diente" />
-                                                        <polygon points="20,20 40,20 40,40 20,40" estado="0" value="5"
-                                                            class="diente" />
-                                                    </svg>
-                                                </div>
-                                                <div>
-                                                    <svg height="50" class="{{i.tipoDiente}}" width="50"
-                                                        data-ng-repeat="i in ninoAbajo" id="{{i.id}}">
-                                                        <polygon points="10,15 15,10 50,45 45,50" estado="4" value="6"
-                                                            class="ausente" />
-                                                        <polygon points="45,10 50,15 15,50 10,45" estado="4" value="7"
-                                                            class="ausente" />
-                                                        <circle cx="30" cy="30" r="16" estado="8" value="8"
-                                                            class="corona" />
-                                                        <circle cx="30" cy="30" r="20" estado="3" value="9"
-                                                            class="endodoncia" />
-                                                        <polygon
-                                                            points="50,10 40,10 10,26 10,32 46,32 10,50 20,50 50,36 50,28 14,28"
-                                                            estado="6" value="10" class="implante" />
-                                                        <polygon points="10,10 50,10 40,20 20,20" estado="0" value="1"
-                                                            class="diente" />
-                                                        <polygon points="50,10 50,50 40,40 40,20" estado="0" value="2"
-                                                            class="diente" />
-                                                        <polygon points="50,50 10,50 20,40 40,40" estado="0" value="3"
-                                                            class="diente" />
-                                                        <polygon points="10,50 20,40 20,20 10,10" estado="0" value="4"
-                                                            class="diente" />
-                                                        <polygon points="20,20 40,20 40,40 20,40" estado="0" value="5"
-                                                            class="diente" />
-                                                    </svg>
-                                                </div>
-                                                <div class="fila">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-85.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-84.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-83.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-82.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-81.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-71.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-72.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-73.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-74.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-75.png') ?>"
-                                                        width="40" height="100">
-                                                </div>
-                                                <div>
-                                                    <svg height="50" class="{{i.tipoDiente}}" width="50"
-                                                        data-ng-repeat="i in adultoAbajo" id="{{i.id}}">
-                                                        <polygon points="10,15 15,10 50,45 45,50" estado="4" value="6"
-                                                            class="ausente" />
-                                                        <polygon points="45,10 50,15 15,50 10,45" estado="4" value="7"
-                                                            class="ausente" />
-                                                        <circle cx="30" cy="30" r="16" estado="8" value="8"
-                                                            class="corona" />
-                                                        <circle cx="30" cy="30" r="20" estado="3" value="9"
-                                                            class="endodoncia" />
-                                                        <polygon
-                                                            points="50,10 40,10 10,26 10,32 46,32 10,50 20,50 50,36 50,28 14,28"
-                                                            estado="6" value="10" class="implante" />
-                                                        <polygon points="10,10 50,10 40,20 20,20" estado="0" value="1"
-                                                            class="diente" />
-                                                        <polygon points="50,10 50,50 40,40 40,20" estado="0" value="2"
-                                                            class="diente" />
-                                                        <polygon points="50,50 10,50 20,40 40,40" estado="0" value="3"
-                                                            class="diente" />
-                                                        <polygon points="10,50 20,40 20,20 10,10" estado="0" value="4"
-                                                            class="diente" />
-                                                        <polygon points="20,20 40,20 40,40 20,40" estado="0" value="5"
-                                                            class="diente" />
-                                                    </svg>
-                                                </div>
-                                                <div class="fila">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-48.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-47.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-46.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-45.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-44.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-43.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-42.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-41.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-31.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-32.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-33.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-34.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-35.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-36.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-37.png') ?>"
-                                                        width="40" height="100">
-                                                    <img src="<?php echo base_url('odontograma/images/dentadura-inf-38.png') ?>"
-                                                        width="40" height="100">
-                                                </div>
-                                            </center>
-                                        </div>
+
+                                    <div ng-app='app' id="odontograma_dental">
+                                        <section id="piezas">
+                                            <div ng-controller='dientes' class="container" id='container'>
+                                                <center>
+                                                    <div class="fila">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-18.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-17.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-16.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-15.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-14.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-13.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-12.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-11.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-21.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-22.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-23.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-24.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-25.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-26.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-27.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-28.png') ?>"
+                                                            width="40" height="100">
+                                                    </div>
+                                                    <div>
+                                                        <svg height="50" class="{{i.tipoDiente}}" width="50"
+                                                            data-ng-repeat="i in adultoArriva" id="{{i.id}}">
+                                                            <polygon points="10,15 15,10 50,45 45,50" estado="4"
+                                                                value="6" class="ausente" />
+                                                            <polygon points="45,10 50,15 15,50 10,45" estado="4"
+                                                                value="7" class="ausente" />
+                                                            <circle cx="30" cy="30" r="16" estado="8" value="8"
+                                                                class="corona" />
+                                                            <circle cx="30" cy="30" r="20" estado="3" value="9"
+                                                                class="endodoncia" />
+                                                            <polygon
+                                                                points="50,10 40,10 10,26 10,32 46,32 10,50 20,50 50,36 50,28 14,28"
+                                                                estado="6" value="10" class="implante" />
+                                                            <polygon points="10,10 50,10 40,20 20,20" estado="0"
+                                                                value="1" class="diente" />
+                                                            <polygon points="50,10 50,50 40,40 40,20" estado="0"
+                                                                value="2" class="diente" />
+                                                            <polygon points="50,50 10,50 20,40 40,40" estado="0"
+                                                                value="3" class="diente" />
+                                                            <polygon points="10,50 20,40 20,20 10,10" estado="0"
+                                                                value="4" class="diente" />
+                                                            <polygon points="20,20 40,20 40,40 20,40" estado="0"
+                                                                value="5" class="diente" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="fila">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-55.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-54.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-53.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-52.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-51.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-61.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-62.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-63.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-64.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-65.png') ?>"
+                                                            width="40" height="100">
+                                                    </div>
+                                                    <div>
+                                                        <svg height="50" class="{{i.tipoDiente}}" width="50"
+                                                            data-ng-repeat="i in ninoArriva" id="{{i.id}}">
+                                                            <polygon points="10,15 15,10 50,45 45,50" estado="4"
+                                                                value="6" class="ausente" />
+                                                            <polygon points="45,10 50,15 15,50 10,45" estado="4"
+                                                                value="7" class="ausente" />
+                                                            <circle cx="30" cy="30" r="16" estado="8" value="8"
+                                                                class="corona" />
+                                                            <circle cx="30" cy="30" r="20" estado="3" value="9"
+                                                                class="endodoncia" />
+                                                            <polygon
+                                                                points="50,10 40,10 10,26 10,32 46,32 10,50 20,50 50,36 50,28 14,28"
+                                                                estado="6" value="10" class="implante" />
+                                                            <polygon points="10,10 50,10 40,20 20,20" estado="0"
+                                                                value="1" class="diente" />
+                                                            <polygon points="50,10 50,50 40,40 40,20" estado="0"
+                                                                value="2" class="diente" />
+                                                            <polygon points="50,50 10,50 20,40 40,40" estado="0"
+                                                                value="3" class="diente" />
+                                                            <polygon points="10,50 20,40 20,20 10,10" estado="0"
+                                                                value="4" class="diente" />
+                                                            <polygon points="20,20 40,20 40,40 20,40" estado="0"
+                                                                value="5" class="diente" />
+                                                        </svg>
+                                                    </div>
+                                                    <div>
+                                                        <svg height="50" class="{{i.tipoDiente}}" width="50"
+                                                            data-ng-repeat="i in ninoAbajo" id="{{i.id}}">
+                                                            <polygon points="10,15 15,10 50,45 45,50" estado="4"
+                                                                value="6" class="ausente" />
+                                                            <polygon points="45,10 50,15 15,50 10,45" estado="4"
+                                                                value="7" class="ausente" />
+                                                            <circle cx="30" cy="30" r="16" estado="8" value="8"
+                                                                class="corona" />
+                                                            <circle cx="30" cy="30" r="20" estado="3" value="9"
+                                                                class="endodoncia" />
+                                                            <polygon
+                                                                points="50,10 40,10 10,26 10,32 46,32 10,50 20,50 50,36 50,28 14,28"
+                                                                estado="6" value="10" class="implante" />
+                                                            <polygon points="10,10 50,10 40,20 20,20" estado="0"
+                                                                value="1" class="diente" />
+                                                            <polygon points="50,10 50,50 40,40 40,20" estado="0"
+                                                                value="2" class="diente" />
+                                                            <polygon points="50,50 10,50 20,40 40,40" estado="0"
+                                                                value="3" class="diente" />
+                                                            <polygon points="10,50 20,40 20,20 10,10" estado="0"
+                                                                value="4" class="diente" />
+                                                            <polygon points="20,20 40,20 40,40 20,40" estado="0"
+                                                                value="5" class="diente" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="fila">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-85.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-84.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-83.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-82.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-81.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-71.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-72.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-73.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-74.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-75.png') ?>"
+                                                            width="40" height="100">
+                                                    </div>
+                                                    <div>
+                                                        <svg height="50" class="{{i.tipoDiente}}" width="50"
+                                                            data-ng-repeat="i in adultoAbajo" id="{{i.id}}">
+                                                            <polygon points="10,15 15,10 50,45 45,50" estado="4"
+                                                                value="6" class="ausente" />
+                                                            <polygon points="45,10 50,15 15,50 10,45" estado="4"
+                                                                value="7" class="ausente" />
+                                                            <circle cx="30" cy="30" r="16" estado="8" value="8"
+                                                                class="corona" />
+                                                            <circle cx="30" cy="30" r="20" estado="3" value="9"
+                                                                class="endodoncia" />
+                                                            <polygon
+                                                                points="50,10 40,10 10,26 10,32 46,32 10,50 20,50 50,36 50,28 14,28"
+                                                                estado="6" value="10" class="implante" />
+                                                            <polygon points="10,10 50,10 40,20 20,20" estado="0"
+                                                                value="1" class="diente" />
+                                                            <polygon points="50,10 50,50 40,40 40,20" estado="0"
+                                                                value="2" class="diente" />
+                                                            <polygon points="50,50 10,50 20,40 40,40" estado="0"
+                                                                value="3" class="diente" />
+                                                            <polygon points="10,50 20,40 20,20 10,10" estado="0"
+                                                                value="4" class="diente" />
+                                                            <polygon points="20,20 40,20 40,40 20,40" estado="0"
+                                                                value="5" class="diente" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="fila">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-48.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-47.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-46.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-45.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-44.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-43.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-42.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-41.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-31.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-32.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-33.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-34.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-35.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-36.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-37.png') ?>"
+                                                            width="40" height="100">
+                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-38.png') ?>"
+                                                            width="40" height="100">
+                                                    </div>
+                                                </center>
+                                            </div>
                                         </section>
                                         <section id="opciones">
-                                        <div class="row">
-                                            <div class="col-lg-2">
-                                                <div class="form-group">
-                                                <div class="card card-primary">
-                                                    <div class="card-header">
-                                                        <h3 class="card-title">Opcion</h3>
+                                            <div class="row">
+                                                <div class="col-lg-2">
+                                                    <div class="form-group">
+                                                        <div class="card card-primary">
+                                                            <div class="card-header">
+                                                                <h3 class="card-title">Opcion</h3>
+                                                            </div>
+                                                            <input type="radio" id="Decidua" name="tipo" value="1"
+                                                                checked />Permanente
+                                                            <input type="radio" id="Niños" name="tipo"
+                                                                value="2" />Decidua
+                                                            <input type="radio" id="Mixta" name="tipo" value="3" />Mixta
+                                                        </div>
                                                     </div>
-                                                    <input type="radio" id="Decidua" name="tipo" value="1"
-                                                        checked />Permanente
-                                                    <input type="radio" id="Niños" name="tipo" value="2" />Decidua
-                                                    <input type="radio" id="Mixta" name="tipo" value="3" />Mixta
                                                 </div>
+                                                <div class="col-lg-10">
+                                                    <div class="form-group">
+                                                        <div class="card card-primary">
+                                                            <div class="card-header">
+                                                                <h3 class="card-title">opciones</h3>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <table border="1" align="center">
+                                                                    <tr>
+                                                                        <th>Amalgama</th>
+                                                                        <th>Caries</th>
+                                                                        <th>Endodoncia</th>
+                                                                        <th>Ausente</th>
+                                                                        <th>Resina</th>
+                                                                        <th>Implante</th>
+                                                                        <th>Sellante</th>
+                                                                        <th>Corona</th>
+                                                                        <th>Normal</th>
+                                                                    </tr>
+                                                                    <td>
+                                                                        <center>
+                                                                            <div class="color" value="1"
+                                                                                style="background-color:red;width:20px;height:20px">
+                                                                            </div>
+                                                                        </center>
+                                                                    </td>
+                                                                    <td>
+                                                                        <center>
+                                                                            <div class="color" value="2"
+                                                                                style="background-color:yellow;width:20px;height:20px">
+                                                                            </div>
+                                                                        </center>
+                                                                    </td>
+                                                                    <td>
+                                                                        <center>
+                                                                            <div class="color" value="3"
+                                                                                style="background-color:orange;width:20px;height:20px">
+                                                                            </div>
+                                                                        </center>
+                                                                    </td>
+                                                                    <td>
+                                                                        <center>
+                                                                            <div class="color" value="4"
+                                                                                style="background-color:tomato;width:20px;height:20px">
+                                                                            </div>
+                                                                        </center>
+                                                                    </td>
+                                                                    <td>
+                                                                        <center>
+                                                                            <div class="color" value="5"
+                                                                                style="background-color:#CC6600;width:20px;height:20px">
+                                                                            </div>
+                                                                        </center>
+                                                                    </td>
+                                                                    <td>
+                                                                        <center>
+                                                                            <div class="color" value="6"
+                                                                                style="background-color:#CC66CC;width:20px;height:20px">
+                                                                            </div>
+                                                                        </center>
+                                                                    </td>
+                                                                    <td>
+                                                                        <center>
+                                                                            <div class="color" value="7"
+                                                                                style="background-color:green;width:20px;height:20px">
+                                                                            </div>
+                                                                        </center>
+                                                                    </td>
+                                                                    <td>
+                                                                        <center>
+                                                                            <div class="color" value="8"
+                                                                                style="background-color:blue;width:20px;height:20px">
+                                                                            </div>
+                                                                        </center>
+                                                                    </td>
+                                                                    <td>
+                                                                        <center>
+                                                                            <div class="color" value="9"
+                                                                                style="background-color:black;width:20px;height:20px">
+                                                                            </div>
+                                                                        </center>
+                                                                    </td>
+                                                                    <tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-10">
-                                                <div class="form-group">
-                                                <div class="card card-primary">
-                                                    <div class="card-header">
-                                                        <h3 class="card-title">opciones</h3>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <table border="1" align="center">
-                                                            <tr>
-                                                                <th>Amalgama</th>
-                                                                <th>Caries</th>
-                                                                <th>Endodoncia</th>
-                                                                <th>Ausente</th>
-                                                                <th>Resina</th>
-                                                                <th>Implante</th>
-                                                                <th>Sellante</th>
-                                                                <th>Corona</th>
-                                                                <th>Normal</th>
-                                                            </tr>
-                                                            <td>
-                                                                <center>
-                                                                    <div class="color" value="1"
-                                                                        style="background-color:red;width:20px;height:20px">
-                                                                    </div>
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <div class="color" value="2"
-                                                                        style="background-color:yellow;width:20px;height:20px">
-                                                                    </div>
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <div class="color" value="3"
-                                                                        style="background-color:orange;width:20px;height:20px">
-                                                                    </div>
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <div class="color" value="4"
-                                                                        style="background-color:tomato;width:20px;height:20px">
-                                                                    </div>
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <div class="color" value="5"
-                                                                        style="background-color:#CC6600;width:20px;height:20px">
-                                                                    </div>
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <div class="color" value="6"
-                                                                        style="background-color:#CC66CC;width:20px;height:20px">
-                                                                    </div>
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <div class="color" value="7"
-                                                                        style="background-color:green;width:20px;height:20px">
-                                                                    </div>
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <div class="color" value="8"
-                                                                        style="background-color:blue;width:20px;height:20px">
-                                                                    </div>
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <div class="color" value="9"
-                                                                        style="background-color:black;width:20px;height:20px">
-                                                                    </div>
-                                                                </center>
-                                                            </td>
-                                                            <tr>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         </section>
                                     </div>
                                     <div class="form-group row text-right">
                                         <div class="offset-sm-2 col-sm-10">
-                                            <button type="submit" class="btn btn-danger"
+                                            <button type="submit" class="btn btn-info"
                                                 id="guardar-odontograma">Guardar</button>
                                         </div>
                                     </div>
@@ -1137,35 +1210,39 @@
             <!-- /.col -->
             <div class="col-md-3">
                 <form id="frm_perfil">
-                <div class="card card-primary card-outline">
-                    <div class="card-body box-profile">
-                        <div class="text-center">
-                            <img class="profile-user-img img-fluid img-circle" id="perfil_foto"
-                                src="<?= base_url('img/users/default/default.png'); ?>" alt="User profile picture" />
-                        </div>
-                        <h3 id="perfil_nombre_completo" class="profile-username text-center"></h3>
-                        <p id="perfil_grupo" class="text-muted text-center"></p>
-                        <ul class="list-group list-group-unbordered mb-3">
-                            <li class="list-group-item">
-                                <b>Nacimiento</b> <a id="perfil_nacimiento" class="float-right"></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <input type="hidden" name="id_persona5" id="id_persona5">
-                    <input type="hidden" name="id_perfil" id="id_perfil">
-                </div>
-                <div class="card card-primary">
+                    <div class="card card-primary ">
                     <div class="card-header">
-                        <h3 class="card-title">Acerca de mi</h3>
+                            <h3 class="card-title">Perfil del paciente</h3>
+                        </div>
+                        <div class="card-body box-profile">
+                            <div class="text-center">
+                                <img class="profile-user-img img-fluid img-circle" id="perfil_foto"
+                                    src="<?= base_url('img/users/default/persona1.png'); ?>"
+                                    alt="User profile picture" />
+                            </div>
+                            <h3 id="perfil_nombre_completo" class="profile-username text-center"></h3>
+                            <p id="perfil_grupo" class="text-muted text-center"></p>
+                            <ul class="list-group list-group-unbordered mb-3">
+                                <li class="list-group-item">
+                                    <b>Nacimiento</b> <a id="perfil_nacimiento" class="float-right"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <input type="hidden" name="id_persona5" id="id_persona5">
+                        <input type="hidden" name="id_perfil" id="id_perfil">
                     </div>
-                    <div class="card-body">
-                        <strong><i class="fa fa-phone" aria-hidden="true"></i> Celular</strong>
-                        <p id="perfil_celular" class="text-muted"></p>
-                        <hr>
-                        <strong><i class="fas fa-map-marker-alt mr-1"></i> Domicilio</strong>
-                        <p id="perfil_domicilio" class="text-muted"></p>
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Acerca del paciente</h3>
+                        </div>
+                        <div class="card-body">
+                            <strong><i class="fa fa-phone" aria-hidden="true"></i> Celular</strong>
+                            <p id="perfil_celular" class="text-muted"></p>
+                            <hr>
+                            <strong><i class="fas fa-map-marker-alt mr-1"></i> Domicilio</strong>
+                            <p id="perfil_domicilio" class="text-muted"></p>
+                        </div>
                     </div>
-                </div>
                 </form>
             </div>
         </div>

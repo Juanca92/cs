@@ -332,6 +332,8 @@ INSERT INTO sanpedro.sp_pieza_dental (numero_pieza_dental) VALUES(	52	);
 
 --cambios del 2 al 13 dde junioo--
 
+ALTER TABLE `sp_persona` DROP `foto`;--campo foto borrado--
+
 -- Vista de Paciente y Persona alterada--
 CREATE OR REPLACE VIEW `sp_view_paciente`  AS  
 select p.id_persona, CONCAT(p.ci, ' ' ,p.expedido) AS ci_exp, 
@@ -348,3 +350,5 @@ CONCAT(p.nombres, ' ', p.paterno,' ', p.materno) AS nombre_completo, p.telefono_
 p.domicilio,o.turno, o.gestion_ingreso, p.estatus, p.estado, p.creado_en
 from sp_persona p join sp_odontologo o
 on p.id_persona = o.id_odontologo;
+
+
