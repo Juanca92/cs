@@ -6,7 +6,7 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return $this->templater->view("home/index");
+		return $this->templater->view("home/index", $this->data);
 	}
 	public function reporteCitas()
 	{

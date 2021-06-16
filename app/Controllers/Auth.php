@@ -30,7 +30,7 @@ class Auth extends Controller
 	public function login()
 	{
 		if (authenticated()) {
-			return redirect()->to(base_url('/'));
+			return redirect()->to(base_url('/home'));
 		} else {
 			echo view('login');
 		}
@@ -51,6 +51,7 @@ class Auth extends Controller
 			# Agregamos una sesion al navegador
 			$this->session->set(['id_persona' => $userSearched[0]['id_persona']]);
 			$this->session->set(['nombre_grupo' => $userSearched[0]['nombre_grupo']]);
+
 			$_SESSION['id_persona'] = $userSearched[0]['id_persona'];
 			$_SESSION['nombres'] = $userSearched[0]['nombres'];
 			$_SESSION['paterno'] = $userSearched[0]['paterno'];
@@ -72,7 +73,7 @@ class Auth extends Controller
 	public function access()
 	{
 		$this->session->set(['nombre_grupo' => $this->request->getPost('nombre_grupo')]);
-		return redirect()->to(base_url('/'));
+		return redirect()->to(base_url('/home'));
 	}
 
 	// funcion para cerrar sesion
@@ -81,4 +82,4 @@ class Auth extends Controller
 		$this->session->destroy();
 		return redirect()->to(base_url('/'));
 	}
-}// class
+}

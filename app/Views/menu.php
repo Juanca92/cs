@@ -8,7 +8,8 @@
                 <a href="#" class="icon-circle" data-toggle="tooltip" title="Configuracion">
                     <i class="fa fa-cog"></i>
                 </a>
-                <a href="<?= base_url('/perfil'); ?>" class="icon-circle menu--link" data-toggle="tooltip" title="Editar Perfil">
+                <a href="<?= base_url('/perfil'); ?>" class="icon-circle menu--link" data-toggle="tooltip"
+                    title="Editar Perfil">
                     <i class="fa fa-user-edit"></i>
                 </a>
                 <a href="<?= base_url('auth/logout'); ?>" class="icon-circle" data-toggle="tooltip" title="Salir">
@@ -35,12 +36,14 @@
         </li>
 
         <!-- Menu Paciente -->
+        <?php if (is(['PACIENTE'])) : ?>
         <li class="nav-item">
             <a href="<?= base_url('/paciente'); ?>" class="nav-link menu--link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>Pacientes</p>
             </a>
         </li>
+        <?php endif ?>
 
         <!-- Menu Odontologos -->
         <li class="nav-item has-treeview">
@@ -144,16 +147,15 @@
                         <p>Usuarios</p>
                     </a>
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="<?= base_url('/respaldo'); ?>" class="nav-link menu--link">
+                        <i class="fas fa-arrow-alt-circle-down"></i>
+                        <p>
+                            respaldo
+                        </p>
+                    </a>
+                </li>
             </ul>
-        </li>
-        <!-- Menu de respaldo  -->
-        <li class="nav-item has-treeview">
-            <a href="<?= base_url('/respaldo'); ?>" class="nav-link menu--link">
-            <i class="fas fa-arrow-alt-circle-down"></i>
-                <p>
-                    respaldo
-                </p>
-            </a>
         </li>
     </ul>
 </nav>

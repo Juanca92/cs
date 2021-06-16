@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '952297a982100b4d56650df9d9db6c83c9093006',
+    'reference' => 'a695751649b744a7c69d56914a488150aed4a629',
     'name' => 'codeigniter4/framework',
   ),
   'versions' => 
@@ -27,7 +27,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '952297a982100b4d56650df9d9db6c83c9093006',
+      'reference' => 'a695751649b744a7c69d56914a488150aed4a629',
     ),
     'doctrine/instantiator' => 
     array (
@@ -383,6 +383,15 @@
       array (
       ),
       'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
+    ),
+    'setasign/fpdf' => 
+    array (
+      'pretty_version' => '1.8.3',
+      'version' => '1.8.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6a83253ece0df1c5b6c05fe7a900c660ae38afc3',
     ),
     'squizlabs/php_codesniffer' => 
     array (
