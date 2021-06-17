@@ -8,8 +8,7 @@
                 <a href="#" class="icon-circle" data-toggle="tooltip" title="Configuracion">
                     <i class="fa fa-cog"></i>
                 </a>
-                <a href="<?= base_url('/perfil'); ?>" class="icon-circle menu--link" data-toggle="tooltip"
-                    title="Editar Perfil">
+                <a href="<?= base_url('/perfil'); ?>" class="icon-circle menu--link" data-toggle="tooltip" title="Editar Perfil">
                     <i class="fa fa-user-edit"></i>
                 </a>
                 <a href="<?= base_url('auth/logout'); ?>" class="icon-circle" data-toggle="tooltip" title="Salir">
@@ -36,127 +35,137 @@
         </li>
 
         <!-- Menu Paciente -->
-        <?php if (is(['PACIENTE'])) : ?>
-        <li class="nav-item">
-            <a href="<?= base_url('/paciente'); ?>" class="nav-link menu--link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>Pacientes</p>
-            </a>
-        </li>
+        <?php if (is(['ADMINISTRADOR', 'ODONTOLOGO'])) : ?>
+            <li class="nav-item">
+                <a href="<?= base_url('/paciente'); ?>" class="nav-link menu--link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>Pacientes</p>
+                </a>
+            </li>
         <?php endif ?>
 
-        <!-- Menu Odontologos -->
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-user"></i>
-                <p>
-                    Odont&oacute;logos
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="<?= base_url('/odontologo'); ?>" class="nav-link menu--link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Odont&oacute;logo</p>
-                    </a>
-                </li>
+        <?php if (is(['ADMINISTRADOR', 'ODONTOLOGO'])) : ?>
+            <!-- Menu Odontologos -->
+            <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-user"></i>
+                    <p>
+                        Odont&oacute;logos
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="<?= base_url('/odontologo'); ?>" class="nav-link menu--link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Odont&oacute;logo</p>
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a href="<?= base_url('/historialOdontologo'); ?>" class="nav-link menu--link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p> Historial Odont&oacute;logo</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/historialOdontologo'); ?>" class="nav-link menu--link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p> Historial Odont&oacute;logo</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        <?php endif ?>
 
         <!-- Menu Cita Medica -->
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-calendar-plus"></i>
-                <p>
-                    Citas M&eacute;dicas
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="<?= base_url('/cita'); ?>" class="nav-link menu--link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Cita M&eacute;dica</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('/gestionarCita'); ?>" class="nav-link menu--link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p> Gesti&oacute;n de Citas</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
+        <?php if (is(['ADMINISTRADOR', 'ODONTOLOGO'])) : ?>
+            <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-calendar-plus"></i>
+                    <p>
+                        Citas M&eacute;dicas
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="<?= base_url('/cita'); ?>" class="nav-link menu--link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Cita M&eacute;dica</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/gestionarCita'); ?>" class="nav-link menu--link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p> Gesti&oacute;n de Citas</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        <?php endif ?>
 
-        <!-- Menu Tratamiento -->
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-tooth"></i>
-                <p>
-                    Tratamiento
-                    <i class="fas fa-angle-left right"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="<?= base_url('/tratamiento'); ?>" class="nav-link menu--link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Ver Pacientes</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
+        <?php if (is(['ADMINISTRADOR', 'ODONTOLOGO', 'PACIENTE'])) : ?>
+            <!-- Menu Tratamiento -->
+            <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-tooth"></i>
+                    <p>
+                        Tratamiento
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="<?= base_url('/tratamiento'); ?>" class="nav-link menu--link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Ver Pacientes</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        <?php endif ?>
 
-        <!-- Menu Agenda  -->
-        <li class="nav-item has-treeview">
-            <a href="<?= base_url('/agenda'); ?>" class="nav-link menu--link">
-                <i class="nav-icon fas fa-edit"></i>
-                <p>
-                    Agenda
-                </p>
-            </a>
-        </li>
+        <?php if (is(['ADMINISTRADOR', 'ODONTOLOGO', 'PACIENTE'])) : ?>
+            <!-- Menu Agenda  -->
+            <li class="nav-item has-treeview">
+                <a href="<?= base_url('/agenda'); ?>" class="nav-link menu--link">
+                    <i class="nav-icon fas fa-edit"></i>
+                    <p>
+                        Agenda
+                    </p>
+                </a>
+            </li>
+        <?php endif ?>
+        <?php if (is(['ADMINISTRADOR'])) : ?>
+            <!-- Menu Configuracion -->
+            <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-user-cog"></i>
+                    <p>
+                        Administraci&oacute;n
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="../tables/simple.html" class="nav-link menu--link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Configuraci&oacute;n</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/usuario'); ?>" class="nav-link menu--link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Usuarios</p>
+                        </a>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="<?= base_url('/respaldo'); ?>" class="nav-link menu--link">
+                            <i class="fas fa-arrow-alt-circle-down"></i>
+                            <p>
+                                respaldo
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        <?php endif ?>
 
-        <!-- Menu Configuracion -->
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-user-cog"></i>
-                <p>
-                    Administraci&oacute;n
-                    <i class="fas fa-angle-left right"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="../tables/simple.html" class="nav-link menu--link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Configuraci&oacute;n</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('/usuario'); ?>" class="nav-link menu--link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Usuarios</p>
-                    </a>
-                </li>
-                <li class="nav-item has-treeview">
-                    <a href="<?= base_url('/respaldo'); ?>" class="nav-link menu--link">
-                        <i class="fas fa-arrow-alt-circle-down"></i>
-                        <p>
-                            respaldo
-                        </p>
-                    </a>
-                </li>
-            </ul>
-        </li>
     </ul>
 </nav>
 <!-- /.sidebar-menu -->
