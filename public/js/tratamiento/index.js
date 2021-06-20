@@ -113,48 +113,38 @@ $(document).ready(function () {
 				// set data enfermedad
 				console.log(response.respuesta2);
 				$('#id_persona').val(response.respuesta1[0]['id_persona']);
-				if( response.respuesta2.length > 0){
-				$('#id_enfermedad').val(response.respuesta2[0]['id_enfermedad']);
-				$('#tiempo_consulta').val(response.respuesta2[0]['tiempo_consulta']);
-				$('#motivo_consulta').val(response.respuesta2[0]['motivo_consulta']);
-				$('#sintomas_principales').val(response.respuesta2[0]['sintomas_principales']);
-				$('input:radio[name="tomando_medicamento"]').filter(`[value="${response.respuesta2[0]
-					['tomando_medicamento']}"]`).attr('checked', true);
-				$('#nombre_medicamento').val(response.respuesta2[0]['nombre_medicamento']);
-				$('#motivo_medicamento').val(response.respuesta2[0]['motivo_medicamento']);
-				$('#dosis_medicamento').val(response.respuesta2[0]['dosis_medicamento']);
-				$('#accion').val('up');
+				if (response.respuesta2.length > 0) {
+					$('#id_enfermedad').val(response.respuesta2[0]['id_enfermedad']);
+					$('#tiempo_consulta').val(response.respuesta2[0]['tiempo_consulta']);
+					$('#motivo_consulta').val(response.respuesta2[0]['motivo_consulta']);
+					$('#sintomas_principales').val(response.respuesta2[0]['sintomas_principales']);
+					$('input:radio[name="tomando_medicamento"]').filter(`[value="${response.respuesta2[0]['tomando_medicamento']}"]`).attr('checked', true);
+					$('#nombre_medicamento').val(response.respuesta2[0]['nombre_medicamento']);
+					$('#motivo_medicamento').val(response.respuesta2[0]['motivo_medicamento']);
+					$('#dosis_medicamento').val(response.respuesta2[0]['dosis_medicamento']);
+					$('#accion').val('up');
 				}
-
-
 
 				// set data consulta de salud
 				console.log(response.respuesta3);
 				$('#id_persona1').val(response.respuesta1[0]['id_persona']);
 				if (response.respuesta3.length > 0) {
 					$('#id_consulta').val(response.respuesta3[0]['id_consulta']);
-					$('input:radio[name="tratamiento"]').filter(`[value="${response.respuesta3[0]
-					['tratamiento']}"]`).attr('checked', true);
+					$('input:radio[name="tratamiento"]').filter(`[value="${response.respuesta3[0]['tratamiento']}"]`).attr('checked', true);
 					$('#motivo_tratamiento').val(response.respuesta3[0]['motivo_tratamiento']);
-					$('input:radio[name="tomando_medicamentos"]').filter(`[value="${response.respuesta3[0]
-					['tomando_medicamentos']}"]`).attr('checked', true);
+					$('input:radio[name="tomando_medicamentos"]').filter(`[value="${response.respuesta3[0]['tomando_medicamentos']}"]`).attr('checked', true);
 					$('#porque_tiempo').val(response.respuesta3[0]['porque_tiempo']);
-					$('input:radio[name="alergico_medicamento"]').filter(`[value="${response.respuesta3[0]
-					['alergico_medicamento']}"]`).attr('checked', true);
+					$('input:radio[name="alergico_medicamento"]').filter(`[value="${response.respuesta3[0]['alergico_medicamento']}"]`).attr('checked', true);
 					$('#cual_medicamento').val(response.respuesta3[0]['cual_medicamento']);
-					$('input:radio[name="alguna_cirugia"]').filter(`[value="${response.respuesta3[0]
-					['alguna_cirugia']}"]`).attr('checked', true);
+					$('input:radio[name="alguna_cirugia"]').filter(`[value="${response.respuesta3[0]['alguna_cirugia']}"]`).attr('checked', true);
 					$('#porque').val(response.respuesta3[0]['porque']);
-					$('input:checkbox[name="alguna_enfermedad[]"]').filter(`[value="${response.respuesta3[0]
-					['alguna_enfermedad[]']}"]`).attr('checked', true);
-					$('input:radio[name="cepilla_diente"]').filter(`[value="${response.respuesta3[0]
-					['cepilla_diente']}"]`).attr('checked', true);
+					$('input:checkbox[name="alguna_enfermedad[]"]').filter(`[value="${response.respuesta3[0]['alguna_enfermedad[]']}"]`).attr('checked', true);
+					$('input:radio[name="cepilla_diente"]').filter(`[value="${response.respuesta3[0]['cepilla_diente']}"]`).attr('checked', true);
 					$('#cuanto_dia').val(response.respuesta3[0]['cuanto_dia']);
 					$('#accion').val('up');
 					alguna_enfermedad = response.respuesta3[0]['alguna_enfermedad'].split(',');
 					$("[name='alguna_enfermedad[]']").each(function (index, value) {
-						if ($.inArray($(value).val(), alguna_enfermedad) !== -1)
-							$(value).attr('checked', true);
+						if ($.inArray($(value).val(), alguna_enfermedad) !== -1) $(value).attr('checked', true);
 					});
 				}
 
@@ -177,9 +167,9 @@ $(document).ready(function () {
 				$(document).ready(function () {
 					// Listado de alergias
 					$('#tbl_tratamiento_alergias').DataTable({
-						"bPaginate": false,
-        				"bFilter": false,
-        				"bInfo": false,
+						bPaginate: false,
+						bFilter: false,
+						bInfo: false,
 						responsive: true,
 						processing: true,
 						serverSide: true,
@@ -286,9 +276,9 @@ $(document).ready(function () {
 				$(document).ready(function () {
 					// Listado de alergias
 					$('#tbl_citas').DataTable({
-						"bPaginate": false,
-        				"bFilter": false,
-        				"bInfo": false,
+						bPaginate: false,
+						bFilter: false,
+						bInfo: false,
 						responsive: true,
 						processing: true,
 						serverSide: true,
@@ -375,27 +365,24 @@ $(document).ready(function () {
 
 				//perfil de los pacientes
 				console.log(response.respuesta6);
-					$('#id_persona5').val(response.respuesta1[0]['id_persona']);
-					if (response.respuesta6.length > 0) {
-				if (response.respuesta6[0]['foto'] != null) {
-					$('#perfil_foto').attr('src', response.respuesta6[0]['foto']);
-				}
-				$('#perfil_nombre_completo').html(response.respuesta6[0]['nombre_completo']);
-				$('#perfil_celular').html(response.respuesta6[0]['telefono_celular']);
-				$('#perfil_domicilio').html(response.respuesta6[0]['domicilio']);
-				$('#perfil_nacimiento').html(response.respuesta6[0]['fecha_nacimiento']);
+				$('#id_persona5').val(response.respuesta1[0]['id_persona']);
+				if (response.respuesta6.length > 0) {
+					if (response.respuesta6[0]['foto'] != null) {
+						$('#perfil_foto').attr('src', response.respuesta6[0]['foto']);
+					}
+					$('#perfil_nombre_completo').html(response.respuesta6[0]['nombre_completo']);
+					$('#perfil_celular').html(response.respuesta6[0]['telefono_celular']);
+					$('#perfil_domicilio').html(response.respuesta6[0]['domicilio']);
+					$('#perfil_nacimiento').html(response.respuesta6[0]['fecha_nacimiento']);
 				}
 			})
 			.fail(function (e) {
 				$('#agregar-paciente').modal('hide');
 			});
 
-
 		$('#content').show();
 		recuperarOdontograma();
 	});
-
-
 
 	// formulario guradar paciente
 	$('#frm_guardar_paciente').on('submit', function (e) {
@@ -436,23 +423,33 @@ $(document).ready(function () {
 	});
 	//odontograma
 	$('#guardar-odontograma').on('click', function () {
-		$.ajax({
-			type: 'post',
-			data: allStorage(),
-			url: '/paciente/guardar_odontograma',
-			dataType: 'json',
-			processData: false,
-			contentType: false,
-			cache: false,
-			async: false,
-		})
-			.done(function (response) {
-				if (typeof response.exito !== 'undefined') mensajeAlert('success', response.exito, 'Exito');
-				else mensajeAlert('error', response.error, 'Error');
-			})
-			.fail(function (e) {
-				mensajeAlert('error', 'Ocurrio un Error al Guardar el Odontograma', 'Error');
+		var imagenOdontograma = null;
+		html2canvas($('#container')[0], {
+			width: 1200,
+			height: 1200,
+			x: -20,
+		}).then((canvas) => {
+			canvas.toBlob(function (blob) {
+				// saveAs(blob, 'Dashboard.png');
 			});
+			$.ajax({
+				type: 'post',
+				data: allStorage(canvas.toDataURL(canvas.toDataURL('image/png'))),
+				url: '/paciente/guardar_odontograma',
+				dataType: 'json',
+				processData: false,
+				contentType: false,
+				cache: false,
+				async: false,
+			})
+				.done(function (response) {
+					if (typeof response.exito !== 'undefined') mensajeAlert('success', response.exito, 'Exito');
+					else mensajeAlert('error', response.error, 'Error');
+				})
+				.fail(function (e) {
+					mensajeAlert('error', 'Ocurrio un Error al Guardar el Odontograma', 'Error');
+				});
+		});
 	});
 
 	function recuperarOdontograma() {
@@ -515,9 +512,10 @@ $(document).ready(function () {
 			});
 		});
 	}
-	function allStorage() {
+	function allStorage(imagenOdontograma) {
 		let s = new FormData();
 		s.append('id_paciente', id_paciente);
+		s.append('imagen_odontograma', imagenOdontograma);
 		var archive = {},
 			keys = Object.keys(localStorage),
 			i = keys.length;
@@ -608,8 +606,4 @@ $(document).ready(function () {
 			});
 	});
 	//formulario de guardar alergias del paciente
-
-
-
-
 }); //fin principio
