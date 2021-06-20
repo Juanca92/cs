@@ -710,7 +710,7 @@
                                         <section id="piezas">
                                             <div ng-controller='dientes' class="container" id='container'>
                                                 <center>
-                                                    <div class="fila">
+                                                    <!-- <div class="fila">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-18.png') ?> " width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-17.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-16.png') ?>" width="32" height="80">
@@ -727,22 +727,25 @@
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-26.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-27.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-28.png') ?>" width="32" height="80">
+                                                    </div> -->
+                                                    <div class="row">
+                                                        <div class="col {{i.tipoDiente}} p-0" data-ng-repeat="i in adultoArriva" style="border: #000 1px dotted;">
+                                                            <img src="{{i.imagenDiente}}" width="32" height="80">
+                                                            <svg height="40" width="40" id="{{i.id}}">
+                                                                <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
+                                                                <polygon points="36,8 40,12 12,40 8,36" estado="4" value="7" class="ausente" />
+                                                                <circle cx="24" cy="24" r="13" estado="8" value="8" class="corona" />
+                                                                <circle cx="24" cy="24" r="16" estado="3" value="9" class="endodoncia" />
+                                                                <polygon points="40,8 32,8 8,21 8,26 37,26 8,40 16,40 40,29 40,22 11,22" estado="6" value="10" class="implante" />
+                                                                <polygon points="8,8 40,8 32,16 16,16" estado="0" value="1" class="diente" />
+                                                                <polygon points="40,8 40,40 32,32 32,16" estado="0" value="2" class="diente" />
+                                                                <polygon points="40,40 8,40 16,32 32,32" estado="0" value="3" class="diente" />
+                                                                <polygon points="8,40 16,32 16,16 8,8" estado="0" value="4" class="diente" />
+                                                                <polygon points="16,16 32,16 32,32 16,32" estado="0" value="5" class="diente" />
+                                                            </svg>
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <svg height="40" class="{{i.tipoDiente}}" width="40" data-ng-repeat="i in adultoArriva" id="{{i.id}}">
-                                                            <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
-                                                            <polygon points="36,8 40,12 12,40 8,36" estado="4" value="7" class="ausente" />
-                                                            <circle cx="24" cy="24" r="13" estado="8" value="8" class="corona" />
-                                                            <circle cx="24" cy="24" r="16" estado="3" value="9" class="endodoncia" />
-                                                            <polygon points="40,8 32,8 8,21 8,26 37,26 8,40 16,40 40,29 40,22 11,22" estado="6" value="10" class="implante" />
-                                                            <polygon points="8,8 40,8 32,16 16,16" estado="0" value="1" class="diente" />
-                                                            <polygon points="40,8 40,40 32,32 32,16" estado="0" value="2" class="diente" />
-                                                            <polygon points="40,40 8,40 16,32 32,32" estado="0" value="3" class="diente" />
-                                                            <polygon points="8,40 16,32 16,16 8,8" estado="0" value="4" class="diente" />
-                                                            <polygon points="16,16 32,16 32,32 16,32" estado="0" value="5" class="diente" />
-                                                        </svg>
-                                                    </div>
-                                                    <div class="fila">
+                                                    <!-- <div class="fila">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-55.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-54.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-53.png') ?>" width="32" height="80">
@@ -753,36 +756,42 @@
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-63.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-64.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-65.png') ?>" width="32" height="80">
+                                                    </div> -->
+                                                    <div>
+                                                        <div class="{{i.tipoDiente}}" data-ng-repeat="i in ninoArriva">
+                                                            <img src="{{i.imagenDiente}}" width="32" height="80">
+                                                            <svg height="40" width="40" id="{{i.id}}">
+                                                                <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
+                                                                <polygon points="36,8 40,12 12,40 8,36" estado="4" value="7" class="ausente" />
+                                                                <circle cx="24" cy="24" r="13" estado="8" value="8" class="corona" />
+                                                                <circle cx="24" cy="24" r="16" estado="3" value="9" class="endodoncia" />
+                                                                <polygon points="40,8 32,8 8,21 8,26 37,26 8,40 16,40 40,29 40,22 11,22" estado="6" value="10" class="implante" />
+                                                                <polygon points="8,8 40,8 32,16 16,16" estado="0" value="1" class="diente" />
+                                                                <polygon points="40,8 40,40 32,32 32,16" estado="0" value="2" class="diente" />
+                                                                <polygon points="40,40 8,40 16,32 32,32" estado="0" value="3" class="diente" />
+                                                                <polygon points="8,40 16,32 16,16 8,8" estado="0" value="4" class="diente" />
+                                                                <polygon points="16,16 32,16 32,32 16,32" estado="0" value="5" class="diente" />
+                                                            </svg>
+                                                        </div>
                                                     </div>
                                                     <div>
-                                                        <svg height="40" class="{{i.tipoDiente}}" width="40" data-ng-repeat="i in ninoArriva" id="{{i.id}}">
-                                                            <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
-                                                            <polygon points="36,8 40,12 12,40 8,36" estado="4" value="7" class="ausente" />
-                                                            <circle cx="24" cy="24" r="13" estado="8" value="8" class="corona" />
-                                                            <circle cx="24" cy="24" r="16" estado="3" value="9" class="endodoncia" />
-                                                            <polygon points="40,8 32,8 8,21 8,26 37,26 8,40 16,40 40,29 40,22 11,22" estado="6" value="10" class="implante" />
-                                                            <polygon points="8,8 40,8 32,16 16,16" estado="0" value="1" class="diente" />
-                                                            <polygon points="40,8 40,40 32,32 32,16" estado="0" value="2" class="diente" />
-                                                            <polygon points="40,40 8,40 16,32 32,32" estado="0" value="3" class="diente" />
-                                                            <polygon points="8,40 16,32 16,16 8,8" estado="0" value="4" class="diente" />
-                                                            <polygon points="16,16 32,16 32,32 16,32" estado="0" value="5" class="diente" />
-                                                        </svg>
+                                                        <div class="{{i.tipoDiente}}" data-ng-repeat="i in ninoAbajo">
+                                                            <svg height="40" width="40" id="{{i.id}}">
+                                                                <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
+                                                                <polygon points="36,8 40,12 12,40 8,36" estado="4" value="7" class="ausente" />
+                                                                <circle cx="24" cy="24" r="13" estado="8" value="8" class="corona" />
+                                                                <circle cx="24" cy="24" r="16" estado="3" value="9" class="endodoncia" />
+                                                                <polygon points="40,8 32,8 8,21 8,26 37,26 8,40 16,40 40,29 40,22 11,22" estado="6" value="10" class="implante" />
+                                                                <polygon points="8,8 40,8 32,16 16,16" estado="0" value="1" class="diente" />
+                                                                <polygon points="40,8 40,40 32,32 32,16" estado="0" value="2" class="diente" />
+                                                                <polygon points="40,40 8,40 16,32 32,32" estado="0" value="3" class="diente" />
+                                                                <polygon points="8,40 16,32 16,16 8,8" estado="0" value="4" class="diente" />
+                                                                <polygon points="16,16 32,16 32,32 16,32" estado="0" value="5" class="diente" />
+                                                            </svg>
+                                                            <img src="{{i.imagenDiente}}" width="32" height="80">
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <svg height="40" class="{{i.tipoDiente}}" width="40" data-ng-repeat="i in ninoAbajo" id="{{i.id}}">
-                                                            <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
-                                                            <polygon points="36,8 40,12 12,40 8,36" estado="4" value="7" class="ausente" />
-                                                            <circle cx="24" cy="24" r="13" estado="8" value="8" class="corona" />
-                                                            <circle cx="24" cy="24" r="16" estado="3" value="9" class="endodoncia" />
-                                                            <polygon points="40,8 32,8 8,21 8,26 37,26 8,40 16,40 40,29 40,22 11,22" estado="6" value="10" class="implante" />
-                                                            <polygon points="8,8 40,8 32,16 16,16" estado="0" value="1" class="diente" />
-                                                            <polygon points="40,8 40,40 32,32 32,16" estado="0" value="2" class="diente" />
-                                                            <polygon points="40,40 8,40 16,32 32,32" estado="0" value="3" class="diente" />
-                                                            <polygon points="8,40 16,32 16,16 8,8" estado="0" value="4" class="diente" />
-                                                            <polygon points="16,16 32,16 32,32 16,32" estado="0" value="5" class="diente" />
-                                                        </svg>
-                                                    </div>
-                                                    <div class="fila">
+                                                    <!-- <div class="fila">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-inf-85.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-inf-84.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-inf-83.png') ?>" width="32" height="80">
@@ -793,22 +802,25 @@
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-inf-73.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-inf-74.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-inf-75.png') ?>" width="32" height="80">
-                                                    </div>
+                                                    </div> -->
                                                     <div>
-                                                        <svg height="40" class="{{i.tipoDiente}}" width="40" data-ng-repeat="i in adultoAbajo" id="{{i.id}}">
-                                                            <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
-                                                            <polygon points="36,8 40,12 12,40 8,36" estado="4" value="7" class="ausente" />
-                                                            <circle cx="24" cy="24" r="13" estado="8" value="8" class="corona" />
-                                                            <circle cx="24" cy="24" r="16" estado="3" value="9" class="endodoncia" />
-                                                            <polygon points="40,8 32,8 8,21 8,26 37,26 8,40 16,40 40,29 40,22 11,22" estado="6" value="10" class="implante" />
-                                                            <polygon points="8,8 40,8 32,16 16,16" estado="0" value="1" class="diente" />
-                                                            <polygon points="40,8 40,40 32,32 32,16" estado="0" value="2" class="diente" />
-                                                            <polygon points="40,40 8,40 16,32 32,32" estado="0" value="3" class="diente" />
-                                                            <polygon points="8,40 16,32 16,16 8,8" estado="0" value="4" class="diente" />
-                                                            <polygon points="16,16 32,16 32,32 16,32" estado="0" value="5" class="diente" />
-                                                        </svg>
+                                                        <div class="{{i.tipoDiente}}" data-ng-repeat="i in adultoAbajo">
+                                                            <svg height="40" width="40" id="{{i.id}}">
+                                                                <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
+                                                                <polygon points="36,8 40,12 12,40 8,36" estado="4" value="7" class="ausente" />
+                                                                <circle cx="24" cy="24" r="13" estado="8" value="8" class="corona" />
+                                                                <circle cx="24" cy="24" r="16" estado="3" value="9" class="endodoncia" />
+                                                                <polygon points="40,8 32,8 8,21 8,26 37,26 8,40 16,40 40,29 40,22 11,22" estado="6" value="10" class="implante" />
+                                                                <polygon points="8,8 40,8 32,16 16,16" estado="0" value="1" class="diente" />
+                                                                <polygon points="40,8 40,40 32,32 32,16" estado="0" value="2" class="diente" />
+                                                                <polygon points="40,40 8,40 16,32 32,32" estado="0" value="3" class="diente" />
+                                                                <polygon points="8,40 16,32 16,16 8,8" estado="0" value="4" class="diente" />
+                                                                <polygon points="16,16 32,16 32,32 16,32" estado="0" value="5" class="diente" />
+                                                            </svg>
+                                                            <img src="{{i.imagenDiente}}" width="32" height="80">
+                                                        </div>
                                                     </div>
-                                                    <div class="fila">
+                                                    <!-- <div class="fila">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-inf-48.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-inf-47.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-inf-46.png') ?>" width="32" height="80">
@@ -825,7 +837,7 @@
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-inf-36.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-inf-37.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-inf-38.png') ?>" width="32" height="80">
-                                                    </div>
+                                                    </div> -->
                                                 </center>
                                             </div>
                                         </section>
