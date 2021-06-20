@@ -20,7 +20,7 @@
   <link rel='stylesheet prefetch' href='<?php echo base_url('css/default-skin.css') ?>'>
 
   <!-- Main structure css file -->
-  <link href="<?php echo base_url('style.css') ?>" rel="stylesheet">
+  <link href="<?php echo base_url('css/style.css') ?>" rel="stylesheet">
 
 <body>
 
@@ -55,12 +55,12 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-              <li class="active"><a href="<?= base_url('/inicio') ?>"><i> Inicio</i></a></li>
-              <li><a href="<?= base_url('/inicio/acercaDelcentro') ?>"> <i>Acerca del centro</i></a></li>
-              <li><a href="<?= base_url('/inicio/nuestrosDoctores') ?>"> <i>Doctores</i> </a></li>
-              <li><a href="<?= base_url('/inicio/servicioOdontologico') ?>"> <i>Servicio-odontologico</i></a></li>
-              <li><a href="<?= base_url('/inicio/contactos') ?>"><i>Contacto</i></a></li>
-              <li><a href="<?= base_url('/auth/login') ?>"><i>Ingresar</i></a></li>
+              <li class="active"><a href="<?= base_url('/inicio') ?>">Inicio</a></li>
+              <li><a href="<?= base_url('/inicio/acercaDelcentro') ?>">Acerca del centro</a></li>
+              <li><a href="<?= base_url('/inicio/nuestrosDoctores') ?>"> Doctores</a></li>
+              <li><a href="<?= base_url('/inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
+              <li><a href="<?= base_url('/inicio/contactos') ?>">Contacto</a></li>
+              <li><a href="<?= base_url('/auth/login') ?>">Ingresar</a></li>
             </ul>
           </div>
           <!--/.nav-collapse -->
@@ -81,7 +81,7 @@
           <img src="images/port1.jpg" alt="">
         </div>
         <div class="slider-text">
-          <h2><i>BIENVENIDOS A:</i> <i>centro de salud San Pedro de Curahuara</i></h2>
+          <h2>BIENVENIDOS A: centro de salud San Pedro de Curahuara</h2>
           <p><strong>Informacion:<br></strong> <span style="">Aqui encontraras los servicios que brinda el centro de salud como tambien el
             consultorio dental</span> </p>
         </div>
@@ -93,7 +93,7 @@
           <img src="images/port3.jpg" alt="">
         </div>
         <div class="slider-text">
-        <h2><i>BIENVENIDOS A:</i> <i>centro de salud San Pedro de Curahuara</i></h2>
+        <h2>BIENVENIDOS A: centro de salud San Pedro de Curahuara</h2>
         <p><strong>Informacion:<br></strong>Se brinda el mejor servicio y la mejor atencion</p>
         </div>
       </div>
@@ -105,7 +105,7 @@
           <img src="images/port4.jpg" alt="">
         </div>
         <div class="slider-text">
-        <h2><i>BIENVENIDOS A:</i> <i>centro de salud San Pedro de Curahuara</i></h2>
+        <h2>BIENVENIDOS A: centro de salud San Pedro de Curahuara</h2>
           <p><strong>Informacion:<br></strong>Siempre al servicio para Tod@s</p>
         </div>
       </div>

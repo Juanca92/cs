@@ -30,5 +30,5 @@ if ($resultado) {
   echo "No se pudo exportar a RAR";
  }
  
- echo "<h4>se exportó existosamente</h4>";
+ echo "<h4>se hizo el backup correctamente</h4>";
 }

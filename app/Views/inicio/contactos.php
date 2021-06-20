@@ -28,7 +28,7 @@
   <link rel='stylesheet prefetch' href='<?php echo base_url('css/default-skin.css') ?>'>
 
   <!-- Main structure css file -->
-  <link href="<?php echo base_url('style.css') ?>" rel="stylesheet">
+  <link href="<?php echo base_url('css/style.css') ?>" rel="stylesheet">
 </head>
 
 <body>
@@ -69,12 +69,12 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-              <li class="active"><a href="<?= base_url('inicio') ?>"><i>Inicio</i></a></li>
-              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>"><i>Acerca del centro</i></a></li>
-              <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>"><i>Doctores</i></a></li>
-              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>"><i>Servicio-odontologico</i></a></li>
-              <li><a href="<?= base_url('inicio/contactos') ?>"><i>Contacto</i></a></li>
-              <li><a href="<?= base_url('auth/login') ?>"><i>Ingresar</i></a></li>
+              <li class="active"><a href="<?= base_url('inicio') ?>">Inicio</a></li>
+              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>">Acerca del centro</a></li>
+              <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>">Doctores</a></li>
+              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
+              <li><a href="<?= base_url('inicio/contactos') ?>">Contacto</a></li>
+              <li><a href="<?= base_url('auth/login') ?>">Ingresar</a></li>
             </ul>
           </div>
           <!--/.nav-collapse -->
@@ -142,33 +142,34 @@
   <!--=========== Start Footer SECTION ================-->
   <footer id="footer">
     <!-- pie de la pagina-->
-    <div class="footer-middle">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="footer-copyright">
-              <strong>
-                Copyright &copy; 2021
-                <a href="/">C.S. San Pedro</a>.
-              </strong>
-
-              Todos los derechos reservados.
-            </div>
+  <div class="footer-middle">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="footer-copyright">
+            <strong>
+              Copyright &copy; 2021
+              <a href="/">C.S. San Pedro</a>.
+            </strong>
+  
+          Todos los derechos reservados.
           </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="footer-social">
-              <div class="float-right d-sm-block color-palette-set">
-                <label id="ahora" style="padding: 2px 6px; border-radius: 6px; 
-              background-color: lightblue; color:navy; font-size:.9rem;" data-toggle="tooltip" data-placement="top" title="<?php echo date('d-m-Y'); ?>">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="footer-social">
+            <div class="float-right d-sm-block color-palette-set">
+              <label id="ahora" style="padding: 2px 6px; border-radius: 6px; 
+              background-color: lightblue; color:navy; font-size:.9rem;"
+                  data-toggle="tooltip" data-placement="top" title="<?php echo date('d-m-Y'); ?>">
                   <i style="color: royalblue;" class="fa fa-clock"></i>
                   <small style="color: royalblue;">10:52:12</small>
-                </label>
-              </div>
-            </div>
+              </label>
+          </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </footer>
   <!--=========== End Footer SECTION ================-->
 

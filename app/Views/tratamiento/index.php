@@ -33,8 +33,7 @@
                                         Personales</a></li>
                             <?php endif; ?>
                             <?php if (is(['ADMINISTRADOR', 'ODONTOLOGO'])) : ?>
-                                <li class="nav-item"><a class="nav-link" href="#exploracion_fisica" data-toggle="tab">Exploracion
-                                        fisica</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#exploracion_fisica" data-toggle="tab">Consulta</a></li>
                             <?php endif; ?>
                             <?php if (is(['ADMINISTRADOR', 'ODONTOLOGO', 'PACIENTE'])) : ?>
                                 <li class="nav-item"><a class="nav-link" href="#odontograma" data-toggle="tab">Odontograma</a>

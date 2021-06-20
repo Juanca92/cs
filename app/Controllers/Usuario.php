@@ -37,16 +37,16 @@ class Usuario extends BaseController
 
             $columns = array(
                 array('db' => 'id_usuario', 'dt'        => 0),
-                array('db' => 'nombres', 'dt'            => 1),
-                array('db' => 'paterno', 'dt'   => 2),
-                array('db' => 'materno', 'dt'              => 3),
-                array('db' => 'ci', 'dt'  => 4),
-                array('db' => 'expedido', 'dt'  => 5),
+                array('db' => 'nombres', 'dt'           => 1),
+                array('db' => 'paterno', 'dt'           => 2),
+                array('db' => 'materno', 'dt'           => 3),
+                array('db' => 'ci', 'dt'                => 4),
+                array('db' => 'expedido', 'dt'          => 5),
                 array('db' => 'telefono_celular', 'dt'  => 6),
-                array('db' => 'foto', 'dt'         => 7),
-                array('db' => 'nombre_grupo', 'dt'         => 8),
+                array('db' => 'foto', 'dt'              => 7),
+                array('db' => 'nombre_grupo', 'dt'      => 8),
                 array('db' => 'usuario', 'dt'           => 9),
-                array('db' => 'id_usuario', 'dt'         => 10)
+                array('db' => 'id_usuario', 'dt'        => 10)
             );
 
             $sql_details = array(
