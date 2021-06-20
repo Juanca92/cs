@@ -28,7 +28,7 @@
   <link href="<?php echo base_url('css/slick.css') ?>" rel="stylesheet">
 
   <!-- Main structure css file -->
-  <link href="<?php echo base_url('style.css') ?>" rel="stylesheet">
+  <link href="<?php echo base_url('css/style.css') ?>" rel="stylesheet">
 
 
 </head>
@@ -66,12 +66,12 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-              <li class="active"><a href="<?= base_url('inicio') ?>"><i>Inicio</i></a></li>
-              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>"><i>Acerca del centro</i></a></li>
-              <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>"><i>Doctores</i></a></li>
-              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>"><i>Servicio-odontologico</i></a></li>
-              <li><a href="<?= base_url('inicio/contactos') ?>"><i>Contacto</i></a></li>
-              <li><a href="<?= base_url('auth/login') ?>"><i>Ingresar</i></a></li>
+              <li class="active"><a href="<?= base_url('inicio') ?>">Inicio</a></li>
+              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>">Acerca del centro</a></li>
+              <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>">Doctores</a></li>
+              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
+              <li><a href="<?= base_url('inicio/contactos') ?>">Contacto</a></li>
+              <li><a href="<?= base_url('auth/login') ?>">Ingresar</a></li>
             </ul>
           </div>
           <!--/.nav-collapse -->
@@ -81,7 +81,7 @@
     <!-- END MENU -->
   </header>
   <!--=========== END HEADER SECTION ================-->
-  <section id="blogArchive">
+  <section id="header_acercadelcentro" class="header_acercadelcentro">
     <div class="row">
       <div class="col-lg-12 col-md-12">
         <div class="blog-breadcrumbs-area">
@@ -108,7 +108,7 @@
           <div class="service-area">
             <!-- Start Service Title -->
             <div class="section-heading">
-              <h2><i>Tratamientos Odontológicas</i></h2>
+              <h2>Tratamientos Odontológicas</h2>
               <div class="line"></div>
             </div>
             <!-- Start Service Content -->

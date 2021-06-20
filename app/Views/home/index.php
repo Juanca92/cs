@@ -24,8 +24,7 @@
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3>3</h3>
-
+                    <h3><?= $odontologo?></h3>
                         <p>Doctores</p>
                     </div>
                     <div class="icon">
@@ -39,7 +38,7 @@
                 <!-- small box -->
                 <div class="small-box bg-primary">
                     <div class="inner">
-                        <h3>30<sup style="font-size: 20px">%</sup></h3>
+                        <h3><?= $paciente?><sup style="font-size: 20px"></sup></h3>
 
                         <p>Pacientes</p>
                     </div>
@@ -54,7 +53,7 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3>20</h3>
+                        <h3><?= $cita_pendiente?></h3>
 
                         <p>Pacientes Pendientes</p>
                     </div>
@@ -70,7 +69,7 @@
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>10</h3>
+                        <h3><?= $cita_atendida?></h3>
 
                         <p>Pacientes atendidos </p>
                     </div>
@@ -89,25 +88,37 @@
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="col-md-6">
                 <div class="card" id="calendario_tabla">
                     <div class="card-body">
                         <!-- /.Contenido de la vista -->
                         <div class="container" id="calendario_citas">
-                            <h1 align="center">Calendario de Citas Medicas</h1>
+                            <h1 align="center">Calendario</h1>
                             <div id="calendar" class="card" style="padding: 0px;">
                             </div>
-
                         </div>
-
                     </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title" align="center">Grafico de anillo</h3>
 
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="donutChart" style="min-height: 400px; height: 400px; max-height: 400px; max-width: 100% align:center;"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- graficos-->
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -130,26 +141,6 @@
                     </div>
                 </div>
 
-            </div>
-        </div>
-        <!-- /.col (LEFT) -->
-        <div class="row">
-            <div class="col-md-12">
-                <!-- DONUT CHART -->
-                <div class="card card-info">
-                    <div class="card-header">
-                        <h3 class="card-title">Grafico de anillo</h3>
-
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100% align:center;"></canvas>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

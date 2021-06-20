@@ -28,16 +28,38 @@
                 <div class="card " id="card_tratamiento">
                     <div class="card-header p-2">
                         <ul class="nav nav-tabs" id="tabs_tratamiento">
-                            <li class="nav-item"><a class="nav-link active" href="#datos_paciente" data-toggle="tab">Datos
+                            <<<<<<< HEAD <li class="nav-item"><a class="nav-link active" href="#datos_paciente" data-toggle="tab">Datos
                                     Personales</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#exploracion_fisica" data-toggle="tab">Exploracion
-                                    fisica</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#odontograma" data-toggle="tab">Odontograma</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="#tratamientos" data-toggle="tab">Tratamientos
-                                    Realizados</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#historia_clinica" data-toggle="tab">Historia
-                                    Clinica</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#exploracion_fisica" data-toggle="tab">Exploracion
+                                        fisica</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#odontograma" data-toggle="tab">Odontograma</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="#tratamientos" data-toggle="tab">Tratamientos
+                                        Realizados</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#historia_clinica" data-toggle="tab">Historia
+                                        Clinica</a></li>
+                                =======
+                                <?php if (is(['ADMINISTRADOR', 'ODONTOLOGO', 'PACIENTE'])) : ?>
+                                    <li class="nav-item"><a class="nav-link active" href="#datos_paciente" data-toggle="tab">Datos
+                                            Personales</a></li>
+                                <?php endif; ?>
+                                <?php if (is(['ADMINISTRADOR', 'ODONTOLOGO'])) : ?>
+                                    <li class="nav-item"><a class="nav-link" href="#exploracion_fisica" data-toggle="tab">Consulta</a></li>
+                                <?php endif; ?>
+                                <?php if (is(['ADMINISTRADOR', 'ODONTOLOGO', 'PACIENTE'])) : ?>
+                                    <li class="nav-item"><a class="nav-link" href="#odontograma" data-toggle="tab">Odontograma</a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (is(['ADMINISTRADOR', 'ODONTOLOGO', 'PACIENTE'])) : ?>
+                                    <li class="nav-item"><a class="nav-link" href="#tratamientos" data-toggle="tab">Tratamientos
+                                            Realizados</a></li>
+                                <?php endif; ?>
+                                <?php if (is(['ADMINISTRADOR', 'ODONTOLOGO'])) : ?>
+                                    <li class="nav-item"><a class="nav-link" href="#historia_clinica" data-toggle="tab">Historia
+                                            Clinica</a></li>
+                                <?php endif; ?>
+
+                                >>>>>>> a2780baef929467032ba1022bfa12b4611e30167
                         </ul>
                     </div>
                     <div class="card-body">
@@ -700,7 +722,7 @@
                                         <section id="piezas">
                                             <div ng-controller='dientes' class="container" id='container'>
                                                 <center>
-                                                    <div class="fila-fluid img-justify">
+                                                    <div class="fila">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-18.png') ?> " width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-17.png') ?>" width="32" height="80">
                                                         <img src="<?php echo base_url('odontograma/images/dentadura-sup-16.png') ?>" width="32" height="80">

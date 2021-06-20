@@ -45,9 +45,7 @@
                                 </tr>
                             </thead>
                         </table>
-
                     </div>
-
                 </div>
             </div>
         </div>
@@ -218,7 +216,6 @@
 
                     <!-- Campos usuario y password -->
                     <div class="row">
-
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="clave">Clave <span class="text-danger">(*)</span>:</label>
@@ -233,12 +230,10 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="panel-footer text-right">
                         <button class="btn btn-default" id="btn-cerrar" data-dismiss="modal" type="button">Cerrar</button>
                         <button type="submit" id="btn-guardar-paciente" class="btn btn-primary"></button>
                     </div>
-
                 </form>
             </div>
         </div>

@@ -42,7 +42,7 @@
                                 <span class="fas fa-user"></span>
                             </div>
                         </div>
-                        <input type="text" class="form-control" autocomplete="off" placeholder="Ingrese usuario" id="username"
+                        <input type="text" class="form-control" autocomplete="off" placeholder="Ejemplo: juan_10907066" id="username"
                             name="username">
                     </div>
                     <div class="input-group mb-3">
@@ -51,7 +51,7 @@
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
-                        <input type="password" class="form-control" autocomplete="off" placeholder="Ingrese su contraseña"
+                        <input type="password" class="form-control" autocomplete="off" placeholder="Ejemplo: 1998-03-10"
                             id="password" name="password">
                     </div>
                     <div class="row">

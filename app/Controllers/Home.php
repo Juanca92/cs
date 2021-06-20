@@ -6,6 +6,10 @@ class Home extends BaseController
 {
 	public function index()
 	{
+		$this->data['odontologo']=count($this->db->table('odontologo')->get()->getResultArray());
+		$this->data['paciente']=count($this->db->table('paciente')->get()->getResultArray());
+		$this->data['cita_pendiente']=count($this->db->table('cita')->getWhere(['estatus' => ['pendiente']])->getResultArray());
+		$this->data['cita_atendida']=count($this->db->table('cita')->getWhere(['estatus' => ['atendida']])->getResultArray());
 		return $this->templater->view("home/index", $this->data);
 	}
 	public function reporteCitas()

@@ -28,11 +28,11 @@ class HistorialOdontologo extends BaseController
     // Listado de citas
     public function ajaxListarCitas()
     {
+        // return var_dump($_REQUEST);
         if ($this->request->isAJAX()) {
             $table = 'sp_view_cita';
             $primaryKey = 'id_cita';
             $where = 'id_odontologo='.$this->request->getGet('id_odontologo');
-
             $columns = array(
                 array('db' => 'id_cita', 'dt'           => 0),
                 array('db' => 'numero_cita', 'dt'       => 1),
