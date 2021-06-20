@@ -713,6 +713,7 @@
                                                     <div class="row">
                                                         <div class="col {{i.tipoDiente}} p-0" data-ng-repeat="i in adultoArriva">
                                                             <img src="{{i.imagenDiente}}" width="32" height="80">
+                                                            <br>
                                                             <svg height="40" width="40" id="{{i.id}}">
                                                                 <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
                                                                 <polygon points="36,8 40,12 12,40 8,36" estado="4" value="7" class="ausente" />
@@ -727,11 +728,12 @@
                                                             </svg>
                                                         </div>
                                                     </div>
-
+                                                    <br>
 
                                                     <div class="row">
                                                         <div class="col {{i.tipoDiente}} p-0" data-ng-repeat="i in ninoArriva">
                                                             <img src="{{i.imagenDiente}}" width="32" height="80">
+                                                            <br>
                                                             <svg height="40" width="40" id="{{i.id}}">
                                                                 <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
                                                                 <polygon points="36,8 40,12 12,40 8,36" estado="4" value="7" class="ausente" />
@@ -746,7 +748,8 @@
                                                             </svg>
                                                         </div>
                                                     </div>
-
+                                                    <br>
+                                                    <br>
                                                     <div class="row">
                                                         <div class="col {{i.tipoDiente}} p-0" data-ng-repeat="i in ninoAbajo">
                                                             <svg height="40" width="40" id="{{i.id}}">
@@ -761,9 +764,11 @@
                                                                 <polygon points="8,40 16,32 16,16 8,8" estado="0" value="4" class="diente" />
                                                                 <polygon points="16,16 32,16 32,32 16,32" estado="0" value="5" class="diente" />
                                                             </svg>
+                                                            <br>
                                                             <img src="{{i.imagenDiente}}" width="32" height="80">
                                                         </div>
                                                     </div>
+                                                    <br>
                                                     <div class="row">
                                                         <div class="col {{i.tipoDiente}} p-0" data-ng-repeat="i in adultoAbajo">
                                                             <svg height="40" width="40" id="{{i.id}}">
@@ -778,6 +783,7 @@
                                                                 <polygon points="8,40 16,32 16,16 8,8" estado="0" value="4" class="diente" />
                                                                 <polygon points="16,16 32,16 32,32 16,32" estado="0" value="5" class="diente" />
                                                             </svg>
+                                                            <br>
                                                             <img src="{{i.imagenDiente}}" width="32" height="80">
                                                         </div>
                                                     </div>
@@ -787,26 +793,33 @@
                                         </section>
                                         <section id="opciones">
                                             <div class="row">
-                                                <div class="col-lg-2">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="card card-primary">
                                                             <div class="card-header">
                                                                 <h3 class="card-title">Opcion</h3>
                                                             </div>
-                                                            <input type="radio" id="Decidua" name="tipo" value="1" checked />Permanente
-                                                            <input type="radio" id="Niños" name="tipo" value="2" />Decidua
-                                                            <input type="radio" id="Mixta" name="tipo" value="3" />Mixta
+                                                            <div class="card-body small">
+                                                                <input type="radio" id="Decidua" name="tipo" value="1" checked />
+                                                                <label for="Decidua">Permanentes</label>
+                                                                <br>
+                                                                <input type="radio" id="Niños" name="tipo" value="2" />
+                                                                <label for="Niños">Decidua</label>
+                                                                <br>
+                                                                <input type="radio" id="Mixta" name="tipo" value="3" />
+                                                                <label for="Mixta">Mixta</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-10">
+                                                <div class="col-md-9">
                                                     <div class="form-group">
                                                         <div class="card card-primary">
                                                             <div class="card-header">
-                                                                <h3 class="card-title">opciones</h3>
+                                                                <h3 class="card-title">Opciones</h3>
                                                             </div>
-                                                            <div class="card-body">
-                                                                <table border="1" align="center">
+                                                            <div class="card-body small">
+                                                                <table border="1">
                                                                     <tr>
                                                                         <th>Amalgama</th>
                                                                         <th>Caries</th>
