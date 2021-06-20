@@ -710,26 +710,8 @@
                                         <section id="piezas">
                                             <div ng-controller='dientes' class="container" id='container'>
                                                 <center>
-                                                    <!-- <div class="fila">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-18.png') ?> " width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-17.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-16.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-15.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-14.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-13.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-12.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-11.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-21.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-22.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-23.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-24.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-25.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-26.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-27.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-28.png') ?>" width="32" height="80">
-                                                    </div> -->
                                                     <div class="row">
-                                                        <div class="col {{i.tipoDiente}} p-0" data-ng-repeat="i in adultoArriva" style="border: #000 1px dotted;">
+                                                        <div class="col {{i.tipoDiente}} p-0" data-ng-repeat="i in adultoArriva">
                                                             <img src="{{i.imagenDiente}}" width="32" height="80">
                                                             <svg height="40" width="40" id="{{i.id}}">
                                                                 <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
@@ -745,20 +727,10 @@
                                                             </svg>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="fila">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-55.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-54.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-53.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-52.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-51.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-61.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-62.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-63.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-64.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-sup-65.png') ?>" width="32" height="80">
-                                                    </div> -->
-                                                    <div>
-                                                        <div class="{{i.tipoDiente}}" data-ng-repeat="i in ninoArriva">
+
+
+                                                    <div class="row">
+                                                        <div class="col {{i.tipoDiente}} p-0" data-ng-repeat="i in ninoArriva">
                                                             <img src="{{i.imagenDiente}}" width="32" height="80">
                                                             <svg height="40" width="40" id="{{i.id}}">
                                                                 <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
@@ -774,8 +746,9 @@
                                                             </svg>
                                                         </div>
                                                     </div>
-                                                    <div>
-                                                        <div class="{{i.tipoDiente}}" data-ng-repeat="i in ninoAbajo">
+
+                                                    <div class="row">
+                                                        <div class="col {{i.tipoDiente}} p-0" data-ng-repeat="i in ninoAbajo">
                                                             <svg height="40" width="40" id="{{i.id}}">
                                                                 <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
                                                                 <polygon points="36,8 40,12 12,40 8,36" estado="4" value="7" class="ausente" />
@@ -791,20 +764,8 @@
                                                             <img src="{{i.imagenDiente}}" width="32" height="80">
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="fila">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-85.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-84.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-83.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-82.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-81.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-71.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-72.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-73.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-74.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-75.png') ?>" width="32" height="80">
-                                                    </div> -->
-                                                    <div>
-                                                        <div class="{{i.tipoDiente}}" data-ng-repeat="i in adultoAbajo">
+                                                    <div class="row">
+                                                        <div class="col {{i.tipoDiente}} p-0" data-ng-repeat="i in adultoAbajo">
                                                             <svg height="40" width="40" id="{{i.id}}">
                                                                 <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
                                                                 <polygon points="36,8 40,12 12,40 8,36" estado="4" value="7" class="ausente" />
@@ -820,24 +781,7 @@
                                                             <img src="{{i.imagenDiente}}" width="32" height="80">
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="fila">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-48.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-47.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-46.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-45.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-44.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-43.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-42.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-41.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-31.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-32.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-33.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-34.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-35.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-36.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-37.png') ?>" width="32" height="80">
-                                                        <img src="<?php echo base_url('odontograma/images/dentadura-inf-38.png') ?>" width="32" height="80">
-                                                    </div> -->
+
                                                 </center>
                                             </div>
                                         </section>
