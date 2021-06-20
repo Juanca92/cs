@@ -64,7 +64,17 @@ app.controller('dientes', [
 		}
 		$scope.adultoAbajo = adultoAbajo;
 
-		imagenNinoArriba = ['/odontograma/images/dentadura-sup-55.png', '/odontograma/images/dentadura-sup-54.png', '/odontograma/images/dentadura-sup-53.png', '/odontograma/images/dentadura-sup-52.png', '/odontograma/images/dentadura-sup-51.png', '/odontograma/images/dentadura-sup-61.png', '/odontograma/images/dentadura-sup-62.png', '/odontograma/images/dentadura-sup-63.png', '/odontograma/images/dentadura-sup-64.png', '/odontograma/images/dentadura-sup-65.png'];
+		imagenNinoArriba = [
+		 '/odontograma/images/dentadura-sup-55.png',
+		 '/odontograma/images/dentadura-sup-54.png',
+		 '/odontograma/images/dentadura-sup-53.png', 
+		 '/odontograma/images/dentadura-sup-52.png', 
+		 '/odontograma/images/dentadura-sup-51.png', 
+		 '/odontograma/images/dentadura-sup-61.png', 
+		 '/odontograma/images/dentadura-sup-62.png', 
+		 '/odontograma/images/dentadura-sup-63.png', 
+		 '/odontograma/images/dentadura-sup-64.png', 
+		 '/odontograma/images/dentadura-sup-65.png'];
 		j = 0;
 		var ninoArriva = [];
 		for (var i = 33; i < 43; i++) {
@@ -73,11 +83,21 @@ app.controller('dientes', [
 		}
 		$scope.ninoArriva = ninoArriva;
 
-		imagenNinoAbajo = ['/odontograma/images/dentadura-inf-85.png', '/odontograma/images/dentadura-inf-84.png', '/odontograma/images/dentadura-inf-83.png', '/odontograma/images/dentadura-inf-82.png', '/odontograma/images/dentadura-inf-81.png', '/odontograma/images/dentadura-inf-71.png', '/odontograma/images/dentadura-inf-72.png', '/odontograma/images/dentadura-inf-73.png', '/odontograma/images/dentadura-inf-74.png', '/odontograma/images/dentadura-inf-75.png'];
+		imagenNinoAbajo = [
+			'/odontograma/images/dentadura-inf-85.png', 
+			'/odontograma/images/dentadura-inf-84.png', 
+			'/odontograma/images/dentadura-inf-83.png', 
+			'/odontograma/images/dentadura-inf-82.png', 
+			'/odontograma/images/dentadura-inf-81.png', 
+			'/odontograma/images/dentadura-inf-71.png', 
+			'/odontograma/images/dentadura-inf-72.png', 
+			'/odontograma/images/dentadura-inf-73.png', 
+			'/odontograma/images/dentadura-inf-74.png', 
+			'/odontograma/images/dentadura-inf-75.png'];
 		j = 0;
 		var ninoAbajo = [];
 		for (var i = 43; i < 53; i++) {
-			jsonArmado = { id: i, tipoDiente: 'nino', imagenDiente: `${window.location.origin}${imagenNinoArriba[j++]}` };
+			jsonArmado = { id: i, tipoDiente: 'nino', imagenDiente: `${window.location.origin}${imagenNinoAbajo[j++]}` };
 			ninoAbajo.push(jsonArmado);
 		}
 		$scope.ninoAbajo = ninoAbajo;
