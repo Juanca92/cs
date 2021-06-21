@@ -203,4 +203,28 @@ $(document).ready(function () {
 		yearRange: '-100:+0',
 		dateFormat: 'yy-mm-dd',
 	});
+
+	// Imprimir Odontologos
+	$("#imprimir_odontologo").on("click", function(e){
+		$.post(
+			"/odontologo/imprimir",
+			{},
+			function (resp) {
+				if (typeof resp.error != "undefined") {
+					Swal.fire("Error!", resp.error, "error");
+				} else {
+					$("#modal-body-odontologo").children().remove();
+					$("#modal-body-odontologo").html(
+						'<embed src="data:application/pdf;base64,' +
+						resp +
+						'#toolbar=1&navpanes=1&scrollbar=1&zoom=67,100,100" type="application/pdf" width="100%" height="600px" style="border: none;"/>'
+					);
+					$("#modal_imprimir_odontologo").modal({
+						backdrop: "static",
+						keyboard: true,
+					});
+				}
+			}
+		);
+	});
 });

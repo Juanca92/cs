@@ -4,17 +4,20 @@ namespace App\Controllers;
 
 use App\Libraries\Ssp;
 use App\Models\OdontologoModel;
+use App\Controllers\Reportes\ImprimirOdontologo;
 
 class Odontologo extends BaseController
 {
     public $model = null;
     public $fecha = null;
+    public $reporte;
 
     public function __construct()
     {
         parent::__construct();
         $this->model = new OdontologoModel();
         $this->fecha = new \DateTime();
+        $this->reporte = new ImprimirOdontologo();
     }
 
     public function index()
@@ -403,5 +406,14 @@ class Odontologo extends BaseController
                 )));
             }
         }
+    }
+
+    public function imprimir()
+    {
+        $data = null;
+        $this->response->setContentType('application/pdf');
+        $data = $this->model->list_odontologo();
+        $this->reporte->imprimir($data);
+
     }
 }
