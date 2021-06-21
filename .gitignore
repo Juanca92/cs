@@ -131,3 +131,4 @@ nb-configuration.xml
 /.php-cs-fixer.php
 
 public/odontograma/images/odontograma_paciente/
+public/img/users/
