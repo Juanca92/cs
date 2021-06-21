@@ -893,11 +893,13 @@
                                             </div>
                                         </section>
                                     </div>
-                                    <div class="form-group row text-right">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <button type="submit" class="btn btn-info" id="guardar-odontograma">Guardar</button>
+                                    <?php if (is(['ODONTOLOGO', 'ADMINISTRADOR'])) : ?>
+                                        <div class="form-group row text-right">
+                                            <div class="offset-sm-2 col-sm-10">
+                                                <button type="submit" class="btn btn-info" id="guardar-odontograma">Guardar</button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    <?php endif ?>
                                 </div>
                             </div>
                             <!--Tratamientos realizados-->
