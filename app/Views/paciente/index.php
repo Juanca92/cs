@@ -28,6 +28,10 @@
                                 <i class="fa fa-plus"></i>
                                 Agregar
                             </button>
+                            <button class="btn btn-info btn-sm" id="imprimir_pacientes">
+                                <i class="fa fa-print"></i>
+                                Imprimir
+                            </button>
                         </h3>
                     </div>
                     <div class="card-body">
@@ -281,4 +285,20 @@
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modal_imprimir_paciente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">Imprimir Listado de Pacientes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body-paciente">
+
+            </div>
+        </div>
+    </div>
 </div>

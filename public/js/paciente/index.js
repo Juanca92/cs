@@ -231,9 +231,6 @@ $(document).ready(function () {
 	});
 
 
-
-
-
 	// Cargando la foto subida
 	$('#foto').change(function () {
 		var imagen = this.files[0];
@@ -254,4 +251,28 @@ $(document).ready(function () {
 			});
 		}
 	});
+
+	// Imprimir Pacientes
+	$("#imprimir_pacientes").on("click", function(e){
+		$.post(
+			"/paciente/imprimir",
+			{},
+			function (resp) {
+				if (typeof resp.error != "undefined") {
+					Swal.fire("Error!", resp.error, "error");
+				} else {
+					$("#modal-body-paciente").children().remove();
+					$("#modal-body-paciente").html(
+						'<embed src="data:application/pdf;base64,' +
+							resp +
+							'#toolbar=1&navpanes=1&scrollbar=1&zoom=67,100,100" type="application/pdf" width="100%" height="600px" style="border: none;"/>'
+					);
+					$("#modal_imprimir_paciente").modal({
+						backdrop: "static",
+						keyboard: true,
+					});
+				}
+			}
+		);
+	})
 });

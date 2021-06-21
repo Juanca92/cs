@@ -4,17 +4,20 @@ namespace App\Controllers;
 
 use App\Libraries\Ssp;
 use App\Models\PacienteModel;
+use App\Controllers\Reportes\ImprimirPaciente;
 
 class Paciente extends BaseController
 {
     public $model = null;
     public $fecha = null;
+    public $reporte;
 
     public function __construct()
     {
         parent::__construct();
         $this->model = new PacienteModel();
         $this->fecha = new \DateTime();
+        $this->reporte = new ImprimirPaciente();
     }
 
 
@@ -548,5 +551,15 @@ class Paciente extends BaseController
 
             return $this->response->setJSON(json_encode(SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $where)));
         }
+    }
+
+    // Imprimir Pacientes
+    public function imprimir()
+    {
+        $data = null;
+        $this->response->setContentType('application/pdf');
+        $data = $this->model->list_paciente();
+        $this->reporte->imprimir($data);
+
     }
 }
