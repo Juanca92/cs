@@ -85,6 +85,7 @@ phpunit
 # Composer
 #-------------------------
 vendor/
+writable/
 composer.lock
 
 #-------------------------
@@ -128,3 +129,5 @@ nb-configuration.xml
 /.phpunit.*.cache
 
 /.php-cs-fixer.php
+
+public/odontograma/images/odontograma_paciente/
