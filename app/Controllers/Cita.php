@@ -4,17 +4,20 @@ namespace App\Controllers;
 
 use App\Libraries\Ssp;
 use App\Models\CitaModel;
+use App\Controllers\Reportes\ImprimirCita;
 
 class Cita extends BaseController
 {
     public $model = null;
     public $fecha = null;
+    public $reporte;
 
     public function __construct()
     {
         parent::__construct();
         $this->model = new CitaModel();
         $this->fecha = new \DateTime();
+        $this->reporte = new ImprimirCita();
     }
 
 
@@ -323,14 +326,18 @@ class Cita extends BaseController
         return null;
         // var_dump();
     }
-    /*
-    public function verificar_hora_cita()
+    
+    public function imprimir()
     {
-        $id = $this->request->getPost("id");
-        $respuesta = $this->model->verificar_hora_cita($id);
+        $cantidad = array();
+        $fecha_inicial = $this->request->getPost("fecha_inicial");
+        $fecha_final = $this->request->getPost("fecha_final");
+        $this->response->setContentType('application/pdf');
+        $cantidad[0] = $this->model->count_atendida($fecha_inicial, $fecha_final)[0]['atendida'];
+        $cantidad[1] = $this->model->count_cancelada($fecha_inicial, $fecha_final)[0]['cancelada'];
+        $cantidad[2] = $this->model->count_pendiente($fecha_inicial, $fecha_final)[0]['pendiente'];
+        $data = $this->model->list_citas($fecha_inicial, $fecha_final);
+        $this->reporte->imprimir($data, $fecha_inicial, $fecha_final, $cantidad);
 
-        if(date("Y-m-d", strtotime("fecha"))== new date("Y-m-d", strtotime($fecha)))
-
-
-    }*/
+    }
 }
