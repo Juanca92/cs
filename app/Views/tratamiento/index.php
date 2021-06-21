@@ -942,6 +942,30 @@
                                 </section>
                             </div>
                             <!-- /.tab-pane -->
+
+                            <!--Historia clinica-->
+                            <div class="tab-pane" id="historia_clinica">
+                                <!-- Main content -->
+                                <section class="content">
+                                    <div class="container-fluid">
+                                        <center>
+                                            <button type="button" class="btn btn-default btn-sm mr-auto" id="daterange-btn" >
+                                                <i class="far fa-calendar-alt"></i> <span>Seleccione Rango Fecha</span>
+                                                <i class="fas fa-caret-down"></i>
+                                            </button>
+                                        </center>
+                                        <br>
+                                        <center>
+                                        <button class="btn btn-info btn-sm" id="imprimir_historia_clinica" >
+                                            <i class="fa fa-print"></i>
+                                            Imprimir
+                                            </button>
+                                        </center>
+
+                                    </div>
+                                </section>
+                            </div>
+                            <!-- /.tab-pane -->
                         </div>
                         <!-- /.tab-content -->
                     </div><!-- /.card-body -->
@@ -1021,6 +1045,22 @@
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modal_imprimir_historia_clinica" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">Imprimir Historial Cl&iacute;nico</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body-historia-clinica">
+
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="<?php echo base_url('odontograma/scripts/jquery-odontograma.js') ?>"></script>
