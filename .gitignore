@@ -132,3 +132,4 @@ nb-configuration.xml
 
 public/odontograma/images/odontograma_paciente/
 public/img/users/
+app/Config/Database.php
