@@ -277,6 +277,7 @@ $(document).ready(function () {
 				$('#event-title').text(calEvent.title);
 				$('#event-description').html(calEvent.description);
 				$('#event-start').text(calEvent.start);
+				$('#event-doctor').text(calEvent.doctor);
 				$('#modal-event').modal();
 			},
 			
@@ -332,4 +333,49 @@ $(document).ready(function () {
 		slotEventOverlap: true,
 		events: 'cita/getEvents',
 	});
+
+	let fecha_inicial = "";
+	let fecha_final = "";
+	$('#daterange-btn').daterangepicker(
+		{
+			ranges   : {
+				'Hoy'       : [moment(), moment()],
+				'Ayer'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+				'Los últimos 7 días' : [moment().subtract(6, 'days'), moment()],
+				'Los últimos 30 días': [moment().subtract(29, 'days'), moment()],
+				'Este mes'  : [moment().startOf('month'), moment().endOf('month')],
+				'El mes pasado'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+			},
+			startDate: moment().subtract(29, 'days'),
+			endDate  : moment()
+		},
+		function (start, end) {
+			fecha_inicial = start.format('YYYY-MM-DD');
+			fecha_final = end.format('YYYY-MM-DD');
+			$('#daterange-btn span').html(start.format('YYYY-MM-DD') + ' hasta ' + end.format('YYYY-MM-DD'))
+		}
+	)
+
+	$("#imprimir_citas").on("click", function(e){
+		$.post(
+			"/cita/imprimir",
+			{fecha_inicial, fecha_final},
+			function (resp) {
+				if (typeof resp.error != "undefined") {
+					Swal.fire("Error!", resp.error, "error");
+				} else {
+					$("#modal-body-citas").children().remove();
+					$("#modal-body-citas").html(
+						'<embed src="data:application/pdf;base64,' +
+						resp +
+						'#toolbar=1&navpanes=1&scrollbar=1&zoom=67,100,100" type="application/pdf" width="100%" height="600px" style="border: none;"/>'
+					);
+					$("#modal_imprimir_citas").modal({
+						backdrop: "static",
+						keyboard: true,
+					});
+				}
+			}
+		);
+	})
 }); //fin del principio

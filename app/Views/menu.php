@@ -143,9 +143,9 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="../tables/simple.html" class="nav-link menu--link">
+                        <a href="<?= base_url('/roles'); ?>" class="nav-link menu--link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Configuraci&oacute;n</p>
+                            <p>Roles</p>
                         </a>
                     </li>
                     <li class="nav-item">

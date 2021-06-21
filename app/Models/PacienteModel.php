@@ -211,4 +211,32 @@ class PacienteModel extends Database
         $builder->where('id_persona', $id);
         return $builder->get()->getResultArray();
     }
+    public function editar_accionesDecesivas($id)
+    {
+        $builder = $this->db->table('sp_acciones_decesivas as ad');
+        $builder->select('*');
+        $builder->where('id_acciones_decesivas', $id);
+        return $builder->get()->getResultArray();
+    }
+    public function editar_diagnostico($id)
+    {
+        $builder = $this->db->table('sp_diagnostico as d');
+        $builder->select('*');
+        $builder->where('id_diagnostico', $id);
+        return $builder->get()->getResultArray();
+    }
+    public function editar_medicacion($id)
+    {
+        $builder = $this->db->table('sp_medicacion as m');
+        $builder->select('*');
+        $builder->where('id_medicacion', $id);
+        return $builder->get()->getResultArray();
+    }
+
+    public function list_paciente()
+    {
+        $builder = $this->db->table('sp_view_paciente');
+        $builder->select('*');
+        return $builder->get()->getResultArray();
+    }
 }

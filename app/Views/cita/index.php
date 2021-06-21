@@ -7,7 +7,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
                     <li class="breadcrumb-item active">Citas</li>
                 </ol>
             </div>
@@ -22,7 +22,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">
+                        <h5 class="">
                             Cita
                             <button class="btn btn-success btn-sm" id="agregar_cita">
                                 <i class="fa fa-plus"></i>
@@ -36,7 +36,16 @@
                                 <i class="fa fa-clock"></i>
                                 Horas
                             </button>
-                        </h3>
+                            <button class="btn btn-info btn-sm" id="imprimir_citas" style="float: right; margin-left: 2px;">
+                                <i class="fa fa-print"></i>
+                                Imprimir
+                            </button>
+                            <button type="button" class="btn btn-default btn-sm mr-auto" id="daterange-btn" style="float: right;">
+                                <i class="far fa-calendar-alt"></i> <span>Seleccione Rango Fecha</span>
+                                <i class="fas fa-caret-down"></i>
+                            </button>
+
+                        </h5>
                     </div>
                     <div class="card-body">
                         <!-- /.Contenido de la vista -->
@@ -227,7 +236,7 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-<!--  Modal de registro calendar-->
+<!--  Modal  calendar-->
 <div class="modal fade" id="agenda">
     <div class="modal-dialog modal-xl ">
         <div class="modal-content">
@@ -264,6 +273,8 @@
                 <div id="event-description"></div>
                 <label>hora de cita</label>
                 <div id="event-start"></div>
+                <label>Odontologo a atender</label>
+                <div id="event-doctor"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -290,6 +301,22 @@
                     <div id="calendar_hora" class="card" style="margin: 0px;">
                     </div>
                 </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_imprimir_citas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">Imprimir Listado de Citas M&eacute;dicas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body-citas">
 
             </div>
         </div>

@@ -70,9 +70,9 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
               <li class="active"><a href="<?= base_url('inicio') ?>">Inicio</a></li>
-              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>">Acerca del centro</a></li>
+              <li><a href="<?= base_url('inicio/acercaDelcentro') ?>">Acerca-del-centro-de-salud</a></li>
               <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>">Doctores</a></li>
-              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
+              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>">Servicio-odontológico</a></li>
               <li><a href="<?= base_url('inicio/contactos') ?>">Contacto</a></li>
               <li><a href="<?= base_url('auth/login') ?>">Ingresar</a></li>
             </ul>
@@ -110,28 +110,34 @@
         <div class="col-lg-6 col-md-4">
           <div class="contact-address">
             <div class="section-heading">
-              <h2>Informacion de contacto Odontologico</h2>
+              <h2>Información de contacto Odontológico</h2>
               <div class="line"></div>
             </div>
-            <p>Para mayor informacion consulte a su medico odontologico</p>
+            <p>Para mayor información consulte a su medico odontológico</p>
             <address class="contact-info">
-              <p><span class="fa fa-home"></span>Dr. Wilmer Gamboa</p>
+              <p><span class="fa fa-home"></span>Odontólogo Wilmer Gamboa</p>
               <p><span class="fa fa-phone"></span>77281461</p>
               <p><span class="fa fa-envelope"></span>wilmer@gmail.com</p>
+              <p><span class="fa fa-whatsapp"></span>Contactos por Whatsap: haga clic aqui -><a href="https://wa.me/+59177281461/?" target="_blank">
+              <img src="<?php echo base_url('images/dientes/watsap.png') ?>" alt="whatsApp" width="50" height="50">
+              </a></p> 
             </address>
           </div>
         </div>
         <div class="col-lg-6 col-md-4">
           <div class="contact-address">
             <div class="section-heading">
-              <h2>Informacion de contacto medicina General</h2>
+              <h2>Información de contacto medicina General</h2>
               <div class="line"></div>
             </div>
-            <p>Para mayor informacion consulte a su medico en medicina General</p>
+            <p>Para mayor información consulte a su medico en medicina General</p>
             <address class="contact-info">
-              <p><span class="fa fa-home"></span>Dr. German Choque</p>
+              <p><span class="fa fa-home"></span>Médico Cirujano German Choque</p>
               <p><span class="fa fa-phone"></span>74852392</p>
               <p><span class="fa fa-envelope"></span>germanchoque@gmail.com</p>
+              <p><span class="fa fa-whatsapp"></span>Contactos por Whatsapp: haga clic aqui -><a href="https://wa.me/+59174852392/?" target="_blank">
+              <img src="<?php echo base_url('images/dientes/watsap.png') ?>" alt="whatsApp" width="50" height="50">
+              </a></p> 
             </address>
           </div>
         </div>

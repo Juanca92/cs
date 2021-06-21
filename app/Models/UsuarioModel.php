@@ -43,5 +43,12 @@ class UsuarioModel extends Database
         return null;
     }
 
+    public function data_user($id = null)
+    {
+        $builder = $this->db->table("usuario as u");
+        $builder->select('u.usuario, u.id_usuario');
+        $builder->where("u.id_usuario", $id);
+        return $builder->get()->getResult();
+    }
     
 }

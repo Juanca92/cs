@@ -159,4 +159,11 @@ class OdontologoModel extends Database
         $builder->where("gu.id_usuario", $id);
         return $builder->get()->getResultArray();
     }
+
+    public function list_odontologo()
+    {
+        $builder = $this->db->table('sp_view_odontologo');
+        $builder->select('*');
+        return $builder->get()->getResultArray();
+    }
 }
