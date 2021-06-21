@@ -12,7 +12,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
                     <li class="breadcrumb-item active">Tratamientos</li>
                 </ol>
             </div>
@@ -1028,3 +1028,6 @@
 <script src="<?php echo base_url('odontograma/scripts/app.js') ?>"></script>
 
 <script src="<?php echo base_url('odontograma/scripts/controller.js') ?>"></script>
+
+<script src="<?php echo base_url('odontograma/scripts/html2canvas.min.js') ?>"></script>
+<script src="<?php echo base_url('odontograma/scripts/FileSaver.min.js') ?>"></script>

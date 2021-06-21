@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	// Listado de usuarios
-	$('#tbl_usuarios').DataTable({
+	let tbl_usuarios = $('#tbl_usuarios').DataTable({
 		responsive: true,
 		processing: true,
 		serverSide: true,
@@ -103,35 +103,58 @@ $(document).ready(function () {
 	$('#tbl_usuarios').on('click', '.btn_editar_nombre_password', function (e) {
 		let id = $(this).attr('data');
         console.log('edita');
-		// $.ajax({
-		// 	type: 'POST',
-		// 	url: '/paciente/editar_paciente',
-		// 	data: {
-		// 		id: id,
-		// 	},
-		// 	dataType: 'JSON',
-		// })
-		// 	.done(function (response) {
-		// 		$('#id').val(response[0]['id_persona']);
-		// 		$('#ci').val(response[0]['ci']);
-		// 		$('#expedido').val(response[0]['expedido']);
-		// 		$('#nombres').val(response[0]['nombres']);
-		// 		$('#paterno').val(response[0]['paterno']);
-		// 		$('#materno').val(response[0]['materno']);
-		// 		$('#sexo').val(response[0]['sexo']);
-		// 		$('#lugar_nacimiento').val(response[0]['lugar_nacimiento']);
-		// 		$('#celular').val(response[0]['telefono_celular']);
-		// 		$('#fecha_nacimiento').val(response[0]['fecha_nacimiento']);
-		// 		$('#id_ocupacion').val(response[0]['id_ocupacion']).trigger('change');
-		// 		$('#domicilio').val(response[0]['domicilio']);
-		// 		$('#estatus').val(response[0]['estatus']);
-		// 		$('#accion').val('up');
+		$.ajax({
+			type: 'POST',
+			url: '/usuario/editar_usuario',
+			data: {
+				id: id,
+			},
+			dataType: 'JSON',
+		}).done(function (response) {
+			$('#usuario').val(response.exito[0].usuario);
+			$('#id').val(response.exito[0].id_usuario);
 
-		// 		$('#btn-guardar-paciente').html('Editar');
-				parametrosModal('#editar-usuario', 'Editar Usuario', 'modal-lg', false, true);
-		// 	})
-		// 	.fail(function (e) {
-		// 		$('#agregar-paciente').modal('hide');
-		// 	});
+			$('#btn-guardar-password').html('Editar');
+			parametrosModal('#editar-usuario', 'Editar Usuario', 'modal-lg', false, true);
+		})
+		.fail(function (e) {
+			$('#agregar-paciente').modal('hide');
+		});
 	});
+
+	$("#frm_guardar_usuario").on('submit', function(e){
+		e.preventDefault();
+		if($("#clave").val() != $("#repita_clave").val())
+		{
+			mensajeAlert('error', 'Por favor, repita el password', 'Error');
+			$("#repita_clave").val("")
+			$("#repita_clave").focus()
+		}else{
+			$.ajax({
+				type: 'POST',
+				url: '/usuario/cambiar_password_username',
+				data:$("#frm_guardar_usuario").serialize(),
+				dataType: 'JSON',
+			}).done(function (response) {
+				if (typeof response.warning !== 'undefined') {
+					mensajeAlert('warning', response.warning, 'Advertencia');
+				}
+
+				if (typeof response.exito !== 'undefined') {
+					$('#tbl_usuarios').DataTable().draw();
+					$('#editar-usuario').modal('hide');
+					mensajeAlert('success', response.exito, 'Exito');
+					limpiarCampos1();
+				}
+			})
+		}
+	})
+
+	const limpiarCampos1 = () => {
+		$('#usuario').val("");
+		$('#id').val("");
+		$("#clave").val("");
+		$("#repita_clave").val("");
+	}
+
 });

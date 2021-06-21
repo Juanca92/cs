@@ -211,4 +211,11 @@ class PacienteModel extends Database
         $builder->where('id_persona', $id);
         return $builder->get()->getResultArray();
     }
+
+    public function list_paciente()
+    {
+        $builder = $this->db->table('sp_view_paciente');
+        $builder->select('*');
+        return $builder->get()->getResultArray();
+    }
 }

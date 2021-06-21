@@ -4,17 +4,20 @@ namespace App\Controllers;
 
 use App\Libraries\Ssp;
 use App\Models\PacienteModel;
+use App\Controllers\Reportes\ImprimirPaciente;
 
 class Paciente extends BaseController
 {
     public $model = null;
     public $fecha = null;
+    public $reporte;
 
     public function __construct()
     {
         parent::__construct();
         $this->model = new PacienteModel();
         $this->fecha = new \DateTime();
+        $this->reporte = new ImprimirPaciente();
     }
 
 
@@ -75,6 +78,26 @@ class Paciente extends BaseController
     {
         // return var_dump($_REQUEST);
         if ($this->request->isAJAX()) {
+            $data = $this->request->getPost('imagen_odontograma');
+            if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
+                $data = substr($data, strpos($data, ',') + 1);
+                $type = strtolower($type[1]); // jpg, png, gif
+
+                if (!in_array($type, ['jpg', 'jpeg', 'gif', 'png']))
+                    throw new \Exception('invalid image tyvbgpe');
+
+                $data = str_replace(' ', '+', $data);
+                $data = base64_decode($data);
+
+                if ($data === false)
+                    throw new \Exception('base64_decode failed');
+
+                file_put_contents(str_replace('\\', '/', FCPATH . 'odontograma/images/odontograma_paciente/' . $this->request->getPost('id_paciente') . ".{$type}"), $data);
+            } else
+                throw new \Exception('did not match data URI with image data');
+
+
+            unset($_POST['imagen_odontograma']);
             try {
                 foreach ($this->db->table('odontograma')->getWhere(['id_paciente' => $this->request->getPost('id_paciente')])->getResultArray() as $key => $value) {
                     foreach ($this->db->table('lesiones_cariosas')->getWhere(['id_odontograma' => $value['id_odontograma']])->getResultArray() as $k => $v) {
@@ -113,7 +136,7 @@ class Paciente extends BaseController
         }
     }
 
-    
+
     // Insertar o Actualizar Un Paciente
     public function guardar_paciente()
     {
@@ -407,7 +430,7 @@ class Paciente extends BaseController
                             ),
                             null
                         );
-                        
+
                         // Actualizar Grupo Usuario
                         $id_grupo_usuario = $this->model->verificar_id_grupo_usuario($this->request->getPost("id")); //verificar id_grupo con rol PACIENTE
                         $data3 = array(
@@ -438,9 +461,9 @@ class Paciente extends BaseController
     public function editar_paciente()
     {
         // var_dump($_REQUEST);
-    // se Verifica si es petición ajax
+        // se Verifica si es petición ajax
         if ($this->request->isAJAX()) {
-            
+
             $respuesta1 = $this->model->editar_paciente(trim($this->request->getPost("id")));
             $respuesta2 = $this->model->editar_enfermedad(trim($this->request->getPost("id")));
             $respuesta3 = $this->model->editar_consulta(trim($this->request->getPost("id")));
@@ -448,15 +471,16 @@ class Paciente extends BaseController
             $respuesta5 = $this->model->editar_alergia(trim($this->request->getPost("id")));
             $respuesta6 = $this->model->mostrar_tratamientos(trim($this->request->getPost("id")));
             $respuesta7 = $this->model->datos_usuario_perfil(trim($this->request->getPost("id")));
-            return $this->response->setJSON( json_encode([
-                "respuesta1" => $respuesta1,
-                "respuesta2" => $respuesta2,
-                "respuesta3" => $respuesta3,
-                "respuesta4" => $respuesta4,
-                "respuesta5" => $respuesta5,
-                "respuesta6" => $respuesta6,
-                "respuesta6" => $respuesta7
-            ])
+            return $this->response->setJSON(
+                json_encode([
+                    "respuesta1" => $respuesta1,
+                    "respuesta2" => $respuesta2,
+                    "respuesta3" => $respuesta3,
+                    "respuesta4" => $respuesta4,
+                    "respuesta5" => $respuesta5,
+                    "respuesta6" => $respuesta6,
+                    "respuesta6" => $respuesta7
+                ])
             );
         }
     }
@@ -501,7 +525,7 @@ class Paciente extends BaseController
         if ($this->request->isAJAX()) {
             $table = 'sp_view_cita';
             $primaryKey = 'id_cita';
-            $where = 'id_paciente='.$this->request->getGet('id_persona');
+            $where = 'id_paciente=' . $this->request->getGet('id_persona');
 
             $columns = array(
                 array('db' => 'id_cita', 'dt'           => 0),
@@ -529,4 +553,13 @@ class Paciente extends BaseController
         }
     }
 
+    // Imprimir Pacientes
+    public function imprimir()
+    {
+        $data = null;
+        $this->response->setContentType('application/pdf');
+        $data = $this->model->list_paciente();
+        $this->reporte->imprimir($data);
+
+    }
 }
