@@ -1,5 +1,6 @@
 $(document).ready(function () {
 	$('#calendar').fullCalendar({
+		locale: 'es',
 		header: {
 			left: 'prev,next',
 			center: 'title',
@@ -7,19 +8,18 @@ $(document).ready(function () {
 		},
 		defaultDate: new Date(),
 		buttonIcons: true,
-		weekNumbers: false,
+		description: true,
 		eventLimit: true,
-		editable: true,
 		events: 'cita/getEvents',
-		eventColor: 'fuchsia',
-
-		dayClick: function (date, jsEvent, view) {
-			alert('Has hecho click en: ' + date.format());
-		},
-		eventClick: function (calEvent, jsEvent, view) {
+		eventColor: 'lime',
+		timeFormat: 'H:mm',
+		eventClick: function (calEvent, time, jsEvent, view) {
 			$('#event-title').text(calEvent.title);
 			$('#event-description').html(calEvent.description);
+			$('#event-start').text(calEvent.start);
+			$('#event-doctor').text(calEvent.doctor);
 			$('#modal-event').modal();
 		},
+		
 	});
 });

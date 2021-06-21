@@ -66,7 +66,8 @@ class CitaModel extends Database
     public function getEvents()
     {
         $builder = $this->db->table("view_cita ");
-        $builder->select('id_cita AS id, nombre_paciente AS title, CONCAT(fecha," ",hora_inicio) AS start, CONCAT(fecha," ",hora_final) AS end,observacion AS description');
+        $builder->select('id_cita AS id, nombre_paciente AS title, CONCAT(fecha," ",hora_inicio) AS start, CONCAT(fecha," ",hora_final) 
+        AS end,observacion AS description, nombre_odontologo AS doctor');
 
         return $builder->get()->getResultArray();
     }
