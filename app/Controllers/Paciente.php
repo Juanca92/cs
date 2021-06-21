@@ -471,6 +471,9 @@ class Paciente extends BaseController
             $respuesta5 = $this->model->editar_alergia(trim($this->request->getPost("id")));
             $respuesta6 = $this->model->mostrar_tratamientos(trim($this->request->getPost("id")));
             $respuesta7 = $this->model->datos_usuario_perfil(trim($this->request->getPost("id")));
+            $respuesta8 = $this->model->editar_diagnostico(trim($this->request->getPost("id")));
+            $respuesta9 = $this->model->editar_medicacion(trim($this->request->getPost("id")));
+            $respuesta10 = $this->model->editar_accionesDecesivas(trim($this->request->getPost("id")));
             return $this->response->setJSON(
                 json_encode([
                     "respuesta1" => $respuesta1,
@@ -479,7 +482,10 @@ class Paciente extends BaseController
                     "respuesta4" => $respuesta4,
                     "respuesta5" => $respuesta5,
                     "respuesta6" => $respuesta6,
-                    "respuesta6" => $respuesta7
+                    "respuesta7" => $respuesta7,
+                    "respuesta8" => $respuesta8,
+                    "respuesta9" => $respuesta9,
+                    "respuesta10" => $respuesta10
                 ])
             );
         }
