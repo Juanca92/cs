@@ -152,7 +152,6 @@ $(document).ready(function () {
 			dataType: 'JSON',
 		})
 			.done(function (response) {
-				console.log(response.respuesta1);
 				$('#id').val(response.respuesta1[0]['id_persona']);
 				$('#ci').val(response.respuesta1[0]['ci']);
 				$('#expedido').val(response.respuesta1[0]['expedido']);
