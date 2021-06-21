@@ -60,4 +60,71 @@ class Usuario extends BaseController
         }
     }
 
+    public function editar_usuario()
+    {
+        $id = $this->request->getPost("id");
+        $response = $this->model->data_user($id);
+        return $this->response->setJSON(json_encode(array(
+            'exito' => $response
+        )));
+    }
+
+    public function cambiar_password_username()
+    {
+        $validation = \Config\Services::validation();
+        helper(['form', 'url']);
+        $val = $this->validate(
+            [ // rules
+                "id"        => "required",
+                "usuario"   => "required|min_length[6]",
+                "clave"     => "required|min_length[8]",
+            ],
+            [ // errors
+                "id" => [
+                    "required" => "El id es requerido"
+                ],
+                "usuario" => [
+                    "required"      => "El nombre de usuario es requerido",
+                    "min_length"    => "El nombre de usuario debe tener al menos 6 caracteres"
+                ],
+                "clave" => [
+                    "required"      => "El password del usuario es requerido",
+                    "min_length"    => "El password de usuario debe tener al menos 8 caracteres",
+                ]
+            ]
+        );
+
+        if (!$val) {
+            // se devuelve todos los errores
+            return $this->response->setJSON(json_encode(array(
+                "warning" => $validation->listErrors()
+            )));
+        } else {
+            $data = array(
+                "usuario"       => trim($this->request->getPost("usuario")),
+                "clave"         => hash("sha512", trim($this->request->getPost("clave"))),
+                "actualizado_en"=> $this->fecha->format('Y-m-d H:i:s')
+            );
+
+            $respuesta = $this->model->usuario(
+                "update",
+                $data,
+                array(
+                    "id_usuario" => $this->request->getPost("id")
+                ),
+                null
+            );
+
+            if ($respuesta) {
+                return $this->response->setJSON(json_encode(array(
+                    'exito' => "Usuario cambiado de password correctamente"
+                )));
+            }else{
+                return $this->response->setJSON(json_encode(array(
+                    'warning' => "Error al editar los datos del usuario"
+                )));
+            }
+        }
+    }
+
 }
