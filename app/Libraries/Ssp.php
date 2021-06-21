@@ -357,6 +357,11 @@ class Ssp
         }
 
         // Main query to actually get the data
+        // return var_dump("SELECT `" . implode("`, `", self::pluck($columns, 'db')) . "`
+        // FROM $table
+        // $where
+        // $order
+        // $limit");
         $data = self::sql_exec(
             $db,
             $bindings,

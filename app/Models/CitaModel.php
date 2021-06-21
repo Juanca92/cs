@@ -67,7 +67,9 @@ class CitaModel extends Database
     {
         $builder = $this->db->table("view_cita ");
         $builder->select('id_cita AS id, nombre_paciente AS title, CONCAT(fecha," ",hora_inicio) AS start, CONCAT(fecha," ",hora_final) AS end,observacion AS description');
-
+        if (is(['PACIENTE'])) {
+            $builder->where('id_paciente', $_SESSION["id_persona"]);
+        }
         return $builder->get()->getResultArray();
     }
 

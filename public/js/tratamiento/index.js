@@ -58,7 +58,7 @@ $(document).ready(function () {
 				data: null,
 				render: function (data, type, row, meta) {
 					console.log(data);
-					return '<div class="btn-group" role="group">' + '<a data="' + data[0] + '" class="btn btn-success btn-xs mdi mdi-tooltip-edit text-white btn_ver_tratamientos" data-toggle="tooltip" title="Ver Tramatientos del Paciente">' + '<i class="fa fa-eye"></i> ver tratamientos</a>' + '</div>';
+					return '<div class="btn-group" role="group">' + '<a data="' + data[0] + '" class="btn btn-success btn-xs mdi mdi-tooltip-edit text-white btn_ver_tratamientos" data-toggle="tooltip" title="Ver Tratamientos del Paciente">' + '<i class="fa fa-eye"></i> ver tratamientos</a>' + '</div>';
 				},
 			},
 		],

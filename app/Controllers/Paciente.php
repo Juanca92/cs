@@ -31,7 +31,9 @@ class Paciente extends BaseController
             $table = 'sp_view_paciente';
             $primaryKey = 'id_persona';
             $where = "estado=1";
-
+            if (is(['PACIENTE'])) {
+                $where .= ' and id_persona =' . $this->user['id_persona'];
+            }
             $columns = array(
                 array('db' => 'id_persona', 'dt'        => 0),
                 array('db' => 'ci_exp', 'dt'            => 1),

@@ -258,12 +258,13 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="form-group row text-right">
-                                            <div class="offset-sm-2 col-sm-10">
-                                                <button type="submit" class="btn btn-info">Guardar</button>
+                                        <?php if (is(['ODONTOLOGO', 'ADMINISTRADOR'])) : ?>
+                                            <div class="form-group row text-right">
+                                                <div class="offset-sm-2 col-sm-10">
+                                                    <button type="submit" class="btn btn-info">Guardar</button>
+                                                </div>
                                             </div>
-                                        </div>
+                                        <?php endif ?>
                                     </form>
                                 </div>
                             </div>
@@ -612,11 +613,13 @@
                                                         <input type="hidden" name="id_persona2" id="id_persona2">
                                                         <input type="hidden" name="id_fisico" id="id_fisico">
                                                     </div>
-                                                    <div class="form-group row text-right">
-                                                        <div class="offset-sm-2 col-sm-10">
-                                                            <button type="submit" class="btn btn-info">Guardar</button>
+                                                    <?php if (is(['ODONTOLOGO', 'ADMINISTRADOR'])) : ?>
+                                                        <div class="form-group row text-right">
+                                                            <div class="offset-sm-2 col-sm-10">
+                                                                <button type="submit" class="btn btn-info">Guardar</button>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    <?php endif ?>
                                                 </form>
                                             </div>
                                             <!--alergias-->
@@ -713,7 +716,6 @@
                                                     <div class="row">
                                                         <div class="col {{i.tipoDiente}} p-0" data-ng-repeat="i in adultoArriva">
                                                             <img src="{{i.imagenDiente}}" width="32" height="80">
-                                                            <br>
                                                             <svg height="40" width="40" id="{{i.id}}">
                                                                 <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
                                                                 <polygon points="36,8 40,12 12,40 8,36" estado="4" value="7" class="ausente" />
@@ -728,12 +730,11 @@
                                                             </svg>
                                                         </div>
                                                     </div>
-                                                    <br>
+
 
                                                     <div class="row">
                                                         <div class="col {{i.tipoDiente}} p-0" data-ng-repeat="i in ninoArriva">
                                                             <img src="{{i.imagenDiente}}" width="32" height="80">
-                                                            <br>
                                                             <svg height="40" width="40" id="{{i.id}}">
                                                                 <polygon points="8,12 12,8 40,36 36,40" estado="4" value="6" class="ausente" />
                                                                 <polygon points="36,8 40,12 12,40 8,36" estado="4" value="7" class="ausente" />
@@ -748,8 +749,7 @@
                                                             </svg>
                                                         </div>
                                                     </div>
-                                                    <br>
-                                                    <br>
+
                                                     <div class="row">
                                                         <div class="col {{i.tipoDiente}} p-0" data-ng-repeat="i in ninoAbajo">
                                                             <svg height="40" width="40" id="{{i.id}}">
@@ -764,11 +764,9 @@
                                                                 <polygon points="8,40 16,32 16,16 8,8" estado="0" value="4" class="diente" />
                                                                 <polygon points="16,16 32,16 32,32 16,32" estado="0" value="5" class="diente" />
                                                             </svg>
-                                                            <br>
                                                             <img src="{{i.imagenDiente}}" width="32" height="80">
                                                         </div>
                                                     </div>
-                                                    <br>
                                                     <div class="row">
                                                         <div class="col {{i.tipoDiente}} p-0" data-ng-repeat="i in adultoAbajo">
                                                             <svg height="40" width="40" id="{{i.id}}">
@@ -783,7 +781,6 @@
                                                                 <polygon points="8,40 16,32 16,16 8,8" estado="0" value="4" class="diente" />
                                                                 <polygon points="16,16 32,16 32,32 16,32" estado="0" value="5" class="diente" />
                                                             </svg>
-                                                            <br>
                                                             <img src="{{i.imagenDiente}}" width="32" height="80">
                                                         </div>
                                                     </div>
@@ -793,33 +790,26 @@
                                         </section>
                                         <section id="opciones">
                                             <div class="row">
-                                                <div class="col-md-3">
+                                                <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <div class="card card-primary">
                                                             <div class="card-header">
                                                                 <h3 class="card-title">Opcion</h3>
                                                             </div>
-                                                            <div class="card-body small">
-                                                                <input type="radio" id="Decidua" name="tipo" value="1" checked />
-                                                                <label for="Decidua">Permanentes</label>
-                                                                <br>
-                                                                <input type="radio" id="Niños" name="tipo" value="2" />
-                                                                <label for="Niños">Decidua</label>
-                                                                <br>
-                                                                <input type="radio" id="Mixta" name="tipo" value="3" />
-                                                                <label for="Mixta">Mixta</label>
-                                                            </div>
+                                                            <input type="radio" id="Decidua" name="tipo" value="1" checked />Permanente
+                                                            <input type="radio" id="Niños" name="tipo" value="2" />Decidua
+                                                            <input type="radio" id="Mixta" name="tipo" value="3" />Mixta
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-9">
+                                                <div class="col-lg-10">
                                                     <div class="form-group">
                                                         <div class="card card-primary">
                                                             <div class="card-header">
-                                                                <h3 class="card-title">Opciones</h3>
+                                                                <h3 class="card-title">opciones</h3>
                                                             </div>
-                                                            <div class="card-body small">
-                                                                <table border="1">
+                                                            <div class="card-body">
+                                                                <table border="1" align="center">
                                                                     <tr>
                                                                         <th>Amalgama</th>
                                                                         <th>Caries</th>
@@ -894,11 +884,13 @@
                                             </div>
                                         </section>
                                     </div>
-                                    <div class="form-group row text-right">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <button type="submit" class="btn btn-info" id="guardar-odontograma">Guardar</button>
+                                    <?php if (is(['ADMINISTRADOR', 'ODONTOLOGO'])) : ?>
+                                        <div class="form-group row text-right">
+                                            <div class="offset-sm-2 col-sm-10">
+                                                <button type="submit" class="btn btn-info" id="guardar-odontograma">Guardar</button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    <?php endif ?>
                                 </div>
                             </div>
                             <!--Tratamientos realizados-->
@@ -1028,6 +1020,3 @@
 <script src="<?php echo base_url('odontograma/scripts/app.js') ?>"></script>
 
 <script src="<?php echo base_url('odontograma/scripts/controller.js') ?>"></script>
-
-<script src="<?php echo base_url('odontograma/scripts/html2canvas.min.js') ?>"></script>
-<script src="<?php echo base_url('odontograma/scripts/FileSaver.min.js') ?>"></script>
