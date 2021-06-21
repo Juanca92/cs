@@ -277,6 +277,7 @@ $(document).ready(function () {
 				$('#event-title').text(calEvent.title);
 				$('#event-description').html(calEvent.description);
 				$('#event-start').text(calEvent.start);
+				$('#event-doctor').text(calEvent.doctor);
 				$('#modal-event').modal();
 			},
 			

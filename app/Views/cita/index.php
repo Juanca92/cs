@@ -227,7 +227,7 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-<!--  Modal de registro calendar-->
+<!--  Modal  calendar-->
 <div class="modal fade" id="agenda">
     <div class="modal-dialog modal-xl ">
         <div class="modal-content">
@@ -264,6 +264,8 @@
                 <div id="event-description"></div>
                 <label>hora de cita</label>
                 <div id="event-start"></div>
+                <label>Odontologo a atender</label>
+                <div id="event-doctor"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

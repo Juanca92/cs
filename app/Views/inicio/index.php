@@ -56,9 +56,9 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
               <li class="active"><a href="<?= base_url('/inicio') ?>">Inicio</a></li>
-              <li><a href="<?= base_url('/inicio/acercaDelcentro') ?>">Acerca del centro</a></li>
+              <li><a href="<?= base_url('/inicio/acercaDelcentro') ?>">Acerca-del-centro-de-salud</a></li>
               <li><a href="<?= base_url('/inicio/nuestrosDoctores') ?>"> Doctores</a></li>
-              <li><a href="<?= base_url('/inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
+              <li><a href="<?= base_url('/inicio/servicioOdontologico') ?>">Servicio-Odontológico</a></li>
               <li><a href="<?= base_url('/inicio/contactos') ?>">Contacto</a></li>
               <li><a href="<?= base_url('/auth/login') ?>">Ingresar</a></li>
             </ul>
@@ -168,7 +168,7 @@
           <div class="single-top-feature">
             <span  class="fa fa-calendar"></span>
             <h3>Informacion para las citas medicas</h3>
-            <p>Para la reserva de cita médicas odontológicas, visite el centro de salud San Pedro, 
+            <p>Para la reserva de citas médicas odontológicas, visite el centro de salud San Pedro, 
             para una previa revisión de la enfermedad que lo aqueja y posterior cita con fecha y hora.</p>
             <div class="readmore_area">
               <a data-toggle="modal" data-target="#myModal" href="#" data-hover="C.S. San Pedro"><span>Visite el centro
