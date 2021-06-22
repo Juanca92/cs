@@ -1204,9 +1204,6 @@
                                                                     style="overflow:auto;resize:none" rows="2"
                                                                     placeholder="escriba aqui"></textarea>
                                                             </div>
-                                                            <input type="hidden" name="id_persona9" id="id_persona9">
-                                                            <input type="hidden" name="id_medicacion"
-                                                                id="id_medicacion">
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <div class="form-group">
@@ -1218,6 +1215,8 @@
                                                                     placeholder="escriba aqui"></textarea>
                                                             </div>
                                                         </div>
+                                                        <input type="hidden" name="id_persona9" id="id_persona9">
+                                                            <input type="hidden" name="id_medicacion" id="id_medicacion">
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-lg-12">
