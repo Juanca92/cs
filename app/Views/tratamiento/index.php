@@ -1264,3 +1264,4 @@
 <script src="<?php echo base_url('odontograma/scripts/app.js') ?>"></script>
 
 <script src="<?php echo base_url('odontograma/scripts/controller.js') ?>"></script>
+<script src="<?php echo base_url('odontograma/scripts/html2canvas.min.js') ?>"></script>
