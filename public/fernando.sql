@@ -395,4 +395,3 @@ CREATE TABLE `sp_acciones_decesivas` (
   CONSTRAINT `fk_acciones_decesivas_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `sp_paciente` (`id_paciente`)
 );
 
-
