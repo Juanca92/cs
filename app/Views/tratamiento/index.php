@@ -843,7 +843,6 @@
                                                         <div class="col {{i.tipoDiente}} p-0"
                                                             data-ng-repeat="i in adultoArriva">
                                                             <img src="{{i.imagenDiente}}" width="32" height="80">
-                                                            <Br>
                                                             <svg height="40" width="40" id="{{i.id}}">
                                                                 <polygon points="8,12 12,8 40,36 36,40" estado="4"
                                                                     value="6" class="ausente" />
