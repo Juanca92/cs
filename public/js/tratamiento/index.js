@@ -221,7 +221,7 @@ $(document).ready(function () {
 								}
 
 								if (typeof response.exito !== 'undefined') {
-									$('#tbl_tratameiento_alergias').DataTable().draw();
+									$('#tbl_tratamiento_alergias').DataTable().draw();
 									$('#agregar-alergia').modal('hide');
 									mensajeAlert('success', response.exito, 'Exito');
 									$('#id_alergia').val(response.id_alergia);
@@ -256,13 +256,28 @@ $(document).ready(function () {
 							}
 						});
 					});
+
+					$('#tbl_tratamiento_alergias').on('click', '.btn_editar_alergia', function (e) {
+						let id = $(this).attr('data');
+						$.post('/alergia/editar_alergia', { id_alergia: id }, function (r) {
+							$('#frm_guardar_alergia #nombre_alergia').val(r[0].nombre_alergia);
+							$('#frm_guardar_alergia #detalle').val(r[0].detalle);
+
+							$('#btn-guardar-alergia').html('Editar');
+							$('#accion').val('up');
+							$('#frm_guardar_alergia #id_alergia').val(r[0].id_alergia);
+							parametrosModal('#agregar-alergia', 'Editar Alergia', 'modal-lg', false, true);
+						});
+					});
 					// Modal para agregar alergias
 					$('button#agregar_alergia').on('click', function (e) {
 						$('#btn-guardar-alergia').html('Guardar');
+						limpiarCampos();
 						$('#accion').val('in');
 
 						parametrosModal('#agregar-alergia', 'Agregar Alergias', 'modal-lg', false, true);
 					});
+
 					// Limpiar Campos
 					function limpiarCampos() {
 						$('#id_alergia').val('');
@@ -396,7 +411,7 @@ $(document).ready(function () {
 					$('#recomendaciones').val(response.respuesta9[0]['recomendaciones']);
 					$('#accion').val('up');
 				}
-				
+
 				// set data acciones-decesivas
 				console.log(response.respuesta10);
 				$('#id_persona10').val(response.respuesta1[0]['id_persona']);
