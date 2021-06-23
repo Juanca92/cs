@@ -12,12 +12,13 @@ class ImprimirHistoriaClinica extends FPDF
         $this->AliasNbPages();
         $this->AddPage('P', 'letter');
         $this->SetFont('Arial', 'B', 15);
+        $this->Image("odontograma/images/odontograma_paciente/6.png", 1, 60, 200, 200);
         $this->Image('img/cabecera.jpg', 6, 5, 202);
         $this->SetXY(6.9, 30);
         $this->Cell(200,10,utf8_decode("HISTORIA CLÍNICA ODONTOLÓGICA"), 0, 1, "C");
         $this->Image('img/cabecera_dos.jpg', 6, 39, 202);
 
-//        $this->Image("odontograma/images/odontograma_paciente/3.png", 0, 0);
+       
 
         // $this->cabeceraHorizontal($header, $length);
 //        $this->datosHorizontal($data, $length, $cantidad);
