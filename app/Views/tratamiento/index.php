@@ -372,11 +372,12 @@
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <div class="form-group">
-                                                                <label for="nombre_medicamento">Medicamento<span
+                                                                <label for="nombre_medicamento">cual medicamento, por que y cuanto tiempo<span
                                                                         class="text-danger">(*)</span>:</label>
-                                                                <input type="text" id="nombre_medicamento"
+                                                                        <textarea type="text" id="nombre_medicamento"
                                                                     name="nombre_medicamento" class="form-control"
-                                                                    rows="3" placeholder="escriba aqui">
+                                                                    style="overflow:auto;resize:none" rows="2"
+                                                                    placeholder="escriba aqui"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1098,7 +1099,7 @@
                                         <ul class="nav nav-tabs">
                                             <li class="nav-item"><a class="nav-link active" href="#diagnostico"
                                                     data-toggle="tab">Diagnostico</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#recomendaciones"
+                                            <li class="nav-item"><a class="nav-link" href="#recomendacion"
                                                     data-toggle="tab">Medicacion y Recomendaciones</a></li>
                                                     <?php if (is(['ODONTOLOGO', 'ADMINISTRADOR'])) : ?>
                                             <li class="nav-item"><a class="nav-link" href="#acciones_decisivas"
@@ -1191,7 +1192,7 @@
                                                 </form>
                                             </div>
                                             <!-- receta medica-->
-                                            <div class="tab-pane" id="recomendaciones">
+                                            <div class="tab-pane" id="recomendacion">
                                                 <form id="frm_guardar_medicacion">
                                                     <div class="row">
                                                         <div class="col-lg-6">

@@ -65,7 +65,7 @@ class Diagnostico extends BaseController
                         $val = $this->validate(
                             [ // rules
                                 "tipo_diagnostico"     => "required|alpha_space",
-                                "pieza_dentaria"       => "required|alpha_space",
+                                "pieza_dentaria"       => "required|alpha_numeric_space",
                                 "medida_preventiva"    => "required|alpha_space",
                                 "acciones_curativas"   => "required|alpha_space",
                                 "id_persona8"           => "required"
@@ -77,7 +77,7 @@ class Diagnostico extends BaseController
                                 ],
                                 "pieza_dentaria" => [
                                     "required" => " La pieza dentaria es requerido",
-                                    "alpha_space" => "La pieza dentaria debe llevar caracteres alfabéticos o espacios."
+                                    "alpha_numeric_space" => "La pieza dentaria debe llevar caracteres alfabéticos,numericos o espacios."
                                 ],
                                 "medida_preventiva" => [
                                     "required" => " Las medidas preventivas es requerido",
@@ -127,7 +127,7 @@ class Diagnostico extends BaseController
                         [ // rules
                             'id_diagnostico'        => 'required',
                             "tipo_diagnostico"     => "required|alpha_space",
-                            "pieza_dentaria"       => "required|alpha_space",
+                            "pieza_dentaria"       => "required|alpha_numeric_space",
                             "medida_preventiva"    => "required|alpha_space",
                             "acciones_curativas"   => "required|alpha_space",
                             "id_persona8"           => "required"
@@ -142,7 +142,7 @@ class Diagnostico extends BaseController
                             ],
                             "pieza_dentaria" => [
                                 "required" => " La pieza dentaria es requerido",
-                                "alpha_space" => "La pieza dentaria debe llevar caracteres alfabéticos o espacios."
+                                "alpha_numeric_space" => "La pieza dentaria debe llevar caracteres alfabéticos, numericos o espacios."
                             ],
                             "medida_preventiva" => [
                                 "required" => " Las medidas preventivas es requerido",
@@ -186,7 +186,7 @@ class Diagnostico extends BaseController
                             // Actualizar cita
     
                             return $this->response->setJSON(json_encode(array(
-                                'exito' => "El diagnostico ah sido editado correctamente",
+                                'exito' => "El diagnostico ah sido Guardado en la base de datos correctamente",
                                 "id_diagnostico"=> $respuesta
                             )));
                         }

@@ -123,7 +123,7 @@
                                 <div class="input-group mb-3">
                                     <div class="input-group-append">
                                         <div class="input-group-text">
-                                            <i class="fas fa-list-alt"></i>
+                                            <i class="fas fa-user"></i>
                                         </div>
                                     </div>
                                     <input type="text" class="form-control" id="nombres" name="nombres"
@@ -140,7 +140,7 @@
                                 <div class="input-group mb-3">
                                     <div class="input-group-append">
                                         <div class="input-group-text">
-                                            <i class="fas fa-list-alt"></i>
+                                            <i class="fas fa-user"></i>
                                         </div>
                                     </div>
                                     <input type="text" id="paterno" name="paterno" class="form-control"
@@ -154,7 +154,7 @@
                                 <div class="input-group mb-3">
                                     <div class="input-group-append">
                                         <div class="input-group-text">
-                                            <i class="fas fa-list-alt"></i>
+                                            <i class="fas fa-user"></i>
                                         </div>
                                     </div>
                                     <input type="text" id="materno" name="materno" class="form-control"
@@ -242,16 +242,23 @@
                         <div class="col-lg-7">
                             <div class="form-group">
                                 <label for="ocupacion">Ocupaci&oacute;n <span class="text-danger">(*)</span>:</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-diagnoses"></i>
+                                        </div>
+                                    </div>
                                 
-                                    <select class="form-control select2bs4" style="width: 100%;" id="id_ocupacion"
+                                    <select class="form-control " id="id_ocupacion"
                                         name="id_ocupacion">
-                                        <!-- <option value="">-- Seleccione Ocupaci&oacute;n --</option> -->
+                                        <option value="">-- Seleccione Ocupaci&oacute;n --</option> 
                                         <?php
                                     foreach ($this->data["ocupaciones"] as $key => $value) {
                                         echo '<option value="' . $value["id_ocupacion"] . '">' . $value["nombre"] . '</option>';
                                     }
                                     ?>
                                     </select>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-5">

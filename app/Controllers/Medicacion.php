@@ -63,23 +63,23 @@ class Medicacion extends BaseController
     
                         $val = $this->validate(
                             [ // rules
-                                "entrega_medicamento"   => "required|alpha_space",
-                                "receta_medica"         => "required|alpha_space",
-                                "recomendaciones"       => "required|alpha_space",
+                                "entrega_medicamento"   => "required|alpha_numeric_space",
+                                "receta_medica"         => "required|alpha_numeric_space",
+                                "recomendaciones"       => "required|alpha_numeric_space",
                                 "id_persona9"           => "required"
                             ],
                             [ // errors
                                 "entrega_medicamento" => [
                                     "required" => " la entrega de medicamentos es requerido",
-                                    "alpha_space" => "la entrega de medicamentos debe llevar caracteres alfabéticos o espacios."
+                                    "alpha_numeric_space" => "la entrega de medicamentos debe llevar caracteres alfabéticos, numeros o espacios."
                                 ],
                                 "receta_medica" => [
                                     "required" => " La receta medica es requerido",
-                                    "alpha_space" => "La receta medica debe llevar caracteres alfabéticos o espacios."
+                                    "alpha_numeric_space" => "La receta medica debe llevar caracteres alfabéticos, numeros o espacios."
                                 ],
                                 "recomendaciones" => [
                                     "required" => " Las recomendaciones es requerido",
-                                    "alpha_space" => "Las recomendaciones debe llevar caracteres alfabéticos o espacios."
+                                    "alpha_numeric_space" => "Las recomendaciones debe llevar caracteres alfabéticos, numeros o espacios."
                                 ],
                                 "id_persona9" => [
                                     "required"   => "el id del paciente es requerido"
@@ -119,9 +119,9 @@ class Medicacion extends BaseController
                     $val = $this->validate(
                         [ // rules
                             'id_medicacion'        => 'required',
-                            "entrega_medicamento"   => "required|alpha_space",
-                            "receta_medica"         => "required|alpha_space",
-                            "recomendaciones"       => "required|alpha_space",
+                            "entrega_medicamento"   => "required|alpha_numeric_space",
+                            "receta_medica"         => "required|alpha_numeric_space",
+                            "recomendaciones"       => "required|alpha_numeric_space",
                             "id_persona9"           => "required"
                         ],
                         [ // errors
@@ -130,15 +130,15 @@ class Medicacion extends BaseController
                             ],
                             "entrega_medicamento" => [
                                 "required" => " la entrega de medicamentos es requerido",
-                                "alpha_space" => "la entrega de medicamentos debe llevar caracteres alfabéticos o espacios."
+                                "alpha_numeric_space" => "la entrega de medicamentos debe llevar caracteres alfabéticos, numeros o espacios."
                             ],
                             "receta_medica" => [
                                 "required" => " La receta medica es requerido",
-                                "alpha_space" => "La receta medica debe llevar caracteres alfabéticos o espacios."
+                                "alpha_numeric_space" => "La receta medica debe llevar caracteres alfabéticos, numeros o espacios."
                             ],
                             "recomendaciones" => [
                                 "required" => " Las recomendaciones es requerido",
-                                "alpha_space" => "Las recomendaciones debe llevar caracteres alfabéticos o espacios."
+                                "alpha_numeric_space" => "Las recomendaciones debe llevar caracteres alfabéticos, numeros o espacios."
                             ],
                             "id_persona9" => [
                                 "required"   => "el id del paciente es requerido"
@@ -173,7 +173,7 @@ class Medicacion extends BaseController
                             // Actualizar cita
     
                             return $this->response->setJSON(json_encode(array(
-                                'exito' => "La medicacion ah sido editado correctamente",
+                                'exito' => "La Receta medica ah sido guardado en la base de datos correctamente",
                                 "id_medicacion"=> $respuesta
                             )));
                         }

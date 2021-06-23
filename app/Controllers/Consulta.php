@@ -83,7 +83,7 @@ class Consulta extends BaseController
                             "alguna_cirugia"        => "required",
                             "porque"                => "alpha_space",
                             "cepilla_diente"        => "required",
-                            "cuanto_dia"            => "alpha_space",
+                            "cuanto_dia"            => "alpha_numeric_space",
                             "id_persona1"           => "required",
 
                         ],
@@ -104,7 +104,7 @@ class Consulta extends BaseController
                                 "required" => " El alergico a medicamento es requerido"
                             ],
                             "cual_medicamento" => [
-                                "alpha_space" => "Cual medicamento debe llevar caracteres alfabéticos o espacios."
+                                "alpha_space" => "Cual medicamento debe llevar caracteres alfabéticos o espacios.",
                             ],
                             "alguna_cirugia" => [
                                 "required" => " La cirugia es requerido"
@@ -116,7 +116,7 @@ class Consulta extends BaseController
                                 "required" => " El cepilla diente es requerido"
                             ],
                             "cuanto_dia" => [
-                                "alpha_space" => "Cuanto al dia debe llevar caracteres alfabéticos o espacios."
+                                "alpha_numeric_space" => "Cuanto al dia debe llevar caracteres alfabéticos, numericpos o espacios."
                             ],
                             "id_persona1" => [
                                 "required" => "el id del paciente es requerido."
@@ -174,7 +174,7 @@ class Consulta extends BaseController
                         "alguna_cirugia"        => "required",
                         "porque"                => "alpha_space",
                         "cepilla_diente"        => "required",
-                        "cuanto_dia"            => "alpha_space",
+                        "cuanto_dia"            => "alpha_numeric_space",
                         'id_persona1'           => 'required',
                     ],
                     [ // errors
@@ -209,7 +209,7 @@ class Consulta extends BaseController
                             "required" => " El cepilla diente es requerido"
                         ],
                         "cuanto_dia" => [
-                            "alpha_space" => "Cuanto al dia debe llevar caracteres alfabéticos o espacios."
+                            "alpha_numeric_space" => "Cuanto al dia debe llevar caracteres alfabéticos, numericos o espacios."
                         ],
                         "id_persona1" => [
                             "required"  => "el id del paciente es requerido"
@@ -256,7 +256,7 @@ class Consulta extends BaseController
                         // Actualizar cita
 
                         return $this->response->setJSON(json_encode(array(
-                            'exito' => "Consulta editado correctamente",
+                            'exito' => "El formulario de la consulta ha sido guardado correctamente",
                             "id_consulta"=> $respuesta
                         )));
                     }

@@ -156,7 +156,7 @@
                     </li>
                     <li class="nav-item has-treeview">
                         <a href="<?= base_url('/respaldo'); ?>" class="nav-link menu--link">
-                            <i class="fas fa-arrow-alt-circle-down"></i>
+                            <i class="fas fa-database"></i>
                             <p>
                                 respaldo
                             </p>

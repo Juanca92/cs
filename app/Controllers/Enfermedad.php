@@ -67,26 +67,27 @@ class Enfermedad extends BaseController
     
                         $val = $this->validate(
                             [ // rules
-                                "tiempo_consulta"       => 'required',
-                                "motivo_consulta"       => "required|alpha_space",
-                                "sintomas_principales"  => "required|alpha_space",
+                                "tiempo_consulta"       => "required|alpha_numeric_space",
+                                "motivo_consulta"       => "required|alpha_numeric_space",
+                                "sintomas_principales"  => "required|alpha_numeric_space",
                                 "tomando_medicamento"   => "required",
                                 "nombre_medicamento"    => "required|alpha_space",
                                 "motivo_medicamento"    => "required|alpha_space",
-                                "dosis_medicamento"     => "required|numeric",
+                                "dosis_medicamento"     => "required|alpha_numeric_space",
                                 "id_persona"           => "required"
                             ],
                             [ // errors
                                 "tiempo_consulta" => [
                                     "required" => " El tiempo de enfermedad es requerido",
+                                    "alpha_numeric_space" => "el tiempo de enfermedad debe llevar letras espacios y numeros"
                                 ],
                                 "motivo_consulta" => [
                                     "required" => " El motivo de la consulta es requerido",
-                                    "alpha_space" => "El motivo de la consulta debe llevar caracteres alfabéticos o espacios."
+                                    "alpha_numeric_space" => "El motivo de la consulta debe llevar caracteres alfabéticos, numericos o espacios."
                                 ],
                                 "sintomas_principales" => [
                                     "required" => " Las sintomas principales es requerido",
-                                    "alpha_space" => "Las sintomas principales debe llevar caracteres alfabéticos o espacios."
+                                    "alpha_numeric_space" => "Las sintomas principales debe llevar caracteres alfabéticos, numericos o espacios."
                                 ],
                                 "tomando_medicamento" => [
                                     "required"   => "tomando algun medicamento es requerido"
@@ -101,7 +102,7 @@ class Enfermedad extends BaseController
                                 ],
                                 "dosis_medicamento" => [
                                     "required"   => "Dosis de medicamento es requerido",
-                                    "numeric"    => "Dosis de medicamento debe llevar caracteres numéricos."
+                                    "alpha_numeric_space"    => "Dosis de medicamento debe llevar caracteres alfabeticos, numericos o espacios."
                                 ],
                                 "id_persona" => [
                                     "required"   => "el id del paciente es requerido"
@@ -145,7 +146,7 @@ class Enfermedad extends BaseController
                     $val = $this->validate(
                         [ // rules
                             'id_enfermedad'         => 'required',
-                            "tiempo_consulta"       => 'required',
+                            "tiempo_consulta"       => "required|alpha_numeric_space",
                             "motivo_consulta"       => "required|alpha_space",
                             "sintomas_principales"  => "required|alpha_space",
                             "tomando_medicamento"   => "required",
@@ -160,14 +161,15 @@ class Enfermedad extends BaseController
                             ],
                             "tiempo_consulta" => [
                                 "required" => " El tiempo de enfermedad es requerido",
+                                "alpha_numeric_space" => "el tiempo de enfermedad debe llevar letras espacios y numeros"
                             ],
                             "motivo_consulta" => [
                                 "required" => " El motivo de la consulta es requerido",
-                                "alpha_space" => "El motivo de la consulta debe llevar caracteres alfabéticos o espacios."
+                                "alpha_numeric_space" => "El motivo de la consulta debe llevar caracteres alfabéticos, numericos o espacios."
                             ],
                             "sintomas_principales" => [
                                 "required" => " Las sintomas principales es requerido",
-                                "alpha_space" => "Las sintomas principales debe llevar caracteres alfabéticos o espacios."
+                                "alpha_numeric_space" => "Las sintomas principales debe llevar caracteres alfabéticos, numericos o espacios."
                             ],
                             "tomando_medicamento" => [
                                 "required"   => "tomando algun medicamento es requerido"
@@ -182,7 +184,7 @@ class Enfermedad extends BaseController
                             ],
                             "dosis_medicamento" => [
                                 "required"   => "Dosis de medicamento es requerido",
-                                "numeric"    => "Dosis de medicamento debe llevar caracteres numéricos."
+                                "alpha_numeric_space"    => "Dosis de medicamento debe llevar caracteres alfabeticos, numericos o espacios."
                             ],
                             "id_persona" => [
                                 "required"   => "el id del paciente es requerido"
@@ -221,7 +223,7 @@ class Enfermedad extends BaseController
                             // Actualizar cita
     
                             return $this->response->setJSON(json_encode(array(
-                                'exito' => "enfermedad editado correctamente",
+                                'exito' => "El formulario de preguntas de la enfermedad actual que tiene el paciente ah sido guradado correctamente",
                                 "id_enfermedad"=> $respuesta
                             )));
                         }
