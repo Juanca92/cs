@@ -58,7 +58,7 @@ $(document).ready(function () {
 				data: null,
 				render: function (data, type, row, meta) {
 					console.log(data);
-					return '<div class="btn-group" role="group">' + '<a data="' + data[0] + '" class="btn btn-success btn-xs mdi mdi-tooltip-edit text-white btn_ver_tratamientos" data-toggle="tooltip" title="Ver Tramatientos del Paciente">' + '<i class="fa fa-eye"></i> ver tratamientos</a>' + '</div>';
+					return '<div class="btn-group" role="group">' + '<a data="' + data[0] + '" class="btn btn-success btn-xs mdi mdi-tooltip-edit text-white btn_ver_tratamientos" data-toggle="tooltip" title="Ver Tratamientos del Paciente">' + '<i class="fa fa-eye"></i> ver tratamientos</a>' + '</div>';
 				},
 			},
 		],
@@ -163,7 +163,6 @@ $(document).ready(function () {
 					$('#masa_corporal').val(response.respuesta4[0]['masa_corporal']);
 					$('#accion').val('up');
 				}
-
 				$(document).ready(function () {
 					// Listado de alergias
 					$('#tbl_tratamiento_alergias').DataTable({
@@ -364,16 +363,50 @@ $(document).ready(function () {
 				});
 
 				//perfil de los pacientes
-				console.log(response.respuesta6);
+				console.log(response.respuesta7);
 				$('#id_persona5').val(response.respuesta1[0]['id_persona']);
-				if (response.respuesta6.length > 0) {
-					if (response.respuesta6[0]['foto'] != null) {
-						$('#perfil_foto').attr('src', response.respuesta6[0]['foto']);
+				if (response.respuesta7.length > 0) {
+					if (response.respuesta7[0]['foto'] != null) {
+						$('#perfil_foto').attr('src', response.respuesta7[0]['foto']);
 					}
-					$('#perfil_nombre_completo').html(response.respuesta6[0]['nombre_completo']);
-					$('#perfil_celular').html(response.respuesta6[0]['telefono_celular']);
-					$('#perfil_domicilio').html(response.respuesta6[0]['domicilio']);
-					$('#perfil_nacimiento').html(response.respuesta6[0]['fecha_nacimiento']);
+					$('#perfil_nombre_completo').html(response.respuesta7[0]['nombre_completo']);
+					$('#perfil_celular').html(response.respuesta7[0]['telefono_celular']);
+					$('#perfil_domicilio').html(response.respuesta7[0]['domicilio']);
+					$('#perfil_nacimiento').html(response.respuesta7[0]['fecha_nacimiento']);
+				}
+				// set data diagnostico
+				console.log(response.respuesta8);
+				$('#id_persona8').val(response.respuesta1[0]['id_persona']);
+				if (response.respuesta8.length > 0) {
+					$('#id_diagnostico').val(response.respuesta8[0]['id_diagnostico']);
+					$('#tipo_diagnostico').val(response.respuesta8[0]['tipo_diagnostico']);
+					$('#pieza_dentaria').val(response.respuesta8[0]['pieza_dentaria']);
+					$('#medida_preventiva').val(response.respuesta8[0]['medida_preventiva']);
+					$('input:radio[name="acciones_curativas"]').filter(`[value="${response.respuesta8[0]['acciones_curativas']}"]`).attr('checked', true);
+					$('#accion').val('up');
+				}
+
+				// set data medicacion
+				console.log(response.respuesta9);
+				$('#id_persona9').val(response.respuesta1[0]['id_persona']);
+				if (response.respuesta9.length > 0) {
+					$('#id_medicacion').val(response.respuesta9[0]['id_medicacion']);
+					$('#entrega_medicamento').val(response.respuesta9[0]['entrega_medicamento']);
+					$('#receta_medica').val(response.respuesta9[0]['receta_medica']);
+					$('#recomendaciones').val(response.respuesta9[0]['recomendaciones']);
+					$('#accion').val('up');
+				}
+				
+				// set data acciones-decesivas
+				console.log(response.respuesta10);
+				$('#id_persona10').val(response.respuesta1[0]['id_persona']);
+				if (response.respuesta10.length > 0) {
+					$('#id_acciones_decesivas').val(response.respuesta10[0]['id_acciones_decesivas']);
+					$('#subjetivo').val(response.respuesta10[0]['subjetivo']);
+					$('#objetivo').val(response.respuesta10[0]['objetivo']);
+					$('#analisis').val(response.respuesta10[0]['analisis']);
+					$('#plan_accion').val(response.respuesta10[0]['plan_accion']);
+					$('#accion').val('up');
 				}
 			})
 			.fail(function (e) {
@@ -605,52 +638,82 @@ $(document).ready(function () {
 				mensajeAlert('error', 'Error al registrar/editar el tratamiento fisico', 'Error');
 			});
 	});
-	//formulario de guardar alergias del paciente
-
-	// Reporte de historial clinico
-	let fecha_inicial = "";
-	let fecha_final = "";
-	$('#daterange-btn').daterangepicker(
-		{
-			ranges   : {
-				'Hoy'       : [moment(), moment()],
-				'Ayer'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-				'Los últimos 7 días' : [moment().subtract(6, 'days'), moment()],
-				'Los últimos 30 días': [moment().subtract(29, 'days'), moment()],
-				'Este mes'  : [moment().startOf('month'), moment().endOf('month')],
-				'El mes pasado'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-			},
-			startDate: moment().subtract(29, 'days'),
-			endDate  : moment()
-		},
-		function (start, end) {
-			fecha_inicial = start.format('YYYY-MM-DD');
-			fecha_final = end.format('YYYY-MM-DD');
-			$('#daterange-btn span').html(start.format('YYYY-MM-DD') + ' hasta ' + end.format('YYYY-MM-DD'))
-		}
-	)
-
-	$("#imprimir_historia_clinica").on("click", function(e){
-		let id = $("#id_paciente").val();
-		$.post(
-			"/tratamiento/imprimir",
-			{id, fecha_inicial, fecha_final},
-			function (resp) {
-				if (typeof resp.error != "undefined") {
-					Swal.fire("Error!", resp.error, "error");
-				} else {
-					$("#modal-body-historia-clinica").children().remove();
-					$("#modal-body-historia-clinica").html(
-						'<embed src="data:application/pdf;base64,' +
-						resp +
-						'#toolbar=1&navpanes=1&scrollbar=1&zoom=67,100,100" type="application/pdf" width="100%" height="600px" style="border: none;"/>'
-					);
-					$("#modal_imprimir_historia_clinica").modal({
-						backdrop: "static",
-						keyboard: true,
-					});
+	//formulario de diagnostico
+	$('#frm_guardar_diagnostico').on('submit', function (e) {
+		e.preventDefault();
+		$.ajax({
+			type: 'POST',
+			url: '/diagnostico/guardar_diagnostico',
+			data: $('#frm_guardar_diagnostico').serialize(),
+			dataType: 'JSON',
+		})
+			.done(function (response) {
+				if (typeof response.form !== 'undefined') {
+					mensajeAlert('warning', response.form, 'Advertencia');
 				}
-			}
-		);
-	})
-});
+
+				if (typeof response.exito !== 'undefined') {
+					//$('#tbl_diagnostico').DataTable().draw();
+					//$('#agregar-diagnostico').modal('hide');
+					mensajeAlert('success', response.exito, 'Exito');
+					$('#id_diagnostico').val(response.id_diagnostico);
+					limpiarCampos();
+				}
+			})
+			.fail(function (e) {
+				mensajeAlert('error', 'Error al registrar/editar el diagnostico', 'Error');
+			});
+	});
+	//formulario de medicacion
+	$('#frm_guardar_medicacion').on('submit', function (e) {
+		e.preventDefault();
+		$.ajax({
+			type: 'POST',
+			url: '/medicacion/guardar_medicacion',
+			data: $('#frm_guardar_medicacion').serialize(),
+			dataType: 'JSON',
+		})
+			.done(function (response) {
+				if (typeof response.form !== 'undefined') {
+					mensajeAlert('warning', response.form, 'Advertencia');
+				}
+
+				if (typeof response.exito !== 'undefined') {
+					//$('#tbl_medicacion').DataTable().draw();
+					//$('#agregar-medicacion').modal('hide');
+					mensajeAlert('success', response.exito, 'Exito');
+					$('#id_medicacion').val(response.id_medicacion);
+					//limpiarCampos();
+				}
+			})
+			.fail(function (e) {
+				mensajeAlert('error', 'Error al registrar/editar el medicacion', 'Error');
+			});
+	});
+	//formulario de acciones decesivas
+	$('#frm_guardar_accionesDecesivas').on('submit', function (e) {
+		e.preventDefault();
+		$.ajax({
+			type: 'POST',
+			url: '/accionesDecesivas/guardar_accionesDecesivas',
+			data: $('#frm_guardar_accionesDecesivas').serialize(),
+			dataType: 'JSON',
+		})
+			.done(function (response) {
+				if (typeof response.form !== 'undefined') {
+					mensajeAlert('warning', response.form, 'Advertencia');
+				}
+
+				if (typeof response.exito !== 'undefined') {
+					//$('#tbl_accionesDecesivas').DataTable().draw();
+					//$('#agregar-accionesDecesivas').modal('hide');
+					mensajeAlert('success', response.exito, 'Exito');
+					$('#id_acciones_decesivas').val(response.id_acciones_decesivas);
+					limpiarCampos();
+				}
+			})
+			.fail(function (e) {
+				mensajeAlert('error', 'Error al registrar/editar el diagnostico', 'Error');
+			});
+	});
+}); //fin principio

@@ -352,3 +352,46 @@ from sp_persona p join sp_odontologo o
 on p.id_persona = o.id_odontologo;
 
 
+--modificacion 21/6/21--
+--creacion de la tabla diagnostico --
+CREATE TABLE `sp_diagnostico` (
+  `id_diagnostico` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo_diagnostico` VARCHAR(100),
+  `pieza_dentaria` VARCHAR(100),
+  `medida_preventiva` VARCHAR(150),
+  `acciones_curativas` VARCHAR(250),
+  `id_paciente` int(11) NOT NULL,
+  `creado_en` timestamp NOT NULL DEFAULT current_timestamp(),
+  `actualizado_en` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_diagnostico`),
+  KEY `fk_diagnostico_paciente` (`id_paciente`),
+  CONSTRAINT `fk_diagnostico_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `sp_paciente` (`id_paciente`)
+);
+--creacion de la tabla medicacion--
+CREATE TABLE `sp_medicacion` (
+  `id_medicacion` int(11) NOT NULL AUTO_INCREMENT,
+  `entrega_medicamento` VARCHAR(250),
+  `receta_medica` VARCHAR(250),
+  `recomendaciones` VARCHAR(250),
+  `id_paciente` int(11) NOT NULL,
+  `creado_en` timestamp NOT NULL DEFAULT current_timestamp(),
+  `actualizado_en` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_medicacion`),
+  KEY `fk_medicacion_paciente` (`id_paciente`),
+  CONSTRAINT `fk_medicacion_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `sp_paciente` (`id_paciente`)
+);
+--creacion de la tabla medicacion--
+CREATE TABLE `sp_acciones_decesivas` (
+  `id_acciones_decesivas` int(11) NOT NULL AUTO_INCREMENT,
+  `subjetivo` VARCHAR(250),
+  `objetivo` VARCHAR(250),
+  `analisis` VARCHAR(250),
+  `plan_accion` VARCHAR(250),
+  `id_paciente` int(11) NOT NULL,
+  `creado_en` timestamp NOT NULL DEFAULT current_timestamp(),
+  `actualizado_en` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_acciones_decesivas`),
+  KEY `fk_acciones_decesivas_paciente` (`id_paciente`),
+  CONSTRAINT `fk_acciones_decesivas_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `sp_paciente` (`id_paciente`)
+);
+

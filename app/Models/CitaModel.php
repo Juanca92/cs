@@ -66,9 +66,10 @@ class CitaModel extends Database
     public function getEvents()
     {
         $builder = $this->db->table("view_cita ");
-        $builder->select('id_cita AS id, nombre_paciente AS title, CONCAT(fecha," ",hora_inicio) AS start, CONCAT(fecha," ",hora_final) 
-        AS end,observacion AS description, nombre_odontologo AS doctor');
-
+        $builder->select('id_cita AS id, nombre_paciente AS title, CONCAT(fecha," ",hora_inicio) AS start, CONCAT(fecha," ",hora_final) AS end,observacion AS description, nombre_odontologo AS doctor');
+        if (is(['PACIENTE'])) {
+            $builder->where('id_paciente', (\Config\Services::session())->get('id_persona'));
+        }
         return $builder->get()->getResultArray();
     }
 
@@ -84,19 +85,19 @@ class CitaModel extends Database
         }
         return null;
     }
-    
-    public function list_citas( $fecha_inicial = null, $fecha_final = null)
+
+    public function list_citas($fecha_inicial = null, $fecha_final = null)
     {
-        if($fecha_inicial === $fecha_final && $fecha_inicial != ""){
+        if ($fecha_inicial === $fecha_final && $fecha_inicial != "") {
             $builder = $this->db->table('sp_view_cita');
             $builder->select('*');
             $builder->where('fecha', $fecha_inicial);
-        }elseif ($fecha_inicial != $fecha_final){
+        } elseif ($fecha_inicial != $fecha_final) {
             $builder = $this->db->table('sp_view_cita');
             $builder->select('*');
             $builder->where('fecha>=', $fecha_inicial);
             $builder->where('fecha<=', $fecha_final);
-        }else{
+        } else {
             $builder = $this->db->table('sp_view_cita');
             $builder->select('*');
         }
@@ -106,18 +107,18 @@ class CitaModel extends Database
 
     public function count_atendida($fecha_inicial = null, $fecha_final = null)
     {
-        if($fecha_inicial === $fecha_final && $fecha_inicial != ""){
+        if ($fecha_inicial === $fecha_final && $fecha_inicial != "") {
             $builder = $this->db->table('sp_view_cita');
             $builder->select('count(*) as atendida');
             $builder->where('fecha', $fecha_inicial);
             $builder->where('estatus', "Atendida");
-        }elseif ($fecha_inicial != $fecha_final){
+        } elseif ($fecha_inicial != $fecha_final) {
             $builder = $this->db->table('sp_view_cita');
             $builder->select('count(*) as atendida');
             $builder->where('fecha>=', $fecha_inicial);
             $builder->where('fecha<=', $fecha_final);
             $builder->where('estatus', "Atendida");
-        }else{
+        } else {
             $builder = $this->db->table('sp_view_cita');
             $builder->select('count(*) as atendida');
             $builder->where('estatus', "Atendida");
@@ -128,18 +129,18 @@ class CitaModel extends Database
 
     public function count_cancelada($fecha_inicial = null, $fecha_final = null)
     {
-        if($fecha_inicial === $fecha_final && $fecha_inicial != ""){
+        if ($fecha_inicial === $fecha_final && $fecha_inicial != "") {
             $builder = $this->db->table('sp_view_cita');
             $builder->select('count(*) as cancelada');
             $builder->where('fecha', $fecha_inicial);
             $builder->where('estatus', "Cancelada");
-        }elseif ($fecha_inicial != $fecha_final){
+        } elseif ($fecha_inicial != $fecha_final) {
             $builder = $this->db->table('sp_view_cita');
             $builder->select('count(*) as cancelada');
             $builder->where('fecha>=', $fecha_inicial);
             $builder->where('fecha<=', $fecha_final);
             $builder->where('estatus', "Cancelada");
-        }else{
+        } else {
             $builder = $this->db->table('sp_view_cita');
             $builder->select('count(*) as cancelada');
             $builder->where('estatus', "Cancelada");
@@ -150,18 +151,18 @@ class CitaModel extends Database
 
     public function count_pendiente($fecha_inicial = null, $fecha_final = null)
     {
-        if($fecha_inicial === $fecha_final && $fecha_inicial != ""){
+        if ($fecha_inicial === $fecha_final && $fecha_inicial != "") {
             $builder = $this->db->table('sp_view_cita');
             $builder->select('count(*) as pendiente');
             $builder->where('fecha', $fecha_inicial);
             $builder->where('estatus', "Pendiente");
-        }elseif ($fecha_inicial != $fecha_final){
+        } elseif ($fecha_inicial != $fecha_final) {
             $builder = $this->db->table('sp_view_cita');
             $builder->select('count(*) as pendiente');
             $builder->where('fecha>=', $fecha_inicial);
             $builder->where('fecha<=', $fecha_final);
             $builder->where('estatus', "Pendiente");
-        }else{
+        } else {
             $builder = $this->db->table('sp_view_cita');
             $builder->select('count(*) as pendiente');
             $builder->where('estatus', "Pendiente");
@@ -169,5 +170,4 @@ class CitaModel extends Database
 
         return $builder->get()->getResultArray();
     }
-
 }
