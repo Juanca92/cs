@@ -113,7 +113,7 @@
               <h2>Información de contacto Odontológico</h2>
               <div class="line"></div>
             </div>
-            <p>Para mayor información consulte a su medico odontológico</p>
+            <p>Para mayor información consulte a su médico odontológico</p>
             <address class="contact-info">
               <p><span class="fa fa-home"></span>Odontólogo Wilmer Gamboa</p>
               <p><span class="fa fa-phone"></span>77281461</p>

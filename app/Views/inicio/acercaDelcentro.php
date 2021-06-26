@@ -119,7 +119,7 @@
                     <img src="<?php echo base_url('images/dientes/mgeneral.jpg') ?>" alt="diente" class="brand-image img-circle elevation-3 service-icon-effect" style="opacity: 0.8"  />
                     </div>
                     <h3><a href="#">Medicina General</a></h3>
-                    <p>En la parte de la medicina General el centro de salud atiende a sus pacientes
+                    <p>En la parte de la medicina general el centro de salud atiende a sus pacientes
                      para la prevención, detección y poner un oportuno tratamiento, seguimiento de las enfermedades 
                      que posee el paciente con los médicos altamente capacitados.</p>
                   </div>
@@ -201,7 +201,7 @@
           <div class="service-area">
             <!-- Start Service Title -->
             <div class="section-heading">
-              <h2>Por que Elegirnos</h2>
+              <h2>Por que elegirnos</h2>
               <div class="line"></div>
             </div>
           </div>

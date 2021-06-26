@@ -442,33 +442,6 @@
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <div class="form-group">
-                                                                <label for="tomando_medicamentos">¿Esta tomando algun
-                                                                    medicamento? <span
-                                                                        class="text-danger">(*)</span>:</label>
-                                                                <div>
-                                                                    <label for="tomando_medicamentos">Si</label>
-                                                                    <input type="radio" name="tomando_medicamentos"
-                                                                        value="si">
-                                                                    <label for="tomando_medicamentos">No</label>
-                                                                    <input type="radio" name="tomando_medicamentos"
-                                                                        value="no">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label for="porque_tiempo">¿Por que y cuanto
-                                                                    tiempo?<span class="text-danger">(*)</span>:</label>
-                                                                <textarea type="text" id="porque_tiempo"
-                                                                    name="porque_tiempo" class="form-control"
-                                                                    style="overflow:auto;resize:none" rows="2"
-                                                                    placeholder="escriba aqui"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
                                                                 <label for="alergico_medicamento">¿Es alergico a algun
                                                                     medicamento o anastesico?
                                                                     <span class="text-danger">(*)</span>:</label>

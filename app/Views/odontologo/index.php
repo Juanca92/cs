@@ -183,15 +183,8 @@
                             <div class="form-group">
                                 <label for="fecha_nacimiento">Fecha Nacimiento <span
                                         class="text-danger">(*)</span>:</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                        <i class="far fa-calendar-minus"></i>
-                                        </div>
-                                    </div>
                                     <input type="datepicker" id="fecha_nacimiento" name="fecha_nacimiento"
                                         class="form-control" readonly="">
-                                </div>
                             </div>
                         </div>
                         <input type="hidden" name="id" id="id">

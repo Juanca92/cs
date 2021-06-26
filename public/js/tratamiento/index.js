@@ -132,8 +132,6 @@ $(document).ready(function () {
 					$('#id_consulta').val(response.respuesta3[0]['id_consulta']);
 					$('input:radio[name="tratamiento"]').filter(`[value="${response.respuesta3[0]['tratamiento']}"]`).attr('checked', true);
 					$('#motivo_tratamiento').val(response.respuesta3[0]['motivo_tratamiento']);
-					$('input:radio[name="tomando_medicamentos"]').filter(`[value="${response.respuesta3[0]['tomando_medicamentos']}"]`).attr('checked', true);
-					$('#porque_tiempo').val(response.respuesta3[0]['porque_tiempo']);
 					$('input:radio[name="alergico_medicamento"]').filter(`[value="${response.respuesta3[0]['alergico_medicamento']}"]`).attr('checked', true);
 					$('#cual_medicamento').val(response.respuesta3[0]['cual_medicamento']);
 					$('input:radio[name="alguna_cirugia"]').filter(`[value="${response.respuesta3[0]['alguna_cirugia']}"]`).attr('checked', true);
