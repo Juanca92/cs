@@ -1331,6 +1331,7 @@
                                             </button>
                                         </center>
                                         <br>
+                                        <input type="hidden" id="unico" name="unico">
                                         <center>
                                             <button class="btn btn-info btn-sm" id="imprimir_historia_clinica">
                                                 <i class="fa fa-print"></i>

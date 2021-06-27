@@ -34,11 +34,12 @@ class Tratamiento extends BaseController
 
     public function imprimir()
     {
-        $fecha_inicial = $this->request->getPost("fecha_inicial");
-        $fecha_final = $this->request->getPost("fecha_final");
+        $fecha_inicial = $this->request->getPost("fechaInicial");
+        $fecha_final = $this->request->getPost("fechaFinal");
         $id_persona = $this->request->getPost('id');
         $this->response->setContentType('application/pdf');
         $data = null;
+        return var_dump($_REQUEST);
 //        $data = $this->model->list_citas($fecha_inicial, $fecha_final);
         $this->reporte->imprimir($data, $fecha_inicial, $fecha_final, $id_persona);
 

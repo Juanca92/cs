@@ -57,7 +57,7 @@ $(document).ready(function () {
 				targets: -1,
 				data: null,
 				render: function (data, type, row, meta) {
-					console.log(data);
+					// console.log(data);
 					return '<div class="btn-group" role="group">' + '<a data="' + data[0] + '" class="btn btn-success btn-xs mdi mdi-tooltip-edit text-white btn_ver_tratamientos" data-toggle="tooltip" title="Ver Tratamientos del Paciente">' + '<i class="fa fa-eye"></i> ver tratamientos</a>' + '</div>';
 				},
 			},
@@ -93,7 +93,7 @@ $(document).ready(function () {
 			dataType: 'JSON',
 		})
 			.done(function (response) {
-				console.log(response.respuesta1);
+				console.log(response);
 				// set data data paciente
 				$('#id').val(response.respuesta1[0]['id_persona']);
 				$('#ci').val(response.respuesta1[0]['ci']);
@@ -147,7 +147,7 @@ $(document).ready(function () {
 				}
 
 				// set data exploracion fisica
-				console.log(response.respuesta4);
+				// console.log(response.respuesta4);
 				$('#id_persona2').val(response.respuesta1[0]['id_persona']);
 				if (response.respuesta4.length > 0) {
 					$('#id_fisico').val(response.respuesta4[0]['id_fisico']);
@@ -193,7 +193,7 @@ $(document).ready(function () {
 						],
 					});
 
-					console.log(response.respuesta5);
+					// console.log(response.respuesta5);
 					$('#id_persona3').val(response.respuesta1[0]['id_persona']);
 					if (response.respuesta5.length > 0) {
 						$('#id_alergia').val(response.respuesta5[0]['id_alergia']);
@@ -365,7 +365,7 @@ $(document).ready(function () {
 							},
 						],
 					});
-					console.log(response.respuesta6);
+					// console.log(response.respuesta6);
 					$('#id_persona4').val(response.respuesta1[0]['id_persona']);
 					if (response.respuesta6.length > 0) {
 						$('#nombre_tratamiento').val(response.respuesta6[0]['nombre_tratamiento']);
@@ -376,7 +376,7 @@ $(document).ready(function () {
 				});
 
 				//perfil de los pacientes
-				console.log(response.respuesta7);
+				// console.log(response.respuesta7);
 				$('#id_persona5').val(response.respuesta1[0]['id_persona']);
 				if (response.respuesta7.length > 0) {
 					if (response.respuesta7[0]['foto'] != null) {
@@ -729,4 +729,76 @@ $(document).ready(function () {
 				mensajeAlert('error', 'Error al registrar/editar el diagnostico', 'Error');
 			});
 	});
+
+	// IMPRIMIR HISTORIAL ODONTOLOGICO
+	var fechaInicial = null;
+    var fechaFinal = null;
+
+	jQuery("#daterange-btn").daterangepicker(
+        {
+            ranges: {
+                "Hoy": [moment(), moment()],
+                "Ayer": [moment().subtract(1, "days"), moment().subtract(1, "days")],
+                "Últimos 7 días": [moment().subtract(6, "days"), moment()],
+                "Últimos 30 días": [moment().subtract(29, "days"), moment()],
+                "Este mes": [moment().startOf("month"), moment().endOf("month")],
+                "Último mes": [
+                    moment()
+                        .subtract(1, "month")
+                        .startOf("month"),
+                    moment()
+                        .subtract(1, "month")
+                        .endOf("month")
+                ]
+            },
+            start: moment(),
+            end: moment(),
+            locale: {
+                separator: " - ",
+                applyLabel: "Aplicar",
+                cancelLabel: "Cancelar",
+                fromLabel: "de",
+                toLabel: "hasta",
+                customRangeLabel: "Rango personalizado"
+            }
+        },
+        function(start, end) {
+            $("#daterange-btn span").html(
+                start.format("YYYY-MM-DD") +
+                ' <i class="fa fa-minus"></i> ' +
+                end.format("YYYY-MM-DD")
+            );
+
+            fechaInicial = start.format("YYYY-MM-DD");
+
+            fechaFinal = end.format("YYYY-MM-DD");
+        }
+    );
+
+    $('#daterange-btn').on('cancel.daterangepicker', function(ev, picker) {
+        //do something, like clearing an input
+        $("#daterange-btn span").html("Seleccione Rango	Fecha");
+        $("#daterange-btn").val("");
+
+        fechaInicial = null;
+        fechaFinal = null;
+    });
+
+	$("#imprimir_historia_clinica").on("click", function(e){
+		let id = id_paciente;
+		console.log(id)
+		$.post('/tratamiento/imprimir', {id, fechaInicial, fechaFinal}, function (resp) {
+			$("#modal-body-historia-clinica").children().remove();
+			$("#modal-body-historia-clinica").html(
+				'<embed src="data:application/pdf;base64,' +
+				resp +
+				'#toolbar=1&navpanes=1&scrollbar=1&zoom=67,100,100" type="application/pdf" width="100%" height="600px" style="border: none;"/>'
+			);
+			$("#modal_imprimir_historia_clinica").modal({
+				backdrop: "static",
+				keyboard: true,
+			});
+		});
+	});
+
 }); //fin principio
