@@ -38,10 +38,17 @@ class Tratamiento extends BaseController
         $fecha_final = $this->request->getPost("fechaFinal");
         $id_persona = $this->request->getPost('id');
         $this->response->setContentType('application/pdf');
-        $data = null;
-        return var_dump($_REQUEST);
+        $header = array(
+            'sedes'           => 'La Paz',
+            'red'             => '12',
+            'municipio'       => 'San Pedro de Curahuara',
+            'establecimiento' => 'San Pedro de Curahuara',
+        );
+
+        $data_paciente = $this->model->data_paciente($id_persona);
+        
 //        $data = $this->model->list_citas($fecha_inicial, $fecha_final);
-        $this->reporte->imprimir($data, $fecha_inicial, $fecha_final, $id_persona);
+        $this->reporte->imprimir($header, $data_paciente, $fecha_inicial, $fecha_final, $id_persona);
 
     }
 }

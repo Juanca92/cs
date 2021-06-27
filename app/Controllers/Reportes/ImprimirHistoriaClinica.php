@@ -2,12 +2,13 @@
 
 namespace App\Controllers\Reportes;
 
+use DateTime;
 use FPDF;
 
 class ImprimirHistoriaClinica extends FPDF
 {
 
-    public function imprimir($data = null, $fecha_inicial=null, $fecha_final=null, $id = null)
+    public function imprimir($header = null, $data_paciente = null, $fecha_inicial=null, $fecha_final=null, $id_persona)
     {
         $this->AliasNbPages();
         $this->AddPage('P', 'letter');
@@ -17,6 +18,9 @@ class ImprimirHistoriaClinica extends FPDF
         $this->SetXY(6.9, 30);
         $this->Cell(200,10,utf8_decode("HISTORIA CLÍNICA ODONTOLÓGICA"), 0, 1, "C");
         $this->Image('img/cabecera_dos.jpg', 6, 39, 202);
+        $this->print_header($header);
+        $this->print_data_paciente($data_paciente);
+        $this->print_codigo($data_paciente);
 
        
 
@@ -24,6 +28,102 @@ class ImprimirHistoriaClinica extends FPDF
 //        $this->datosHorizontal($data, $length, $cantidad);
 
         echo base64_encode($this->Output('S'));
+    }
+
+    public function print_codigo($data)
+    {
+        if(isset($data[0]->fecha_nacimiento)){
+            $fecha_nacimiento = explode("-", $data[0]->fecha_nacimiento);
+        }else{
+            $fecha_nacimiento = ["", "", ""];
+        }
+        
+        $nombres = (isset($data[0]->nombres)) ? strtoupper(substr($data[0]->nombres, 0 , 1)) : "";
+        $paterno = (isset($data[0]->paterno)) ? strtoupper(substr($data[0]->paterno, 0, 1)): "";
+        $materno = (isset($data[0]->materno)) ? strtoupper(substr($data[0]->materno, 0, 1)): "";
+        $cadena = $fecha_nacimiento[2] . $fecha_nacimiento[1]. substr($fecha_nacimiento[0], 2,3).$nombres. $paterno.$materno;
+
+        // IMPRIMIR CODIGO
+        $cn = 160.5;
+        for ($i=0; $i < strlen($cadena); $i++) {
+            $this->SetXY($cn, 13.8);
+            $this->Cell(10,5,utf8_decode($cadena[$i]), 0, 1, "L");
+            $cn = $cn + 5;
+        }
+
+        // IMPRIMIR CI
+        $cn = 200.5;
+        $ci = strrev($data[0]->ci);
+        for ($i=0; $i < strlen($ci); $i++) {
+            $this->SetXY($cn, 18.4);
+            $this->Cell(10,5,utf8_decode($ci[$i]), 0, 1, "L");
+            $cn = $cn - 5;
+        }
+    }   
+
+    public function print_header($header)
+    {
+        $this->SetFont('Arial', '', 11);
+        $this->SetXY(48, 7.5);
+        $this->Cell(80,5,utf8_decode($header['sedes']), 0, 1, "L");
+
+        $this->SetXY(58, 13);
+        $this->Cell(80,5,utf8_decode($header['red']), 0, 1, "L");
+
+        $this->SetXY(56, 19);
+        $this->Cell(80,5,utf8_decode($header['municipio']), 0, 1, "L");
+
+        $this->SetXY(62, 24);
+    
+    }
+
+    public function print_data_paciente($data)
+    {
+        // var_dump($data);
+        //PRIMERA FILA
+        $this->SetFont('Arial', '', 11);
+        $this->SetXY(12,41);
+        $this->Cell(55,5,utf8_decode($data[0]->paterno), 0, 1, "C");
+
+        $this->SetXY(70,41);
+        $this->Cell(52,5,utf8_decode($data[0]->materno), 0, 1, "C");
+
+        $this->SetXY(125,41);
+        $this->Cell(50,5,utf8_decode($data[0]->nombres), 0, 1, "C");
+        $fecha_nacimiento = new DateTime($data[0]->fecha_nacimiento);
+        $hoy = new DateTime();
+        $edad = $hoy->diff($fecha_nacimiento);
+        $this->SetXY(175,41);
+        $this->Cell(16,5,utf8_decode($edad->y. " años"), 0, 1, "C");
+
+        $this->SetXY(192,41);
+        $this->Cell(10,5,utf8_decode($this->sexo($data[0]->sexo)), 0, 1, "C");
+
+        //SEGUNDA FILA
+        $this->SetXY(12,55);
+        $this->Cell(55,5,utf8_decode($data[0]->lugar_nacimiento), 0, 1, "C");
+
+        $this->SetXY(70,55);
+        $this->Cell(52,5,utf8_decode(""), 0, 1, "C");
+
+        $this->SetFont('Arial', '', 9);
+        $this->SetXY(125,55);
+        $this->Cell(50,5,utf8_decode($data[0]->domicilio), 0, 1, "C");
+
+        $this->SetFont('Arial', '', 11);
+        $this->SetXY(177,55);
+        $this->Cell(25,5,utf8_decode($data[0]->telefono_celular), 0, 1, "C");
+
+    }
+
+    public function sexo($data)
+    {
+        if($data == "femenino")
+        {
+            return "F";
+        }else{
+            return "M";
+        }
     }
 
     public function cabeceraHorizontal($cabecera, $tam)
