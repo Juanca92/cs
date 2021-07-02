@@ -24,10 +24,12 @@
                     <div class="card-header">
                         <h3 class="card-title">
                             Odont&oacute;logos
+                            <?php if (is(['ADMINISTRADOR'])) : ?>
                             <button class="btn btn-success btn-sm" id="agregar_odontologo">
                                 <i class="fa fa-plus"></i>
                                 Agregar
                             </button>
+                            <?php endif ?>
                             <button class="btn btn-info btn-sm" id="imprimir_odontologo">
                                 <i class="fa fa-print"></i>
                                 Imprimir
@@ -50,7 +52,10 @@
                                     <th>Ingreso</th>
                                     <th>Estado</th>
                                     <th>Registrado</th>
+                                    <?php if (is(['ADMINISTRADOR'])) : ?>
                                     <th>Acciones</th>
+                                    <?php endif ?>
+
                                 </tr>
                             </thead>
                         </table>

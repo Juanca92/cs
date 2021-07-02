@@ -69,7 +69,7 @@
               <li class="active"><a href="<?= base_url('inicio') ?>">Inicio</a></li>
               <li><a href="<?= base_url('inicio/acercaDelcentro') ?>">Acerca-del-centro-de-salud</a></li>
               <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>">Doctores</a></li>
-              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
+              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>">Servicio-Odontológico</a></li>
               <li><a href="<?= base_url('inicio/contactos') ?>">Contacto</a></li>
               <li><a href="<?= base_url('auth/login') ?>">Ingresar</a></li>
             </ul>

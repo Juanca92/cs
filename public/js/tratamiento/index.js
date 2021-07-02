@@ -82,7 +82,50 @@ $(document).ready(function () {
 
 			mensajeAlert('info', 'Por favor seleccione un paciente !!!', 'Informacion');
 		}
-
+		//devolviendo los valores nulos efermedad
+		$('input[type=radio][name=tomando_medicamento]').change(function() {
+			if (this.value == 'si') {
+				$('#nombre_medicamento').attr('disabled', false);
+				$('#motivo_medicamento').attr('disabled', false);
+				$('#dosis_medicamento').attr('disabled', false);
+			}
+			else if (this.value == 'no') {
+				$('#nombre_medicamento').attr('disabled', true);
+				$('#nombre_medicamento').val(' ');
+				$('#motivo_medicamento').attr('disabled', true);
+				$('#motivo_medicamento').val(' ');
+				$('#dosis_medicamento').attr('disabled', true);
+				$('#dosis_medicamento').val(' ');
+			}
+		});
+		//devolviendo los valores nulos consulta
+		$('input[type=radio][name=tratamiento]').change(function() {
+			if (this.value == 'si') {
+				$('#motivo_tratamiento').attr('disabled', false);
+			}
+			else if (this.value == 'no') {
+				$('#motivo_tratamiento').attr('disabled', true);
+				$('#motivo_tratamiento').val('');
+			}
+		});
+		$('input[type=radio][name=alergico_medicamento]').change(function() {
+			if (this.value == 'si') {
+				$('#cual_medicamento').attr('disabled', false);
+			}
+			else if (this.value == 'no') {
+				$('#cual_medicamento').attr('disabled', true);
+				$('#cual_medicamento').val('');
+			}
+		});
+		$('input[type=radio][name=alguna_cirugia]').change(function() {
+			if (this.value == 'si') {
+				$('#porque').attr('disabled', false);
+			}
+			else if (this.value == 'no') {
+				$('#porque').attr('disabled', true);
+				$('#porque').val('');
+			}
+		});
 		// recuperar todos los datos
 		$.ajax({
 			type: 'POST',
@@ -119,6 +162,8 @@ $(document).ready(function () {
 					$('#motivo_consulta').val(response.respuesta2[0]['motivo_consulta']);
 					$('#sintomas_principales').val(response.respuesta2[0]['sintomas_principales']);
 					$('input:radio[name="tomando_medicamento"]').filter(`[value="${response.respuesta2[0]['tomando_medicamento']}"]`).attr('checked', true);
+					if(response.respuesta2[0]['tomando_medicamento']== 'no')
+					$('#nombre_medicamento').attr('disabled', true);
 					$('#nombre_medicamento').val(response.respuesta2[0]['nombre_medicamento']);
 					$('#motivo_medicamento').val(response.respuesta2[0]['motivo_medicamento']);
 					$('#dosis_medicamento').val(response.respuesta2[0]['dosis_medicamento']);
@@ -131,10 +176,16 @@ $(document).ready(function () {
 				if (response.respuesta3.length > 0) {
 					$('#id_consulta').val(response.respuesta3[0]['id_consulta']);
 					$('input:radio[name="tratamiento"]').filter(`[value="${response.respuesta3[0]['tratamiento']}"]`).attr('checked', true);
+					if(response.respuesta3[0]['tratamiento']== 'no')
+					$('#motivo_tratamiento').attr('disabled', true);
 					$('#motivo_tratamiento').val(response.respuesta3[0]['motivo_tratamiento']);
 					$('input:radio[name="alergico_medicamento"]').filter(`[value="${response.respuesta3[0]['alergico_medicamento']}"]`).attr('checked', true);
+					if(response.respuesta3[0]['alergico_medicamento']== 'no')
+					$('#cual_medicamento').attr('disabled', true);
 					$('#cual_medicamento').val(response.respuesta3[0]['cual_medicamento']);
 					$('input:radio[name="alguna_cirugia"]').filter(`[value="${response.respuesta3[0]['alguna_cirugia']}"]`).attr('checked', true);
+					if(response.respuesta3[0]['alguna_cirugia']== 'no')
+					$('#porque').attr('disabled', true);
 					$('#porque').val(response.respuesta3[0]['porque']);
 					$('input:checkbox[name="alguna_enfermedad[]"]').filter(`[value="${response.respuesta3[0]['alguna_enfermedad[]']}"]`).attr('checked', true);
 					$('input:radio[name="cepilla_diente"]').filter(`[value="${response.respuesta3[0]['cepilla_diente']}"]`).attr('checked', true);
