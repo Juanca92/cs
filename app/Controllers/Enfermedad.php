@@ -71,10 +71,10 @@ class Enfermedad extends BaseController
                                 "motivo_consulta"       => "required|alpha_numeric_space",
                                 "sintomas_principales"  => "required|alpha_numeric_space",
                                 "tomando_medicamento"   => "required",
-                                "nombre_medicamento"    => "required|alpha_space",
-                                "motivo_medicamento"    => "required|alpha_space",
-                                "dosis_medicamento"     => "required|alpha_numeric_space",
-                                "id_persona"           => "required"
+                                "nombre_medicamento"    => "alpha_space",
+                                "motivo_medicamento"    => "alpha_space",
+                                "dosis_medicamento"     => "alpha_numeric_space",
+                                "id_persona"            => "required"
                             ],
                             [ // errors
                                 "tiempo_consulta" => [
@@ -93,7 +93,6 @@ class Enfermedad extends BaseController
                                     "required"   => "tomando algun medicamento es requerido"
                                 ],
                                 "nombre_medicamento" => [
-                                    "required" => " El nombre del medicamento es requerido",
                                     "alpha_space" => "El nombre del medicamento debe llevar caracteres alfabéticos o espacios."
                                 ],
                                 "motivo_medicamento" => [
@@ -101,8 +100,7 @@ class Enfermedad extends BaseController
                                     "alpha_space" => "El motivo de la consulta debe llevar caracteres alfabéticos o espacios."
                                 ],
                                 "dosis_medicamento" => [
-                                    "required"   => "Dosis de medicamento es requerido",
-                                    "alpha_numeric_space"    => "Dosis de medicamento debe llevar caracteres alfabeticos, numericos o espacios."
+                                    "alpha_numeric_space"    => "Dosis de medicamento debe llevar caracteres numericos."
                                 ],
                                 "id_persona" => [
                                     "required"   => "el id del paciente es requerido"
@@ -150,9 +148,9 @@ class Enfermedad extends BaseController
                             "motivo_consulta"       => "required|alpha_space",
                             "sintomas_principales"  => "required|alpha_space",
                             "tomando_medicamento"   => "required",
-                            "nombre_medicamento"    => "required|alpha_space",
-                            "motivo_medicamento"    => "required|alpha_space",
-                            "dosis_medicamento"     => "required|numeric",
+                            "nombre_medicamento"    => "alpha_space",
+                            "motivo_medicamento"    => "alpha_space",
+                            "dosis_medicamento"     => "alpha_numeric_space",
                             "id_persona"           => "required"
                         ],
                         [ // errors
@@ -175,16 +173,13 @@ class Enfermedad extends BaseController
                                 "required"   => "tomando algun medicamento es requerido"
                             ],
                             "nombre_medicamento" => [
-                                "required" => " El nombre del medicamento es requerido",
                                 "alpha_space" => "El nombre del medicamento debe llevar caracteres alfabéticos o espacios."
                             ],
                             "motivo_medicamento" => [
-                                "required" => " El motivo de la consulta es requerido",
                                 "alpha_space" => "El motivo de la consulta debe llevar caracteres alfabéticos o espacios."
                             ],
                             "dosis_medicamento" => [
-                                "required"   => "Dosis de medicamento es requerido",
-                                "alpha_numeric_space"    => "Dosis de medicamento debe llevar caracteres alfabeticos, numericos o espacios."
+                                "alpha_numeric_space"    => "Dosis de medicamento debe llevar caracteres numericos."
                             ],
                             "id_persona" => [
                                 "required"   => "el id del paciente es requerido"

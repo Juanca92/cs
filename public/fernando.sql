@@ -395,3 +395,32 @@ CREATE TABLE `sp_acciones_decesivas` (
   CONSTRAINT `fk_acciones_decesivas_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `sp_paciente` (`id_paciente`)
 );
 
+--modificacion de la bse de datos 26/06/2021--
+
+"ALTER TABLE `sp_tratamiento_consulta` DROP `tomando_medicamentos`;"
+"ALTER TABLE `sp_tratamiento_consulta` DROP `porque_tiempo`;"
+
+--creacion de la vista de tratamiento-consulta--
+CREATE OR REPLACE VIEW `sp_view_tratamiento_consulta` AS
+select
+    `tratamiento_consulta`.`id_consulta` AS `id_consulta`,
+    `tratamiento_consulta`.`tratamiento` AS 'tratamiento', 
+    `tratamiento_consulta`.`motivo_tratamiento` AS `motivo_tratamiento`,
+    `tratamiento_consulta`.`alergico_medicamento` AS `alergico_medicamento`,
+    `tratamiento_consulta`.`cual_medicamento` AS `cual_medicamento`,
+    `tratamiento_consulta`.`alguna_cirugia` AS `alguna_cirugia`,
+    `tratamiento_consulta`.`porque` AS `porque`,
+    `tratamiento_consulta`.`alguna_enfermedad` AS `alguna_enfermedad`,
+    `tratamiento_consulta`.`cepilla_diente` AS `cepilla_diente`,
+    `tratamiento_consulta`.`cuanto_dia` AS `cuanto_dia`,
+    `paciente`.`id_paciente` AS `id_paciente`,
+	    
+    concat(`persona_paciente`.`nombres`, ' ', `persona_paciente`.`paterno`, ' ', `persona_paciente`.`materno`) AS `nombre_paciente`,
+    `tratamiento_consulta`.`creado_en` AS `creado_en`
+from
+    ((`sp_tratamiento_consulta` `tratamiento_consulta`
+join `sp_paciente` `paciente` on
+    (`tratamiento_consulta`.`id_paciente` = `paciente`.`id_paciente`))
+join `sp_persona` `persona_paciente` on
+    (`persona_paciente`.`id_persona` = `paciente`.`id_paciente`));
+

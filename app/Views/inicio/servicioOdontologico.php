@@ -69,7 +69,7 @@
               <li class="active"><a href="<?= base_url('inicio') ?>">Inicio</a></li>
               <li><a href="<?= base_url('inicio/acercaDelcentro') ?>">Acerca-del-centro-de-salud</a></li>
               <li><a href="<?= base_url('inicio/nuestrosDoctores') ?>">Doctores</a></li>
-              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>">Servicio-odontologico</a></li>
+              <li><a href="<?= base_url('inicio/servicioOdontologico') ?>">Servicio-Odontológico</a></li>
               <li><a href="<?= base_url('inicio/contactos') ?>">Contacto</a></li>
               <li><a href="<?= base_url('auth/login') ?>">Ingresar</a></li>
             </ul>
@@ -87,7 +87,7 @@
         <div class="blog-breadcrumbs-area">
           <div class="container">
             <div class="blog-breadcrumbs-left">
-              <h2>Se brinda los siguientes Tratamientos</h2>
+              <h2>Se brinda los siguientes tratamientos</h2>
             </div>
             <div class="blog-breadcrumbs-right">
               <ol class="breadcrumb">
@@ -199,7 +199,7 @@
           <div class="service-area">
             <!-- Start Service Title -->
             <div class="section-heading">
-              <h2>Por que Elegirnos</h2>
+              <h2>Por que elegirnos</h2>
               <div class="line"></div>
             </div>
           </div>

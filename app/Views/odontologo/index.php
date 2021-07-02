@@ -24,10 +24,12 @@
                     <div class="card-header">
                         <h3 class="card-title">
                             Odont&oacute;logos
+                            <?php if (is(['ADMINISTRADOR'])) : ?>
                             <button class="btn btn-success btn-sm" id="agregar_odontologo">
                                 <i class="fa fa-plus"></i>
                                 Agregar
                             </button>
+                            <?php endif ?>
                             <button class="btn btn-info btn-sm" id="imprimir_odontologo">
                                 <i class="fa fa-print"></i>
                                 Imprimir
@@ -50,7 +52,10 @@
                                     <th>Ingreso</th>
                                     <th>Estado</th>
                                     <th>Registrado</th>
+                                    <?php if (is(['ADMINISTRADOR'])) : ?>
                                     <th>Acciones</th>
+                                    <?php endif ?>
+
                                 </tr>
                             </thead>
                         </table>
@@ -183,15 +188,8 @@
                             <div class="form-group">
                                 <label for="fecha_nacimiento">Fecha Nacimiento <span
                                         class="text-danger">(*)</span>:</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                        <i class="far fa-calendar-minus"></i>
-                                        </div>
-                                    </div>
                                     <input type="datepicker" id="fecha_nacimiento" name="fecha_nacimiento"
                                         class="form-control" readonly="">
-                                </div>
                             </div>
                         </div>
                         <input type="hidden" name="id" id="id">

@@ -36,17 +36,15 @@ class Consulta extends BaseController
                 array('db' => 'id_consulta', 'dt'           => 0),
                 array('db' => 'tratamiento', 'dt'           => 1),
                 array('db' => 'motivo_tratamiento', 'dt'    => 2),
-                array('db' => 'tomando_medicamentos', 'dt'  => 3),
-                array('db' => 'porque_tiempo', 'dt'         => 4),
-                array('db' => 'alergico_medicamento', 'dt'  => 5),
-                array('db' => 'cual_medicamento', 'dt'      => 6),
-                array('db' => 'alguna_cirugia', 'dt'        => 7),
-                array('db' => 'porque', 'dt'                => 8),
-                array('db' => 'alguna_enfermedad', 'dt'     => 9),
-                array('db' => 'cepilla_diente', 'dt'        => 10),
-                array('db' => 'cuanto_dia', 'dt'            => 11),
-                array('db' => 'nombre_paciente', 'dt'       => 12),
-                array('db' => 'creado_en', 'dt'             => 13)
+                array('db' => 'alergico_medicamento', 'dt'  => 3),
+                array('db' => 'cual_medicamento', 'dt'      => 4),
+                array('db' => 'alguna_cirugia', 'dt'        => 5),
+                array('db' => 'porque', 'dt'                => 6),
+                array('db' => 'alguna_enfermedad', 'dt'     => 7),
+                array('db' => 'cepilla_diente', 'dt'        => 8),
+                array('db' => 'cuanto_dia', 'dt'            => 9),
+                array('db' => 'nombre_paciente', 'dt'       => 10),
+                array('db' => 'creado_en', 'dt'             => 11)
             );
 
             $sql_details = array(
@@ -76,8 +74,6 @@ class Consulta extends BaseController
                         [ // rules
                             "tratamiento"           => 'required',
                             "motivo_tratamiento"    => "alpha_space",
-                            "tomando_medicamentos"  => "required",
-                            "porque_tiempo"         => "alpha_space",
                             "alergico_medicamento"  => "required",
                             "cual_medicamento"      => "alpha_space",
                             "alguna_cirugia"        => "required",
@@ -93,12 +89,6 @@ class Consulta extends BaseController
                             ],
                             "motivo_tratamiento" => [
                                 "alpha_space" => "El motivo del tratamiento debe llevar caracteres alfabéticos o espacios."
-                            ],
-                            "tomando_medicamentos" => [
-                                "required" => " Esta tomando medicamentos? es requerido"
-                            ],
-                            "porque_tiempo" => [
-                                "alpha_space" => "El por que y cuanto tiempo debe llevar caracteres alfabéticos o espacios."
                             ],
                             "alergico_medicamento" => [
                                 "required" => " El alergico a medicamento es requerido"
@@ -136,8 +126,6 @@ class Consulta extends BaseController
                         $data = array(
                             "tratamiento"               => $this->request->getPost("tratamiento"),
                             "motivo_tratamiento"        => $this->request->getPost("motivo_tratamiento"),
-                            "tomando_medicamentos"       => $this->request->getPost("tomando_medicamentos"),
-                            "porque_tiempo"             => $this->request->getPost("porque_tiempo"),
                             "alergico_medicamento"      => $this->request->getPost("alergico_medicamento"),
                             "cual_medicamento"          => $this->request->getPost("cual_medicamento"),
                             "alguna_cirugia"            => $this->request->getPost("alguna_cirugia"),
@@ -167,8 +155,6 @@ class Consulta extends BaseController
                         'id_consulta'           => 'required',
                         "tratamiento"           => 'required',
                         "motivo_tratamiento"    => "alpha_space",
-                        "tomando_medicamentos"  => "required",
-                        "porque_tiempo"         => "alpha_space",
                         "alergico_medicamento"  => "required",
                         "cual_medicamento"      => "alpha_space",
                         "alguna_cirugia"        => "required",
@@ -186,12 +172,6 @@ class Consulta extends BaseController
                         ],
                         "motivo_tratamiento" => [
                             "alpha_space" => "El motivo del tratamiento debe llevar caracteres alfabéticos o espacios."
-                        ],
-                        "tomando_medicamentos" => [
-                            "required" => " Esta tomando medicamentos? es requerido"
-                        ],
-                        "porque_tiempo" => [
-                            "alpha_space" => "El por que y cuanto tiempo debe llevar caracteres alfabéticos o espacios."
                         ],
                         "alergico_medicamento" => [
                             "required" => " El alergico a medicamento es requerido"
@@ -228,8 +208,6 @@ class Consulta extends BaseController
                     $data = array(
                         "tratamiento"               => $this->request->getPost("tratamiento"),
                         "motivo_tratamiento"        => $this->request->getPost("motivo_tratamiento"),
-                        "tomando_medicamentos"      => $this->request->getPost("tomando_medicamentos"),
-                        "porque_tiempo"             => $this->request->getPost("porque_tiempo"),
                         "alergico_medicamento"      => $this->request->getPost("alergico_medicamento"),
                         "cual_medicamento"          => $this->request->getPost("cual_medicamento"),
                         "alguna_cirugia"            => $this->request->getPost("alguna_cirugia"),

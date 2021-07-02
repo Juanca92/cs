@@ -57,7 +57,7 @@ $(document).ready(function () {
 				targets: -1,
 				data: null,
 				render: function (data, type, row, meta) {
-					console.log(data);
+					// console.log(data);
 					return '<div class="btn-group" role="group">' + '<a data="' + data[0] + '" class="btn btn-success btn-xs mdi mdi-tooltip-edit text-white btn_ver_tratamientos" data-toggle="tooltip" title="Ver Tratamientos del Paciente">' + '<i class="fa fa-eye"></i> ver tratamientos</a>' + '</div>';
 				},
 			},
@@ -82,7 +82,50 @@ $(document).ready(function () {
 
 			mensajeAlert('info', 'Por favor seleccione un paciente !!!', 'Informacion');
 		}
-
+		//devolviendo los valores nulos efermedad
+		$('input[type=radio][name=tomando_medicamento]').change(function() {
+			if (this.value == 'si') {
+				$('#nombre_medicamento').attr('disabled', false);
+				$('#motivo_medicamento').attr('disabled', false);
+				$('#dosis_medicamento').attr('disabled', false);
+			}
+			else if (this.value == 'no') {
+				$('#nombre_medicamento').attr('disabled', true);
+				$('#nombre_medicamento').val(' ');
+				$('#motivo_medicamento').attr('disabled', true);
+				$('#motivo_medicamento').val(' ');
+				$('#dosis_medicamento').attr('disabled', true);
+				$('#dosis_medicamento').val(' ');
+			}
+		});
+		//devolviendo los valores nulos consulta
+		$('input[type=radio][name=tratamiento]').change(function() {
+			if (this.value == 'si') {
+				$('#motivo_tratamiento').attr('disabled', false);
+			}
+			else if (this.value == 'no') {
+				$('#motivo_tratamiento').attr('disabled', true);
+				$('#motivo_tratamiento').val('');
+			}
+		});
+		$('input[type=radio][name=alergico_medicamento]').change(function() {
+			if (this.value == 'si') {
+				$('#cual_medicamento').attr('disabled', false);
+			}
+			else if (this.value == 'no') {
+				$('#cual_medicamento').attr('disabled', true);
+				$('#cual_medicamento').val('');
+			}
+		});
+		$('input[type=radio][name=alguna_cirugia]').change(function() {
+			if (this.value == 'si') {
+				$('#porque').attr('disabled', false);
+			}
+			else if (this.value == 'no') {
+				$('#porque').attr('disabled', true);
+				$('#porque').val('');
+			}
+		});
 		// recuperar todos los datos
 		$.ajax({
 			type: 'POST',
@@ -93,7 +136,7 @@ $(document).ready(function () {
 			dataType: 'JSON',
 		})
 			.done(function (response) {
-				console.log(response.respuesta1);
+				console.log(response);
 				// set data data paciente
 				$('#id').val(response.respuesta1[0]['id_persona']);
 				$('#ci').val(response.respuesta1[0]['ci']);
@@ -119,6 +162,8 @@ $(document).ready(function () {
 					$('#motivo_consulta').val(response.respuesta2[0]['motivo_consulta']);
 					$('#sintomas_principales').val(response.respuesta2[0]['sintomas_principales']);
 					$('input:radio[name="tomando_medicamento"]').filter(`[value="${response.respuesta2[0]['tomando_medicamento']}"]`).attr('checked', true);
+					if(response.respuesta2[0]['tomando_medicamento']== 'no')
+					$('#nombre_medicamento').attr('disabled', true);
 					$('#nombre_medicamento').val(response.respuesta2[0]['nombre_medicamento']);
 					$('#motivo_medicamento').val(response.respuesta2[0]['motivo_medicamento']);
 					$('#dosis_medicamento').val(response.respuesta2[0]['dosis_medicamento']);
@@ -131,12 +176,16 @@ $(document).ready(function () {
 				if (response.respuesta3.length > 0) {
 					$('#id_consulta').val(response.respuesta3[0]['id_consulta']);
 					$('input:radio[name="tratamiento"]').filter(`[value="${response.respuesta3[0]['tratamiento']}"]`).attr('checked', true);
+					if(response.respuesta3[0]['tratamiento']== 'no')
+					$('#motivo_tratamiento').attr('disabled', true);
 					$('#motivo_tratamiento').val(response.respuesta3[0]['motivo_tratamiento']);
-					$('input:radio[name="tomando_medicamentos"]').filter(`[value="${response.respuesta3[0]['tomando_medicamentos']}"]`).attr('checked', true);
-					$('#porque_tiempo').val(response.respuesta3[0]['porque_tiempo']);
 					$('input:radio[name="alergico_medicamento"]').filter(`[value="${response.respuesta3[0]['alergico_medicamento']}"]`).attr('checked', true);
+					if(response.respuesta3[0]['alergico_medicamento']== 'no')
+					$('#cual_medicamento').attr('disabled', true);
 					$('#cual_medicamento').val(response.respuesta3[0]['cual_medicamento']);
 					$('input:radio[name="alguna_cirugia"]').filter(`[value="${response.respuesta3[0]['alguna_cirugia']}"]`).attr('checked', true);
+					if(response.respuesta3[0]['alguna_cirugia']== 'no')
+					$('#porque').attr('disabled', true);
 					$('#porque').val(response.respuesta3[0]['porque']);
 					$('input:checkbox[name="alguna_enfermedad[]"]').filter(`[value="${response.respuesta3[0]['alguna_enfermedad[]']}"]`).attr('checked', true);
 					$('input:radio[name="cepilla_diente"]').filter(`[value="${response.respuesta3[0]['cepilla_diente']}"]`).attr('checked', true);
@@ -149,7 +198,7 @@ $(document).ready(function () {
 				}
 
 				// set data exploracion fisica
-				console.log(response.respuesta4);
+				// console.log(response.respuesta4);
 				$('#id_persona2').val(response.respuesta1[0]['id_persona']);
 				if (response.respuesta4.length > 0) {
 					$('#id_fisico').val(response.respuesta4[0]['id_fisico']);
@@ -195,7 +244,7 @@ $(document).ready(function () {
 						],
 					});
 
-					console.log(response.respuesta5);
+					// console.log(response.respuesta5);
 					$('#id_persona3').val(response.respuesta1[0]['id_persona']);
 					if (response.respuesta5.length > 0) {
 						$('#id_alergia').val(response.respuesta5[0]['id_alergia']);
@@ -367,7 +416,7 @@ $(document).ready(function () {
 							},
 						],
 					});
-					console.log(response.respuesta6);
+					// console.log(response.respuesta6);
 					$('#id_persona4').val(response.respuesta1[0]['id_persona']);
 					if (response.respuesta6.length > 0) {
 						$('#nombre_tratamiento').val(response.respuesta6[0]['nombre_tratamiento']);
@@ -378,7 +427,7 @@ $(document).ready(function () {
 				});
 
 				//perfil de los pacientes
-				console.log(response.respuesta7);
+				// console.log(response.respuesta7);
 				$('#id_persona5').val(response.respuesta1[0]['id_persona']);
 				if (response.respuesta7.length > 0) {
 					if (response.respuesta7[0]['foto'] != null) {
@@ -731,4 +780,76 @@ $(document).ready(function () {
 				mensajeAlert('error', 'Error al registrar/editar el diagnostico', 'Error');
 			});
 	});
+
+	// IMPRIMIR HISTORIAL ODONTOLOGICO
+	var fechaInicial = null;
+    var fechaFinal = null;
+
+	jQuery("#daterange-btn").daterangepicker(
+        {
+            ranges: {
+                "Hoy": [moment(), moment()],
+                "Ayer": [moment().subtract(1, "days"), moment().subtract(1, "days")],
+                "Últimos 7 días": [moment().subtract(6, "days"), moment()],
+                "Últimos 30 días": [moment().subtract(29, "days"), moment()],
+                "Este mes": [moment().startOf("month"), moment().endOf("month")],
+                "Último mes": [
+                    moment()
+                        .subtract(1, "month")
+                        .startOf("month"),
+                    moment()
+                        .subtract(1, "month")
+                        .endOf("month")
+                ]
+            },
+            start: moment(),
+            end: moment(),
+            locale: {
+                separator: " - ",
+                applyLabel: "Aplicar",
+                cancelLabel: "Cancelar",
+                fromLabel: "de",
+                toLabel: "hasta",
+                customRangeLabel: "Rango personalizado"
+            }
+        },
+        function(start, end) {
+            $("#daterange-btn span").html(
+                start.format("YYYY-MM-DD") +
+                ' <i class="fa fa-minus"></i> ' +
+                end.format("YYYY-MM-DD")
+            );
+
+            fechaInicial = start.format("YYYY-MM-DD");
+
+            fechaFinal = end.format("YYYY-MM-DD");
+        }
+    );
+
+    $('#daterange-btn').on('cancel.daterangepicker', function(ev, picker) {
+        //do something, like clearing an input
+        $("#daterange-btn span").html("Seleccione Rango	Fecha");
+        $("#daterange-btn").val("");
+
+        fechaInicial = null;
+        fechaFinal = null;
+    });
+
+	$("#imprimir_historia_clinica").on("click", function(e){
+		let id = id_paciente;
+		console.log(id)
+		$.post('/tratamiento/imprimir', {id, fechaInicial, fechaFinal}, function (resp) {
+			$("#modal-body-historia-clinica").children().remove();
+			$("#modal-body-historia-clinica").html(
+				'<embed src="data:application/pdf;base64,' +
+				resp +
+				'#toolbar=1&navpanes=1&scrollbar=1&zoom=67,100,100" type="application/pdf" width="100%" height="600px" style="border: none;"/>'
+			);
+			$("#modal_imprimir_historia_clinica").modal({
+				backdrop: "static",
+				keyboard: true,
+			});
+		});
+	});
+
 }); //fin principio

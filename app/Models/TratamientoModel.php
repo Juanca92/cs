@@ -99,4 +99,12 @@ class TratamientoModel extends Database
         $builder->select('o.id_ocupacion, o.nombre');
         return $builder->get()->getResultArray();
     }
+
+    public function data_paciente($id_persona)
+    {
+        $builder = $this->db->table('persona');
+        $builder->select('*');
+        $builder->where('id_persona', $id_persona);
+        return $builder->get()->getResult();
+    }
 }
