@@ -22,7 +22,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">
-                            <h2 align="center"> Pacientes atendidos por el odontologo </h2>
+                            <h2 align="center" id="nombre-odontologo">Pacientes atendidos por el odontologo</h2>
                         </h3>
                     </div>
                     <!-- /.card-header -->
