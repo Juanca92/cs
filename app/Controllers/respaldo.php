@@ -9,8 +9,7 @@ class Respaldo extends BaseController
 {
 	public function index()
 	{
-		 return $this->templater->view("respaldo/index");
-
+		return $this->templater->view("respaldo/index");
 	}
 	public function descargarRespaldo()
 	{
@@ -55,11 +54,10 @@ class Respaldo extends BaseController
 		// if (php_sapi_name() != "cli") {
 		// 	echo '</div>';
 		// }
-		if(isset($backupDatabase->backupFile)){
-			return $this->response->setJSON(['exito'=>'El respaldo se realizo correctamente','nombre_archivo'=>$backupDatabase->backupFile]);
-		}else{
-			return $this->response->setJSON(['error'=>'Ocurrio un error!]);
-			
+		if (isset($backupDatabase->backupFile)) {
+			return $this->response->setJSON(['exito' => 'El respaldo se realizo correctamente', 'nombre_archivo' => $backupDatabase->backupFile]);
+		} else {
+			return $this->response->setJSON(['error' => 'El respaldo no se realizo correctamente']);
 		}
 	}
 }
