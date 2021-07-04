@@ -168,7 +168,7 @@ class Paciente extends BaseController
                             "materno"           => "alpha_space",
                             "sexo"              => "required",
                             "lugar_nacimiento"  => "alpha_numeric_space",
-                            "celular"           => 'required|numeric',
+                            "celular"           => 'numeric',
                             "fecha_nacimiento"  => "required|max_length[10]",
                             "id_ocupacion"      => "required",
                             "domicilio"         => "required|alpha_numeric_space",
@@ -207,7 +207,6 @@ class Paciente extends BaseController
                                 "max_length" => "La fecha de nacimiento debe llevar como maximo 10 caracteres"
                             ],
                             "celular" => [
-                                "required"   => "El telefono es requerido",
                                 "numeric"    => "El telefono debe llevar caracteres numéricos."
                             ],
                             "id_ocupacion" => [
@@ -310,7 +309,7 @@ class Paciente extends BaseController
                         "materno"           => "alpha_space",
                         "sexo"              => "required",
                         "lugar_nacimiento"  => "alpha_numeric_space",
-                        "celular"           => 'required|numeric',
+                        "celular"           => 'numeric',
                         "fecha_nacimiento"  => "required|max_length[10]",
                         "id_ocupacion"      => "required",
                         "domicilio"         => "required|alpha_numeric_space",
@@ -352,7 +351,6 @@ class Paciente extends BaseController
                             "max_length" => "La fecha de nacimiento debe llevar como maximo 10 caracteres"
                         ],
                         "celular" => [
-                            "required"   => "El telefono es requerido",
                             "numeric"    => "El telefono debe llevar caracteres numéricos."
                         ],
                         "id_ocupacion" => [

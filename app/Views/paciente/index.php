@@ -100,15 +100,15 @@
                                     </div>
                                     <select class="custom-select" id="expedido" name="expedido" required>
                                         <option value="">-- Expedido en --</option>
-                                        <option value="CH">LP</option>
-                                        <option value="LP">OR</option>
+                                        <option value="LP">LP</option>
+                                        <option value="OR">OR</option>
                                         <option value="CB">CB</option>
-                                        <option value="OR">PT</option>
-                                        <option value="PT">CH</option>
-                                        <option value="SC">TJ</option>
-                                        <option value="PA">SC</option>
-                                        <option value="TJ">BE</option>
-                                        <option value="BN">PD</option>
+                                        <option value="PT">PT</option>
+                                        <option value="CH">CH</option>
+                                        <option value="TJ">TJ</option>
+                                        <option value="SC">SC</option>
+                                        <option value="BN">BE</option>
+                                        <option value="PD">PD</option>
                                     </select>
                                 </div>
                             </div>

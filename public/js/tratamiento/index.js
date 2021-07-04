@@ -198,7 +198,7 @@ $(document).ready(function () {
 				}
 
 				// set data exploracion fisica
-				// console.log(response.respuesta4);
+				console.log(response.respuesta4);
 				$('#id_persona2').val(response.respuesta1[0]['id_persona']);
 				if (response.respuesta4.length > 0) {
 					$('#id_fisico').val(response.respuesta4[0]['id_fisico']);
@@ -244,7 +244,7 @@ $(document).ready(function () {
 						],
 					});
 
-					// console.log(response.respuesta5);
+					console.log(response.respuesta5);
 					$('#id_persona3').val(response.respuesta1[0]['id_persona']);
 					if (response.respuesta5.length > 0) {
 						$('#id_alergia').val(response.respuesta5[0]['id_alergia']);
@@ -416,7 +416,7 @@ $(document).ready(function () {
 							},
 						],
 					});
-					// console.log(response.respuesta6);
+					console.log(response.respuesta6);
 					$('#id_persona4').val(response.respuesta1[0]['id_persona']);
 					if (response.respuesta6.length > 0) {
 						$('#nombre_tratamiento').val(response.respuesta6[0]['nombre_tratamiento']);
@@ -427,7 +427,7 @@ $(document).ready(function () {
 				});
 
 				//perfil de los pacientes
-				// console.log(response.respuesta7);
+				console.log(response.respuesta7);
 				$('#id_persona5').val(response.respuesta1[0]['id_persona']);
 				if (response.respuesta7.length > 0) {
 					if (response.respuesta7[0]['foto'] != null) {
