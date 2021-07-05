@@ -1100,13 +1100,13 @@
                                 <!-- Main content -->
                                 <section class="content">
                                     <div class="container-fluid">
-                                        <center>
+                                        <!-- <center>
                                             <button type="button" class="btn btn-default btn-sm mr-auto" id="daterange-btn">
                                                 <i class="far fa-calendar-alt"></i> <span>Seleccione Rango
                                                     Fecha</span>
                                                 <i class="fas fa-caret-down"></i>
                                             </button>
-                                        </center>
+                                        </center> -->
                                         <br>
                                         <input type="hidden" id="unico" name="unico">
                                         <center>
