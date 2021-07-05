@@ -414,6 +414,21 @@ class Odontologo extends BaseController
         $this->response->setContentType('application/pdf');
         $data = $this->model->list_odontologo();
         $this->reporte->imprimir($data);
+    }
 
+    public function imprimir_historial()
+    {
+        $data = null;
+        $this->response->setContentType('application/pdf');
+        $fecha_inicial = $this->request->getPost("fecha_inicial");
+        $fecha_final = $this->request->getPost("fecha_final");
+        $odo = $this->model->list_odontologo();
+        $paciente = array();
+        foreach ($odo as $key => $value) {
+            $response = $this->model->verificar_paciente($value['id_persona'], $fecha_inicial, $fecha_final);
+            array_push($paciente, $response);
+        }
+
+        $this->reporte->imprimir_historial($odo, $paciente);
     }
 }

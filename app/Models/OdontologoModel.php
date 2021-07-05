@@ -166,4 +166,28 @@ class OdontologoModel extends Database
         $builder->select('*');
         return $builder->get()->getResultArray();
     }
+
+    public function verificar_paciente($id, $fecha_inicial, $fecha_final)
+    {
+        if ($fecha_final == $fecha_inicial && $fecha_inicial != "") {
+            $builder = $this->db->table("cita as c");
+            $builder->select('c.id_odontologo, concat(p.nombres, " ", p.paterno, " ", p.materno) as nombre_completo, concat(p.ci, " ", p.expedido) as ci, c.tipo_tratamiento, c.fecha, c.costo');
+            $builder->join('persona as p', "p.id_persona=c.id_paciente");
+            $builder->where("c.id_odontologo", $id);
+            $builder->where("c.fecha", $fecha_inicial);
+        } elseif ($fecha_final != $fecha_inicial) {
+            $builder = $this->db->table("cita as c");
+            $builder->select('c.id_odontologo, concat(p.nombres, " ", p.paterno, " ", p.materno) as nombre_completo, concat(p.ci, " ", p.expedido) as ci, c.tipo_tratamiento, c.fecha, c.costo');
+            $builder->join('persona as p', "p.id_persona=c.id_paciente");
+            $builder->where("c.id_odontologo", $id);
+            $builder->where("c.fecha>=", $fecha_inicial);
+            $builder->where("c.fecha<=", $fecha_final);
+        } elseif ($fecha_final == "" && $fecha_inicial == "") {
+            $builder = $this->db->table("cita as c");
+            $builder->select('c.id_odontologo, concat(p.nombres, " ", p.paterno, " ", p.materno) as nombre_completo, concat(p.ci, " ", p.expedido) as ci, c.tipo_tratamiento, c.fecha, c.costo');
+            $builder->join('persona as p', "p.id_persona=c.id_paciente");
+            $builder->where("c.id_odontologo", $id);
+        }
+        return $builder->get()->getResultArray();
+    }
 }
