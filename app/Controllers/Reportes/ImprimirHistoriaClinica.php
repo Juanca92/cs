@@ -8,7 +8,7 @@ use FPDF;
 class ImprimirHistoriaClinica extends FPDF
 {
 
-    public function imprimir($header = null, $data_paciente = null, $fecha_inicial=null, $fecha_final=null, $id_persona)
+    public function imprimir($header = null, $data_paciente = null, $fecha_inicial = null, $fecha_final = null, $id_persona)
     {
         $this->AliasNbPages();
         $this->AddPage('P', 'letter');
@@ -16,66 +16,72 @@ class ImprimirHistoriaClinica extends FPDF
         $this->Image("odontograma/images/odontograma_paciente/{$id_persona}.png", 1, 60, 200, 200);
         $this->Image('img/cabecera.jpg', 6, 5, 202);
         $this->SetXY(6.9, 30);
-        $this->Cell(200,10,utf8_decode("HISTORIA CLÍNICA ODONTOLÓGICA"), 0, 1, "C");
+        $this->Cell(200, 10, utf8_decode("HISTORIA CLÍNICA ODONTOLÓGICA"), 0, 1, "C");
         $this->Image('img/cabecera_dos.jpg', 6, 39, 202);
+        $this->print_codigo($data_paciente);
         $this->print_header($header);
         $this->print_data_paciente($data_paciente);
-        $this->print_codigo($data_paciente);
 
-       
+        //Impresion de consultas medicas
+        $this->AddPage();
+        for ($i = 0; $i < 8; $i++) {
+            $this->Image('img/historial.jpg', 7, null, 195);
+            $this->Ln(5);
+        }
+
+
 
         // $this->cabeceraHorizontal($header, $length);
-//        $this->datosHorizontal($data, $length, $cantidad);
+        //        $this->datosHorizontal($data, $length, $cantidad);
 
         echo base64_encode($this->Output('S'));
     }
 
     public function print_codigo($data)
     {
-        if(isset($data[0]->fecha_nacimiento)){
+        if (isset($data[0]->fecha_nacimiento)) {
             $fecha_nacimiento = explode("-", $data[0]->fecha_nacimiento);
-        }else{
+        } else {
             $fecha_nacimiento = ["", "", ""];
         }
-        
-        $nombres = (isset($data[0]->nombres)) ? strtoupper(substr($data[0]->nombres, 0 , 1)) : "";
-        $paterno = (isset($data[0]->paterno)) ? strtoupper(substr($data[0]->paterno, 0, 1)): "";
-        $materno = (isset($data[0]->materno)) ? strtoupper(substr($data[0]->materno, 0, 1)): "";
-        $cadena = $fecha_nacimiento[2] . $fecha_nacimiento[1]. substr($fecha_nacimiento[0], 2,3).$nombres. $paterno.$materno;
+
+        $nombres = (isset($data[0]->nombres)) ? strtoupper(substr($data[0]->nombres, 0, 1)) : "";
+        $paterno = (isset($data[0]->paterno)) ? strtoupper(substr($data[0]->paterno, 0, 1)) : "";
+        $materno = (isset($data[0]->materno)) ? strtoupper(substr($data[0]->materno, 0, 1)) : "";
+        $cadena = $fecha_nacimiento[2] . $fecha_nacimiento[1] . substr($fecha_nacimiento[0], 2, 3) . $nombres . $paterno . $materno;
 
         // IMPRIMIR CODIGO
         $cn = 160.5;
-        for ($i=0; $i < strlen($cadena); $i++) {
+        for ($i = 0; $i < strlen($cadena); $i++) {
             $this->SetXY($cn, 13.8);
-            $this->Cell(10,5,utf8_decode($cadena[$i]), 0, 1, "L");
+            $this->Cell(10, 5, utf8_decode($cadena[$i]), 0, 1, "L");
             $cn = $cn + 5;
         }
 
         // IMPRIMIR CI
         $cn = 200.5;
         $ci = strrev($data[0]->ci);
-        for ($i=0; $i < strlen($ci); $i++) {
+        for ($i = 0; $i < strlen($ci); $i++) {
             $this->SetXY($cn, 18.4);
-            $this->Cell(10,5,utf8_decode($ci[$i]), 0, 1, "L");
+            $this->Cell(10, 5, utf8_decode($ci[$i]), 0, 1, "L");
             $cn = $cn - 5;
         }
-    }   
+    }
 
     public function print_header($header)
     {
         $this->SetFont('Arial', '', 11);
         $this->SetXY(48, 7.5);
-        $this->Cell(80,5,utf8_decode($header['sedes']), 0, 1, "L");
+        $this->Cell(80, 5, utf8_decode($header['sedes']), 0, 1, "L");
 
         $this->SetXY(58, 13);
-        $this->Cell(80,5,utf8_decode($header['red']), 0, 1, "L");
+        $this->Cell(80, 5, utf8_decode($header['red']), 0, 1, "L");
 
         $this->SetXY(56, 19);
-        $this->Cell(80,5,utf8_decode($header['municipio']), 0, 1, "L");
+        $this->Cell(80, 5, utf8_decode($header['municipio']), 0, 1, "L");
 
         $this->SetXY(62, 24);
-        $this->Cell(80,5,utf8_decode($header['establecimiento']), 0, 1, "L");
-    
+        $this->Cell(80, 5, utf8_decode($header['establecimiento']), 0, 1, "L");
     }
 
     public function print_data_paciente($data)
@@ -83,46 +89,44 @@ class ImprimirHistoriaClinica extends FPDF
         // var_dump($data);
         //PRIMERA FILA
         $this->SetFont('Arial', '', 11);
-        $this->SetXY(12,41);
-        $this->Cell(55,5,utf8_decode($data[0]->paterno), 0, 1, "C");
+        $this->SetXY(12, 41);
+        $this->Cell(55, 5, utf8_decode($data[0]->paterno), 0, 1, "C");
 
-        $this->SetXY(70,41);
-        $this->Cell(52,5,utf8_decode($data[0]->materno), 0, 1, "C");
+        $this->SetXY(70, 41);
+        $this->Cell(52, 5, utf8_decode($data[0]->materno), 0, 1, "C");
 
-        $this->SetXY(125,41);
-        $this->Cell(50,5,utf8_decode($data[0]->nombres), 0, 1, "C");
+        $this->SetXY(125, 41);
+        $this->Cell(50, 5, utf8_decode($data[0]->nombres), 0, 1, "C");
         $fecha_nacimiento = new DateTime($data[0]->fecha_nacimiento);
         $hoy = new DateTime();
         $edad = $hoy->diff($fecha_nacimiento);
-        $this->SetXY(175,41);
-        $this->Cell(16,5,utf8_decode($edad->y. " años"), 0, 1, "C");
+        $this->SetXY(175, 41);
+        $this->Cell(16, 5, utf8_decode($edad->y . " años"), 0, 1, "C");
 
-        $this->SetXY(192,41);
-        $this->Cell(10,5,utf8_decode($this->sexo($data[0]->sexo)), 0, 1, "C");
+        $this->SetXY(192, 41);
+        $this->Cell(10, 5, utf8_decode($this->sexo($data[0]->sexo)), 0, 1, "C");
 
         //SEGUNDA FILA
-        $this->SetXY(12,55);
-        $this->Cell(55,5,utf8_decode($data[0]->lugar_nacimiento), 0, 1, "C");
+        $this->SetXY(12, 55);
+        $this->Cell(55, 5, utf8_decode($data[0]->lugar_nacimiento), 0, 1, "C");
 
-        $this->SetXY(70,55);
-        $this->Cell(52,5,utf8_decode(""), 0, 1, "C");
+        $this->SetXY(70, 55);
+        $this->Cell(52, 5, utf8_decode(""), 0, 1, "C");
 
         $this->SetFont('Arial', '', 9);
-        $this->SetXY(125,55);
-        $this->Cell(50,5,utf8_decode($data[0]->domicilio), 0, 1, "C");
+        $this->SetXY(125, 55);
+        $this->Cell(50, 5, utf8_decode($data[0]->domicilio), 0, 1, "C");
 
         $this->SetFont('Arial', '', 11);
-        $this->SetXY(177,55);
-        $this->Cell(25,5,utf8_decode($data[0]->telefono_celular), 0, 1, "C");
-
+        $this->SetXY(177, 55);
+        $this->Cell(25, 5, utf8_decode($data[0]->telefono_celular), 0, 1, "C");
     }
 
     public function sexo($data)
     {
-        if($data == "femenino")
-        {
+        if ($data == "femenino") {
             return "F";
-        }else{
+        } else {
             return "M";
         }
     }
@@ -139,10 +143,9 @@ class ImprimirHistoriaClinica extends FPDF
         $this->Ln();
     }
 
-    public function datosHorizontal($datos = null, $tam = null, $cantidad=null)
+    public function datosHorizontal($datos = null, $tam = null, $cantidad = null)
     {
-        if(count($datos) > 0)
-        {
+        if (count($datos) > 0) {
             $this->SetFont('Arial', '', 10);
             $this->SetFillColor(229, 229, 229); //Gris tenue de cada fila
             $this->SetTextColor(3, 3, 3); //Color del texto: Negro
@@ -161,17 +164,15 @@ class ImprimirHistoriaClinica extends FPDF
                 $bandera = !$bandera; //Alterna el valor de la bandera
             }
             $this->Ln(2);
-            $this->CellFitSpace(array_sum($tam), 7, utf8_decode("Atendidos: " . $cantidad[0]),0, 0,'L', false);
+            $this->CellFitSpace(array_sum($tam), 7, utf8_decode("Atendidos: " . $cantidad[0]), 0, 0, 'L', false);
             $this->Ln();
-            $this->CellFitSpace(array_sum($tam), 7, utf8_decode("Cancelados: ". $cantidad[1]),0, 0, 'L', false);
+            $this->CellFitSpace(array_sum($tam), 7, utf8_decode("Cancelados: " . $cantidad[1]), 0, 0, 'L', false);
             $this->Ln();
-            $this->CellFitSpace(array_sum($tam), 7, utf8_decode("Pendientes: ". $cantidad[2]),0,0, 'L', false);
-
-        }else{
+            $this->CellFitSpace(array_sum($tam), 7, utf8_decode("Pendientes: " . $cantidad[2]), 0, 0, 'L', false);
+        } else {
             $this->SetTextColor(0, 0, 0);
             $this->CellFitSpace(array_sum($tam), 7, utf8_decode("No existe registros "), 1, 0, 'C', false);
         }
-
     }
 
     function Footer()
@@ -179,9 +180,9 @@ class ImprimirHistoriaClinica extends FPDF
         // Position at 1.5 cm from bottom
         $this->SetY(-15);
         // Arial italic 8
-        $this->SetFont('Arial','I',8);
+        $this->SetFont('Arial', 'I', 8);
         // Page number
-        $this->Cell(0,10,utf8_decode('Página '.$this->PageNo().'/{nb}'),0,0,'R');
+        $this->Cell(0, 10, utf8_decode('Página ' . $this->PageNo() . '/{nb}'), 0, 0, 'R');
     }
 
     public function mes_literal($mes)
@@ -218,7 +219,7 @@ class ImprimirHistoriaClinica extends FPDF
     public function CellFit($w, $h = 0, $txt = '', $border = 0, $ln = 0, $align = '', $fill = false, $link = '', $scale = false, $force = true)
     {
         $str_width = $this->GetStringWidth($txt);
-        if($str_width == 0){
+        if ($str_width == 0) {
             $str_width = 0.1;
         }
 
