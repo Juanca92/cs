@@ -25,7 +25,7 @@
                 <div class="small-box bg-info">
                     <div class="inner">
                         <h3><?= $odontologo ?></h3>
-                        <p>Doctores</p>
+                        <p>Odont&oacute;logos</p>
                     </div>
                     <div class="icon">
                         <i class="fas fa-user-md"></i>

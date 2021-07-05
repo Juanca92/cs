@@ -224,14 +224,14 @@ class PacienteModel extends Database
     {
         $builder = $this->db->table('sp_diagnostico as d');
         $builder->select('*');
-        $builder->where('id_diagnostico', $id);
+        $builder->where('id_paciente', $id);
         return $builder->get()->getResultArray();
     }
     public function editar_medicacion($id)
     {
         $builder = $this->db->table('sp_medicacion as m');
         $builder->select('*');
-        $builder->where('id_medicacion', $id);
+        $builder->where('id_paciente', $id);
         return $builder->get()->getResultArray();
     }
 
