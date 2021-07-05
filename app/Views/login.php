@@ -66,7 +66,7 @@
                 </form>
 
                 <p class="mt-3">
-                    <a href="#">Olvidé mi contraseña</a>
+                    <a href="/inicio">Cancelar</a>
                 </p>
 
             </div>

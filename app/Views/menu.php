@@ -165,6 +165,18 @@
                 </ul>
             </li>
         <?php endif ?>
+        
+        <?php if (is(['ADMINISTRADOR', 'ODONTOLOGO'])) : ?>
+            <!-- Menu para reportes  -->
+            <li class="nav-item has-treeview">
+                <a href="<?= base_url('/reportes'); ?>" class="nav-link menu--link">
+                    <i class="nav-icon fas fa-file"></i>
+                    <p>
+                        Reportes
+                    </p>
+                </a>
+            </li>
+        <?php endif ?>
 
     </ul>
 </nav>
