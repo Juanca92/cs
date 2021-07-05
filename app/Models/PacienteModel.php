@@ -180,14 +180,14 @@ class PacienteModel extends Database
     {
         $builder = $this->db->table('tratamiento_consulta as tc');
         $builder->select('*');
-        $builder->where('id_consulta', $id);
+        $builder->where('id_paciente', $id);
         return $builder->get()->getResultArray();
     }
     public function editar_fisico($id)
     {
         $builder = $this->db->table('tratamiento_fisico as tf');
         $builder->select('*');
-        $builder->where('id_fisico', $id);
+        $builder->where('id_paciente', $id);
         return $builder->get()->getResultArray();
     }
     public function editar_alergia($id)

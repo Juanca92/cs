@@ -31,7 +31,7 @@ class Paciente extends BaseController
     public function ajaxListarPacientes()
     {
         if ($this->request->isAJAX()) {
-            $table = 'sp_view_paciente';
+            $table = 'sp_view_paciente_cita';
             $primaryKey = 'id_persona';
             $where = "estado=1";
             if (is(['PACIENTE'])) {
@@ -40,15 +40,17 @@ class Paciente extends BaseController
             $columns = array(
                 array('db' => 'id_persona', 'dt'        => 0),
                 array('db' => 'ci_exp', 'dt'            => 1),
-                array('db' => 'nombre_completo', 'dt'   => 2),
-                array('db' => 'sexo', 'dt'              => 3),
-                array('db' => 'lugar_nacimiento', 'dt'  => 4),
-                array('db' => 'telefono_celular', 'dt'  => 5),
-                array('db' => 'fecha_nacimiento', 'dt'  => 6),
-                array('db' => 'domicilio', 'dt'         => 7),
-                array('db' => 'ocupacion', 'dt'         => 8),
-                array('db' => 'estatus', 'dt'           => 9),
-                array('db' => 'creado_en', 'dt'         => 10)
+                array('db' => 'numero_cita', 'dt'       => 2),
+                array('db' => 'nombre_completo', 'dt'   => 3),
+                array('db' => 'sexo', 'dt'              => 4),
+                array('db' => 'lugar_nacimiento', 'dt'  => 5),
+                array('db' => 'telefono_celular', 'dt'  => 6),
+                array('db' => 'fecha_nacimiento', 'dt'  => 7),
+                array('db' => 'domicilio', 'dt'         => 8),
+                array('db' => 'ocupacion', 'dt'         => 9),
+                array('db' => 'estatus', 'dt'           => 10),
+                array('db' => 'creado_en', 'dt'         => 11),
+                array('db' => 'id_cita', 'dt'         => 12)
             );
 
             $sql_details = array(
@@ -463,11 +465,13 @@ class Paciente extends BaseController
         // var_dump($_REQUEST);
         // se Verifica si es petición ajax
         if ($this->request->isAJAX()) {
-
+            // return var_dump($_REQUEST);
             $respuesta1 = $this->model->editar_paciente(trim($this->request->getPost("id")));
             $respuesta2 = $this->model->editar_enfermedad(trim($this->request->getPost("id")));
             $respuesta3 = $this->model->editar_consulta(trim($this->request->getPost("id")));
             $respuesta4 = $this->model->editar_fisico(trim($this->request->getPost("id")));
+            // var_dump($this->db->getLastQuery());
+            // return var_dump($respuesta3);
             $respuesta5 = $this->model->editar_alergia(trim($this->request->getPost("id")));
             $respuesta6 = $this->model->mostrar_tratamientos(trim($this->request->getPost("id")));
             $respuesta7 = $this->model->datos_usuario_perfil(trim($this->request->getPost("id")));
@@ -566,6 +570,5 @@ class Paciente extends BaseController
         $this->response->setContentType('application/pdf');
         $data = $this->model->list_paciente();
         $this->reporte->imprimir($data);
-
     }
 }
