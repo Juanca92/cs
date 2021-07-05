@@ -30,3 +30,5 @@ ALTER TABLE sp_acciones_decesivas CHANGE id_paciente id_cita int;
 
 alter table sp_tratamiento_fisico add constraint fk_tratamiento_fisico_paciente foreign key(id_cita) references sp_cita(id_cita);
 alter table sp_acciones_decesivas add constraint fk_acciones_decesivas_paciente foreign key(id_cita) references sp_cita(id_cita);
+
+drop view sp_view_tratamiento_fisico;
