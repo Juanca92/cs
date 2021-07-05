@@ -95,7 +95,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="numero_cita">Numero cita <span class="text-danger">(*)</span>:</label>
+                                <label for="numero_cita">N&uacute;mero cita <span class="text-danger">(*)</span>:</label>
                                 <input type="text" id="numero_cita" name="numero_cita" class="form-control"
                                     placeholder="seleccione Paciente ->" readonly="" />
                             </div>
@@ -162,7 +162,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="tipo_atencion">Tipo Atenc&oacute;n <span
+                                <label for="tipo_atencion">Tipo Atenci&oacute;n <span
                                         class="text-danger">(*)</span>:</label>
                                 <select class="custom-select" id="tipo_atencion" name="tipo_atencion">
                                     <option value="costo">--con costo--</option>

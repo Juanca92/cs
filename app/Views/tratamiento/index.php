@@ -1338,7 +1338,6 @@
                                                 Imprimir
                                             </button>
                                         </center>
-
                                     </div>
                                 </section>
                             </div>
@@ -1355,8 +1354,8 @@
                         <div class="card-body box-profile">
                             <div class="text-center">
                                 <img class="profile-user-img img-fluid img-circle" id="perfil_foto"
-                                    src="<?= base_url('img/users/default/persona1.png'); ?>"
-                                    alt="User profile picture" />
+                                    src="<?= base_url('img/users/default/default.png'); ?>"
+                                    alt="foto de perfil de usuario" />
                             </div>
                             <h3 id="perfil_nombre_completo" class="profile-username text-center"></h3>
                             <p id="perfil_grupo" class="text-muted text-center"></p>
