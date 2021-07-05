@@ -187,7 +187,8 @@ class PacienteModel extends Database
     {
         $builder = $this->db->table('tratamiento_fisico as tf');
         $builder->select('*');
-        $builder->where('id_paciente', $id);
+        $builder->join('cita c', 'c.id_cita = tf.id_cita', 'right');
+        $builder->where('c.id_cita', $id);
         return $builder->get()->getResultArray();
     }
     public function editar_alergia($id)
@@ -215,21 +216,22 @@ class PacienteModel extends Database
     {
         $builder = $this->db->table('sp_acciones_decesivas as ad');
         $builder->select('*');
-        $builder->where('id_paciente', $id);
+        $builder->join('cita c', 'c.id_cita = ad.id_cita', 'right');
+        $builder->where('c.id_cita', $id);
         return $builder->get()->getResultArray();
     }
     public function editar_diagnostico($id)
     {
         $builder = $this->db->table('sp_diagnostico as d');
         $builder->select('*');
-        $builder->where('id_paciente', $id);
+        $builder->where('id_diagnostico', $id);
         return $builder->get()->getResultArray();
     }
     public function editar_medicacion($id)
     {
         $builder = $this->db->table('sp_medicacion as m');
         $builder->select('*');
-        $builder->where('id_paciente', $id);
+        $builder->where('id_medicacion', $id);
         return $builder->get()->getResultArray();
     }
 

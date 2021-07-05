@@ -8,7 +8,7 @@ $(document).ready(function () {
 		responsive: true,
 		processing: true,
 		serverSide: true,
-		ajax: '/paciente/ajaxListarPacientes',
+		ajax: '/paciente/ajaxListarPacientesCita',
 		language: {
 			url: '/plugins/datatables/lang/Spanish.json',
 		},
@@ -196,6 +196,7 @@ $(document).ready(function () {
 				$('#id_persona2').val(response.respuesta1[0]['id_persona']);
 				if (response.respuesta4.length > 0) {
 					$('#id_fisico').val(response.respuesta4[0]['id_fisico']);
+					$('#frm_guardar_fisico #id_cita').val(response.respuesta4[0]['id_cita']);
 					$('#presion_arterial').val(response.respuesta4[0]['presion_arterial']);
 					$('#pulso').val(response.respuesta4[0]['pulso']);
 					$('#temperatura').val(response.respuesta4[0]['temperatura']);
@@ -460,6 +461,7 @@ $(document).ready(function () {
 				$('#id_persona10').val(response.respuesta1[0]['id_persona']);
 				if (response.respuesta10.length > 0) {
 					$('#id_acciones_decesivas').val(response.respuesta10[0]['id_acciones_decesivas']);
+					$('#frm_guardar_accionesDecesivas [name="id_cita"]').val(response.respuesta10[0]['id_cita']);
 					$('#subjetivo').val(response.respuesta10[0]['subjetivo']);
 					$('#objetivo').val(response.respuesta10[0]['objetivo']);
 					$('#analisis').val(response.respuesta10[0]['analisis']);

@@ -51,153 +51,151 @@ class AccionesDecesivas extends BaseController
             return $this->response->setJSON(json_encode(SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $where)));
         }
     }
-    
+
     public function guardar_accionesDecesivas()
     {
         $data  = null;
 
         if ($this->request->isAJAX()) {
-            if(empty($this->request->getPost('id_acciones_decesivas')))
-            {
-                        //validación de formulario
-                        $validation = \Config\Services::validation();
-    
-                        $val = $this->validate(
-                            [ // rules
-                                "subjetivo"     => "required|alpha_space",
-                                "objetivo"      => "required|alpha_space",
-                                "analisis"      => "required|alpha_space",
-                                "plan_accion"  => "required|alpha_space",
-                                "id_persona10"    => "required"
-                            ],
-                            [ // errors
-                                "subjetivo" => [
-                                    "required" => " El subjetivo es requerido",
-                                    "alpha_space" => "El tipo de diagnostico debe llevar caracteres alfabéticos o espacios."
-                                ],
-                                "objetivo" => [
-                                    "required" => " La objetivo es requerido",
-                                    "alpha_space" => "La pieza dentaria debe llevar caracteres alfabéticos o espacios."
-                                ],
-                                "analisis" => [
-                                    "required" => " Analisis es requerido",
-                                    "alpha_space" => "Analisis debe llevar caracteres alfabéticos o espacios."
-                                ],
-                                "plan_accion" => [
-                                    "required" => " Las acciones  es requerido",
-                                    "alpha_space" => "Las acciones  debe llevar caracteres alfabéticos o espacios."
-                                ],
-                                "id_persona10" => [
-                                    "required"   => "el id del paciente es requerido"
-                                ]
-                            ]
-                        );
-    
-                        if (!$val) {
-                            // se devuelve todos los errores si falla la validacion
-                            return $this->response->setJSON(json_encode(array(
-                                "form" => $validation->listErrors()
-                            )));
-                        } else {
-                            // Insertar datos
-    
-                            // Formateo de datos
-                            $data = array(
-                                "subjetivo"     => $this->request->getPost("subjetivo"),
-                                "objetivo"      => $this->request->getPost("objetivo"),
-                                "analisis"      => $this->request->getPost("analisis"),
-                                "plan_accion"   => $this->request->getPost("plan_accion"),
-                                "id_paciente"   => $this->request->getPost("id_persona10")
-                            );
-    
-                            $respuesta = $this->model->accionesDecesivas("insert", $data, null, null);
-                            if (is_numeric($respuesta)) {
-                                return $this->response->setJSON(json_encode(array(
-                                    'exito' => "Acciones decesivas fue registrado correctamente", 
-                                    "id_acciones_decesivas"=> $respuesta
-                                )));
-                            }
-                        }
-                } else {
-                    // actualizar enfermedad
-                    //validación de formulario
-                    $validation = \Config\Services::validation();
-                    helper(['form', 'url']);
-                    $val = $this->validate(
-                        [ // rules
-                            'id_acciones_decesivas' => 'required',
-                            "subjetivo"             => "required|alpha_space",
-                            "objetivo"              => "required|alpha_space",
-                            "analisis"              => "required|alpha_space",
-                            "plan_accion"           => "required|alpha_space",
-                            "id_persona10"          => "required"
+            if (empty($this->request->getPost('id_acciones_decesivas'))) {
+                //validación de formulario
+                $validation = \Config\Services::validation();
+
+                $val = $this->validate(
+                    [ // rules
+                        "subjetivo"     => "required|alpha_space",
+                        "objetivo"      => "required|alpha_space",
+                        "analisis"      => "required|alpha_space",
+                        "plan_accion"  => "required|alpha_space",
+                        "id_persona10"    => "required"
+                    ],
+                    [ // errors
+                        "subjetivo" => [
+                            "required" => " El subjetivo es requerido",
+                            "alpha_space" => "El tipo de diagnostico debe llevar caracteres alfabéticos o espacios."
                         ],
-                        [ // errors
-                            "id_acciones_decesivas" => [
-                                "required"  => "Error al editar el diagnostico por favor vuelve a empezar"
-                            ],
-                            "subjetivo" => [
-                                "required" => " El subjetivo es requerido",
-                                "alpha_space" => "El tipo de diagnostico debe llevar caracteres alfabéticos o espacios."
-                            ],
-                            "objetivo" => [
-                                "required" => " La objetivo es requerido",
-                                "alpha_space" => "La pieza dentaria debe llevar caracteres alfabéticos o espacios."
-                            ],
-                            "analisis" => [
-                                "required" => " Analisis es requerido",
-                                "alpha_space" => "Analisis debe llevar caracteres alfabéticos o espacios."
-                            ],
-                            "plan_accion" => [
-                                "required" => " Las acciones  es requerido",
-                                "alpha_space" => "Las acciones  debe llevar caracteres alfabéticos o espacios."
-                            ],
-                            "id_persona10" => [
-                                "required"   => "el id del paciente es requerido"
-                            ]
+                        "objetivo" => [
+                            "required" => " La objetivo es requerido",
+                            "alpha_space" => "La pieza dentaria debe llevar caracteres alfabéticos o espacios."
+                        ],
+                        "analisis" => [
+                            "required" => " Analisis es requerido",
+                            "alpha_space" => "Analisis debe llevar caracteres alfabéticos o espacios."
+                        ],
+                        "plan_accion" => [
+                            "required" => " Las acciones  es requerido",
+                            "alpha_space" => "Las acciones  debe llevar caracteres alfabéticos o espacios."
+                        ],
+                        "id_persona10" => [
+                            "required"   => "el id del paciente es requerido"
                         ]
+                    ]
+                );
+
+                if (!$val) {
+                    // se devuelve todos los errores si falla la validacion
+                    return $this->response->setJSON(json_encode(array(
+                        "form" => $validation->listErrors()
+                    )));
+                } else {
+                    // Insertar datos
+
+                    // Formateo de datos
+                    $data = array(
+                        "subjetivo"     => $this->request->getPost("subjetivo"),
+                        "objetivo"      => $this->request->getPost("objetivo"),
+                        "analisis"      => $this->request->getPost("analisis"),
+                        "plan_accion"   => $this->request->getPost("plan_accion"),
+                        "id_cita"   => $this->request->getPost("id_cita")
                     );
-    
-                    if (!$val) {
-                        // se devuelve todos los errores si falla la validacion
+
+                    $respuesta = $this->model->accionesDecesivas("insert", $data, null, null);
+                    if (is_numeric($respuesta)) {
                         return $this->response->setJSON(json_encode(array(
-                            "form" => $validation->listErrors()
+                            'exito' => "Acciones decesivas fue registrado correctamente",
+                            "id_acciones_decesivas" => $respuesta
                         )));
-                    } else {
-                        // Actualizar datos
-                        $data = array(
-                            "subjetivo"     => $this->request->getPost("subjetivo"),
-                            "objetivo"      => $this->request->getPost("objetivo"),
-                            "analisis"      => $this->request->getPost("analisis"),
-                            "plan_accion"   => $this->request->getPost("plan_accion"),
-                            "id_paciente"   => $this->request->getPost("id_persona10")
-                        );
-    
-                        $respuesta = $this->model->accionesDecesivas(
-                            "update",
-                            $data,
-                            array(
-                                "id_acciones_decesivas" => $this->request->getPost("id_acciones_decesivas")
-                            ),
-                            null
-                        );
-    
-                        if ($respuesta) {
-                            // Actualizar cita
-    
-                            return $this->response->setJSON(json_encode(array(
-                                'exito' => "Acciones decesivas ah sido editado correctamente",
-                                "id_acciones_decesivas"=> $respuesta
-                            )));
-                        }
                     }
-                
+                }
+            } else {
+                // actualizar enfermedad
+                //validación de formulario
+                $validation = \Config\Services::validation();
+                helper(['form', 'url']);
+                $val = $this->validate(
+                    [ // rules
+                        'id_acciones_decesivas' => 'required',
+                        "subjetivo"             => "required|alpha_space",
+                        "objetivo"              => "required|alpha_space",
+                        "analisis"              => "required|alpha_space",
+                        "plan_accion"           => "required|alpha_space",
+                        "id_persona10"          => "required"
+                    ],
+                    [ // errors
+                        "id_acciones_decesivas" => [
+                            "required"  => "Error al editar el diagnostico por favor vuelve a empezar"
+                        ],
+                        "subjetivo" => [
+                            "required" => " El subjetivo es requerido",
+                            "alpha_space" => "El tipo de diagnostico debe llevar caracteres alfabéticos o espacios."
+                        ],
+                        "objetivo" => [
+                            "required" => " La objetivo es requerido",
+                            "alpha_space" => "La pieza dentaria debe llevar caracteres alfabéticos o espacios."
+                        ],
+                        "analisis" => [
+                            "required" => " Analisis es requerido",
+                            "alpha_space" => "Analisis debe llevar caracteres alfabéticos o espacios."
+                        ],
+                        "plan_accion" => [
+                            "required" => " Las acciones  es requerido",
+                            "alpha_space" => "Las acciones  debe llevar caracteres alfabéticos o espacios."
+                        ],
+                        "id_persona10" => [
+                            "required"   => "el id del paciente es requerido"
+                        ]
+                    ]
+                );
+
+                if (!$val) {
+                    // se devuelve todos los errores si falla la validacion
+                    return $this->response->setJSON(json_encode(array(
+                        "form" => $validation->listErrors()
+                    )));
+                } else {
+                    // Actualizar datos
+                    $data = array(
+                        "subjetivo"     => $this->request->getPost("subjetivo"),
+                        "objetivo"      => $this->request->getPost("objetivo"),
+                        "analisis"      => $this->request->getPost("analisis"),
+                        "plan_accion"   => $this->request->getPost("plan_accion"),
+                        "id_cita"   => $this->request->getPost("id_cita")
+                    );
+
+                    $respuesta = $this->model->accionesDecesivas(
+                        "update",
+                        $data,
+                        array(
+                            "id_acciones_decesivas" => $this->request->getPost("id_acciones_decesivas")
+                        ),
+                        null
+                    );
+
+                    if ($respuesta) {
+                        // Actualizar cita
+
+                        return $this->response->setJSON(json_encode(array(
+                            'exito' => "Acciones decesivas ah sido editado correctamente",
+                            "id_acciones_decesivas" => $respuesta
+                        )));
+                    }
+                }
             }
         }
     }
     public function editar_accionesDecesivas()
     {
-    // se Verifica si es petición ajax
+        // se Verifica si es petición ajax
         if ($this->request->isAJAX()) {
             $respuesta = $this->model->editar_accionesDecesivas(trim($this->request->getPost("id")));
             return $this->response->setJSON(json_encode($respuesta));

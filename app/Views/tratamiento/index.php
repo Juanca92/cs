@@ -470,6 +470,7 @@
                                             <!-- exploracion fisica-->
                                             <div class="tab-pane" id="exploracion">
                                                 <form id="frm_guardar_fisico">
+                                                    <input type="hidden" name="id_cita" id="id_cita">
                                                     <div class="card card-info">
                                                         <div class="card-header">
                                                             <h3 class="card-title">Funciones Vitales</h3>
@@ -1010,6 +1011,7 @@
                                             <!-- accion-decesivas-->
                                             <div class="tab-pane" id="acciones_decisivas">
                                                 <form id="frm_guardar_accionesDecesivas">
+                                                    <input type="hidden" name="id_cita">
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <div class="form-group">
