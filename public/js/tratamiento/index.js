@@ -8,7 +8,7 @@ $(document).ready(function () {
 		responsive: true,
 		processing: true,
 		serverSide: true,
-		ajax: '/paciente/ajaxListarPacientes',
+		ajax: '/paciente/ajaxListarPacientesCita',
 		language: {
 			url: '/plugins/datatables/lang/Spanish.json',
 		},

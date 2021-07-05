@@ -28,7 +28,7 @@ class Paciente extends BaseController
     }
 
     // Listado de pacientes
-    public function ajaxListarPacientes()
+    public function ajaxListarPacientesCita()
     {
         if ($this->request->isAJAX()) {
             $table = 'sp_view_paciente_cita';
@@ -51,6 +51,39 @@ class Paciente extends BaseController
                 array('db' => 'estatus', 'dt'           => 10),
                 array('db' => 'creado_en', 'dt'         => 11),
                 array('db' => 'id_cita', 'dt'         => 12)
+            );
+
+            $sql_details = array(
+                'user' => $this->db->username,
+                'pass' => $this->db->password,
+                'db'   => $this->db->database,
+                'host' => $this->db->hostname
+            );
+
+            return $this->response->setJSON(json_encode(SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $where)));
+        }
+    }
+    public function ajaxListarPacientes()
+    {
+        if ($this->request->isAJAX()) {
+            $table = 'sp_view_paciente_cita';
+            $primaryKey = 'id_persona';
+            $where = "estado=1";
+            if (is(['PACIENTE'])) {
+                $where .= ' and id_persona =' . $this->user['id_persona'];
+            }
+            $columns = array(
+                array('db' => 'id_persona', 'dt'        => 0),
+                array('db' => 'ci_exp', 'dt'            => 1),
+                array('db' => 'nombre_completo', 'dt'   => 2),
+                array('db' => 'sexo', 'dt'              => 3),
+                array('db' => 'lugar_nacimiento', 'dt'  => 4),
+                array('db' => 'telefono_celular', 'dt'  => 5),
+                array('db' => 'fecha_nacimiento', 'dt'  => 6),
+                array('db' => 'domicilio', 'dt'         => 7),
+                array('db' => 'ocupacion', 'dt'         => 8),
+                array('db' => 'estatus', 'dt'           => 9),
+                array('db' => 'creado_en', 'dt'         => 10),
             );
 
             $sql_details = array(
