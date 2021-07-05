@@ -8,7 +8,7 @@ use FPDF;
 class ImprimirHistoriaClinica extends FPDF
 {
 
-    public function imprimir($header = null, $data_paciente = null, $fecha_inicial = null, $fecha_final = null, $id_persona)
+    public function imprimir($header = null, $citas = null, $data_paciente = null, $fecha_inicial = null, $fecha_final = null, $id_persona)
     {
         $this->AliasNbPages();
         $this->AddPage('P', 'letter');
@@ -21,18 +21,42 @@ class ImprimirHistoriaClinica extends FPDF
         $this->print_codigo($data_paciente);
         $this->print_header($header);
         $this->print_data_paciente($data_paciente);
+        $this->Image('img/imagess.png', 29, 75);
 
         //Impresion de consultas medicas
-        $this->AddPage();
-        for ($i = 0; $i < 8; $i++) {
-            $this->Image('img/historial.jpg', 7, null, 195);
+        $this->AddPage('P', 'letter');
+
+        foreach ($citas as $key => $value) {
+            $this->SetX(10);
+            $this->Cell(0, 0, utf8_decode(''), 1, 1, "");
+            $this->Ln();
+            $this->CellFitSpace(50, 9, utf8_decode("Fecha: " . $value->fecha), 0, 0, 'L', FALSE);
+            $this->CellFitSpace(146, 9, utf8_decode("Subjetivo: " . $value->subjetivo), 0, 0, 'L', FALSE);
+            $this->Ln();
+            $this->CellFitSpace(50, 9, utf8_decode("Hora: " . $value->hora_inicio), 0, 0, 'L', FALSE);
+            $this->CellFitSpace(146, 9, utf8_decode("Objetivo: " . $value->objetivo), 0, 0, 'L', FALSE);
+            $this->Ln();
+            $this->CellFitSpace(50, 9, utf8_decode("Edad: " . $value->fecha_nacimiento), 0, 0, 'L', FALSE);
+            $this->CellFitSpace(146, 9, utf8_decode("Análisis: " . $value->analisis), 0, 0, 'L', FALSE);
+            $this->Ln();
+            $this->CellFitSpace(50, 9, utf8_decode(''), 0, 0, 'L', FALSE);
+            $this->CellFitSpace(146, 9, utf8_decode("Plan de acción: " . $value->plan_accion), 0, 0, 'L', FALSE);
+            $this->Ln();
+            $this->CellFitSpace(50, 5, utf8_decode('P.A.:' . $value->presion_arterial . " mmHg"), 0, 0, 'L', FALSE);
+            $this->Ln();
+            $this->CellFitSpace(50, 5, utf8_decode('F.A.:' . $value->frecuencia_cardiaca . " x min"), 0, 0, 'L', FALSE);
+            $this->Ln();
+            $this->CellFitSpace(50, 5, utf8_decode('F.R.:' . $value->frecuencia_respiratoria . " / min"), 0, 0, 'L', FALSE);
+            $this->Ln();
+            $this->CellFitSpace(50, 7, utf8_decode('Temp.: ' . $value->temperatura . " °C"), 0, 0, 'L', FALSE);
+            $this->CellFitSpace(146, 7, utf8_decode($value->odontologo), 0, 0, 'C', FALSE);
+            $this->Ln();
+            $this->CellFitSpace(50, 7, utf8_decode('Peso: ' . $value->peso . " kg."), 0, 0, 'L', FALSE);
+            $this->CellFitSpace(146, 7, utf8_decode("Sello y firma del odontólogo(a) "), 0, 0, 'C', FALSE);
+            $this->Ln();
+            $this->CellFitSpace(0, 0, utf8_decode(""), 1, 1, '', FALSE);
             $this->Ln(5);
         }
-
-
-
-        // $this->cabeceraHorizontal($header, $length);
-        //        $this->datosHorizontal($data, $length, $cantidad);
 
         echo base64_encode($this->Output('S'));
     }
@@ -44,7 +68,7 @@ class ImprimirHistoriaClinica extends FPDF
         } else {
             $fecha_nacimiento = ["", "", ""];
         }
-
+        $this->SetFont('Arial', '', 10);
         $nombres = (isset($data[0]->nombres)) ? strtoupper(substr($data[0]->nombres, 0, 1)) : "";
         $paterno = (isset($data[0]->paterno)) ? strtoupper(substr($data[0]->paterno, 0, 1)) : "";
         $materno = (isset($data[0]->materno)) ? strtoupper(substr($data[0]->materno, 0, 1)) : "";

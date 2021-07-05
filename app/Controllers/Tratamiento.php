@@ -46,9 +46,10 @@ class Tratamiento extends BaseController
         );
 
         $data_paciente = $this->model->data_paciente($id_persona);
-        
-//        $data = $this->model->list_citas($fecha_inicial, $fecha_final);
-        $this->reporte->imprimir($header, $data_paciente, $fecha_inicial, $fecha_final, $id_persona);
 
+        //verificar atenciones
+        $citas_medicas = $this->model->verificar_atendidos($id_persona, $fecha_final, $fecha_final);
+
+        $this->reporte->imprimir($header, $citas_medicas, $data_paciente, $fecha_inicial, $fecha_final, $id_persona);
     }
 }

@@ -239,8 +239,6 @@ class ImprimirOdontologo extends FPDF
                         $this->CellFitSpace($tam[5], 7, utf8_decode($val['costo']), 1, 0, 'L', $bandera);
                         $this->Ln(5); //Salto de línea para generar otra fila
                         $bandera = !$bandera; //Alterna el valor de la bandera 
-                    } else {
-                        $this->Cell(0, 6, utf8_decode("NO HAY DATOS"), 1, 1, 'C', 0);
                     }
                 }
             }

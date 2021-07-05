@@ -107,4 +107,29 @@ class TratamientoModel extends Database
         $builder->where('id_persona', $id_persona);
         return $builder->get()->getResult();
     }
+
+    public function verificar_atendidos($id_persona, $fecha_inicial, $fecha_final)
+    {
+        $query = $this->db->query("
+        SELECT 
+            sc.fecha,
+            sc.hora_inicio,
+            sp.fecha_nacimiento, 
+            stf.presion_arterial,
+            stf.frecuencia_cardiaca,
+            stf.frecuencia_respiratoria,
+            stf.temperatura,
+            stf.peso,
+            sad.subjetivo,
+            sad.objetivo,
+            sad.analisis,
+            sad.plan_accion,
+            (SELECT CONCAT_WS(' ', sp2.nombres, sp2.paterno, sp2.materno) as nombre_paciente FROM sp_persona sp2 where sp2.id_persona = sc.id_paciente) as paciente,
+            (SELECT CONCAT_WS(' ', sp3.nombres, sp3.paterno, sp3.materno) as nombre_paciente FROM sp_persona sp3 where sp3.id_persona = sc.id_odontologo) as odontologo
+        FROM sp_tratamiento_fisico stf inner join sp_acciones_decesivas sad on stf.id_cita = sad.id_cita 
+        INNER JOIN sp_cita sc on sc.id_cita  = stf.id_cita 
+        inner join sp_persona sp on sp.id_persona  = sc.id_paciente and sp.id_persona  = '$id_persona'");
+
+        return  $query->getResultObject();
+    }
 }
