@@ -21,7 +21,7 @@ class ImprimirHistoriaClinica extends FPDF
         $this->print_codigo($data_paciente);
         $this->print_header($header);
         $this->print_data_paciente($data_paciente);
-        $this->Image('img/imagess.png', 29, 75);
+        $this->Image('img/imagess.jpg', 29, 75);
 
         //Impresion de consultas medicas
         $this->AddPage('P', 'letter');
