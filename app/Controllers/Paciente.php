@@ -469,7 +469,7 @@ class Paciente extends BaseController
             $respuesta1 = $this->model->editar_paciente(trim($this->request->getPost("id")));
             $respuesta2 = $this->model->editar_enfermedad(trim($this->request->getPost("id")));
             $respuesta3 = $this->model->editar_consulta(trim($this->request->getPost("id")));
-            $respuesta4 = $this->model->editar_fisico(trim($this->request->getPost("id")));
+            $respuesta4 = $this->model->editar_fisico(trim($this->request->getPost("id_cita")));
             // var_dump($this->db->getLastQuery());
             // return var_dump($respuesta3);
             $respuesta5 = $this->model->editar_alergia(trim($this->request->getPost("id")));
@@ -477,7 +477,7 @@ class Paciente extends BaseController
             $respuesta7 = $this->model->datos_usuario_perfil(trim($this->request->getPost("id")));
             $respuesta8 = $this->model->editar_diagnostico(trim($this->request->getPost("id")));
             $respuesta9 = $this->model->editar_medicacion(trim($this->request->getPost("id")));
-            $respuesta10 = $this->model->editar_accionesDecesivas(trim($this->request->getPost("id")));
+            $respuesta10 = $this->model->editar_accionesDecesivas(trim($this->request->getPost("id_cita")));
             return $this->response->setJSON(
                 json_encode([
                     "respuesta1" => $respuesta1,
