@@ -131,6 +131,7 @@ $(document).ready(function () {
 						targets: 10,
 						data: null,
 						render: function (data, type, row, meta) {
+							$('#nombre-odontologo').html(`Pacientes atendidos por el odontologo <b>${data[9]}</b>`);
 							if (data[10] == 'PENDIENTE') {
 								return '<a type="button" data="' + data[0] + '" class="btn btn-info btn-xs text-white">' + data[10] + ' </span>';
 							} else if (data[10] == 'CANCELADA') {
@@ -146,6 +147,4 @@ $(document).ready(function () {
 
 		$('#content').show();
 	});
-
-
 });

@@ -44,7 +44,7 @@ class Auth extends Controller
 		$password = $this->request->getPost('password');
 		#Bucasmos en la base de datos los 2 datos que nos mando el Login
 		$userSearched = $this->querys->view_users(['usuario' => $username, 'clave' => hash("sha512", $password)]);
-		// return var_dump($this->db->getLastQuery());
+		//return var_dump($this->db->getLastQuery());
 		#Contamos si $userSearched es ugual a 1 si lo es entendemos que podemos aprobar el inicio de sesion
 		if (count($userSearched) >= 1) {
 

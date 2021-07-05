@@ -30,7 +30,9 @@
                     <div class="icon">
                         <i class="fas fa-user-md"></i>
                     </div>
+                    <?php if (is(['ODONTOLOGO', 'ADMINISTRADOR'])) : ?>
                     <a href="<?= base_url('/odontologo/index') ?>" class="small-box-footer">mas informacion<i class="fas fa-arrow-circle-right"></i></a>
+                    <?php endif ?>
                 </div>
             </div>
             <?php if (is(['ODONTOLOGO', 'ADMINISTRADOR'])) : ?>

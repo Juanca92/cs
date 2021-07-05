@@ -53,17 +53,7 @@ $(document).ready(function () {
 				targets: -1,
 				data: null,
 				render: function (data, type, row, meta) {
-					return(
-					'<div class="btn-group" role="group">' + 
-					'<a data="' + data[0] + 
-					'" class="btn btn-warning btn-sm mdi mdi-tooltip-edit text-white btn_editar_paciente" data-toggle="tooltip" title="Editar">' + 
-					'<i class="fa fa-pen"></i></a>' + 
-					'<a data="' +
-                    data[0] +
-                    '" class="btn btn-danger btn-sm mdi mdi-delete-forever text-white btn_eliminar_paciente" data-toggle="tooltip" title="Eliminar">' +
-                    '<i class="fa fa-trash"></i></a>' +
-                    '</div>'
-					);
+					return '<div class="btn-group" role="group">' + '<a data="' + data[0] + '" class="btn btn-warning btn-sm mdi mdi-tooltip-edit text-white btn_editar_paciente" data-toggle="tooltip" title="Editar">' + '<i class="fa fa-pen"></i></a>' + '<a data="' + data[0] + '" class="btn btn-danger btn-sm mdi mdi-delete-forever text-white btn_eliminar_paciente" data-toggle="tooltip" title="Eliminar">' + '<i class="fa fa-trash"></i></a>' + '</div>';
 				},
 			},
 		],
@@ -118,9 +108,7 @@ $(document).ready(function () {
 			});
 	});
 
-
 	//checked de genero o sexo
-	
 
 	// Limpiar Campos
 	function limpiarCampos() {
@@ -229,7 +217,6 @@ $(document).ready(function () {
 		dateFormat: 'yy-mm-dd',
 	});
 
-
 	// Cargando la foto subida
 	$('#foto').change(function () {
 		var imagen = this.files[0];
@@ -252,26 +239,18 @@ $(document).ready(function () {
 	});
 
 	// Imprimir Pacientes
-	$("#imprimir_pacientes").on("click", function(e){
-		$.post(
-			"/paciente/imprimir",
-			{},
-			function (resp) {
-				if (typeof resp.error != "undefined") {
-					Swal.fire("Error!", resp.error, "error");
-				} else {
-					$("#modal-body-paciente").children().remove();
-					$("#modal-body-paciente").html(
-						'<embed src="data:application/pdf;base64,' +
-							resp +
-							'#toolbar=1&navpanes=1&scrollbar=1&zoom=67,100,100" type="application/pdf" width="100%" height="600px" style="border: none;"/>'
-					);
-					$("#modal_imprimir_paciente").modal({
-						backdrop: "static",
-						keyboard: true,
-					});
-				}
+	$('#imprimir_pacientes').on('click', function (e) {
+		$.post('/paciente/imprimir', {}, function (resp) {
+			if (typeof resp.error != 'undefined') {
+				Swal.fire('Error!', resp.error, 'error');
+			} else {
+				$('#modal-body-paciente').children().remove();
+				$('#modal-body-paciente').html('<embed src="data:application/pdf;base64,' + resp + '#toolbar=1&navpanes=1&scrollbar=1&zoom=67,100,100" type="application/pdf" width="100%" height="600px" style="border: none;"/>');
+				$('#modal_imprimir_paciente').modal({
+					backdrop: 'static',
+					keyboard: true,
+				});
 			}
-		);
-	})
+		});
+	});
 });
