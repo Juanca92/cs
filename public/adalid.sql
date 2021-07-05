@@ -24,8 +24,9 @@ order by id_persona,  numero_cita desc;
 alter table sp_tratamiento_fisico drop constraint fk_tratamiento_fisico_paciente;
 alter table sp_acciones_decesivas drop constraint fk_acciones_decesivas_paciente;
 
-alter table sp_tratamiento_fisico rename column id_paciente to id_cita;
-alter table sp_acciones_decesivas rename column id_paciente to id_cita;
+ALTER TABLE sp_tratamiento_fisico CHANGE id_paciente id_cita int;
+ALTER TABLE sp_acciones_decesivas CHANGE id_paciente id_cita int;
+
 
 alter table sp_tratamiento_fisico add constraint fk_tratamiento_fisico_paciente foreign key(id_cita) references sp_cita(id_cita);
 alter table sp_acciones_decesivas add constraint fk_acciones_decesivas_paciente foreign key(id_cita) references sp_cita(id_cita);
